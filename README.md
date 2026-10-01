@@ -14,7 +14,7 @@ The dataset lives at `/beegfs/SNAP/rltorgerson/AZCOT` and is split across two su
 ## disk1 — raw data and computed statistics
 
 - `data/{month}/{day}/` — hourly GRIB/NetCDF files named `YYMMDDHH.VARIABLE.{grib,nc}` (YY = year, MM = month, DD = day, HH = hour), plus 30-year climatological files named `VARIABLE.monthDDHH.91-20clim.nc`. Variables include `2T` (2m air temp), `SKT` (skin temp), `STL1` (soil temp), `SD` (snow depth), `SWE` (snow water equivalent), `10U`/`10V` (wind components), `WD10`/`WS10_knots` (wind direction/speed, derived), `WCT` (wind chill, derived), and an unlabeled parameter `var29`.
-- `Metrics/{time interval}_{variable}_stats/{month}_{time interval}_{variable}_stats.nc` — each file holds the min/max, average, and frequency/duration of extreme events for a variable within a given time interval.
+- `Metrics/{time interval}_{variable}_stats/{month / day}_{time frequency / interval}_{variable}_stats.nc` — each file holds the min/max, average, and frequency/duration of extreme events for a variable within a given time interval (6-hour or daily).
 - `METAR Analysis/` — yearly daily averages derived from METAR station observations, used as a separate validation/comparison dataset against the reanalysis-derived fields.
 
 ## disk2 — map atlas and production app
@@ -57,6 +57,19 @@ Sizes below are **apparent (uncompressed) size**, measured with `du --apparent-s
 | WD10 | — | 131,232 |
 | WS10_knots | — | 131,232 |
 | WCT | — | 131,294 |
+
+## Coordinate reference system
+
+None of the NetCDF files declare an explicit CRS — there's no `grid_mapping`/`spatial_ref` variable or EPSG code anywhere, and global attributes are typically `Conventions = "None"`. Each file just carries plain latitude/longitude coordinate variables (`degrees_north`/`degrees_east`), which is the implicit geographic coordinate system **WGS84 (EPSG:4326)** — the native grid ECMWF reanalysis products are distributed on. Despite the Arctic domain, this is an unprojected, regular lat/lon grid (labeled `"Cylindrical Equidistant Projection Grid"` in the GRIB-converted headers, i.e. plate carrée) — not a polar stereographic or other Arctic-specific projection. Tools that need an explicit CRS (ArcGIS, `rioxarray`, etc.) must have EPSG:4326 set manually.
+
+Grid resolution is not uniform across variables:
+
+- **2T, SKT, STL1, WCT, WD10, WS10_knots, 10U, 10V, SWE, var29** — 1440 × 121 points at 0.25° resolution, covering 90°N–60°N by -180°–179.75°E.
+- **SD** (snow depth) — a finer 3600 × 301 points at 0.1° resolution, over the same 90°N–60°N latitude band.
+
+Any workflow that combines SD with the other variables needs to regrid first, since the point grids don't line up 1:1.
+
+This carries through to `disk1/Metrics`: the `metricCalculation_*.py` scripts copy the lat/lon coordinate attributes straight from their source variable onto the output stats file (e.g. every `*_2T_stats.nc` file inherits 2T's 1440×121/0.25° grid), so any `*_SD_stats.nc` file is on the finer 3600×301/0.1° grid instead — verified directly against `disk1/Metrics/6h_2T_stats/oct_30_6h_0through5_2T_stats.nc`, which carries the identical `La1/Lo1/La2/Lo2/Di/Dj` and `GridType` attributes as the raw 2T files.
 
 ## GRIB vs. NetCDF: same data, different format
 
