@@ -1,0 +1,1836 @@
+
+@@@ PAGE 1 @@@
+  
+ERDC/CRREL SR-25-2 
+  
+     
+  
+Environmental Security Technology Certification Program (ESTCP) Alaska 
+Innovation Landscape Network (AILN) 
+Development and Management of Arctic 
+Zonal Characterization Products 
+Geospatial Database 
+Cold Regions Research  
+and Engineering Laboratory  
+  Evan P. Barrett, Brendon Hoch, Zachary Zody, 
+Michelle L. Michaels, and Rosa T. Affleck 
+October 2025 
+ 
+ 
+ 
+  
+Distribution Statement A. Approved for public release: distribution is unlimited. 
+
+@@@ PAGE 2 @@@
+  
+ 
+The US Army Engineer Research and Development Center (ERDC) solves 
+the nation’s toughest engineering and environmental challenges. ERDC develops 
+innovative solutions in civil and military engineering, geospatial sciences, water 
+resources, and environmental sciences for the Army, the Department of Defense, 
+civilian agencies, and our nation’s public good. Find out more at www.erdc.usace.army.mil. 
+ 
+To search for other technical reports published by ERDC, visit the ERDC online library 
+at https://erdclibrary.on.worldcat.org/discovery.  
+@@@ PAGE 3 @@@
+  
+Environmental Security Technology Certification 
+Program (ESTCP) Alaska Innovation Landscape 
+Network (AILN) 
+ERDC/CRREL SR-25-2 
+October 2025 
+Development and Management of 
+Arctic Zonal Characterization Products 
+Geospatial Database 
+Brendon Hoch, Zachary Zody, Michelle L. Michaels, and Rosa T. Affleck 
+US Army Engineer Research and Development Center (ERDC) 
+Cold Regions Research and Engineering Laboratory (CRREL) 
+72 Lyme Road 
+Hanover, NH 03755-1290 
+Evan P. Barrett 
+Oak Ridge Associated Universities (ORAU) 
+Oak Ridge Institute for Science and Education (ORISE) 
+2902 Newmark Drive 
+PO Box 9005 
+Champaign, IL 61826-9005 
+Final Special Report 
+Distribution Statement A. Approved for public release: distribution is unlimited. 
+Prepared for Environmental Security Technology Certification Program (ESTCP) 
+Alexandria, VA 22350-3605 
+ Under Project NH23-8375, “Arctic Zonal Characterization and Operational 
+Thresholding (AZCOT)” 
+@@@ PAGE 4 @@@
+ERDC/CRREL SR-25-2 ii 
+ 
+Abstract 
+Environmental parameters for operational planning in extreme 
+conditions require accurate knowledge of prevailing meteorological 
+conditions. However, the Arctic region presents unique challenges due to 
+limited observational data and unique geographical conditions. To 
+address the need for such knowledge, this study presents an analysis of 
+Arctic prevailing- conditions using  European Center for Medium -Range 
+Weather Forecasting ( ECMWF) Reanalysis v5 ( ERA5) Data from 1991 to 
+2020. A custom Python -based framework was developed to process and 
+analyze hourly datasets, identifying zones of extreme events and their 
+frequency across multiple temporal scales. The framework uses ArcPy to 
+automate the generation of nearly 40,000 mapped classifications for 
+land masses 60°N and above. This automated pipeline enables both 
+static and dynamic map generation capabilities for operational planning 
+now and in the future. The resulting dataset provides critical spatial and 
+temporal resolution of Arctic prevailing- conditions, enabling more 
+refined characterization of extreme prevailing -conditions across the 
+circumpolar region . 
+DISCLAIMER: The contents of this report are not to be used for advertising, publication, or promotional purposes. 
+Citation of trade names does not constitute an official endorsement or approval of the use of such commercial products. 
+All product names and trademarks cited are the property of their respective owners. The findings of this report are not to 
+be construed as an official Department of the Army position unless so designated by other authorized documents. 
+DESTROY THIS REPORT WHEN NO LONGER NEEDED. DO NOT RETURN IT TO THE ORIGINATOR. 
+@@@ PAGE 5 @@@
+ERDC/CRREL SR-25-2 iii 
+ 
+Contents 
+Abstract ................................................................................................................................................... ii 
+Figures and Tables .................................................................................................................................. v 
+Preface ................................................................................................................................................... vii 
+1 Introduction ..................................................................................................................................... 1 
+1.1 Dataset Product Name and Keywords .......................................................................... 1 
+1.2 Data Temporal Extent ..................................................................................................... 2 
+1.3 Data Geographic Extent ................................................................................................. 2 
+1.4 Data Types ...................................................................................................................... 2 
+1.5 Data Organization ........................................................................................................... 3 
+1.6 File Naming Convention ................................................................................................. 5 
+1.7 Data Volume ................................................................................................................... 5 
+1.8 Data Restrictions ............................................................................................................ 6 
+1.9 Data Storage ................................................................................................................... 6 
+1.10 Points of Contact (POCs) ................................................................................................ 6 
+2 Data Acquisition and Preprocessing ............................................................................................ 7 
+2.1 Shapefiles ....................................................................................................................... 7 
+2.2 Reanalysis Data .............................................................................................................. 7 
+2.3 Meteorological Aerodrome Report (METAR) Data ......................................................... 9 
+3 Metric Calculations ...................................................................................................................... 12 
+3.1 Average .......................................................................................................................... 12 
+3.2 Extreme ......................................................................................................................... 13 
+3.3 Frequency of Extreme Event ........................................................................................ 14 
+3.4 Length of Extreme Event .............................................................................................. 15 
+3.5 Aggregating Across Timescales .................................................................................... 18 
+3.6 First Occurrence of High Snow Depth and Snow Load ............................................... 18 
+3.7 Percentiles .................................................................................................................... 19 
+4 Validation with METAR Data ....................................................................................................... 21 
+4.1 Methodology.................................................................................................................. 21 
+4.2 Temporal Analysis. ........................................................................................................ 22 
+4.3 Results ........................................................................................................................... 23 
+5 Map Creation ................................................................................................................................ 26 
+5.1 GeoTIFF Creation .......................................................................................................... 26 
+5.2 Symbology ..................................................................................................................... 26 
+5.3 Map Layout and Design ................................................................................................ 26 
+5.4 Automated Creation ...................................................................................................... 27 
+6 User Interface (UI) ........................................................................................................................ 29 
+6.1 File Dependencies ........................................................................................................ 29 
+@@@ PAGE 6 @@@
+ERDC/CRREL SR-25-2 iv 
+ 
+6.2 Python Dependencies ................................................................................................... 29 
+6.3 Running the UI .............................................................................................................. 30 
+6.4 MapUI.py Documentation ............................................................................................. 32 
+6.4.1 UI Creation ........................................................................................................ 33 
+6.4.2 Data Processing ............................................................................................... 33 
+6.4.3 Helper Functions .............................................................................................. 34 
+6.4.4 Dependency Tree ............................................................................................. 34 
+6.4.5 Data Flow .......................................................................................................... 35 
+Bibliography .......................................................................................................................................... 36 
+Appendix: Content ............................................................................................................................... 38 
+A.1 Example Maps .............................................................................................................. 38 
+A.2 Snow Load/Depth Threshold-Crossing Occurrences .................................................. 40 
+A.3 Percentiles .................................................................................................................... 42 
+Abbreviations ........................................................................................................................................ 49 
+Report Documentation Page (SF 298) .............................................................................................. 51 
+ 
+@@@ PAGE 7 @@@
+ERDC/CRREL SR-25-2 v 
+ 
+Figures and Tables 
+Figures 
+1. The distribution of temporal resolutions of the Arctic Meteorological Aerodrome 
+Report (METAR) stations. ................................................................................................ 22 
+2. Monthly averages of average wind speed and temperature, averaged across the 
+whole Arctic, from METAR and European Center for Medium-Range Weather 
+Forecasting Reanalysis v5 (ERA5) data. ........................................................................ 23 
+3. Monthly averages of the highest wind speed and lowest recorded temperature, 
+averaged across the whole Arctic, from METAR and ERA5 data. ................................. 24 
+4. Monthly 5th/95th percentile of the highest wind speed and lowest recorded 
+temperature, from METAR and ERA5 data across the whole Arctic. ........................... 24 
+5. A blank map showing the design features in the study area. ...................................... 27 
+6. The map creation of the user interface (UI) on generation. ......................................... 30 
+7. The map creation UI with some parameters selected. ................................................. 31 
+8. An example map created from the parameter inputs shown in Figure 6. ................... 32 
+A-1. The average 2 m temperature based on data from (A) 1 January 00:00–
+05:59 UTC (six-hour long interval), (B) 1 January 00:00–23:59 UTC (daily 
+interval), (C) 1–15 January (biweekly interval), and (D) 1–31 January (monthly 
+interval). ........................................................................................................................... 38 
+A-2. Quadrant map showing the average wind speed and wind direction in the upper 
+right quadrant of the region on 1 December. ................................................................ 39 
+A-3. The amount of time before the first occurrence of snow depth values of (A) 8 in., 
+(B) 15 in., (C) 20 in., and (D) 40 in., based on average 1991–2020 data. ................ 40 
+A-4. The amount of time before the first occurrence of snow load values of (A) 
+5 lb/ft², (B) 15 lb/ft², (C) 25 lb/ft², and (D) 35 lb/ft², based on average 1991–
+2020 data........................................................................................................................ 41 
+A-5. The difference between the lowest 2 m temperature (Fahrenheit) and the 5th 
+percentile 2 m temperature, calculated based on daily averaged data computed 
+from hourly 1991–2020 ERA5 data and then averaged across the whole 
+October–March period. ................................................................................................... 42 
+A-6. The difference between the highest snow load value (pounds per square foot) 
+and the 95th percentile snow load value, calculated based on daily averaged 
+data computed from hourly 1991–2020 ERA5 data and then averaged across 
+the whole October–March period. ................................................................................. 43 
+A-7. The difference between the lowest surface temperature (Fahrenheit) and the 5th 
+percentile surface temperature, calculated based on daily averaged data 
+computed from hourly 1991–2020 ERA5 data and then averaged across the 
+whole October–March period. ........................................................................................ 44 
+A-8. The difference between the highest snow depth value (inches) and the 95th 
+percentile snow depth, calculated based on daily averaged data computed from 
+hourly 1991–2020 ERA5 data and then averaged across the whole October–
+March period. .................................................................................................................. 45 
+A-9. The difference between the highest wind speed value (knots) and the 95th 
+percentile wind speed, calculated based on daily averaged data computed from 
+hourly 1991–2020 ERA5 data and then averaged across the whole October–
+@@@ PAGE 8 @@@
+ERDC/CRREL SR-25-2 vi 
+ 
+March period. .................................................................................................................. 46 
+A-10. The difference between the lowest windchill temperature (Fahrenheit) and the 
+5th percentile windchill temperature, calculated based on daily averaged data 
+computed from hourly 1991–2020 ERA5 data and then averaged across the 
+whole October–March period. ........................................................................................ 47 
+A-11. The difference between the lowest soil temperature (Fahrenheit) and the 5th 
+percentile soil temperature, calculated based on daily averaged data computed 
+from hourly 1991–2020 ERA5 data and then averaged across the whole 
+October–March period. ................................................................................................... 48 
+ 
+Tables 
+1. Timescales for data analysis. ........................................................................................... 2 
+2. Description of functions in the Arctic Zonal Characterization and Operational 
+Thresholding (AZCOT) library. ......................................................................................... 11 
+3. Threshold values for meteorological variables .............................................................. 14 
+4. Statistics for the difference between 5th/95th percentile values and 
+lowest/highest recorded values for the whole Arctic, October–March. ....................... 20 
+5. A sample row showing the Station ID, date of observation, observational data 
+from the Meteorological Aerodrome Report (METAR), and ERA5 2 m temperature 
+and surface temperature values from that same time. ................................................ 21 
+6. Statistical measurements used to compare METAR data to ERA5 data. .................... 21 
+7. Reanalysis data versus METAR station data statistics ................................................. 25 
+ 
+Plates 
+1. Pseudocode for Equation (6). ......................................................................................... 12 
+2. Pseudocode for Equation (7). ......................................................................................... 13 
+3. Pseudocode for the algorithm in Equation (8). ............................................................. 15 
+4. Pseudocode for Equation (10). ...................................................................................... 16 
+5. Pseudocode for the algorithm. ....................................................................................... 19 
+6. Pseudocode. .................................................................................................................... 28 
+7. Step 1. ............................................................................................................................. 30 
+8. Step 2. ............................................................................................................................. 30 
+ 
+@@@ PAGE 9 @@@
+ERDC/CRREL SR-25-2 vii 
+ 
+Preface 
+This study was conducted for the Environmental Security Technology 
+Certification Program (ESTCP) under Project NH23-8375, “Arctic Zonal 
+Characterization and Operational Thresholding (AZCOT).” The technical 
+monitor was Mr. Kevin Hiers, ESTCP Program Office, Office of the Deputy 
+Assistant Secretary of Defense (Energy Resilience and Optimization), 
+Washington, DC. 
+The work was performed by the Terrestrial and Cryospheric Sciences 
+Branch, the Force Projection and Sustainment Branch, and the 
+Engineering Resources Branch of the Research and Engineering Division, 
+US Army Engineer Research and Development Center–Cold Regions 
+Research and Engineering Laboratory (ERDC-CRREL). At the time of 
+publication, Dr. John Weatherly, Dr. Adrian K. Doran, and Dr. Amy E. 
+Cotnoir were branch chiefs, respectively; and Dr. Orian Z. Welling was 
+division chief. The acting deputy director of ERDC-CRREL was Dr. Melisa 
+Nallar, and the director was Dr. Ivan P. Beckman. 
+This research was supported in part by appointments at the Research 
+Participation Program administered by the Oak Ridge Institute for Science 
+and Education (ORISE), through a cooperative agreement between the US 
+Department of Energy and the US Army ERDC-CRREL. 
+LTC Joshua M. Haynes was commander of ERDC, and Dr. Beth C. 
+Fleming was the director. 
+@@@ PAGE 10 @@@
+  
+ 
+This page intentionally left blank.
+@@@ PAGE 11 @@@
+ERDC/CRREL SR-25-2 1 
+ 
+1 Introduction 
+The US Army Engineer Research and Development Center–Cold Regions 
+Research and Engineering Laboratory (ERDC-CRREL) is involved in 
+several cold-weather operations, including the development of 
+infrastructure and the planning of missions in extreme weather. This 
+dataset provides information regarding the prevailing conditions across 
+the Arctic as well as details of extreme events, including how extreme they 
+are, how frequently they occur, and how long they occur for within a given 
+day. The final data products are derived from gridded (0.25° × 0.25°) 
+ECMWF (European Center for Medium-Range Weather Forecasting) 
+ERA5 (ECMWF Reanalysis v5) reanalysis data and are available as 
+GeoTIFFs, ArcGIS Pro Layer Files, or PDFs. 
+This document details the dataset, including how each file was created, the 
+process for designing the maps, automation techniques in Python, a user 
+interface for creating new maps at custom time intervals, and the storage 
+of the data. 
+1.1 Dataset Product Name and Keywords 
+The dataset product is developed as Arctic Zonal Characterization Maps 
+and Data. The specific keywords providing parameter names and 
+definitions are as follows: 
+• Temperature 
+• Air temperature 
+• Surface temperature 
+• Windchill temperature 
+• Soil temperature 
+• Wind 
+• Wind speed 
+• Wind direction 
+• Snow 
+• Snow depth 
+• Snow load 
+• Arctic 
+• Zonal classification 
+• Threshold 
+@@@ PAGE 12 @@@
+ERDC/CRREL SR-25-2 2 
+ 
+1.2 Data Temporal Extent 
+The dataset includes data from 1991 to 2020 during the winter months 
+(October–March), starting with January 1991 and ending with December 
+2020. The original ERA5 dataset contains hourly data for each 
+meteorological variable, and the observational dataset contains 
+meteorological data recorded between January 1991 and December 2020, 
+although not all stations have the complete 30 years of data. 
+Finalized maps and their associated files are broken up into six different 
+static timescales shown in Table 1. 
+Table 1. Timescales for data analysis. 
+Timescale Description 
+Six Hourly Six-hour periods (00:00UTC–05:59UTC, 06:00UTC–1159UTC, 1200UTC–
+1759UTC, 1800UTC–2359UTC) 
+Daily Daily periods (0000UTC–2359UTC) 
+Weekly Weekly (7–8 days) periods 
+Biweekly Every two weeks (14–16 days) periods 
+Monthly All days within a specified month 
+Seasonal 1 October–31 March 
+An example of data at different intervals can be seen in Figure A-1 in the 
+Appendix. In addition to the static timescales above, the user interface 
+allows for dynamic definitions of timescales (Section 6). 
+1.3 Data Geographic Extent 
+The ERA5 data were collected for latitudes greater than or equal to 60°N 
+across all longitudes. All meteorological variables have a spatial resolution 
+of 0.25° × 0.25°, with the exception of snow depth (derived from ERA5 
+land data) which has a spatial resolution of 0.10° × 0.10°. 
+1.4 Data Types 
+Data files include NetCDF files (.nc), GeoTIFF files (.tif), ArcGIS Pro layer 
+files (.lyrx), and PDF files (.pdf). Python code can be found as Python files 
+(.py) or Jupyter Notebooks (.ipynb). The user interface directory also 
+contains shapefiles (.shp) and ArcGIS Pro files (.aprx). 
+@@@ PAGE 13 @@@
+ERDC/CRREL SR-25-2 3 
+ 
+1.5 Data Organization 
+There are three main directories: Data, Atlas, and App. Data contains the 
+raw data from which the maps were created. Atlas contains static maps 
+and their associated files as created in Sections 3–0. App contains 
+everything needed for the user interface, as described in Section 6. 
+The Data directory is broken down as follows: 
+• The main directories are the 6 months within the study period (oct, 
+nov, dec, jan, feb, and mar). 
+• Within each month, there are 29–31 subdirectories representing the 
+days within that month. For example, information for 7 November 
+would be in /data/nov/07/. 
+• Within each days folder, there are netCDF files for each meteorological 
+parameter, one for each hour in the study period. 
+o The files follow the naming convention of 
+YYMMDDHH.VARIABLE.nc. For example, 2 m temperature data 
+from 7 November 2005 at 15:00 UTC would be found at 
+/data/nov/07/05110715.2T.nc.1 
+o The meteorological parameters directly from ERA5 are 2 m 
+temperature (2T), skin temperature (SKT), soil temperature (level-
+1) (STL1), snow water equivalent (SWE), 10 m wind velocity in the 
+eastward direction (10U) and northward direction (10V), and snow 
+depth (SD). Additionally, snow load (SL), windchill temperature 
+(WCT), 10 m wind speed (WS10), and wind direction (WD10) were 
+calculated for each hour, as described in Section 2.2. 
+The Atlas directory is broken down as follows: 
+• The main directories of the Atlas are the 6 months within the study 
+period (oct, nov, dec, jan, feb, and mar). 
+• Within each month, there are many subdirectories.  These have the 
+general structure as follows: 
+ 
+1. For a full list of the spelled-out forms of the units of measure used in this document 
+and their conversions, please refer to US Government Publishing Office Style Manual, 31st ed. 
+(Washington, DC: US Government Publishing Office, 2016), 248–52 and 345–47, https://www 
+.govinfo.gov/content/pkg/GPO-STYLEMANUAL-2016/pdf/GPO-STYLEMANUAL-2016.pdf. 
+@@@ PAGE 14 @@@
+ERDC/CRREL SR-25-2 4 
+ 
+o Time Interval—after choosing the month, you must choose the time 
+interval of interest from the following options: 
+ Six Hour—static six-hour intervals for each day. Within the 
+Six Hour directory, you must also choose the day of interest 
+within that month. 
+ Daily—static daily (00:00 UTC—23:59 UTC) intervals. 
+Within the Daily directory, you must also choose the day of 
+interest within that month. 
+ Weekly—static 7–8 day long periods within the month. 
+ Biweekly—static 14–16 day long periods within the month. 
+ Monthly—full month’s worth of data. 
+o Variable—after choosing the time interval, you must choose the 
+meteorological variable of interest: 
+ 2T 
+ SKT 
+ WCT 
+ STL1 
+ Wind speed (WSPD) 
+ Wind direction (WDIR) 
+ SD 
+ SL 
+o Metric—after choosing the variable, you can choose the metric: 
+ Average—this is the 30-year average (1991–2020) for each 
+of the meteorological variables within the time interval. 
+ Maximum/Minimum—these maps show the highest 
+recorded or lowest recorded value, respectively for each 
+respective meteorological variable. These were calculated by 
+looking at each time interval and finding the highest/lowest 
+hourly value within that period for each year, and then 
+finding the maximum/minimum amongst the 30 years. 
+ Frequency—these maps show the frequency of certain 
+extreme events for each of the meteorological variables. For 
+a given time interval, the number of occurrences 
+above/below the threshold within the 30-year period were 
+counted and divided by the total number of hours within that 
+time period. 
+@@@ PAGE 15 @@@
+ERDC/CRREL SR-25-2 5 
+ 
+ Consecutive—these maps show the average daily length of 
+extreme events for each of the meteorological variables. For a 
+given multiday period, the average length of extreme events 
+(in hours) was calculated for each day, and then averaged 
+throughout the 30-year period and for the whole week. 
+Notably, not all subdirectories exist. For example, there are no 
+Consecutive subdirectories within the Six Hour directory, because that 
+metric was not calculated at a six-hour time scale. Additionally, the 
+Consecutive metric does not exist for STL1, SD, or SL, and only the 
+Average metric exists for WDIR. 
+The App directory is broken down as follows: 
+• ArcGIS—the ArcGIS project files 
+• Output—files created through use of the UI. These follow the naming 
+convention of {DAY1}_{MONTH1}_through_{DAY2}_{MONTH2} 
+_{VARIABLE}_{METRIC} 
+• Templates—layer file templates for file symbology 
+• mapUI.py—the main script needed to run the UI 
+1.6 File Naming Convention 
+Most files within the Atlas directory follow the naming convention of 
+{MONTH}_{INTERVAL}_{VARIABLE}_{METRIC}.{FILE FORMAT} 
+• For Six Hour intervals, the time interval is formatted as {DAY} 
+_6h_{hour1}through{hour2} 
+• For Daily intervals, the time interval is formatted as {DAY} 
+• For Weekly, Biweekly, and Monthly, the time interval is formatted as 
+{day1}through{day2} 
+Quadrant maps (Section 5.3) include the quadrant (BottomLeft, 
+BottomRight, TopLeft, TopRight) at the end of the file name. For example, 
+a quadrant map looking at 2T in Greenland would be named 
+dec_01_2T_average_BottomLeft.pdf. 
+1.7 Data Volume 
+An estimated 1.5 TB of data has been created throughout the project. 
+@@@ PAGE 16 @@@
+ERDC/CRREL SR-25-2 6 
+ 
+1.8 Data Restrictions 
+Personally Identifiable Information (PII) or other information whose 
+distribution may be restricted by law or national security is not included in 
+this dataset. 
+1.9 Data Storage 
+The data will be stored on the Alaska Climate Research Center’s (ACRC) 
+website, hosted by the University of Alaska, Fairbanks. Brendon Hoch at 
+CRREL will oversee the data transfer. The data will also be stored on the 
+ERDC DoD High Performance Computing system and on physical hard 
+drives at CRREL. 
+1.10 Points of Contact (POCs) 
+• Project point of contact (POC): Michelle Michaels 
+(Michelle.L.Michaels@erdc.dren.mil) 
+• Data POC: Brendon Hoch (Brendon.Hoch@erdc.dren.mil) 
+• ACRC POC: Martin Stuefer (mstuefer@alaska.edu) 
+ 
+@@@ PAGE 17 @@@
+ERDC/CRREL SR-25-2 7 
+ 
+2 Data Acquisition and Preprocessing 
+The data acquisition process is described in Section 2.1 of the Technical 
+Report, Arctic Zonal Characterization and Operation Thresholding, and 
+mirrors parts of this section.2 Readers should refer to the technical report 
+for additional details. 
+2.1 Shapefiles 
+Shapefiles for the arctic countries and the geographic lines were obtained 
+from Natural Earth (https://www.naturalearthdata.com/) in June 2024 for map 
+design and data clipping purposes (Natural Earth 2024b). 
+2.2 Reanalysis Data 
+Data were subset for latitudes between 60° to 90° North latitude to cover 
+all Arctic regions. The data were obtained from the ECMWF Data Store 
+(also known as Copernicus) (ECMWF, n.d.-a). The site provides free 
+access to a variety of ECMWF maintained datasets; it allows both manual 
+downloads and a Python application programming interface (API) for 
+more advanced data acquisition. The ERA5 data were initially obtained 
+from ECMWF in gridded binary (GRIB) format. GRIB is a format based on 
+standards established by the WMO and is typically used by operational 
+centers that produce numerical weather prediction (NWP) output. All 
+parameters were downloaded in a single hourly GRIB formatted file. 
+Parameters selected include 2T, SKT, 10U and 10V wind components, 
+SWE, and STL1. Additionally, at the request of stakeholders, snow depth 
+was obtained from a derivative ECMWF dataset known as ERA5-Land 
+(ECMWF, n.d.-b). This dataset provides higher spatial resolution at 0.1° 
+(approximately 9 km) at the expense of noninclusion of data over oceanic 
+and other water surface areas. 
+Each GRIB file with multiple parameters was split into an individual 
+parameter GRIB file using the open source wgrib software utility available 
+from NOAA (NCEP 2005). On parameter separation, each separated 
+parameter GRIB file was then converted into Network Common Data 
+Format (netCDF) format in an effort to increase compatibility with other 
+data processing applications. The conversion was performed by the open-
+ 
+2. Affleck, R. T., M. Michaels, B. Hoch, J. Williams, Z. Zody, P. Toebben, and M. Hefner, 
+2025, Arctic Zonal Characterization and Operation Thresholding, ERDC TR-DRAFT, 
+Engineering Research and Development Center, draft report in process. 
+@@@ PAGE 18 @@@
+ERDC/CRREL SR-25-2 8 
+ 
+source National Center for Atmospheric Research (NCAR) Command 
+Language (NCL) software (NCAR 2019a). NCL allows users to perform a 
+variety of statistical and visual analyses of meteorological datasets. The 
+ncl_convert2nc tool included within the package allows for conversion of 
+GRIB files to netCDF (NCAR 2019b). 
+Seven meteorological variables were acquired from ERA5: 
+• SKT—the temperature at the surface, in kelvins 
+• 2T—the temperature at a height of 2 m, in kelvins 
+• STL1—the average temperature 0—7 cm below the surface, in kelvins 
+• 10U—the easterly wind velocity at a height of 10 m, in meters per second 
+• 10V—the northerly wind velocity at a height of 10 m, in meters per 
+second 
+• SD—the depth of snow on the surface, in meters 
+• SWE—the amount of water stored in snow, in meters 
+From those variables, four additional variables were calculated, 
+• WSPD—the wind speed, in meters per second, at a height of 10 m 
+(Earth Observing Laboratory 2014), 
+ 22WSPD VU= + . (1) 
+• WDIR—the wind direction at a height of 10 m (Earth Observing 
+Laboratory 2014), 
+ ( ) 180WDIR 270 arctan 2 , mod 360VU  π
+= −×
+
+
+. (2) 
+• WCT—the temperature felt to exposed human skin, in °F, due to the 
+combined effect of air temperature (2T in Fahrenheit) and wind speed 
+(in miles per hour) (Nelson et al. 2002), 
+ 0.16 0.16WCT 35.74 0.6215(2T) 35.75(WSPD) 0.4275(2T)( WSPD) .= +− +  ( 3) 
+• Frostbite time (FT)—the time, in minutes, in which frostbite could 
+occur on exposed, dry cheek skin at a given 2T (Fahrenheit) and 10 m 
+wind speed (miles per hour) based on modeling (Nelson et al. 2002), 
+@@@ PAGE 19 @@@
+ERDC/CRREL SR-25-2 9 
+ 
+ 
+( )
+1.668
+8FT 24.5 0.667 WSPD 4.8 2111 5
+54.8 2T 32 9        .
+−
+  = − × + +   
+ −− −×  
+ ( 4) 
+• SL—the downward force caused by the weight of accumulated snow or 
+ice in pounds per square feet, estimated here using SWE (inches) data 
+assuming a horizontal angle (Curtis 2007). To calculate the estimated 
+SL at an angle of θ, one would have to multiply by cosθ, 
+ SL SWE 5.2≈× . (5) 
+The variables were then converted to the following units as specified by the 
+stakeholders: 
+• Temperature—degrees Fahrenheit 
+• Wind speed—knots 
+• Snow load—pounds per square foot 
+• Snow depth—inches 
+2.3 Meteorological Aerodrome Report (METAR) Data 
+At the recommendation of project stakeholders, additional meteorological 
+point observational data were obtained to provide limited verification of 
+reanalysis data in key locations. These real-time observations are available 
+in the International Civil Aviation Organization (ICAO) standardized 
+Meteorological Aerodrome Report (METAR) format (ICAO 2021). Typically, 
+each station reports meteorological parameters at a minimum of hourly 
+thresholds, often through automated means. Thirty of years of METAR 
+observations were obtained for stations within the area of interest. In some 
+cases, certain stations were not available for the entire period due to 
+budgetary and technological considerations of the individual countries 
+provided the observations. 
+Once the raw METAR observations were obtained, an initial processing of 
+the data were undertaken using the open-source Python-METAR software 
+suite (Pollard 2018). Data were processed to extract temperature, dew-
+point, visibility, wind speed and cardinal direction, and current weather 
+observed at time of observation in a comma-separated value (CSV) format. 
+@@@ PAGE 20 @@@
+ERDC/CRREL SR-25-2 10 
+ 
+Additionally, a date-time code was also included which allowed METAR 
+observations to be more easily combined for the purposes of generating 
+time series statistics. Afterwards, the data were parsed using Python and 
+converted to a data frames for further processing. 
+METAR data were processed and aggregated from 370 stations in high-
+latitude regions from 1990 to 2020. The database includes measured data 
+from 12 different countries: Belgium, Canada, Denmark, Finland, Great 
+Britain, Greenland, Iceland, Netherlands, Norway, Russia, Sweden, and 
+the United States. The extent of spatial and temporal range and volume of 
+data (49,417,925 processable recordings) required the development of 
+data cleaning and quality control procedures to prep the data for analysis. 
+This quality control process was done using the Python programming 
+language, and the Arctic Zonal Characterization and Operational 
+Thresholding (AZCOT) library used for manipulating METARs is available 
+on request. The goal was to create a repeatable and flexible process for 
+standardizing and down sampling data while preserving quantitative and 
+categorical data for reanalysis. 
+For this project, the custom Python library was used to generate daily 
+averages of quantitative data and daily modes of qualitative data (e.g., 
+wind direction) for each station across all time periods. The developed 
+functions are repeatable and modifiable for generation of other geographic 
+information system (GIS) friendly data conversions of METAR subsets. 
+Each METAR observation file was individually cleaned to ensure 
+consistency across stations. Key steps included the following functions in 
+the library are described in Table 2 at the end of this section. 
+ Convert decoded METARs to pandas data frames. 
+ Geolocate each recording with station location. 
+ Parse datetime into numeric format. 
+ Convert visibility to numeric format. 
+ Split wind into qualitative wind direction and quantitative wind speed 
+values. 
+ Restructure data frame for better readability. 
+ Down sample to daily averages and modes. 
+ Export to GIS readable format. 
+@@@ PAGE 21 @@@
+ERDC/CRREL SR-25-2 11 
+ 
+Table 2. Description of functions in the Arctic Zonal Characterization and Operational 
+Thresholding (AZCOT) library. 
+Function Output Description 
+stationFilter() Pandas data 
+frame 
+Filters the METAR stations based on specified 
+countries or “all” to return all stations. 
+readMETARs() List of Pandas 
+data frames 
+Pulls in METAR files as a list of dataframes based 
+on the desired sorting by station and month. 
+timeCleaning() 
+List of Pandas 
+data frames 
+Processes time data of passed list of dataframes. 
+Splits datetime format into its constituent numeric 
+components and adds those columns to each 
+dataframe in the returned list. 
+tempCleaning() List of Pandas 
+data frames 
+Adds Fahrenheit temperature column to each 
+METAR dataframe passed in the list. 
+visCleaning() 
+List of Pandas 
+data frames 
+Processes visibility data of each METAR dataframe 
+passed in the list. Handles exceptions and 
+converts string fractions to numbers. Overwrites 
+existing visibility value in each dataframe. 
+windCleaning() 
+List of Pandas 
+data frames 
+Processes wind data of each METAR dataframe 
+passed in the list. Splits data into wind speed and 
+wind direction columns. Processes identified 
+cases, but may not capture every possible entry. 
+Adds new columns to each existing dataframe. 
+structureFrame() 
+Pandas data 
+frame 
+Creates new dataframe combining each METAR 
+dataframe passed in the list. Only works if post 
+processing has been completed. Reorders 
+columns, preserves relevant METAR data, and 
+concatenates list into single dataframe for export 
+and use in GIS. 
+uniqueYears() 
+Dictionary Examines each METAR dataframe passed in the 
+list for the years data were recorded. Counts the 
+number of unique years and extracts those years 
+into a dictionary. 
+sampleScreening() 
+Pandas data 
+frame 
+Processes data of all METARs in restructured 
+dataframe. Screens the data range and 
+observation frequency for all stations by year. 
+averageData() 
+Pandas data 
+frame 
+Downsamples data in the master METAR 
+dataframe passed. Computes daily averages of 
+numeric data and finds the daily mode of text data. 
+Restructures into new dataframe that contains 
+only the downsampled entries. 
+sampleFrequencies() Pandas data 
+frame 
+Analyzes observation frequency for METAR stations 
+by year. 
+top_periods_per_station() Pandas data 
+frame 
+Extracts the top N most common period values for 
+each station. 
+@@@ PAGE 22 @@@
+ERDC/CRREL SR-25-2 12 
+ 
+3 Metric Calculations 
+Metric calculations were performed on hourly netCDF files using the 
+Xarray Python library. The following four main metrics were calculated: 
+the average value, the highest/lowest recorded value, the frequency of 
+extreme events, and the length of those extreme events. In addition to 
+these main metrics, additional extreme and snow metrics were calculated. 
+3.1 Average 
+For each pixel, the average value of the meteorological parameter was 
+calculated as an arithmetic mean, 
+ , ,,
+1
+1 n
+ij i j k
+k
+Aa n =
+= ∑ , (6) 
+where 
+ A i,j = average at a latitude (i) and longitude (j), 
+ n = number of hours in time interval, and 
+ a i,j,k = the kth reanalysis value at a latitude i and longitude j (Plate 1). 
+Plate 1. Pseudocode for Equation (6). 
+ALGORITHM Calculate Average Recorded Value 
+ 
+INPUT Hourly NetCDF files for each meteorological variable 
+OUTPUT Daily NetCDF files for each meteorological variable  
+ 
+// Main function  
+FUNCTION CalculateAverage(day) 
+    fileList ← GET all meteorological files for specified day 
+    hourlyData ← empty list 
+     
+    // Load all hourly data for the day 
+    FOR EACH file IN fileList DO 
+        data ← READ meteorological data from file 
+        ADD data TO hourlyData 
+    END FOR 
+     
+    // Combine hourly data into a single dataset with one column per hour 
+    combinedData ← MERGE all hourlyData into single dataset 
+    results ← empty data frame 
+     
+    // Calculate average value for each location 
+    averageValues ← CALCULATE average value across all hours 
+    results["average_VARIABLE"] ← averageValues 
+@@@ PAGE 23 @@@
+ERDC/CRREL SR-25-2 13 
+ 
+3.2 Extreme 
+For each pixel, the highest or lowest recorded value of the meteorological 
+parameter was calculated. The highest value was found for snow depth, 
+snow load, and wind speed. The lowest value was found for the 
+temperature parameters, 
+ 
+{ }( )
+{ }( )
+1
+1
+max
+min ,
+n
+i,j i ,j,k k
+n
+i,j i ,j,k k
+Ea
+Ea
+=
+=
+=
+=
+OR  (7) 
+where 
+ Ei,j = extreme at a latitude i and longitude j, 
+ n = number of hours in time period, and 
+ a i,j,k = the kth reanalysis value at a latitude i and longitude j (Plate 2). 
+Plate 2. Pseudocode for Equation (7). 
+ALGORITHM Calculate Highest/Lowest Recorded Value 
+ 
+INPUT Hourly NetCDF files for each meteorological variable 
+OUTPUT Daily NetCDF files for each meteorological variable  
+ 
+// Main function  
+FUNCTION CalculateExtremes(day) 
+    fileList ← GET all meteorological files for specified day 
+    hourlyData ← empty list 
+     
+    // Load all hourly data for the day 
+    FOR EACH file IN fileList DO 
+        data ← READ meteorological data from file 
+        ADD data TO hourlyData 
+    END FOR 
+     
+    // Combine hourly data into a single dataset with one column per hour 
+    combinedData ← MERGE all hourlyData into single dataset 
+     
+    results ← empty map 
+     
+    // Calculate minimum/maximum value for each location 
+    extrValues ← FIND min./max. value across all hours for each location 
+    results["extreme_VARIABLE"] ← extrValues 
+    RETURN results 
+END FUNCTION 
+@@@ PAGE 24 @@@
+ERDC/CRREL SR-25-2 14 
+ 
+3.3 Frequency of Extreme Event 
+For each pixel, the frequency of extreme events was calculated based on a 
+series of defined thresholds derived from US Army Technical Manual 4-
+33.31 and conversations with stakeholders (Table 3) (HQDA 2017). 
+Table 3. Threshold values for meteorological variables 
+Variable 
+Greater or 
+Less Than Thresholds 
+SKT 
+≤ 
+−75°F, −70°F, −65°F, −60°F, −55°F, −50°F, −45°F, −40°F, −35°F, 
+−30°F, −25°F, −20°F, −15°F, −10°F, −5°F, 0°F 2T 
+WCT 
+STL1 0°F, 5°F, 10°F, 15°F, 20°F, 25°F, 30°F, 35°F, 40°F 
+SD 
+≥ 
+8 inches, 15 inches, 20 inches, 40 inches 
+SL 5 lb/ft², 10 lb/ft², 15 lb/ft², 20 lb/ft², 25 lb/ft², 30 lb/ft², 35 lb/ft², 
+40 lb/ft², 45 lb/ft², 50 lb/ft² 
+WSPD 8 knots, 13 knots, 15 knots, 20 knots, 25 knots, 30 knots, 35 knots, 
+40 knots, 45 knots, 50 knots 
+We can define a binary array 𝐵𝐵(𝑎𝑎𝑖𝑖,𝑗𝑗,𝑘𝑘), where 𝐵𝐵𝑎𝑎𝑖𝑖,𝑗𝑗,𝑘𝑘 = 1 if 𝑎𝑎𝑖𝑖,𝑗𝑗,𝑘𝑘 exceeds the 
+threshold and 𝐵𝐵
+𝑎𝑎𝑖𝑖,𝑗𝑗,𝑘𝑘 = 0 otherwise. Then we can define the frequency as 
+ ( )
+1
+1 n
+i,j i ,j,k
+k
+F Ba n =
+= ∑ , (8) 
+where 
+ Fi,j = frequency at a latitude i and longitude j, 
+ n = number of hours in time period, 
+ a i,j,k = the kth reanalysis value at a latitude i and longitude j, and 
+ B(ai,j,k) = binary function, 1 if ai,j,k exceeds the threshold, else 0 (Plate 3). 
+@@@ PAGE 25 @@@
+ERDC/CRREL SR-25-2 15 
+ 
+Plate 3. Pseudocode for the algorithm in Equation (8). 
+ALGORITHM Calculate Frequency of Extreme Event 
+ 
+INPUT Hourly NetCDF files for each meteorological variable 
+OUTPUT Daily NetCDF files for each meteorological variable  
+ 
+// Main function to process daily meteorological data 
+FUNCTION ProcessDay(day) 
+    fileList ← GET all meteorological files for specified day 
+    hourlyData ← empty list 
+     
+    // Load all hourly data for the day 
+    FOR EACH file IN fileList DO 
+        data ← READ data from file 
+        ADD data TO hourlyData 
+    END FOR 
+     
+    // Combine hourly data into a single dataset with one column per hour 
+    combinedData ← MERGE all hourlyData into single dataset 
+    totalHours ← COUNT of hours in dataset 
+     
+    results ← empty map 
+     
+    // Calculate frequency of exceeding threshold 
+    FOR threshold FROM thresholdList DO 
+        // Create binary array where 1 indicates exceeding the threshold 
+        binaryData ← CONVERT combinedData TO binary  
+         
+        // Count hours below threshold at each location 
+        countsBelowThreshold ← SUM binaryData across hours  
+         
+        // Calculate frequency as percentage 
+        freqBelowThreshold ← countsBelowThreshold / totalHours * 100 
+         
+        // Store results 
+        results["frequency_" + threshold] ← freqBelowThreshold 
+    END FOR 
+     
+    RETURN results 
+END FUNCTION 
+3.4 Length of Extreme Event 
+To quantify how long extreme event lasts when they do occur, the average 
+length of these events within a given day is calculated and then averaged 
+across all thirty years of data. 
+Let 𝐵𝐵𝑎𝑎𝑖𝑖,𝑗𝑗,𝑘𝑘 = 1, where 𝐵𝐵𝑎𝑎𝑖𝑖,𝑗𝑗,𝑘𝑘 is the same binary array defined in Section 3.3, 
+for a number of consecutive hours of length 𝑐𝑐. If there are 𝑚𝑚 separate 
+events within a day when the threshold is exceeded, then the average 
+length of the events is on a given day is 
+@@@ PAGE 26 @@@
+ERDC/CRREL SR-25-2 16 
+ 
+ 
+1
+1 /
+i,j,ym
+i,j,y i ,j,k,y
+ki,j,y
+Lc m =
+= ∑ , (9) 
+where, 
+ i,j,yL  = average length at a latitude i and longitude j in the year y, 
+ mi,j,y = number of threshold-crossing events at i, j in year y, and 
+ c i,j,k,y = The length of the kth threshold-crossing event at i, j in year y. 
+For each year y, the average across all thirty years is then 
+ 
+30
+1
+1
+30
+i,j i,j,y
+y
+LL
+=
+= ∑ , (10) 
+for each grid point (i, j) (Plate 4). 
+Note that in this algorithm, whether the previous day ended with a 
+threshold-crossing event is not factored in. Every day is calculated 
+independently of the surrounding days, meaning that there theoretically 
+could be a multiday event that is simply recorded as 24 hours long for each 
+day, or there could be a 12-hour event that takes place over two calendar 
+days and is thus divided into two shorter events. This is primarily due to 
+processing capabilities. 
+Plate 4. Pseudocode for Equation (10). 
+ALGORITHM Calculate Length of Extreme Event 
+ 
+INPUT Hourly NetCDF files for each meteorological variable 
+OUTPUT Daily NetCDF files for each meteorological variable  
+ 
+FUNCTION CalculateAverageLength(binaryArray) 
+    consecutiveCounts ← empty list 
+    currentCount ← 0  
+     
+    FOR EACH value IN binaryArray DO 
+        IF value = 1 THEN 
+            currentCount ← currentCount + 1 
+        ELSE 
+            IF currentCount > 0 THEN 
+                ADD currentCount TO consecutiveCounts 
+            END IF 
+            currentCount ← 0 
+        END IF 
+    END FOR 
+     
+@@@ PAGE 27 @@@
+ERDC/CRREL SR-25-2 17 
+ 
+Plate 4 (cont.). Pseudocode for Equation (10). 
+    // Handle last sequence if it exists 
+    IF currentCount > 0 THEN 
+        ADD currentCount TO consecutiveCounts 
+    END IF 
+         
+    IF consecutiveCounts is empty THEN 
+        RETURN 0 
+    ELSE 
+        RETURN MEAN(consecutiveCounts) 
+    END IF 
+END FUNCTION 
+ 
+// Main algorithm that processes data for a single day 
+// Repeat this for each day from October through March 
+FUNCTION ProcessDay(day, month) 
+    combinedResults ← empty dataframe 
+     
+    // Process each year 
+    FOR year FROM 1991 TO 2020 DO 
+        fileList ← GET all hourly wind files for specified day, month, year 
+        hourlyData ← empty list 
+         
+        // Load all hourly data for the day 
+        FOR EACH file IN fileList DO 
+            data ← READ meteorological data from file 
+            ADD data TO hourlyData 
+        END FOR 
+         
+        results ← empty map 
+         
+        // Combine hourly data into a single dataset 
+        combinedData ← MERGE all hourlyData into single dataset 
+         
+        // Process each threshold 
+        FOR EACH threshold IN thresholdList DO 
+            // Create binary array where 1 indicates variable exceeds threshold 
+            binaryData ← CONVERT combinedData TO binary 
+             
+            // For each grid square, calculate average consecutive periods 
+            FOR EACH location IN binaryData DO 
+                avgConsecutive ← CalculateAverageLength(hourly data) 
+                 
+                results[location]["consecutive_" + threshold] ← avgConsecutive 
+            END FOR 
+        END FOR 
+         
+        IF year is 1991 THEN 
+            combinedResults ← results 
+        ELSE 
+            combinedResults ← combinedResults + results 
+        END IF 
+    END FOR 
+     
+ 
+@@@ PAGE 28 @@@
+ERDC/CRREL SR-25-2 18 
+ 
+Plate 4 (cont.). Pseudocode for Equation (10). 
+    // Average the results across all years 
+    combinedResults ← combinedResults / (2020 – 1991 + 1) 
+     
+    // Save results 
+    SAVE combinedResults TO file 
+END FUNCTION 
+3.5 Aggregating Across Timescales 
+The average, extreme, and frequency metrics were originally calculated at 
+six-hour timescales, while the consecutive length metric was calculated at 
+daily time scales. To aggregate the average, frequency, and consecutive 
+metric data to a larger timescale, the average of the relevant files was 
+found. To aggregate the extreme metric data, the minimum/maximum 
+across the relevant files was calculated. 
+3.6 First Occurrence of High Snow Depth and Snow Load 
+If it is assumed that snow depth and snow load values are relatively 
+nondecreasing throughout the Arctic winter due to consistent below-
+freezing temperatures, then one can calculate the day within the winter 
+where the snow value crosses a specific threshold for each pixel (Plate 5). 
+The 1991–2020 averaged values for snow depth and snow load was used. 
+The output maps can be seen in Figure A-3 and Figure A-4. 
+@@@ PAGE 29 @@@
+ERDC/CRREL SR-25-2 19 
+ 
+Plate 5. Pseudocode for the algorithm. 
+ALGORITHM Snow Threshold Crossing Day Identification 
+ 
+INPUT Snow depth/load NetCDF files for Arctic winter  
+OUTPUT NetCDF file with first day of threshold crossing for each pixel 
+ 
+// Main function  
+FUNCTION FindThresholdCrossingDay(snowData, threshold) 
+    firstExceedDay ← array of zeroes 
+ 
+    FOR day ← 1 TO 183 DO  
+        IF snowData[day] ≥ threshold THEN 
+            firstExceedDay ← day 
+            BREAK 
+        END IF 
+    END FOR       
+     
+    RETURN firstExceedDay 
+ 
+END FUNCTION 
+ 
+// Main execution 
+ 
+thresholds ← List of thresholds 
+FOR EACH threshold IN thresholds DO 
+    result ← FindThresholdCrossingDay(snowData, threshold) 
+END FOR 
+3.7 Percentiles 
+In addition to the highest and lowest recorded values as described in 
+Section 3.2, daily 5th and 95th percentile values were calculated in 
+addition to the lowest and highest recorded values, respectively. The 
+percentile value was calculated using the pandas.DataFrame 
+.quantile() function, which calculates the value through a linear 
+interpolation method. 
+Suppose each grid cell has 30 years of hourly data for each day in the study 
+period. Thus, each grid square has 720 data values for each day, denoted 
+as 𝑎𝑎1, 𝑎𝑎2, . . . ,𝑎𝑎720. The values can then be sorted ascending order, such 
+that 𝑎𝑎(1) ≤ 𝑎𝑎(2) ≤ . . . ≤ 𝑎𝑎(720). Define the index 𝑖𝑖 = 720 − 1𝑝𝑝, where 𝑝𝑝 is the 
+percentile of interest (either 0.95 or 0.05 for 95th or 5th, respectively). 
+Then define 𝑘𝑘 = 𝑖𝑖= floor(𝑖𝑖) and the final value is, 
+ ( ) ( ) ( ) ( ) ( )( )1 21k kkQp x i k x x+ ++= +− − , (11) 
+@@@ PAGE 30 @@@
+ERDC/CRREL SR-25-2 20 
+ 
+for each grid cell (Hyndman and Fan 1996). 
+The differences between the 95th/5th percentile values and the 
+highest/lowest recorded values was calculated for each day of data and 
+then averaged across the whole October–March period. Table 4 shows the 
+statistics for the whole Arctic based on those seasonal average calculations. 
+Figure A-5 to Figure A-11 show the spatial variability in the differences. 
+Table 4. Statistics for the difference between 5th/95th percentile values 
+and lowest/highest recorded values for the whole Arctic, October–March. 
+Variable Minimum Maximum Mean 
+Standard 
+Deviation 
+2T (°F) −12.3979 −2.9524 −7.2263 1.6369 
+SKT (°F) −15.1020 −0.6522 −8.8224 2.2796 
+STL1 (°F) −25.6389 −0.0013 −6.3050 2.8052 
+WCT (°F) −17.5395 −2.0235 −10.3820 2.3366 
+SL (lb/ft²) 0 36.5328 3.4462 3.0807 
+SD (in.) 0 21.99 3.61 4.40 
+WSPD (knots) 0.2344 16.6231 5.3825 2.4241 
+Because of computer memory limitations, the percentile values were not 
+calculated beyond the daily timescale. One could aggregate the percentile 
+values in a variety of ways, including taking the highest or lowest value 
+within a time interval or averaging the values; however, the resultant value 
+will likely be inaccurate. With additional processing capabilities, one could 
+calculated the monthly and seasonal percentile values from the original 
+hourly data. 
+@@@ PAGE 31 @@@
+ERDC/CRREL SR-25-2 21 
+ 
+4 Validation with METAR Data 
+4.1 Methodology 
+Based on the availability of data within the METAR files, both temperature 
+and wind speed were validated while snow depth and snow load were not 
+due to lack of snow depth/load data within the METAR data. 
+For each day of available METAR data, the associated reanalysis data were 
+compiled. The reanalysis data were not clipped to ensure that coastal 
+regions were not removed from data. The Extract Multi Values to Points 
+(arcpy.sa.ExtractMultiValuesToPoints) ArcGIS tool was used to 
+extract reanalysis data values for each of the stations on the days where 
+METAR data were available (Esri, n.d.-c). The resultant multi-index data 
+structure contained the METAR station IDs, the date that the METAR data 
+were collected, the data collected at the station, and the corresponding 
+reanalysis data from the same time frame (Table 5). 
+Table 5. A sample row showing the Station ID, date of observation, observational data from 
+the Meteorological Aerodrome Report (METAR), and ERA5 2 m temperature and surface 
+temperature values from that same time. 
+ID Date METAR Temp METAR Wind Speed ERA5 2 m Temp ERA5 Wind Speed 
+CWVH 2001/01/01 −18.325000 12.875000 −14.699349 6.529890 
+For a given day of data, the average temperature and wind speed across 
+the 24 hours (00:00 UTC–23:59 UTC) and the minimum/maximum 
+temperature and wind speed, respectively, was calculated from both the 
+METAR and ERA5 data. A series of statistical measurements were then 
+calculated to understand how the METAR data differed from the ERA5 
+data (Table 6). 
+Table 6. Statistical measurements used to compare METAR data to 
+ERA5 data. 
+Measurement Formula 
+Bias ( )ERA, METAR,ii iBx x= −  
+Mean-Absolute Error (MAE) ERA, M ,
+1
+ETAR
+1 N
+i
+iixxN =
+−∑  
+Mean-Square Error (MSE) ( )ERA, ME
+2
+AR ,
+1
+T
+1 N
+i
+iixxN =
+−∑  
+@@@ PAGE 32 @@@
+ERDC/CRREL SR-25-2 22 
+ 
+Table 6 (cont.). Statistical measurements used to compare METAR 
+data to ERA5 data. 
+Measurement Formula 
+Root-Mean-Square Error (RMSE) ( )ERA, ME
+2
+AR ,
+1
+T
+1 N
+i
+iixxN =
+−∑  
+Standard Deviation (STD) Ratio ERA METARσσ  
+Spearman Correlation 
+Coefficient 
+( )
+( )
+ERA, MET
+2
+1 AR ,
+2
+6
+1
+1
+N
+iii xx
+NN
+= −
+−
+−
+∑  
+4.2 Temporal Analysis. 
+For each METAR station, the first measurement date, final measurement 
+date, and the total number of samples was obtained. The percentage of the 
+study period captured by each station was calculated by finding the 
+number of days between the first and final measurement date and dividing 
+that by the total number of days within the January 1991—December 2020 
+study period. The average temporal coverage of the 366 METAR stations 
+was 71.75%, with a 75th percentile value of 97.44%. The maximum number 
+of observations was 429,530, and the average was 1,02555.94 (Figure 1). 
+Figure 1. The distribution of temporal resolutions of the Arctic Meteorological 
+Aerodrome Report (METAR) stations. 
+ 
+
+@@@ PAGE 33 @@@
+ERDC/CRREL SR-25-2 23 
+ 
+4.3 Results 
+The METAR average temperature data correlated strongly with both 2 m 
+temperature (r = 0.9783) and skin temperature (r = 0.9404), with 
+respective biases of −0.7467°F and −2.1674°F (Table 7). This is expected, 
+as the METAR observations are likely occurring at a height of 2 m and the 
+surface temperature is expected to be colder. The correlation coefficient 
+between the METAR and ERA5 wind speed was r = 0.7414 with a bias of 
+−0.4945 knots, showing less than a correlation than the temperature 
+variables but still moderately strong (Table 7). Figure 2 shows the monthly 
+average of the average wind speed and temperature as recorded by 
+METAR and ERA5 data. 
+Figure 2. Monthly averages of average wind speed and temperature, averaged across 
+the whole Arctic, from METAR and European Center for Medium-Range Weather 
+Forecasting Reanalysis v5 (ERA5) data. 
+ 
+The minimum temperature had slightly weaker but still strong 
+correlations with both ERA5 2 m temperature (r = 0.9661) and skin 
+temperature (r = 0.9237) (Table 7). The maximum wind speed had a 
+correlation of r = 0.6991 with a bias of −3.1885, indicating that the ERA5 
+wind speed data skewed lower than the METAR observational data (Table 
+7). Figure 3 shows the average of the extreme (minimum/maximum) 
+values within the month, and Figure 4 shows the 95th percentile of the 
+extreme values. Based on these two figures, the ERA5 data seems to 
+capture temperature extremes effectively, while there is a slightly larger 
+discrepancy with maximum wind speeds. 
+
+@@@ PAGE 34 @@@
+ERDC/CRREL SR-25-2 24 
+ 
+Figure 3. Monthly averages of the highest wind speed and lowest recorded 
+temperature, averaged across the whole Arctic, from METAR and ERA5 data. 
+ 
+Figure 4. Monthly 5th/95th percentile of the highest wind speed and lowest recorded 
+temperature, from METAR and ERA5 data across the whole Arctic. 
+ 
+Overall, the reanalysis data are relatively consistent with the observational 
+wind and temperature data. Temperature variables demonstrate strong 
+correlations, with modest negative biases and reasonable error metrics, 
+indicating reliable representation of temperature patterns in the reanalysis 
+product (Table 7). 
+However, wind speed variables show more significant discrepancies, 
+particularly for maximum wind speeds where the correlation drops to 
+approximately 0.70, accompanied by significant negative bias (−3.19) and 
+markedly elevated error metrics (RMSE of 14.21). The notably low 
+
+@@@ PAGE 35 @@@
+ERDC/CRREL SR-25-2 25 
+ 
+standard deviation ratio (0.42) for maximum wind speed suggests ERA5 
+slightly underestimates wind speed variability but is still feasible for 
+observing wind trends (Table 7). 
+These findings indicate that the ERA5 reanalysis data can be used with 
+confidence for temperature-based applications and wind speed analyses. 
+The observed METAR wind speeds trend higher than those from the ERA5 
+data, likely due to the observational data’s ability to capture localized and 
+short-lived wind extremes more effectively than the spatially and 
+temporally averaged ERA5 data. 
+Table 7. Reanalysis data versus METAR station data statistics. 
+ERA5 Variable Metric Bias Correlation MAE MSE RMSE STD Ratio 
+2T Average −0.7467 0.9783 3.2342 22.3673 4.7294 0.9839 
+Minimum −0.1691 0.9661 4.2366 35.6037 5.9669 0.9774 
+SKT Average −0.1691 0.9661 4.2366 35.6037 5.9669 0.9774 
+Minimum −2.1674 0.9404 5.5494 59.6453 7.723 1.0368 
+WSPD Average −1.5721 0.9237 6.6894 81.6559 9.0364 1.0502 
+Maximum −0.4945 0 . 7414 2.8761 20.9996 4.5825 0.7573 
+@@@ PAGE 36 @@@
+ERDC/CRREL SR-25-2 26 
+ 
+5 Map Creation 
+5.1 GeoTIFF Creation 
+NetCDF files produced as the result of the metric calculations in Section 3 
+were converted to GeoTIFFs using the ArcGIS Make NetCDF Raster Layer 
+tool (arcpy.md.MakeNetCDFRasterLayer) (Esri, n.d.-d). The 
+GeoTIFFs were clipped to the continental land masses using the Extract 
+by Mask (arcpy.sa.ExtractByMask) tool with the Arctic countries 
+shapefile (Section 3.1) and an analysis extent of −180°—180° longitude, 
+60°N—90°N latitude (Esri, n.d.-b). 
+5.2 Symbology 
+The symbology was developed based on iterative feedback from the 
+stakeholders to be both accessible and informative. For temperature, 
+warm colors were chosen to represent warm temperatures and cool colors 
+represent colder temperatures. For wind and snow, warm colors represent 
+dangerous conditions while cool colors represent more moderate 
+conditions. Layer files were created from GeoTIFF files and a series of 
+template layer files using the Apply Symbology from Layer tool 
+(arcpy.management.ApplySymbologyFromLayer) (Esri, n.d.-a). 
+If one is interested in updating the symbology, they can do so as follows: 
+ Import a GeoTIFF to ArcGIS Pro 
+ Right click the layer in the Contents Pane and click “Symbology” 
+ Set the symbology 
+ When satisfied, right click the layer and click “Sharing” and then “Save as 
+Layer File” 
+ Save the layer file somewhere you can easily access it 
+ Apply the symbology to any additional GeoTIFFs using the Apply 
+Symbology from Layer tool 
+5.3 Map Layout and Design 
+The map design was developed based on iterative feedback from the 
+stakeholders. The map uses the World Geodetic System (WGS) 1984 Arctic 
+Polar Stereographic projected coordinate reference system, focusing on 
+60°N and above (EPSG, n.d.; Esri 2025). Arctic countries and Svalbard are 
+labeled and outlined. The 60°N latitude line is emphasized, and the 75°N 
+@@@ PAGE 37 @@@
+ERDC/CRREL SR-25-2 27 
+ 
+latitude line is present in the background. Primary longitude lines occur in 
+30° intervals, and secondary lines occur in 15° intervals. Map layouts 
+feature a descriptive title, a short subtitle detailing how the data were 
+produced, and a legend. 
+Based on feedback from project stakeholders, four quadrant maps—in 
+addition to the map of the entire Arctic—were created for each metric and 
+time interval combination. These maps focus on the following areas: 0°E–
+90°W (bottom left of Figure 5), 90°W–180°W (top left), 180°W–90°E (top 
+right), 90°E–0°E (bottom left). 
+Figure 5. A blank map showing the design features in the study area. 
+ 
+5.4 Automated Creation 
+A Jupyter notebook was created to manage the map creation processes 
+(mapCreation.ipynb). Within this notebook there are 119 code cells, 
+broken down by metric, time interval, and variable. The code is dependent 
+on the following Python libraries: 
+• os 
+• arcpy 
+• arcpy.sa 
+• glob 
+
+@@@ PAGE 38 @@@
+ERDC/CRREL SR-25-2 28 
+ 
+Each code cell will find all the respective ArcGIS layer files (.lyrx) in that 
+metric, time interval, and variable combination through the glob library. 
+Then, for each file, the code determines the title and subtitle text from the 
+filename and changes them within the map layout accordingly. Then, the 
+layer file is added to the layout, moved to the back to ensure that the 
+design elements are on top of it, exported as a PDF, and then removed 
+(Plate 6). 
+Plate 6. Pseudocode. 
+FUNCTION createMap(): 
+    INPUT: a ArcGIS layer file 
+    OUTPUT: a PDF map 
+ 
+    project ← arcpy.mp.ArcGISProject(project_path)  
+    layout ← project.listLayouts("frequencySKT")[0]  
+    map_frame ← layout.listElements("MAPFRAME_ELEMENT")[0]  
+    map ← map_frame.map  
+         
+    FOR EACH file IN files: 
+        Extract month, day, and threshold (if applicable) from filename 
+         
+        TRY: 
+            if element.name = "TitleText": 
+                   element.text ← titleText 
+            if element.name = "TitleText": 
+                   element.text ← subheadingText # update TEXT_ELEMENT  
+             
+            temp_file ← arcpy.mp.LayerFile(temp_path)  
+            map.addLayer(temp_file) # add the Layer File to map 
+            temp_layer ← map.listLayers()[0] # obtain new layer 
+            map.moveLayer() # moves layer to back 
+            layout.exportToPDF() # export as PDF 
+            map.removeLayer(temp_layer) # remove layer 
+ 
+        EXCEPT: 
+            Print error and continue 
+             
+    END FOR 
+END FUNCTION 
+@@@ PAGE 39 @@@
+ERDC/CRREL SR-25-2 29 
+ 
+6 User Interface (UI) 
+A user interface (UI) was developed for use within Jupyter notebooks to 
+allow the user to generate specific maps of interest, including time 
+intervals spanning two unique days rather than the predetermined time 
+intervals. Additionally, the UI allows the user to generate a contour line at 
+any value. The dependencies and steps for using this UI are located below, 
+as well as the documentation for the existing code if one wishes to edit it or 
+adapt it to another language or GIS software. Notably, the code requires 
+the use of ArcGIS Pro (arcpy). 
+6.1 File Dependencies 
+All relevant files should be located in the App or Atlas directory. 
+• /App/ArcGIS/mapUI.aprx—this is the ArcGIS map file used for the 
+map creation process. 
+• /App/ArcGIS/Design/*—these are the design shapefiles used for the 
+map creation process. 
+• /App/Templates/*—these are layer file templates used to update the 
+symbology of the GeoTIFFs. 
+• /App/Output—this subdirectory is necessary for the output files. 
+• /App/mapUI.py—this is the Python script that hosts the relevant 
+functions for the UI to function. 
+• /Atlas/*/Daily/**/—the Atlas folder contains the daily GeoTIFF files 
+for each meteorological variable. 
+6.2 Python Dependencies 
+The following Python libraries or functions are required to operate the UI: 
+• Python ≥ 3.9 
+• Jupyter notebook 
+• fitz 
+• datetime 
+• IPython.display 
+• ipywidgets 
+• os 
+• numpy 
+• glob 
+• arcpy 
+• arcpy.sa 
+@@@ PAGE 40 @@@
+ERDC/CRREL SR-25-2 30 
+ 
+6.3 Running the UI 
+Step 1: Import libraries in a Jupyter Notebook (Plate 7). 
+Plate 7. Step 1. 
+import mapUI # mapUI.py file 
+import ipywidgets as widgets 
+from IPython.display import * 
+import datetime 
+import fitz  
+import os 
+import numpy as np 
+import glob 
+import arcpy 
+from arcpy.sa import * 
+ 
+arcpy.CheckOutExtension("Spatial") # Spatial Analyst tools 
+arcpy.env.overwriteOutput = True 
+Step 2: Create and display the UI (Plate 8 and Figure 6). 
+Plate 8. Step 2. 
+ui = mapUI.createMappingUI() 
+display(ui) 
+Figure 6. The map creation of the user interface (UI) on generation. 
+ 
+  
+
+@@@ PAGE 41 @@@
+ERDC/CRREL SR-25-2 31 
+ 
+Step 3: Choose your dates, variable, metric, threshold, and other 
+parameters (Figure 7). 
+Figure 7. The map creation UI with some parameters selected. 
+ 
+Step 4: Hit the Create Map button and wait. 
+Step 5: View the resultant map and access files in /App/Output/ (Figure 8). 
+
+@@@ PAGE 42 @@@
+ERDC/CRREL SR-25-2 32 
+ 
+Figure 8. An example map created from the parameter inputs shown in Figure 6. 
+ 
+6.4 MapUI.py Documentation 
+MapUI.py is composed of several defined functions that allow it to 
+operate. Below is a detailed look at each of these functions and how they 
+contribute to the overall operation of the program. 
+
+@@@ PAGE 43 @@@
+ERDC/CRREL SR-25-2 33 
+ 
+6.4.1 UI Creation 
+• createMappingUI()–Main entry point that creates the UI 
+o Calls createDateWidgets() to set up UI components 
+o Contains event handlers (updateThreshold_visibility, 
+updateFirstDayMax, etc.) 
+o Contains buttonClicked() which orchestrates the map creation 
+workflow 
+• createDateWidgets()–Creates all UI widgets 
+o Depends on getMaxDays() to determine the maximum days in a 
+month 
+6.4.2 Data Processing 
+• buttonClicked() (inside createMappingUI()) starts the workflow 
+o Calls isValidDateRange() to validate dates 
+o Calls generateFilePaths() to create file paths for data 
+o Calls processTIFFs() to process GIS data 
+o Conditionally calls getCircularMean() for wind data 
+o Conditionally calls createContour() for contour lines 
+o Calls createLyrx() to create layer files 
+o Calls createMap() to generate the final map 
+o Calls printPDF() to display the result 
+• isValidDateRange(firstMonth, firstDay, secondMonth, 
+secondDay)–Validates the selected date range 
+• generateFilePaths(firstMonth, firstDay, secondMonth, 
+secondDay)–Generates paths to data files 
+o Depends on normalizeMonth() 
+• processTIFFs(filePaths, metric, variable, 
+firstMonth, firstDay, secondMonth, secondDay, 
+**kwargs)–Process GIS data 
+o Calls generateOutputFilename() 
+o Calls createDirectory() 
+@@@ PAGE 44 @@@
+ERDC/CRREL SR-25-2 34 
+ 
+• getCircularMean(filePaths, firstMonth, firstDay, 
+secondMonth, secondDay)–For wind direction averaging 
+o Calls generateOutputFilename() 
+o Calls circularMean() 
+• createContour(tif, contourValue)–Creates contour lines 
+from TIF data 
+• createLyrx(tif, metric, variable)–Applies symbology to 
+layers 
+• createMap(lyrx, metric, variable, firstMonth, 
+firstDay, secondMonth, secondDay, **kwargs)–Creates the 
+final map 
+o Depends on various mapping configurations and data 
+6.4.3 Helper Functions 
+• generateOutputFilename(metric, variable, firstMonth, 
+firstDay, secondMonth, secondDay, **kwargs)–Creates 
+output filenames 
+o Uses monthMap dictionary 
+• createDirectory(filePath)–Creates output directories if they do 
+not exist 
+• circularMean(wdir_paths, wdirPath)–Calculates circular 
+mean for wind direction 
+• printPDF(pdf)–Converts and displays PDF output 
+• getMaxDays(month)–Returns the number of days in a given month 
+6.4.4 Dependency Tree 
+• createMappingUI 
+o createDateWidgets 
+ getMaxDays 
+o updateThresholdVisibility 
+o updateContourVisibility 
+o updateContourVis 
+@@@ PAGE 45 @@@
+ERDC/CRREL SR-25-2 35 
+ 
+o updateFirstDayMax 
+ getMaxDays 
+o updateSecondDayMax 
+ getMaxDays 
+o updateThresholdValues 
+o updateContourUnits 
+o buttonClicked 
+ isValidDateRange 
+ generateFilePaths 
+ processTIFFs 
+– generateOutputFilename 
+– createDirectory 
+ getCircularMean 
+– generateOutputFilename 
+– circularMean 
+ createContour 
+ createLyrx 
+ createMap 
+ printPDF 
+6.4.5 Data Flow 
+ The UI is created with createMappingUI() which sets up all widgets 
+and event handlers. 
+ When the user clicks Create Map, buttonClicked() is triggered. 
+ The inputted date range is validated with isValidDateRange(). 
+ File paths are generated with generateFilePaths(). 
+ Data are processed with processTIFFs(). 
+ If working with wind data averages, getCircularMean() calculates 
+wind direction averages. 
+ If contour lines are requested, createContour() generates them. 
+ Map symbology is applied with createLyrx(). 
+ The final map is created with createMap(). 
+ The output is displayed using printPDF(). 
+@@@ PAGE 46 @@@
+ERDC/CRREL SR-25-2 36 
+ 
+Bibliography 
+Curtis, J. 2007. “Snow Loads.” National Weather Service. https://www.weather.gov 
+/media/ajk/articles/snowloads.pdf. 
+Earth Observing Laboratory. 2014. “Wind Direction Quick Reference.” National Center 
+for Atmospheric Research. Accessed May 1, 2025. https://www.eol.ucar.edu/content 
+/wind-direction-quick-reference. 
+ECMWF (European Center for Medium Range Weather Forecasting). n.d.a. “Climate 
+Data Store.” Accessed 2025. https://cds.climate.copernicus.eu/. 
+ECMWF (European Center for Medium Range Weather Forecasting). n.d.b. “ERA5-Land 
+Monthly Averaged Data from 1950 to Present. https://cds.climate.copernicus 
+.eu/datasets/reanalysis-era5-land?tab=overview. 
+EPSG.io. 2020. EPSG:3995–WGS 84 / Arctic Polar Stereographic. IOGP Geomatics 
+Committee. https://epsg.io/3995. 
+Esri. 2025. WGS 1984 Arctic Polar Stereographic. ArcGIS Coordinate Systems. 
+Redlands, CA: Environmental Systems Research Institute. https://www.arcgis 
+.com/home/item.html?id=94f14eb0995e4bfc9d2439fc868345da. 
+Esri. n.d.a. “Apply Symbology From Layer (Data Management).” Redlands, CA: 
+Environmental Systems Research Institute. https://pro.arcgis.com/en 
+/pro-app/latest/tool-reference/data-management/apply-symbology-from-layer.htm. 
+Esri. n.d.b. “Extract by Mask (Spatial Analyst).” Redlands, CA: Environmental Systems 
+Research Institute. https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial 
+-analyst/extract-by-mask.htm. 
+Esri. n.d.c. “Extract Values to Points (Spatial Analyst).” Redlands, CA: Environmental 
+Systems Research Institute. https://pro.arcgis.com/en/pro-app/latest/tool-reference 
+/spatial-analyst/extract-values-to-points.htm. 
+Esri. n.d.d. “Make NetCDF Raster Layer (Multidimension).” Redlands, CA: 
+Environmental Systems Research Institute. https://pro.arcgis.com/en/pro-app 
+/latest/tool-reference/multidimension/make-netcdf-raster-layer.htm. 
+HQDA (Headquarters, Department of the Army). 2017. Cold Weather Maintenance 
+Operations. Technical Manual TM 4-33.31. Washington, DC: Headquarters, 
+Department of the Army. https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web 
+/TM%204-33x31%20FINAL%20WEB.pdf. 
+Hyndman, R. J., and Y. Fan. 1996. “Sample Quantiles in Statistical Packages.” The 
+American Statistician 50 (4): 361–65. https://doi.org/10.2307/2684934. 
+@@@ PAGE 47 @@@
+ERDC/CRREL SR-25-2 37 
+ 
+ICAO (International Civil Aviation Organization). 2021. Manual of Aeronautical 
+Meteorological Practice. 13th Edition. https://www.icao.int/airnavigation/METP 
+/14th%20Meeting%20WAFS/METPWGMOG14%20IP09%20Att1-%20Doc.8896.update 
+%20Amd%2081.pdf. 
+Natural Earth. 2009a. “Admin 0—Countries.” Version 5.1.1. Accessed June 30, 2024. 
+https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/. 
+Natural Earth. 2009b. “Graticules—1:10 m Physical Vectors.” Version 4.0.0. Accessed 
+June 30, 2024. https://www.naturalearthdata.com/downloads/110m-physical-vectors 
+/110m-graticules/. 
+NCAR (National Center for Atmospheric Research). 2019a. “ncl_convert2nc.” University 
+Corporation for Atmospheric Research–NCAR–Computational and Information 
+Systems Lab–Technology Development Division. https://www.ncl.ucar.edu/Document 
+/Tools/ncl_convert2nc.shtml. 
+NCAR (National Center for Atmospheric Research). 2019b. “The NCAR Command 
+Language (Version 6.6.2).” University Corporation for Atmospheric Research–
+NCAR–Computational and Information Systems Lab–Technology Development 
+Division. http://dx.doi.org/10.5065/D6WD3XH5. 
+NCEP (National Centers for Environmental Prediction). 2005. wgrib. National Oceanic 
+Atmospheric Administration. Accessed 2025. https://www.cpc.ncep.noaa.gov/products 
+/wesley/wgrib.html. 
+Nelson, C. A., M. Tew, G. Phetteplace, R. Schwerdt, A. Maarouf, R. Osczevski, M. 
+Bluestein, et al. 2002. “Joint Development and Implementation by the United 
+States and Canada of a New Windchill Temperature (WCT) Index.” 15th 
+Conference on Biometeorology and Aerobiology and the 16th International 
+Congress of Biometeorology, Kansas City, MO, October 29, 2002. https://ams 
+.confex.com/ams/15BioAero/techprogram/paper_48069.htm. 
+Pollard, T. 2018. “Python-metar.” Github. https://github.com/python-metar/python-metar. 
+@@@ PAGE 48 @@@
+ERDC/CRREL SR-25-2 38 
+ 
+Appendix: Content 
+A.1 Example Maps 
+Figure A-1. The average 2 m temperature based on data from (A) 1 January 00:00–05:59 UTC 
+(six-hour long interval), (B) 1 January 00:00–23:59 UTC (daily interval), (C) 1–15 January 
+(biweekly interval), and (D) 1–31 January (monthly interval). 
+ 
+
+@@@ PAGE 49 @@@
+ERDC/CRREL SR-25-2 39 
+ 
+Figure A-2. Quadrant map showing the average wind speed and wind direction in the upper 
+right quadrant of the region on 1 December. 
+ 
+
+@@@ PAGE 50 @@@
+ERDC/CRREL SR-25-2 40 
+ 
+A.2 Snow Load/Depth Threshold-Crossing Occurrences 
+Figure A-3. The amount of time before the first occurrence of snow depth values of (A) 8 in., 
+(B) 15 in., (C) 20 in., and (D) 40 in., based on average 1991–2020 data. 
+ 
+
+@@@ PAGE 51 @@@
+ERDC/CRREL SR-25-2 41 
+ 
+Figure A-4. The amount of time before the first occurrence of snow load values of (A) 5 lb/ft², 
+(B) 15 lb/ft², (C) 25 lb/ft², and (D) 35 lb/ft², based on average 1991–2020 data. 
+ 
+
+@@@ PAGE 52 @@@
+ERDC/CRREL SR-25-2 42 
+ 
+A.3 Percentiles 
+Figure A-5. The difference between the lowest 2 m temperature (Fahrenheit) and the 5th 
+percentile 2 m temperature, calculated based on daily averaged data computed from hourly 
+1991–2020 ERA5 data and then averaged across the whole October–March period. 
+ 
+
+@@@ PAGE 53 @@@
+ERDC/CRREL SR-25-2 43 
+ 
+Figure A-6. The difference between the highest snow load value (pounds per square foot) and 
+the 95th percentile snow load value, calculated based on daily averaged data computed from 
+hourly 1991–2020 ERA5 data and then averaged across the whole October–March period. 
+ 
+
+@@@ PAGE 54 @@@
+ERDC/CRREL SR-25-2 44 
+ 
+Figure A-7. The difference between the lowest surface temperature (Fahrenheit) and the 5th 
+percentile surface temperature, calculated based on daily averaged data computed from 
+hourly 1991–2020 ERA5 data and then averaged across the whole October–March period. 
+ 
+
+@@@ PAGE 55 @@@
+ERDC/CRREL SR-25-2 45 
+ 
+Figure A-8. The difference between the highest snow depth value (inches) and the 95th 
+percentile snow depth, calculated based on daily averaged data computed from hourly 1991–
+2020 ERA5 data and then averaged across the whole October–March period. 
+ 
+
+@@@ PAGE 56 @@@
+ERDC/CRREL SR-25-2 46 
+ 
+Figure A-9. The difference between the highest wind speed value (knots) and the 95th 
+percentile wind speed, calculated based on daily averaged data computed from hourly 1991–
+2020 ERA5 data and then averaged across the whole October–March period. 
+ 
+
+@@@ PAGE 57 @@@
+ERDC/CRREL SR-25-2 47 
+ 
+Figure A-10. The difference between the lowest windchill temperature (Fahrenheit) and the 5th 
+percentile windchill temperature, calculated based on daily averaged data computed from 
+hourly 1991–2020 ERA5 data and then averaged across the whole October–March period. 
+ 
+
+@@@ PAGE 58 @@@
+ERDC/CRREL SR-25-2 48 
+ 
+Figure A-11. The difference between the lowest soil temperature (Fahrenheit) and the 5th 
+percentile soil temperature, calculated based on daily averaged data computed from hourly 
+1991–2020 ERA5 data and then averaged across the whole October–March period. 
+ 
+
+@@@ PAGE 59 @@@
+ERDC/CRREL SR-25-2 49 
+ 
+Abbreviations 
+ACRC Alaska Climate Research Center 
+API Application programming interface 
+AZCOT Arctic Zonal Characterization and Operational 
+Thresholding 
+CRREL Cold Regions Research and Engineering Laboratory 
+CSV Comma-separated value 
+ECMWF European Center for Medium-Range Weather 
+Forecasting 
+ERA5 European Center for Medium-Range Weather 
+Forecasting Reanalysis v5 
+ERDC Engineer Research and Development Center 
+FT Frostbite time 
+GIS Geographic information system 
+GRIB Gridded binary 
+HQDA Headquarters, Department of the Army 
+ICAO International Civil Aviation Organization 
+MAE Mean-absolute error 
+METAR Meteorological Aerodrome Report 
+MSE Mean-square error 
+NCAR National Center for Atmospheric Research 
+NCEP National Centers for Environmental Prediction 
+NCL National Center for Atmospheric Research Command 
+Language 
+netCDF Network Common Data Format 
+@@@ PAGE 60 @@@
+ERDC/CRREL SR-25-2 50 
+ 
+NWP Numerical weather prediction  
+PII Personally identifiable information 
+POC Point of contact 
+RMSE Root-mean-square error 
+SD Snow depth 
+SKT Skin temperature 
+SL Snow load 
+STD Standard deviation 
+STL1 Soil temperature level 1 
+SWE Snow water equivalent 
+10U 10 m wind velocity in the eastward direction 
+10V 10 m wind velocity in the northward direction 
+2T 2 m temperature 
+UI User interface 
+WCT Wind-chill temperature 
+WDIR Wind direction 
+WD10 10 m wind direction 
+WGS World Geodetic System 
+WSPD Wind speed 
+WS10 10 m wind speed 
+ 
+@@@ PAGE 61 @@@
+     
+  
+REPORT DOCUMENTATION PAGE 
+1. REPORT DATE 
+October 2025 
+2. REPORT TYPE 
+Final Special Report 
+3. DATES COVERED 
+START DATE 
+FY23 
+END DATE 
+FY25 
+4. TITLE AND SUBTITLE 
+Development and Management of Arctic Zonal Characterization Products: 
+Geospatial Database 
+5a. CONTRACT NUMBER 
+ 
+5b. GRANT NUMBER 
+ 
+5c. PROGRAM ELEMENT 
+ 
+5d. PROJECT NUMBER 
+NH23-8375 
+5e. TASK NUMBER 
+ 
+5f. WORK UNIT NUMBER 
+ 
+6. AUTHOR(S) 
+Evan P. Barrett, Brendon Hoch, Zachary Zody, Michelle L. Michaels, and Rosa T. Affleck 
+7. PERFORMING ORGANIZATION NAME(S) AND ADDRESS(ES) 
+See reverse. 
+8. PERFORMING ORGANIZATION 
+REPORT NUMBER 
+ERDC/CRREL SR-25-2 
+9. SPONSORING/MONITORING AGENCY NAME(S) AND ADDRESS(ES) 
+Environmental Security Technology Certification Program (ESTCP) 
+Alexandria, VA 22350-3605 
+10. SPONSOR/MONITOR’S 
+ACRONYM(S) 
+ESTCP 
+11. SPONSOR/MONITOR’S 
+REPORT NUMBER(S) 
+ 
+12. DISTRIBUTION/AVAILABILITY STATEMENT 
+Distribution Statement A. Approved for public release: distribution is unlimited. 
+13. SUPPLEMENTARY NOTES 
+ 
+14. ABSTRACT 
+Environmental parameters for operational planning in extreme conditions require accurate knowledge of prevailing meteorological 
+conditions. However, the Arctic region presents unique challenges due to limited observational data and unique geographical conditions. 
+To address the need for such knowledge, this study presents an analysis of Arctic prevailing-conditions using European Center for 
+Medium-Range Weather Forecasting (ECMWF) Reanalysis v5 (ERA5) Data from 1991 to 2020. A custom Python-based framework 
+was developed to process and analyze hourly datasets, identifying zones of extreme events and their frequency across multiple temporal 
+scales. The framework uses ArcPy to automate the generation of nearly 40,000 mapped classifications for land masses 60°N and above. 
+This automated pipeline enables both static and dynamic map generation capabilities for operational planning now and in the future. The 
+resulting dataset provides critical spatial and temporal resolution of Arctic prevailing-conditions, enabling more refined characterization 
+of extreme prevailing-conditions across the circumpolar region. 
+15. SUBJECT TERMS 
+Arctic regions; Environment; Geospatial; Geospatial data; Meteorology; Operations; Reanalysis; Thresholds; Weather forecasting 
+16. SECURITY CLASSIFICATION OF: 17. LIMITATION OF ABSTRACT 
+SAR 
+18. NUMBER OF PAGES 
+62 a. REPORT 
+Unclassified 
+b. ABSTRACT 
+Unclassified 
+C. THIS PAGE 
+Unclassified 
+19a. NAME OF RESPONSIBLE PERSON 
+Brendon Hoch 
+19b. TELEPHONE NUMBER (include area code) 
+Brendon.Hoch@erdc.dren.mil 
+Report Documentation Page (SF 298) STANDARD FORM 298 (REV. 5/2020) 
+PREVIOUS EDITION IS OBSOLETE. Prescribed by ANSI Std. Z39.18  
+@@@ PAGE 62 @@@
+     
+  
+7. PERFORMING ORGANIZATION NAMES AND ADDRESSES (concluded) 
+US Army Engineer Research and Development Center (ERDC) 
+Cold Regions Research and Engineering Laboratory (CRREL) 
+72 Lyme Road 
+Hanover, NH 03755-1290 
+Oak Ridge Associated Universities (ORAU) 
+Oak Ridge Institute for Science and Education (ORISE) 
+2902 Newmark Drive 
+PO Box 9005 
+Champaign, IL 61826-9005 

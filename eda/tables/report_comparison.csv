@@ -1,0 +1,17 @@
+quantity,this EDA (pixel mean),this EDA (area-weighted),TR-26-5,note
+Average Oct–Mar wind chill over land (°F),-24.01,-20.46,-23.9,"averageTemp, mean of daily files"
+"Share of hours with WCT ≤ −65 °F, land (%)",7.68,5.87,7.66,
+"Coldest daily 1st-percentile WCT, land avg (°F)",-84.07,-82.12,-86.7,report value is the true record low; Metrics have no true min for WCT
+"Coldest daily min_WCT (avg of yearly lows), land avg (°F)",-49.71,-46.94,-86.7,not comparable: min_WCT is a mean of annual minima
+"Average Oct–Mar snow load, non-glacier land (lb/ft²)",13.8,13.94,13.8,
+"Highest recorded snow load, non-glacier land avg (lb/ft²)",42.95,43.73,42.9,
+Non-glacier land where typical peak SL < 10 lb/ft² (%),4.89,4.25,,
+Non-glacier land where record SL < 10 lb/ft² (%),1.82,1.53,,
+Non-glacier land where typical peak SL < 20 lb/ft² (%),40.4,38.22,,
+Non-glacier land where record SL < 20 lb/ft² (%),6.31,5.65,,
+Non-glacier land where typical peak SL < 25 lb/ft² (%),57.38,55.55,,
+Non-glacier land where record SL < 25 lb/ft² (%),13.74,12.48,,
+Non-glacier land where typical peak SL < 48 lb/ft² (%),95.32,94.92,,
+Non-glacier land where record SL < 48 lb/ft² (%),64.46,62.89,,
+Land where WCT never reached ≤ -40 °F in 30 yr (%),1.52,1.85,,
+Land where WCT never reached ≤ -65 °F in 30 yr (%),10.08,11.78,,

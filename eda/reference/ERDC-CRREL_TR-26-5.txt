@@ -1,0 +1,2300 @@
+
+@@@ PAGE 1 @@@
+  
+ERDC/CRREL TR-26-5 
+  
+     
+  
+Environmental Security Technology Certification Program (ESTCP) Alaska 
+Innovation Landscape Network (AILN) 
+Arctic and Subarctic Zonal 
+Characterization and Operational 
+Thresholding (AZCOT) 
+Cold Regions Research  
+and Engineering Laboratory  
+  Rosa T. Affleck, Michelle L. Michaels, Brendon Hoch, 
+Evan P. Barrett, Jenna N. Williams, Zachary J. Zody, 
+Paige Toebben, and Mathew E. Hefner 
+March 2026 
+ 
+ 
+ 
+  
+Distribution Statement A. Approved for public release: distribution is unlimited. 
+
+@@@ PAGE 2 @@@
+  
+ 
+The US Army Engineer Research and Development Center (ERDC)  solves 
+the nation’s toughest engineering and environmental challenges. ERDC develops 
+innovative solutions in civil and military engineering, geospatial sciences, water 
+resources, and environmental sciences for the Army, the Department of Defense, 
+civilian agencies, and our nation’s public good. Find out more at www.erdc.usace.army.mil . 
+ 
+To search for other technical reports published by ERDC, visit the ERDC online library 
+at https://erdclibrary.on.worldcat.org/discovery.  
+@@@ PAGE 3 @@@
+  
+Environmental Security Technology Certification 
+Program (ESTCP) Alaska Innovation Landscape 
+Network (AILN) 
+ERDC/CRREL TR-26-5 
+March 2026 
+Arctic and Subarctic Zonal 
+Characterization and Operational 
+Thresholding (AZCOT) 
+Rosa T. Affleck, Michelle L. Michaels, Brendon Hoch, Jenna N. Williams, Zachary J. Zody, 
+Paige Toebben, and Mathew E. Hefner 
+US Army Engineer Research and Development Center (ERDC) 
+Cold Regions Research and Engineering Laboratory (CRREL) 
+72 Lyme Road 
+Hanover, NH 03755-1290 
+Evan P. Barrett 
+Oak Ridge Associated Universities (ORAU) 
+Oak Ridge Institute for Science and Education (ORISE) 
+2902 Newmark Drive 
+PO Box 9005 
+Champaign, IL 61826-9005 
+Final Technical Report 
+Distribution Statement A. Approved for public release: distribution is unlimited. 
+Prepared for US Army Corps of Engineers–Headquarters 
+Washington, DC 20314-1000 
+ Under Project NH23-8375, “Arctic Zonal Characterization and Operational 
+Thresholding (AZCOT)” 
+@@@ PAGE 4 @@@
+ERDC/CRREL TR-26-5 ii 
+ 
+Abstract 
+The US military develops and updates environmental parameters specified 
+for the sustainment of operations throughout the world. These 
+requirements are generally based on environmental data providing a 
+baseline of temperature, wind, and precipitation expectations for each 
+location. Observational data for Arctic regions is limited because of the 
+remote and sparsely occupied geographical conditions. To address the 
+need for updating these requirements, a 30-year analysis of meteorological 
+conditions was conducted using a European Centre for Medium-Range 
+Weather Forecasts (ECMWF) global reanalysis dataset over the Arctic and 
+Subarctic region, defined by latitude 60°–90° North for this project. Raw 
+hourly datasets were acquired, and the minimum temperatures, maximum 
+wind speeds, maximum snow depths, and averages were determined over 
+the period 1991–2020 between the months of October and March for each 
+parameter. These were then visualized with geospatial analysis, producing 
+a variety of maps designed to assist with the classification of parameters in 
+Arctic zones of operation across a range of temporal resolutions. Finally, a 
+review of operational limits for military equipment was conducted to 
+match northern zones of operation with suitable capabilities dependent on 
+environmental conditions. 
+DISCLAIMER: The contents of this report are not to be used for advertising, publication, or promotional purposes. 
+Citation of trade names does not constitute an official endorsement or approval of the use of such commercial products. 
+All product names and trademarks cited are the property of their respective owners. The findings of this report are not to 
+be construed as an official Department of the Army position unless so designated by other authorized documents. 
+DESTROY THIS REPORT WHEN NO LONGER NEEDED. DO NOT RETURN IT TO THE ORIGINATOR. 
+@@@ PAGE 5 @@@
+ERDC/CRREL TR-26-5 iii 
+ 
+Contents 
+Abstract .......................................................................................................................................................... ii 
+Preface ...........................................................................................................................................................vii 
+1 Introduction ............................................................................................................................................ 1 
+1.1 Background ..................................................................................................................... 1 
+1.2 Objective .......................................................................................................................... 5 
+1.3 Approach ......................................................................................................................... 5 
+2 Methodology .......................................................................................................................................... 6 
+2.1 Area of Study ................................................................................................................... 6 
+2.2 Data .................................................................................................................................  6 
+2.2.1 European Center for Medium-Range Weather Forecasting (ECMWF) 
+Reanalysis v5 (ERA5) as Baseline Gridded Dataset ........................................ 7 
+2.2.2 Data Selection and Transformation .................................................................. 8 
+2.2.3 Point Observations Using Meteorological Aerodrome Report (METAR) ........... 10 
+2.3 Geospatial Analyses ..................................................................................................... 11 
+2.3.1 Metric Calculations .......................................................................................... 11 
+2.3.2 Generation of Static Maps ............................................................................... 12 
+3 Review of Thresholds..........................................................................................................................13 
+3.1 Zones and Thresholds .................................................................................................. 13 
+3.2 Arctic Military Equipment and Gear for Specific Zones .............................................. 19 
+4 Geospatial Characterization Results .............................................................................................. 31 
+4.1 Temperature ................................................................................................................. 31 
+4.1.1 Skin Temperature (SKT) .................................................................................. 31 
+4.1.2 Two-meter Temperature (2T) ........................................................................... 34 
+4.1.3 Soil Temperature, Level 1 (STL1) .................................................................... 37 
+4.1.4 Wind Chill Temperature (WCT) ........................................................................ 40 
+4.2 Wind ............................................................................................................................... 42 
+4.3 Snow .............................................................................................................................. 45 
+4.3.1 Snow Depth (SD) .............................................................................................. 45 
+4.3.2 Snow Load (SL) ................................................................................................ 47 
+5 Summary ............................................................................................................................................... 49 
+6 Discussion and Recommendations ................................................................................................. 50 
+6.1 Considerations for Soldiers .......................................................................................... 50 
+6.2 Deliverables and Future Needs ................................................................................... 50 
+Bibliography ................................................................................................................................................. 52 
+Abbreviations ............................................................................................................................................... 55 
+Report Documentation Page (SF 298) ................................................................................................... 59 
+@@@ PAGE 6 @@@
+ERDC/CRREL TR-26-5 iv 
+ 
+Figures and Tables 
+Figures 
+1. Arctic and Subarctic terrain characteristics. ................................................................... 2 
+2. Low mean temperatures for January (left) and February (right) from the US Air 
+Force, 14th Weather Squadron. Obtained from the Climate Forecast System 
+(CFS) v1, 1979–2010. (Images reproduced from USAF, n.d. Public domain.) ............. 4 
+3. The steps used for Arctic zonal characterization. ........................................................... 5 
+4. Monthly average skin temperature (SKT) between 60°N and 90°N for October 
+(A), November (B), December (C), January (D), February (E), and March (F), from 
+hourly data between 1991 and 2020. .......................................................................... 32 
+5. Monthly lowest reanalysis hourly SKT between 60°N and 90°N latitude for 
+October (A), November (B), December (C), January (D), February (E), and March 
+(F), from hourly data between 1991 and 2020. ........................................................... 33 
+6. The monthly frequency of SKT between 60°N and 90°N latitude being recorded 
+at or less than −40°F for October (A), November (B), December (C), January (D), 
+February (E), and March (F), from hourly data between 1991 and 2020. .................. 34 
+7. Monthly average 2 m temperature (2T) between 60°N and 90°N for October (A), 
+November (B), December (C), January (D), February (E), and March (F), from 
+hourly data between 1991 and 2020. .......................................................................... 35 
+8. Monthly lowest reanalysis hourly 2T between 60°N and 90°N latitude for 
+October (A), November (B), December (C), January (D), February (E), and March 
+(F), from hourly data between 1991 and 2020. ........................................................... 36 
+9. The monthly frequency of 2T between 60°N and 90°N latitude being recorded at 
+or less than −40°F for October (A), November (B), December (C), January (D), 
+February (E), and March (F), from hourly data between 1991 and 2020. .................. 37 
+10. Monthly average STL1 between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F), from 
+hourly data between 1991 and 2020. .......................................................................... 38 
+11. Monthly lowest hourly STL1 between 60°N and 90°N for October (A), November 
+(B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. .............................................................................................. 39 
+12. Monthly average WCT between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F) from 
+hourly data between 1991 and 2020. .......................................................................... 41 
+13. Monthly lowest WCT between 60°N and 90°N latitude for October (A), November 
+(B), December (C), January (D), February (E), and March (F) from hourly data 
+between 1991 and 2020. .............................................................................................. 41 
+14. The monthly frequency of WCT between 60°N and 90°N latitude being recorded 
+at or less than −65°F for October (A), November (B), December (C), January (D), 
+February (E), and March (F) from hourly data between 1991 and 2020. ................... 42 
+15. Monthly average wind speed and direction between 60°N and 90°N latitude for 
+October (A), November (B), December (C), January (D), February (E), and March 
+(F), from hourly data between 1991 and 2020. ........................................................... 43 
+16. Monthly highest wind speed between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F), from 
+hourly data between 1991 and 2020. .......................................................................... 44 
+@@@ PAGE 7 @@@
+ERDC/CRREL TR-26-5 v 
+ 
+17. The monthly frequency of wind speed between 60°N and 90°N latitude being 
+recorded at or higher than 25°F for October (A), November (B), December (C), 
+January (D), February (E), and March (F), from hourly data between 1991 and 
+2020. ............................................................................................................................... 45 
+18. Monthly average SD between 60°N and 90°N latitude for October (A), November 
+(B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. .............................................................................................. 46 
+19. Monthly highest SD between 60°N and 90°N latitude for October (A), November 
+(B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. .............................................................................................. 46 
+20. Monthly average SL between 60°N and 90°N latitude for October (A), November 
+(B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. .............................................................................................. 47 
+21. Monthly highest SL between 60°N and 90°N latitude for October (A), November 
+(B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. .............................................................................................. 48 
+ 
+Tables 
+1. Summary of cold condition limits as described in Army Regulation (AR) 70-38 
+(HQDA 2020). .................................................................................................................... 3 
+2. Temperature zones. (Data from HQDA and USMC 2025; US Army 2025.) ................. 13 
+3. Snow ranges for vehicle limitations. (Data from US Army and US Marine Corps 
+2025.) .............................................................................................................................. 14 
+4. The wind chill temperature, in degrees Fahrenheit, from 10 m wind speed and 
+2 m air temperature. (Data from Nelson et al. 2002.) ................................................. 15 
+5. The time, in minutes, until frostbite occurs on exposed, dry cheek skin based on 
+air temperature and wind speed conditions. (Data from Nelson et al. 2002.)  ........... 16 
+6. Stoplight chart that the Combat Weather Teams in Alaska use. (Data from 
+personnel at Fort Wainwright, pers. comm., February 2026.) ..................................... 17 
+7. Active wear of the Extended Cold Weather Clothing (ECWC) System. (Data from 
+Technical Manual [TM] 10-8415-236-10; DA 2014.) ................................................... 20 
+8. Static wear of the ECWC System. (Data from TM 10-8415-236-10; DA 2014.) ......... 20 
+9. Operational temperature limits of worn gear. ............................................................... 21 
+10. Equipment. (Data from TM 4-33.31; DA 2017.) ........................................................... 22 
+11. Tents. ............................................................................................................................... 22 
+12. Batteries. (Data from TM 4-33.31; DA 2017.) .............................................................. 23 
+13. Electronics. (Data from TM 4-33.31; DA 2017.) ........................................................... 23 
+14. Generators. (Data from TM 4-33.31; DA 2017.) ........................................................... 24 
+15. Fuels. (Data from TM 4-33.31; DA 2017.) ..................................................................... 24 
+16. Engine oils, by military symbol. (Data from TM 4-33.31; DA 2017). ............................ 25 
+17. Hydraulic fluids listed by standard name then military symbol (if applicable). 
+(Data from TM 4-33.31; DA 2017.) ................................................................................ 25 
+18. Gear lubricating oils, by military symbol. (Data from TM 4-33.31; DA 2017.) ............ 25 
+19. Grease lubricants. (Data from TM 4-33.31; DA 2017.) ................................................ 26 
+@@@ PAGE 8 @@@
+ERDC/CRREL TR-26-5 vi 
+ 
+20. Solvents and cleaners, listed by military symbol. (Data from TM 4-33.31; DA 
+2017.) .............................................................................................................................. 26 
+21. Miscellaneous liquids. (Data from TM 4-33.31; DA 2017.).......................................... 26 
+22. Weapon systems and components. (Data from TM 4-33.31; DA 2017.) .................... 27 
+23. Weapons lubricants. (Data from TM 4-33.31; DA 2017.) ............................................ 27 
+24. Rifle Lubrication guidelines. (Data from TM 4-33.31; DA 2017.) ................................ 28 
+25. The M249, squad automatic weapon (SAW) lubrication guidelines. (Data from TM 
+4-33.31; DA 2017.) ......................................................................................................... 28 
+26. Machine gun lubrication guidelines. (Data from TM 4-33.31; DA 2017). ................... 28 
+27. Mortar lubrication guidelines. (Data from TM 4-33.31; DA 2017.) .............................. 29 
+28. Artillery lubrication guidelines. (Data from TM 4-33.31; DA 2017.) ............................ 29 
+29. Helicopters, according to Soldier experience. ............................................................... 29 
+30. Fixed wing aircraft. .......................................................................................................... 30 
+31. Zonal statistics per location (within 60°N–90°N) for the average surface 
+temperature, defined as the six-month mean (October–March), using hourly data 
+from 1991–2020. ........................................................................................................... 31 
+32. Zonal statistics per location (within 60°N–90°N) for the lowest recorded surface 
+temperature, defined as the six-month minimum (October–March), from hourly 
+data from 1991 to 2020. ............................................................................................... 33 
+33. Zonal statistics per location (within 60°N and 90°N) for the average 2T, 
+according to hourly data from October–March 1991–2020. ...................................... 35 
+34. Zonal statistics per location for the lowest recorded 2T, using hourly data from 
+October–March, 1991–2020. ....................................................................................... 36 
+35. Zonal statistics per location (within 60°N and 90°N) for the average STL1, using 
+the hourly reanalysis data averaged over October to March, 1991–2020. ................ 38 
+36. Zonal statistics per location (within 60°N and 90°N) for the lowest recorded 
+STL1, using hourly data from October–March, 1991–2020. ...................................... 39 
+37. Zonal statistics per location (within 60°N and 90°N) for the average WCT, using 
+hourly data averaged over October–March, 1991–2020. ........................................... 40 
+38. Zonal statistics per location (within 60°N and 90°N) for the lowest recorded 
+WCT, using hourly data from October–March, 1991–2020. ....................................... 42 
+39. Zonal statistics per location (within 60°N and 90°N) for the average wind speed 
+(knots), using hourly data from October–March, 1991–2020. ................................... 43 
+40. Zonal statistics per location (within 60°N and 90°N) for the highest recorded 
+wind speed, using hourly data from October–March 1991–2020. ............................. 44 
+ 
+@@@ PAGE 9 @@@
+ERDC/CRREL TR-26-5 vii 
+ 
+Preface 
+This study was conducted for the US Army Corps of Engineers (USACE), 
+Environmental Security Technology Certification Program (ESTCP) under 
+Project NH23-8375, “Arctic Zonal Characterization and Operational 
+Thresholding (AZCOT).” The technical monitor was Mr. Kevin Hiers, 
+ESTCP Program Office, Office of the Deputy Assistant Secretary of Defense 
+(Energy Resilience & Optimization), Washington, DC. 
+The work was performed by the Force Projection and Sustainment Branch 
+and the Terrestrial and Cryospheric Sciences Branch of the Research and 
+Engineering Division, US Army Engineer Research and Development 
+Center–Cold Regions Research and Engineering Laboratory (ERDC-
+CRREL). At the time of publication, Ms. Sandra LeGrand was acting 
+branch chief and Dr. John W. Weatherly was branch chief, respectively; 
+and Dr. John B. Eylander was division chief. The acting deputy director of 
+ERDC-CRREL was Dr. Kelly Swiderski, and the acting director was 
+Dr. Edmund J. Russo, Jr. 
+The authors would like to thank Dr. Sally Shoop (ERDC-CRREL) and Dr. 
+Ross Alter (ERDC-CRREL) for their technical review of this report, Mr. 
+Kevin Bjella (ERDC-CRREL) for project guidance, and Mr. Martin Stuefer 
+(University of Alaska Fairbanks) for assisting with technology transfer of 
+project deliverables.  
+Special thanks to contributions from our stakeholders including Ms. Gail 
+Weaver, 611th Air Operations Center, Joint Base Elmendorf -Richardson 
+(JBER); CAPT Edward Garibay , Combined Arms Doctrine Directorate 
+(CADD); Mr. Daniel Wozniczka,  Arctic Regions Test Center ; Mr. Rick 
+Thoman, University of Alaska Fairbanks; and CAPT Corie Capalbo, 
+Mr. William Henning, Mr. Ross Stark, Mr. Jacob Ballard, Mr. Jason 
+Patla, and Mr. Benjamin Fulk , US Air Force 14th Weather Squadron.  
+LTC Joshua M. Haynes was commander of ERDC, and Dr. Beth C. Fleming 
+was the director. 
+@@@ PAGE 10 @@@
+  
+ 
+This page intentionally left blank. 
+@@@ PAGE 11 @@@
+ERDC/CRREL TR-26-5 1 
+ 
+1 Introduction 
+The National Strategy for the Arctic Region (DOS 2022) highlights the 
+overarching strategic policies for US interests in the region. The DoD has 
+also recently released an Arctic strategy (DoD 2024), as well as the 
+individual Services with the Air Force (DAF 2020), Army (HQDA and DAF 
+2021), Navy (DON 2019), and other DoD entities requiring an increased 
+presence across the Arctic for safeguarding the region. Mission planners 
+must be assured the warfighter has full personnel support and operational 
+facilities which can be quickly deployed and robust enough to maintain life 
+sustainment in very harsh Arctic conditions, and are quickly recoverable 
+with organic assets not requiring significant logistical support from lateral 
+units. DoD planners have identified stringent environmental parameters 
+(i.e., for extended operations down to −65°F) to be attained by 
+infrastructure and equipment.1 This is because of the difficult operating 
+conditions of extreme cold regions where some equipment and materials 
+will not function at certain environmental thresholds, and military 
+operations have hard-stop operating specifications. Applying rigid 
+requirements for environmental parameters throughout the Arctic and 
+Subarctic is impractical in regions where those environmental conditions 
+rarely occur. This project provides a method to apply appropriate 
+environmental conditions using data analysis for specific areas within the 
+Arctic and Subarctic regions from latitudes between 60° and 90° North. 
+1.1 Background 
+The Arctic and Subarctic are vast (Figure 1) and cover a variety of terrain 
+and atmospheric conditions. The Army Technical Manual (TM) (DA 2017) 
+introduces the general principles and technical guidance for performing 
+field maintenance, operation, and repair of equipment under cold weather 
+conditions specifically in below freezing temperatures. Also, the Army 
+Regulation (AR) 70-38 (HQDA 2020) provides Cold and Severe Cold 
+Climatic Categories. These areas include northern North America, 
+Greenland, northern Asia, and Tibet. The categories for cold conditions in 
+AR 70-38, are divided into four elements (basic cold, cold, severe cold, and 
+extreme cold; Table 1) and represent only the upper and lower limits of the 
+daily temperature cycles. The daily extremes represent the highest and 
+ 
+1. For a full list of the spelled-out forms of the units of measure used in this document, 
+please refer to US Government Publishing Office Style Manual, 31st ed. (Washington, DC: US 
+Government Publishing Office, 2016), 248–52, https://www.govinfo.gov/content/pkg/GPO 
+-STYLEMANUAL-2016/pdf/GPO-STYLEMANUAL-2016.pdf. 
+@@@ PAGE 12 @@@
+ERDC/CRREL TR-26-5 2 
+ 
+lowest values in a 24 hour cycle of temperature, solar radiation, and 
+relative humidity (RH). The AR 70-38 cold climatic category states,  
+The temperature during the coldest month in a normal 
+year may be colder than the basic climatic category 
+cold extreme of −32°C (−26°F). In the severe cold 
+areas, the temperature during the coldest month in a 
+normal year may be colder than the cold climatic 
+category extreme of −46°C (−51°F). Temperatures 
+colder than −51°C (−60°F) occur no more than 20 
+percent of the hours in the coldest month of the coldest 
+part of the area (northern Siberia) where temperatures 
+as low as −68°C (−90°F) have been recorded (HQDA 
+2020, 5). 
+Under conditions of low temperature and limited solar radiation, 
+surfaces remain cold. Even with low to moderate absolute humidity, RH  
+tends to reach saturation which promotes frost formation on exposed 
+surfaces and equipment.  
+Figure 1. Arctic and Subarctic terrain characteristics. 
+ 
+
+@@@ PAGE 13 @@@
+ERDC/CRREL TR-26-5 3 
+ 
+Table 1. Summary of cold condition limits as described in Army Regulation (AR) 70-38 (HQDA 
+2020). 
+Daily Cycle 
+Operational Conditions 
+Storage and Transit 
+Conditions 
+Natural Environment 
+Exposure Testinga 
+°C (°F) 
+Ambient Air 
+Temperature, °C (°F) 
+Induced Air Temperature,  
+°C (°F) 
+Daily Low Daily High Daily Low Daily High 
+Basic Cold (C1) −32 (−25) −21 (−5) −33 (–28) −25 (−13) 0 to –32 (32 to −25) 
+Cold (C2) −46 (−50) −37 (–35) −46 (−50) −37 (−35) −32 to −46 (−26 to −50) 
+Severe Cold (C3) −51 (−60) −51 (−60) 
+<−46 (<−50) 
+Extreme Cold (C4) −57 (−70) −57 (−70) 
+Note: C1—Operational design conditions are 5 continuous hours with an ambient air temperature of 
+−25°F (−31°C), a minimum ground surface temperature of −35°F (−37°C), wind speed less than 
+16 ft/s (5 m/s). Design criteria for storage and transit are five continuous hours with an induced air 
+temperature of −28°F (−33°C) with no wind or solar radiation and humidity tending toward 
+saturation. 
+C2−Design conditions are 6 continuous hours with an ambient air temperature of −50°F (−46°C), a 
+minimum snow surface temperature of −50°F (−46°C), wind speed less than 16 ft/s (5 m/s), 
+negligible solar radiation (horizontal surface), and RH tending towards saturation. 
+C3—The design condition is a minimum temperature of −60°F (−51°C). (For testing purposes, this is 
+a cold soak temperature.) Wind speeds are less than 16 ft/s (5 m/s). 
+Snow load design criterion−Portable equipment, such as tentage is based on 24 hour snowfalls 
+withstanding a max snow load value of 10 lb/ft2 (48.9 kg/m2), which is equivalent to a depth of 
+20 in. (508 mm) of snow with a specific gravity of 0.1. Temporary equipment such as rigid shelters, 
+portable hangars, and so forth is based snowfalls associated with storms lasting longer than one day 
+and is required to withstand a snow load value of 20 lb/ft2 (97.7 kg/m2), which is equivalent to a 
+snow depth of 40 in. (1,016 mm) with a specific gravity of 0.1. This equipment should be cleared of 
+snow between storms. Semipermanent structure (demountable) is based on seasonal accumulation 
+of snow and is required to withstand a snow load value of 48 lb/ft2 (235 kg/m2), which is equivalent 
+to a snow depth of 96 in. (2,438 mm) with a specific gravity of 0.1. 
+Wind—For operations, the following extremes, as given in MIL–HDBK–310 (DoD 1997) are a steady 
+wind speed of 73 ft/s (22 m/s) and a gust of 95 ft/s (29 m/s).  
+a Delineation to be used for natural environment exposure testing, not applicable to laboratory testing. 
+Moreover, the Army continues to identify stringent requirements for the 
+Arctic operational environment, and expresses concerns of risk mission 
+failure for sustaining the forces at temperatures reaching −65°F. This is 
+because for some equipment and systems, the adverse effects of cold can 
+occur even at temperatures above 32°F. However, the Arctic environment 
+has wide variations in the state of the terrain and environmental 
+conditions, and those conditions have vast divergence between the coastal 
+areas and interior locations because of latitude, circulation patterns, and 
+elevation. Modeled low mean temperatures of climatological data for 
+January and February from the US Air Force, 14th Weather Squadron are 
+shown in Figure 2. Using this, the Army requirement of operational 
+temperatures reaching −65°F may only be encountered on rare occasions 
+@@@ PAGE 14 @@@
+ERDC/CRREL TR-26-5 4 
+ 
+in certain parts of the region. In addition to the temperature prerequisite, 
+both the Army and the Air Force have rigid structural requirements for 
+sustaining human habitation. Life sustaining structures must be able to 
+withstand wind speeds of greater than 100 mph (125 mph at Pituffik Space 
+Force Base, Greenland) and support 25 lb/ft2 snow load. These snow load 
+and wind levels may only be encountered in certain parts of the region. 
+Therefore, focusing on operational requirements with unrealistic or 
+impractical environmental parameters can preclude resources and 
+capabilities from being applied wisely. The coincidence, or lack thereof, of 
+these parameters will assist DoD Arctic operations planners with mission 
+planning in order to apply the appropriate resources and logistics 
+depending on reasonably expected atmospheric conditions. 
+Figure 2. Low mean temperatures for January (left) and February (right) from the US Air Force, 
+14th Weather Squadron. Obtained from the Climate Forecast System (CFS) v1, 1979–2010. 
+(Images reproduced from USAF, n.d. Public domain.) 
+  
+As a result, DoD planners continue to be challenged with these following 
+overarching questions: 
+• Are all Arctic material solutions required to operate at −65°F? 
+• Are there existing capabilities and solutions that can operate at 
+−65°F? 
+• Are there existing capabilities that do not meet the −65°F requirement 
+that can be used anywhere else in the Arctic? 
+• What regions of the Arctic and Subarctic never experienced +100 mph 
+winds or 25 lb/ft2 snow load? 
+To answer the fundamental questions above, we developed characteristic 
+northern latitude operational zones in the Arctic and Subarctic relative to 
+these design thresholds. 
+
+@@@ PAGE 15 @@@
+ERDC/CRREL TR-26-5 5 
+ 
+1.2 Objective 
+The objective of this effort is to further identify and refine the prevailing 
+zonal characterization in the circumpolar north identified in TM 4-33.31 
+and AR 70-38. This zonal characterization includes three environmental 
+parameters (air temperature extremes, snow depth, and wind speed limits) 
+and mapped these against material and equipment exposure thresholds. 
+Operational zone characterization in the Arctic and Subarctic regions 
+involves defining environmental limits to identify the contingency, 
+logistics and resources needed, and to develop site-focused requirements 
+for military operations in the Arctic and Subarctic regions. This provides 
+mission-critical information that helps operations managers make risk-
+informed decisions based on the analysis of recent weather data. 
+1.3 Approach 
+To accomplish the intended project objectives, we used a 30-year span of 
+meteorological data (described in the methodology below), validated and 
+verified by observational point data. After the datasets are processed, we 
+applied various metric calculations and generated maps for each 
+parameter (Figure 3). 
+Figure 3. The steps used for Arctic zonal characterization. 
+ 
+The datasets used are described in Section . The processes or methodology 
+for generating maps to visualize the environmental conditions for Arctic 
+and Subarctic zones of operation is described in Section 2.3 as well as in 
+Barrett et al (2025). Because cold environments are particularly difficult 
+for military operations (soldiers, materials, equipment, etc.), this project 
+also aimed to compile operational thresholding tables to map appropriate 
+materiel to each zone of operation. 
+
+@@@ PAGE 16 @@@
+ERDC/CRREL TR-26-5 6 
+ 
+2 Methodology 
+2.1 Area of Study 
+The study region includes all areas between latitudes of 60°N and 90°N, 
+rather than adhering to the established Arctic boundary at 66.5°N. 
+Stakeholders requested this broader region to include both Arctic and 
+Subarctic zones for analysis of a larger region of land with high mission 
+activity, especially in the parts of Alaska and Canada between 60°N and 
+66.5°N latitude. As a result, the analyses and resulting statistics are not 
+representative of the Arctic region alone or of any single nation, but rather 
+the environmental patterns within the 60°N to 90°N band. This 
+distinction is important for interpreting results and understanding the 
+scope and applicability of the data. 
+2.2 Data 
+There are many datasets that can be used to determine atmospheric and 
+terrain characterization parameters within the Arctic and near-Arctic. 
+While point observations often provide the most accurate data at specific 
+locations, data availability in the Arctic is typically both sparse and 
+inconsistent because of extreme weather conditions, low population, 
+financial considerations, and other factors. Military stakeholders, 
+including mission planners at DoD installations, often have requirements 
+to deploy in areas where there have been minimal meteorological 
+observations. In these cases, the use of a numerical weather prediction 
+(NWP) model analysis dataset with initialization values may be used. 
+Weather analysis datasets are an established and accepted procedure to 
+project the state of the atmosphere from a finite set of imperfect, 
+irregularly distributed observations onto a regular grid, or to represent the 
+atmospheric state by the amplitude of standard mathematical functions, 
+allowing for easy diagnostic study (AMS 2024a). An analysis may be 
+considered as a space-time interpolation system. Essential ingredients of 
+an analysis are a background field, usually a short-range forecast 
+(although persistence may be an option), a forecast model, knowledge of 
+the relative error of the many different observational platforms employed 
+as well as knowledge of the error in the background field, and the spatial 
+covariance of the various errors. 
+@@@ PAGE 17 @@@
+ERDC/CRREL TR-26-5 7 
+ 
+A specialized analysis known as reanalysis may provide an advantage over 
+a standard analysis. Meteorological studies made with results from 
+standard analyses may introduce inconsistences from frequent changes in 
+the NWP model configuration used to generate forecasts from previous 
+analysis times. These changes (including changes in resolution and 
+orography) lead to discontinuities in a time series of real-time analyses 
+(AMS 2024b). A reanalysis produces complete, global gridded data that 
+are as temporally homogeneous as possible. In the case of a reanalysis, the 
+initial forecast (also known as the background field) is made by an NWP 
+model that does not change over the entire period of the reanalysis. 
+Reanalysis data may include many derived fields (heating, soil moisture 
+over land, etc.) for which direct observations are nearly absent. Reanalysis 
+combines model data with observations from across the world into a 
+globally complete and consistent dataset using atmospheric physics. A 
+reanalysis may produce data that goes several decades back, providing an 
+accurate description of existing past atmospheric conditions. 
+2.2.1 European Center for Medium-Range Weather Forecasting (ECMWF) 
+Reanalysis v5 (ERA5) as Baseline Gridded Dataset 
+According to AR 115-10 AFI 15-157 Interservice Publication (IP) Section 3-
+2, the United States Air Force (USAF) is statutorily responsible for 
+meteorological operations in support of the Army Headquarters, 
+Department of the Army (HQDA). This includes access to global surface 
+and upper air meteorological observations, surface radar data, satellite 
+imagery from geostationary, and polar orbiting sensors, as well as gridded 
+datasets from NWP models. USAF has established multiple groups to 
+assist with the variety of needs required for military applications. For this 
+research, we relied on the expertise of the 14th Weather Squadron (14WS), 
+located in Asheville, North Carolina. The 14WS is generally responsible for 
+exploiting authoritative historical meteorological data to optimize military 
+operations. After multiple conversations and the submission of a Support 
+Analysis Request (SAR) (USAF 2017), 14WS recommended the usage of a 
+reanalysis from the European Centre for Medium-Range Weather 
+Forecasts (ECMWF) known as ECMWF Reanalysis v5 (ERA5) (Hersbach 
+et al 2020). 
+ERA5 is a reanalysis dataset providing a consistent view of the evolution of 
+meteorological and other parameters over several decades (ECMWF 
+2018). The reanalysis combines model data with observations from across 
+the world into a globally complete and consistent dataset. ERA5 provides 
+@@@ PAGE 18 @@@
+ERDC/CRREL TR-26-5 8 
+ 
+hourly estimates for a large number of atmospheric and land surface 
+parameters. A major strength of ERA5 is the much higher temporal and 
+spatial resolution than those of previous global reanalyses. 
+The ERA5 dataset, as with any simulation, provides estimates which have 
+some degree of uncertainty. Numerical models can only provide a 
+representation of the real physical processes governing different 
+components of the Earth System. In general, the uncertainty of model 
+estimates grows larger as we go back in time, because the number of 
+observations available to create a good quality atmospheric forcing is lower. 
+The temporal resolution is hourly while the gridded spatial resolution is 
+0.25° (approximately 31 km). Thus, the ERA5 dataset provides an ideal, 
+detailed snapshot of a variety of meteorological parameters. 
+2.2.2 Data Selection and Transformation 
+The parameters and threshold analyses was performed for the 60°N–90°N 
+latitude regions over a thirty year period. Data temporal range is based on 
+the recognized international standard. The World Meteorological 
+Organization (WMO) has established that thirty years is the standard time 
+period required for calculating averages. Furthermore, WMO states that 
+the most recent thirty-year period finishing in a year ending with 0 is the 
+standard that should be utilized for data comparisons (WMO 2017). For 
+this work, the years from 1991 to 2020 were chosen as the most recent 
+available. This also serves to match other similar datasets produced by 
+other meteorological agencies, such as the NOAA National Centers for 
+Environmental Information, allowing additional dataset comparisons. It is 
+expected that the products produced by this project would be updated on a 
+decadal basis to continue to match future long term meteorological 
+datasets. As the stakeholders for the project were primarily concerned with 
+data and extremes occurring during winter months, only the months 
+between October to March were considered for analysis. 
+The data subset used contained latitudes between 60°N to 90°N latitude to 
+cover all Arctic regions plus portions of Subarctic regions. The data was 
+obtained from the ECMWF Climate Data Store (also known as Copernicus) 
+(ECMWF n.d.). The site provides free access to a variety of ECMWF 
+maintained datasets; it allows both manual downloads and a Python API 
+for more advanced data acquisition. The ERA5 data was initially obtained 
+from ECMWF in gridded binary (GRIB) format. GRIB is a format based on 
+standards established by the WMO and is typically used by operational 
+@@@ PAGE 19 @@@
+ERDC/CRREL TR-26-5 9 
+ 
+centers that produce NWP products. All parameters were downloaded in a 
+single hourly GRIB formatted file. Parameters selected include 2 m height 
+air temperature, skin (land surface) temperature, 10 m wind components, 
+snow water equivalent (SWE), and level 1 soil temperature. Additionally, 
+at the request of the stakeholders, snow depth was obtained from a 
+derivative ECMWF dataset known as ERA5-Land (ECMWF 2025c). This 
+dataset provides higher spatial resolution at 0.1° (approximately 9 km) at 
+the expense of exclusion of data over oceanic and other water surface 
+areas. Details about the collected variables are below: 
+• Skin temperature (SKT)—the temperature at the land surface, in Kelvin 
+• 2 m temperature (2T)—the temperature at a height of 2 m, in Kelvin 
+• Soil temperature, Level 1 (STL1)—the average temperature 0–7 cm 
+below the surface, in Kelvin 
+• Wind velocity, U-Component (U)—the easterly wind velocity at a 
+height of 10 m, in meters per second 
+• Wind velocity, V-Component (V)—the northerly wind velocity at a 
+height of 10 m, in meters per second 
+• Snow depth (SD)—the depth of snow on the surface, in meters 
+• SWE—the amount of water stored in snow, in meters 
+Each GRIB file with multiple parameters was split into an individual 
+parameter GRIB file using the open source wgrib software utility available 
+from NOAA (NWS 2005). Upon parameter separation, each separated 
+parameter GRIB file was then converted into Network Common Data 
+Format (netCDF) format in an effort to increase compatibility with other 
+data processing applications. The conversion was performed by the open-
+source National Center for Atmospheric Research (NCAR) Command 
+Language (NCL) software (NCAR-NCL, n.d.). NCL allows users to perform 
+a variety of statistical and visual analyses of meteorological datasets. The 
+ncl_convert2nc tool included within the package allows for conversion of 
+GRIB files to netCDF (NCAR-NCL 2019). 
+The wind speed (WSPD) and wind direction (WDIR) were calculated from 
+the wind velocity components, using Equations (1) and (2), respectively 
+(Earth Observing Laboratory, n.d.) 
+ 
+22WSPD VU= + , (1) 
+@@@ PAGE 20 @@@
+ERDC/CRREL TR-26-5 10 
+ 
+ ( ) ( )( )WDIR 270 arctan 2 , 180 / mod 360VU  π×= −   . (2) 
+The wind chill temperature (WCT), defined as the temperature felt to 
+exposed human skin in Fahrenheit, because of the combined effect of air 
+temperature (2T, in Fahrenheit) and wind speed (in miles per hour), was 
+calculated using Equation (3) (Nelson et al. 2002), 
+ 
+0.16
+0.16
+WCT 35.74 0.6215(2T) 35.75(WSPD)
+0.4275(2T)(WSPD)         
+= +−
++
+. (3) 
+The snow load (SL), defined as the downward force caused by the weight 
+of accumulated snow or ice in pounds per square feet, was estimated using 
+SWE (inches) assuming a horizontal angle with Equation (4) (Curtis, n.d.), 
+ SL SWE 5.2≈× . (4) 
+The frostbite time, defined as the time (in minutes) in which frostbite could 
+occur on exposed, dry cheek skin at a given 2T (Fahrenheit) and 10 m wind 
+speed (miles per hour) based on modeling, was calculated in addition to the 
+meteorological variables using Equation (5) (Nelson et al. 2002),  
+ 
+( )
+1.668
+2F 824.5 0.667 WSPD 4.8 1115
+54.8 32
+T
+2T 9
+  
+        
+−
+  − ×+ +   
+ −− −× 
+
+
+
+
+
+= 
+. (5) 
+2.2.3 Point Observations Using Meteorological Aerodrome Report (METAR) 
+At the recommendation of project stakeholders, additional meteorological 
+point observational data was obtained to provide limited verification of 
+reanalysis data in key locations. These real-time observations are available 
+in the International Civil Aviation Organization (ICAO) standardized 
+Meteorological Aerodrome Report (METAR) format (ICAO 2021). 
+Typically, each station reports meteorological parameters at a minimum of 
+hourly thresholds, often through automated means. Thirty years of 
+METAR observations were obtained for stations within the area of 
+interest. In some cases, certain stations were not available for the entire 
+period because of budgetary and technological considerations of the 
+individual countries providing the observations. 
+@@@ PAGE 21 @@@
+ERDC/CRREL TR-26-5 11 
+ 
+Once the raw METAR observations were obtained, an initial processing of 
+the data was undertaken utilizing the open-source python-metar software 
+suite (Pollard 2018). Data was processed to extract temperature, dew 
+point, visibility, wind speed and cardinal direction, and current 
+meteorological phenomena observed at the time of the weather 
+observation. The data was assembled in a comma separated value (CSV) 
+format. Additionally, a date-time code was included which allowed 
+METAR data to be more easily combined for the purposes of generating 
+time series statistics. 
+2.3 Geospatial Analyses 
+The processes for geospatial analysis are described in detail by Barrett et 
+al. (2025) SR-25, Development and Management of Arctic Zonal 
+Classification Products. Below is a brief overview of the geospatial 
+analyses performed. Section 4, “Geospatial Characterization Results” 
+provides a snapshot of the results of the analysis, and example maps. 
+2.3.1 Metric Calculations 
+Four main metrics were calculated from the hourly ERA5 reanalysis data 
+files across six different time scales to characterize prevailing conditions in 
+the circumpolar north. The following time scales were used to calculate 
+various statistics and metrics: 
+• Hourly 
+• Six-hour blocks (00:00–05:59 UTC, 06:00–11:59 UTC, 12:00–
+17:59 UTC, 18:00–23:59 UTC) 
+• Daily (00:00–23:59 UTC) 
+• Weekly (7–8 days) 
+• Biweekly (14–16 days) 
+• Monthly 
+• Seasonal (October–March) 
+The average metric represents the mean value of each meteorological 
+parameter within a specific time period across all 30 years of data 
+(January 1991–October 2020). For six-hour time periods (e.g., 
+3 December 00:00–05:59 UTC), the average was calculated using all 
+hourly files within that period across the 30 year record (180 hourly files 
+per six-hour period). For wind direction specifically, a circular mean was 
+employed to account for the cyclical nature of directional data. 
+@@@ PAGE 22 @@@
+ERDC/CRREL TR-26-5 12 
+ 
+The extreme metric captures the single most severe value recorded within 
+each time period across the entire 30 year dataset for each grid cell. For 
+temperature variables (SKT, 2T, WCT, STL1), this represents the minimum 
+recorded value. For WSPD, SD, and SL, the maximum value was extracted. 
+The frequency metric quantifies the percentage of single hours during 
+which a variable exceeded a specified threshold over the course of the 
+winter. The thresholds used are those specified in Arctic Doctrine Army 
+Techniques Publications (ATP) 3-90.96, Table 1-3 and TM 4-33.31, Table 
+2, as well as the Combat Weather Teams stoplight chart. For each grid 
+cell, the total number of hours exceeding the threshold was divided by the 
+total number of hours in the time period and multiplied by 100 to express 
+the result as a percentage. 
+The length of consecutive extreme events metric provides a detailed 
+method for understanding how long intense environmental conditions 
+persist. By analyzing thirty years of data, researchers track the duration of 
+events that rise above a specific intensity threshold. For each day, the 
+method identifies and measures separate periods when conditions exceed 
+the threshold. First, the average duration of extreme events within each 
+24 hr period is calculated using the raw hourly reanalysis data. Then, these 
+daily measurements are averaged across the entire 30-year dataset. The 
+analysis excluded six-hour time scales because of insufficient temporal 
+resolution. For time scales larger than daily (weekly, biweekly, monthly, 
+and seasonal), the daily consecutive values were averaged across the 
+respective period. 
+2.3.2 Generation of Static Maps 
+A standardized mapping workflow was implemented to ensure consistency 
+across all visualizations. Custom map layout templates and symbology files 
+were created to maintain visual coherence across all maps for each 
+parameter, metric, and time scale combination. The maps were then 
+evaluated and quality controlled manually (Barrett et al. 2025). 
+Further detailed information regarding the ERA5 reanalysis data variables 
+and detailed process and methodology for map generation can be found in 
+the US Army Engineer Research and Development Center (ERDC) Special 
+Report, Development and Management of Arctic Zonal Characterization 
+Products (Barrett et al. 2025). 
+@@@ PAGE 23 @@@
+ERDC/CRREL TR-26-5 13 
+ 
+3 Review of Thresholds 
+3.1 Zones and Thresholds 
+Another primary task was the compilation of operational thresholding 
+tables to map which items, equipment, and materials can be used in each 
+zone of operation, as defined in Table 2 below. The mapping shown 
+previously identifies where in the Arctic certain environmental conditions 
+are likely to be experienced at which parts of the winter season. Using 
+these maps, the threshold for materiel and equipment detailed below gives 
+mission planners information about which items can be operated (what 
+their minimum temperature conditions are). 
+We followed and expanded the criteria for temperature ranges listed in the 
+Arctic Doctrine ATP 3-90.96 (Table 2) (HQDA and USMC 2025) and TM 
+4-33.31 (Table 3) (DA 2017). 
+Table 2. Temperature zones. (Data from HQDA and USMC 2025; US Army 2025.) 
+Zone Ranges Descriptions from ATP 3-90.96 and TM 4-33.31 
+1 39°F to 20°F Wet cold per ATP 3-90.96; a collection of cold weather clothing 
+is necessary in layers to protect the Soldiers from the cold. 
+2 19°F to −4°F Dry cold per ATP 3-90.96. 
+3 −5°F to −24°F Intense cold per ATP 3-90.96; Soldier welfare considerations 
+become an issue prompting equipment winterization when 
+temperatures reach −10°F. At −20°F, metal becomes half as 
+strong and can break, rubber stiffens and tires can form flat 
+spots, and plastics become brittle and can shatter. 
+4 −25°F to −40°F Extreme cold per ATP 3-90.96; almost all equipment 
+undergoes testing for proper operation at temperatures 
+reaching −25°F. At temperatures below −30°F, equipment 
+begins to malfunction. At −40°F exposed skin can freeze in 
+under 10 min causing frostbite and impair equipment 
+operations. 
+5A −41°F to −50°F At −50°F tires become rigid enough to support a load at 0 
+pressure without apparent deflation; jet propulsion (JP) fuel 
+(i.e., JP-8) under the Single Fuel Policy (SFP), is usable to 
+−53°F. 
+5B −51°F to −60°F When cooled gradually but continuously over a short time, 
+rubber remains flexible until it reaches approximately −60°F. 
+5C Below −61°F A fully charged battery can withstand −70°F to about −77°F 
+without freezing. 
+@@@ PAGE 24 @@@
+ERDC/CRREL TR-26-5 14 
+ 
+Table 3. Snow ranges for vehicle limitations. (Data from US Army and US 
+Marine Corps 2025.) 
+Vehicle Type Snow Depth (in.) 
+Wheeled 8 
+Wheeled 4×4 or greater 15 
+Wheeled 4×4 or greater with snow chains 20 
+Tracked 40 
+Over-snow Over 40 
+In addition, there are human physiological challenges to operating in the 
+Arctic, especially in dangerous windchill and very low temperatures that 
+one would be susceptible to frostbite.  Windchill is listed in ATP  3-90.96 
+(Table 4) and expanded the criteria for temperature ranges, particularly 
+for temperature zone 5. ATP 3-90.96 describes zone 5 as hazardous 
+conditions, indicating that the risks to military logistics and operations 
+(including materiel, equipment , etc.) are significant. The most extreme 
+temperature conditions are likely to be experienced in short durations 
+and are shown in the results and the zonal statistics ( see Barrett et al. 
+2025). Time of frostbite is also listed in ATP 3 -90.96 (Table 5), and 
+Equation (5) is applied to generate the maps for the Arctic ( see Barrett et 
+al. 2025). For wet skin, time to frostbite is much quicker than the time 
+specified in Table 6 below. 
+@@@ PAGE 25 @@@
+ 
+ 
+ERDC/CRREL TR-26-5 15 
+Table 4. The wind chill temperature, in degrees Fahrenheit, from 10 m wind speed and 2 m air temperature. (Data from Nelson et al. 2002.) 
+— — Air Temperature (°F) 
+— — 40 35 30 25 20 15 10 5 0 −5 −10 −15 −20 −25 −30 −40 −45 −50 
+Wind Speed (mph) 
+5 36 31 25 19 13 7 1 −5 −11 −16 −22 −28 −34 −40 −46 −52 −57 −63 
+10 34 27 21 15 9 3 −4 −10 −16 −22 −28 −35 −41 −47 −53 −59 −66 −72 
+15 32 25 19 13 6 6 −7 −13 −19 −26 −32 −39 −45 −51 −58 −64 −71 −77 
+20 30 24 17 11 4 4 −9 −15 −22 −29 −35 −42 −48 −55 −61 −68 −74 −81 
+25 29 23 16 9 3 3 −11 −17 −24 −31 −37 −44 −51 −58 −64 −71 −78 −84 
+30 28 22 15 8 1 1 −12 −19 −26 −33 −39 −46 −53 −60 −67 −73 −80 −87 
+35 28 21 14 7 0 0 −14 −21 −27 −34 −41 −48 −55 −62 −69 −76 −82 −89 
+40 27 20 13 6 −1 −1 −15 −22 −29 −36 −43 −50 −57 −64 −71 −78 −84 −91 
+45 26 19 12 5 −2 −2 −16 −23 −30 −37 −44 −51 −58 −65 −72 −79 −86 −93 
+50 26 19 12 4 −3 −3 −17 −24 −31 −38 −45 −52 −60 −67 −74 −81 −88 −95 
+Frostbite Danger Level Slight Danger (green) Increased Danger (orange) Great Danger (red) 
+Time until potential frostbite in dry-
+exposed skin (min) Less than 120 Less than 45 Less than 5 
+  
+@@@ PAGE 26 @@@
+ 
+ 
+ERDC/CRREL TR-26-5 16 
+Table 5. The time, in minutes, until frostbite occurs on exposed, dry cheek skin based on air temperature and wind speed conditions . (Data from 
+Nelson et al. 2002.) 
+— — Air Temperature (°F) 
+— — 10 5 0 −5 −10 −15 −20 −25 −30 −40 −45 −50 
+Wind Speed (mph) 
+5 >120 >120 >120 >120 31 22 17 14 12 11 9 8 
+10 >120 >120 >120 28 19 15 12 10 9 7 7 6 
+15 >120 >120 33 20 15 12 9 8 7 6 5 4 
+20 >120 >120 23 16 12 9 8 8 6 5 4 4 
+25 >120 42 19 13 10 8 7 6 5 4 4 3 
+30 >120 28 16 12 9 7 6 5 4 4 3 3 
+35 >120 23 14 10 8 6 5 4 4 3 3 2 
+40 >120 20 13 9 7 6 5 4 3 3 2 2 
+45 >120 18 12 8 7 5 4 4 3 3 2 2 
+50 >120 16 11 8 6 5 4 3 3 2 2 2 
+Frostbite Danger 
+Level 
+Slight Danger 
+(green) Increased Danger (orange) Great Danger (red) 
+ 
+  
+@@@ PAGE 27 @@@
+ 
+ 
+ERDC/CRREL TR-26-5 17 
+Table 6. Stoplight chart that the Combat Weather Teams in Alaska use. (Data from personnel at Fort Wainwright, pers. comm., February 2026. ) 
+Operation Favorable (No Degradation) Marginal (Some Degradation) 
+Unfavorable (Significant 
+Degradation) 
+Airborne Operations 
+Using Static Lines 
+Wind < 12 kn 
+Ceiling (CIG) ≥ 2,000 ft 
+No Precipitation 
+Visibility (VIS) ≥ 4,800 m 
+CIG 1,000–1,999 ft 
+Light–Medium Precipitation 
+VIS 1,601–4,799 m 
+Wind > 13 kn 
+CIG < 1,000 ft 
+Heavy Precipitation 
+VIS ≤ 1,600 m 
+Thunderstorms (TSTMS) 
+Fixed Wing 
+Wind < 35 kn 
+CIG > 2000 ft 
+VIS > 3200 m 
+Wind 35–49 kn 
+CIG 1,000–2000 ft 
+VIS 1,600–3,200 m 
+Wind ≥ 50 kn 
+CIG < 1,000 ft 
+VIS < 1,600 m 
+TSTMS 
+Rotary Wing 
+Wind < 30 kn 
+CIG > 1,000 ft 
+VIS > 4,800 m 
+Light Turbulence (Turb) 
+Wind 30–44 kn 
+CIG 700–1,000 ft 
+VIS 1,601–4,800 m 
+Medium Turb 
+Wind ≥ 45 kn 
+CIG < 700 ft 
+VIS ≤ 1,600 m 
+TSTMS 
+Medium–Severe Turb 
+Medevac Ops 
+Wind < 45 kn 
+CIG ≥ 1,000 ft 
+VIS ≥ 4,800 m 
+CIG 700–1,000 ft 
+VIS 1,600–4,800 m 
+Wind ≥ 45 kn 
+CIG < 700 ft 
+VIS < 1,600 m 
+Gray Eagle (UAV) 
+Wind < 20 kn 
+CIG > 10,000 ft 
+No Precipitation 
+VIS > 8,000 m 
+Temp −14°F to 109°F 
+Cross Wind (Xwind) < 9 kn 
+Light Turb 
+Wind 20–25 kn 
+CIG 5,000–9,999 ft 
+Light Precipitation 
+VIS 4,800–8,000 m 
+Temp −15°F to −24°F 
+Temp 109°F to 119°F 
+Xwind 9–26 kn 
+Medium Turb 
+Wind ≥ 26 kn 
+CIG < 5,000 ft 
+Medium–Heavy Precipitation 
+VIS < 4,800 m 
+TSTMS 
+Temp ≤ −25°F 
+Temp ≥ 120°F 
+Xwind > 26 kn 
+Severe Turb 
+@@@ PAGE 28 @@@
+ 
+ 
+ERDC/CRREL TR-26-5 18 
+Table 6 (cont.). Stoplight chart that the Combat Weather Teams in Alaska use. (Data from personnel at Fort Wainwright, pers. comm., February 2 026.) 
+Operation Favorable (No Degradation) Marginal (Some Degradation) 
+Unfavorable (Significant 
+Degradation) 
+Shadow Uncrewed 
+Aerial Vehicle (UAV) 
+Wind < 15 kn 
+CIG > 6,000 ft 
+No Precipitation 
+VIS > 4,800 m 
+Temp < 105°F 
+Wind 15–25 kn 
+CIG 5,000–6,000 ft 
+Light Precipitation 
+VIS 1,601–4,800 m 
+Temp 105°F to 119°F 
+Wind > 25 kn 
+CIG < 5,000 ft 
+Medium– ≤ 1,600 m 
+TSTMS 
+Temp Heavy Precipitation 
+VIS ≥ 120°F 
+Personnel No Precipitation 
+Temp 20°F to 85°F 
+Light Precipitation 
+Temp −15°F to 19°F 
+Temp 85°F to 95°F 
+Medium–Heavy Precipitation 
+Temp < −15°F 
+Temp > 95°F 
+TSTMS 
+Air Trafficability 
+(flight level 
+<1,000 ft) 
+No Precipitation 
+< Light Icing 
+VIS > 4,800 m 
+Light Precipitation 
+Light–Medium Icing 
+VIS 1,601–4,800 m 
+Medium–Heavy Precipitation 
+Severe Icing 
+VIS ≤ 1,600 m 
+Air Assault 
+Wind < 25 kn 
+CIG ≥ 1,000 ft 
+VIS ≥ 5,000 m 
+Wind 25–40 kn 
+CIG 300–1,000 ft 
+VIS 800–5,000 m 
+Wind ≥ 40 kn 
+CIG < 300 ft 
+VIS < 800 m 
+CH47 Sling Load Wind ≤ 14 kn Wind 15–30 kn 
+Light Turb 
+Wind > 30 kn 
+Light Turb 
+CH60 Sling Load Wind ≤ 8 kn Wind 9–14 kn 
+Light Turb 
+Wind > 15 kn 
+Light Turb 
+Forward Arming and 
+Refueling Point 
+(FARP) Ops 
+Wind ≤ 30 kn Wind 30–44 kn Wind ≥ 45 kn 
+Illumination — Lunar Illumination ≥ 25% 
+And Lunar Elevation 0°–30° 
+Lunar Illumination < 25% 
+And Lunar Elevation < 0° 
+@@@ PAGE 29 @@@
+ERDC/CRREL TR-26-5 19 
+ 
+3.2 Arctic Military Equipment and Gear for Specific Zones 
+Operations in extreme Arctic environments require unique clothing and 
+equipment solutions specific to each of the defined areas and variations in 
+terrain. For example, military operations in the boreal forests of 
+Scandinavia and elsewhere, rely heavily on skis and snowshoes and 
+tracked vehicles to facilitate maneuver in deep snow conditions. Soldier 
+clothing must be light-weight, well insulated, and suited to wet snow 
+conditions. Camouflage patterns must be matched to snow covered forests 
+with shades of white, green, and brown. Soldiers are able to operate using 
+unheated shelters for short periods of time and overhead tree cover helps 
+to mask Soldier movements and locations. 
+Operations in the extreme cold of the Arctic tundra and on sea ice requires 
+more heavily insulated clothing and camouflage patterns matched to the 
+whites, blues, and grays of a snowy environment devoid of trees. 
+Movement is largely restricted to snowmobiles and other tracked vehicles, 
+and Soldiers will require heated shelters for all but the shortest durations. 
+Soldiers that operate in cold environments, such as the 11th Airborne 
+Division (ABN DIV) stationed in Alaska are issued specialized winter 
+uniforms, allowing them to operate in extreme environments. Soldiers are 
+issued a seven-layer clothing system called the Extended Cold Weather 
+Clothing (ECWC) System. This system is adaptable and can be worn in 
+multiple configurations to ensure proper insulation and decrease the 
+likeliness of cold weather injuries. 
+Level 1 is a lightweight, long sleeve top and full-length bottoms, 
+constructed out of a silk-weight moisture-wicking polyester, they are 
+commonly referred to as silks. Level 2 is a mid-weight insulation layer 
+made of a polyester grid fleece design. Level 3 is a fleece cold weather 
+jacket that can be used as either the primary insulative layer or an outer 
+garment. Level 4 is a wind cold weather jacket made of a lightweight, wind 
+resistant, and water-repellant material. This is a minimum outer shell 
+layer. Level 5 is a soft-shell outer layer jacket and trousers. Level 6 is the 
+extreme cold or wet weather jacket and trousers. These are waterproof and 
+used in prolonged or hard rain, typically used when temperatures are 
+alternating between freezing and thawing. Level 7 is the extreme cold 
+weather parka and trousers. These are the warmest of the outer layers and 
+@@@ PAGE 30 @@@
+ERDC/CRREL TR-26-5 20 
+ 
+are used to provide superior warmth while still being packable and 
+lightweight (TM 10-845-236-10; DA 2014). 
+According to Army TM 10-845-236-10, the ECWC shall be worn in the 
+following configurations. Table 7 shows the configurations for active wear 
+of the system and Table 8 shows the configurations for static wear. 
+Table 7. Active wear of the Extended Cold Weather Clothing (ECWC) System. (Data from 
+Technical Manual [TM] 10-8415-236-10; DA 2014.) 
+Temperature Zone Level 1 Level 2 Level 3 Level 4 Level 5 Level 6 Level 7 
+Cold 
+0°F to 30°F 
+1,2 X X — — X — — 
+Wet 
+40°F ± 0°F 
+1 X — — X X(B) — — 
+Cold/Wet 
+35°F to 45°F 
+1 X — — — X — — 
+Extreme Cold 
+−25°F to 0°F 
+3 X X X — X — — 
+Note: (T)—Top; (B)—Bottom; X—Both top and bottom worn. 
+Table 8. Static wear of the ECWC System. (Data from TM 10-8415-236-10; DA 2014.) 
+Temperature Zone Level 1 Level 2 Level 3 Level 4 Level 5 Level 6 Level 7 
+Cold/Wet 
+30°F to 45°F 
+1 X — X — — — X 
+Wet above 45°F 1 X X(T) — — — X — 
+Cold 
+0°F to 30°F 
+1,2 — X — — X — X(T) 
+Extra Cold 
+−50°F to 0°F 
+2,3,4,5ABC X X X — X — X 
+Note: (T)—Top; (B)—Bottom; X—Both top and bottom worn. 
+There are other worn items and gear that are not covered in TM 10-845-
+236-10 such as gloves, boots, and sleeping systems. Temperatures 
+thresholds for these items (Table 9) were gathered from subject matter 
+exerts at the Army’s Central Issue Facility (CIF) on Fort Wainwright, Alaska, 
+and are based on what is currently issued to Soldiers stationed there.2  
+  
+ 
+2. T. Richie, pers. comm., 26 March 2025.  
+@@@ PAGE 31 @@@
+ERDC/CRREL TR-26-5 21 
+ 
+Table 9. Operational temperature limits of worn gear. 
+Gear Max Operation Zone Minimum Temperature 
+Standard Issue Light Duty Leather gloves Zone 1 35°F 
+Arctic Mittens (with Liners) — Unknowna 
+OR Mittens (with liners) — Unknowna 
+OR Trigger Finger Mittens — Unknowna 
+OR Convoy Gloves — Unknowna 
+OR Contact Gloves — Unknowna 
+Vapor Barrier Boots ** Zone 5 −50°F 
+400 g Danner Bootsb Zone 3 −20°F 
+600 g Danner Bootsb Zone 3 −20°F 
+1200 g Danner Bootsb Zone 3 −20°F 
+Mukluk Bootsc Zone 4 or 5C −40°F or −100°F 
+Type I: Temperate Sleeping Bag Inner Zone 2 ≥15°F 
+Type II: Cold, Sleeping Bag: Stand Alone Zone 2 5°F to 20°F 
+Type III: Type II Used Over Type I Zone 3 −13°F to 5°F 
+Modular Sleeping Bag Intermediate Cold Zone 2 0°F to 32°F 
+Sleep System: Complete Wearing ECWCS Zone 5A −50°F 
+Note: Zones 1–5C described in Table X above (3.1, Zones and Thresholds). 
+a Companies will not commit to temperature thresholds for legal reasons. 
+b All boot ratings are assuming Soldiers are wearing Darn Tough Boot Heavyweight Tactical Sock, 
+which is 80% merino wool, 19% nylon, and 1% Lycra spandex. 
+c Mukluk temperature depends on rating of the inserts inside the boot. 
+It is important to recognize that these thresholds are general guidelines, 
+and actual minimum tolerance levels can vary significantly between 
+individuals. Each Soldier has a unique response to low temperatures from 
+personal comfort, physiology, acclimation, and experience. Caution is 
+advised when operating near the minimum effective limits of issued gear. 
+It is always best to avoid excessive sweating and moisture buildup by 
+maintaining a state of comfortably cool/warm—cool enough to prevent 
+overheating, but warm enough to sustain performance and safety. 
+Each piece of equipment has a different temperature threshold (Table 10) 
+depending on the chemical and physical properties. The following tables 
+(Tables 10–30) outline different equipment and solutions that is readily 
+used in units across the military and their minimum operational 
+thresholds according to Army TM 4-33.31, Cold Weather Maintenance 
+Operations (DA 2017). 
+@@@ PAGE 32 @@@
+ERDC/CRREL TR-26-5 22 
+ 
+Table 10. Equipment. (Data from TM 4-33.31; DA 2017.) 
+Equipment Max Operation Zone Minimum Operational Temperature 
+Electrical and Ignition Systems Zone 4 −30°F 
+Vehicle Crew Heaters Zone 4 −25°F 
+Personnel Heaters Zone 4 −40°F 
+Level Vials Zone 4 −40°F 
+Cold Soaked Vehicles Zone 4 −25°F 
+Cold-soaked vehicles refer to any vehicle that is left in the elements, 
+without being turned on and operated, for an extended period of time, 
+such as 24 hours or more. When operating in temperatures lower than 
+−25°F, it is imperative to warm any cold soaked vehicle prior to 
+attempting to start or operate the vehicle. Although the winterization kit is 
+not designed to start a vehicle engine after prolonged exposure to extreme 
+temperatures, it can aid in getting an engine started if adequate time and 
+auxiliary power are available to heat critical vehicle components (TM 4-
+33.31, HQDA 2017). 
+Most tents and shelters used by the military are manufactured by civilian 
+organizations and each tent will have different operational thresholds. Table 
+11 outlines some of the tents used by the 11th ABN DIV, these tents are 
+all from HDT Global and thresholds are according to their 
+sales representatives.3 
+Table 11. Tents. 
+Tent Max Operation Zone 
+Minimum Operational 
+Temperature 
+Arctic 10-Man Tent (Ahkio) Zone 5A −40°F 
+HDT Airbeam Zone 4 −25°F 
+HDT Airbeam (Arctic) Zone 5C −65°F 
+Base-X Zone 4 −40°F 
+Deployable Rapid Assembly Shelter (DRASH) Zone4 −40°F 
+Note: Zones 1–5C described in Table 10 above (3.1, Zones and Thresholds). 
+Batteries are integral to most modern military equipment, and their 
+performance can be significantly impacted by low temperatures. To ensure 
+optimal functionality, proper cold weather charging procedures must be 
+followed. Batteries should be fully charged when operating in extreme cold 
+as low temperatures can severely reduce capacity and efficiency. Prolonged 
+exposure to freezing conditions may cause batteries to freeze posing a risk 
+ 
+3. R. Zamora, pers. comm., 2 May 2025. 
+@@@ PAGE 33 @@@
+ERDC/CRREL TR-26-5 23 
+ 
+of damage or even explosion if used prematurely. If freezing is suspected, 
+batteries should be gradually warmed above 32°F before use. Always refer 
+to manufacturer guidelines for specific operational thresholds. Table 12 
+lists several common military battery types along with their minimum 
+operation thresholds. 
+Table 12. Batteries. (Data from TM 4-33.31; DA 2017.) 
+Battery Max Operation Zone Minimum Operational Temperature 
+Battery Storage Zone 2 10°F 
+Absorbed Glass Mat (AGM): Fully 
+Charged 
+Zone 5C −70°F 
+AGM: Not Fully Charged Zone 2 10°F 
+Fully Charged Battery Zone 5C −70°F to −77°F 
+Gel Batteries: Fully Charged Zone 5C −70°F 
+Lithium Battery (Li-SO2) Zone 5B −58°F 
+Lithium Battery (LiMnO2) Zone 3 −22°F 
+Rechargeable Dry Cell Batteries Type I 
+and Type II 
+Zone 2 −4°F 
+Rechargeable Dry Cell batteries Type 
+III and Type IV 
+Zone 1 −22°F 
+Wet Cell Batteries: Fully Charged Zone 5C −75°F 
+Electronic devices are ubiquitous across all branches of the military, 
+playing a critical role in operations. However, their performance often 
+degrades in cold environments. Table 13 highlights several commonly used 
+Army electronics and their associated low-temperature limitations. 
+Table 13. Electronics. (Data from TM 4-33.31; DA 2017.) 
+Electrical Equipment Max Operation Zone Minimum Operational Temperature 
+Larger Workstation Computers Zone 2 0°F 
+Handheld computers Zone 4 −30°F 
+Ruggedized military versions of 
+display or projection 
+Zone 2 −4°F 
+LCD Screens — Check Manufacturer Specs 
+Digital Light Processing Projectors Zone 4 −40°F 
+Mortar Ballistic Computer Zone 5A −50°F 
+RG-8 Cable Zone 3 −20°F 
+RG213 Coaxial Cable Zone 4 −40°F 
+@@@ PAGE 34 @@@
+ERDC/CRREL TR-26-5 24 
+ 
+Generators provide critical power for military operations in harsh 
+environments. In Arctic conditions, there are multiple factors that can affect 
+the performance of military generators such as, fuel viscosity, battery 
+cranking power, and oil gelling. To ensure reliable cold weather operation, 
+generators should be prewarmed when possible, and winterization kits 
+should be installed and used when available. Table 14 outlines minimum 
+temperature thresholds for many common military generators. 
+Table 14. Generators. (Data from TM 4-33.31; DA 2017.) 
+Generator 
+Max Operation 
+Zone 
+Minimum Operational 
+Temperature 
+Mobile Electric Power (MEP): Nonwinterized Zone 4 −25°F 
+MEP: Winterized Zone 5A −50°F 
+Generator Storage Zone 5B as low as −60°F 
+Military Tactical Generator (MTG) Zone 5A −50°F 
+Tactical Quiet Generator (TQG): Nonwinterized Zone 4 −25°F 
+TQG: Winterized Zone 5A −50°F 
+Advanced Medium Mobile Power Sources (AMMPS) Zone 5A −50°F 
+Power Distribution and Illumination System, Electrical Zone 4 −25°F 
+To maintain the effective operation of military equipment in cold 
+environments, it is essential to use the appropriate fuels, oils, lubricants, 
+greases, and solvents. Each of these fluids has specific temperature 
+thresholds that must be observed to ensure reliable engine performance 
+and prevent damage. Tables 15–21 provide detailed information on the 
+cold weather operational limits for commonly used fluids. 
+Table 15. Fuels. (Data from TM 4-33.31; DA 2017.) 
+Fuel Max Operation Zone Minimum Operational Temperature 
+Jet Propulsion Fuel (JP-8) Zone 5B −53°F 
+F-24 Zone 4 −40°F 
+Jet A Zone 4 −40°F 
+Jet A-1 Zone 5B −52.6°F 
+Jet B Zone 5B −58°F 
+JP-5 Zone 5B −51°F 
+JP-4 Zone 5C −74°F 
+Antarctic Jet Fuel (AN-8) Zone 5C −74°F 
+@@@ PAGE 35 @@@
+ERDC/CRREL TR-26-5 25 
+ 
+Table 16. Engine oils, by military symbol. (Data from 
+TM 4-33.31; DA 2017). 
+Engine Oil (Military Symbol) 
+Max Operation 
+Zone 
+Minimum Operational 
+Temperature 
+OE/HDO-SCPL Zone 5B −58°F 
+OEA-30 Zone 5B −58°F 
+OE/HDO 40 Zone 1 20°F 
+OE/HDO-10/30 Zone 3 −15°F 
+OE/HDO-5/40 Zone 4 −30°F 
+OE/HDO-15/40 Zone 2 0°F 
+15 W 40 (Transmission Oil) Zone 3 −10°F 
+Table 17. Hydraulic fluids listed by standard name then military symbol (if 
+applicable). (Data from TM 4-33.31; DA 2017.) 
+Hydraulic Fluids (Standard 
+/ Military Symbol) 
+Max Operation 
+Zone 
+Minimum Operational 
+Temperature 
+MIL-PRF-6083 / OHT Zone 5C −65°F 
+MIL-PRF-46170 / FRH Zone 4 −40°F 
+MIL-PRF-5606 / OHA Zone 5C −65°F 
+MIL-PRF-83282 Zone 4 −40°F 
+MIL-PRF-87257 Zone 5C −65°F 
+MIL-PRF-46176 Zone 5C −67°F 
+Table 18. Gear lubricating oils, by military symbol. (Data from TM 4-33.31; 
+DA 2017.) 
+Gear Lubricating Oils 
+(Military Symbol) Max Operation Zone 
+Minimum Operational 
+Temperature 
+GO-75 Zone 1 50°F 
+GO-80/90 Zone 4 −18°F 
+GO-85/140 Zone 2 4°F 
+GO-75 Zone 5A −50°F 
+   
+@@@ PAGE 36 @@@
+ERDC/CRREL TR-26-5 26 
+ 
+Table 19. Grease lubricants. (Data from TM 4-33.31; DA 2017.) 
+Grease Lubricants 
+Max Operation 
+Zone 
+Minimum Operational 
+Temperature 
+Grease, Automotive, and Artillery Zone 5C −65°F 
+Grease, Aircraft, General Purpose, 
+Wide Temperature Range (Grease) 
+Zone 5C −65°F 
+Grease, Aircraft and Instrument, 
+Gear, and Actuator Screw 
+Zone 5C −99°F 
+Grease, Molybdenum Disulfide, for 
+Low and High Temperatures 
+Zone 5C −100°F 
+Grease, Graphite Zone 3 −9°F 
+Table 20. Solvents and cleaners, listed by military symbol. (Data from 
+TM 4-33.31; DA 2017.) 
+Solvents and Cleaners (Military 
+Symbol) Max Operation Zone 
+Minimum Operational 
+Temperature 
+Rifle Bore Cleaner (RBC) Zone 1 32°F 
+Type II High Flash Point 
+Degreasing Solvent (SD-2) 
+— n/a 
+Note: n/a—not applicable. 
+Table 21. Miscellaneous liquids. (Data from TM 4-33.31; DA 2017.) 
+Liquid 
+Max Operation 
+Zone 
+Minimum Operational 
+Temperature 
+Propylene-Glycol Deicing Zone 5B −60°F 
+Propane Zone 4 −40°F 
+Arctic Antifreeze Zone 5C −90°F 
+Wheel Bearing Lubricants Zone 5C −65°F 
+Lubricating Oil, Internal Combustion 
+Engine, Arctic 
+Zone 5C −67°F 
+Ethylene-Glycol-Distilled Water Mixture Zone 5A −50°F to 32°F  
+Arctic Antifreeze (Ethylene-Glycol Based) Zone 5C −40°F to −90°F 
+Note: For all petroleum, oils, and lubricants (POL), DoD does testing to −65°F only. 
+Weapon systems are designed to function at all temperatures. In Arctic 
+environments, it is imperative that any weapons remain outside of 
+warmed tents. This helps prevent condensation from forming on and in 
+these weapons, impeding their functionality. When weapons are left 
+outside, they should be covered and sheltered from possible moisture. 
+Cold weather affects the trajectory of rounds, impacting the maximum 
+@@@ PAGE 37 @@@
+ERDC/CRREL TR-26-5 27 
+ 
+effective range of each weapon system differently. Table 22 shows some 
+thresholds for various weapon system components. 
+While there is not a specified minimum operational temperature for all 
+weapons systems, these thresholds are based on normal Arctic operations 
+and field experience. It is recommended to consult the appropriate 
+technical manuals that outline specifics for each weapon system. 
+Table 22. Weapon systems and components. (Data from TM 4-33.31; DA 2017.) 
+Weapon System Max Operation Zone 
+Minimum Operational 
+Temperature 
+Technical Manual/ 
+Source 
+Level Vials Zone 4 −40°F TM 4-33.31 
+Machine Guns Zone 4 −40°F TM 9-1005-313-10 and 
+TM 9-1005-201-10 
+Rifles Zone 4 −40°F TM 9-1005-319-10 
+Rockets Zone 4 −40°F TM 4-33.31 
+Each weapon system has its own lubrication requirements and requires 
+different lubricants at different temperatures. Lubricants themselves have 
+temperature thresholds (Table 23). The temperatures in this table are the 
+lower limitation temperature.  
+Table 23. Weapons lubricants. (Data from TM 4-33.31; DA 2017.) 
+Weapons Lubricants (Military Symbol) Max Operation Zone 
+Minimum Operational 
+Temperature 
+PL-S Zone 5A −49°F 
+Cleaner Lubricant Preservative (CLP) Zone 5B −60°F 
+Lubricant, Small Arms (LSA) Zone 5C −65°F 
+Lubricant, Weapon Semifluid (High-
+Load-Carrying Capacity) (LSAT) 
+Zone 4 −30°F 
+Lubricant Arctic Weight (LAW) Zone 5C −70°F 
+Rifle lubrication changes at different intervals. It is imperative to use proper 
+lubricants to avoid gelling and burning which can occur if lubricants are 
+used at improper temperatures (see Table 24). When switching from one 
+lubricant to another, ensure the weapon is void of all other lubricants to 
+avoid cross contamination which may cause weapons malfunctions. 
+@@@ PAGE 38 @@@
+ERDC/CRREL TR-26-5 28 
+ 
+Table 24. Rifle Lubrication guidelines. (Data from TM 4-33.31; 
+DA 2017.) 
+Lubricant Max Operation Zone Temperature Range 
+CLP Zone 3 >−10°F 
+LSA Zone 3 >−10°F 
+LAW Zone 1 ≤10°F 
+The M249, squad automatic weapon (SAW) should be lubricated with 
+cleaner lubricant preservative (CLP) and is effective down to −30°F (Table 
+25). At lower temperatures, the weapon system is more prone to 
+malfunctions and jams. 
+Table 25. The M249, squad automatic weapon (SAW) 
+lubrication guidelines. (Data from TM 4-33.31; DA 2017.) 
+Lubricant Temperature Range 
+CLP ≥−30°F 
+Machine guns, such as the M2 and M240B should be lubricated as 
+outlined in Table 26. Generally, lubricant, weapon semifluid (high-load-
+carrying capacity) (LSAT) and grease, molybdenum disulfide (GMD) are 
+interchangeable for machine guns. 
+Table 26. Machine gun lubrication guidelines. (Data from 
+TM 4-33.31; DA 2017). 
+Lubricant Temperature Range 
+LSAT ≥−20°F 
+Grease, Molybdenum Disulfide, for 
+low and high temperatures (GMD) 
+≥−20°F 
+LAW ≥−20°F 
+To ensure effective range of mortars, they should be lubricated as outlined 
+in Table 27. Failure to lubricate them properly can result in misfires, and 
+decreased accuracy of the weapon system, posing a significant risk to 
+friendly troops who may be operating in the vicinity of the impact zone. 
+  
+@@@ PAGE 39 @@@
+ERDC/CRREL TR-26-5 29 
+ 
+Table 27. Mortar lubrication guidelines. (Data from 
+TM 4-33.31; DA 2017.) 
+Lubricant Temperature Range 
+General Purpose Lubricant (GLP) >10°F 
+LAW <10°F 
+Preservative Lubricant (PL) 
+Special Purpose (SP) 
+<0°F 
+Artillery pieces should be lubricated with CLP with temperatures reaching 
+−10°F (Table 28). At low temperatures the maximum effective range of the 
+weapon system is degraded and the M119 and the M777 are affected 
+differently. Since they each have different systems, certain precautions are 
+necessary for winterizing the components of each gun. Follow guidance in 
+lubrication orders (LOs) and TMs for each system. 
+Table 28. Artillery lubrication guidelines. (Data from 
+TM 4-33.31; DA 2017.) 
+Lubricant Temperature Range 
+CLP ≥−10°F 
+For rotary-wing aircraft, operating limits are based on Soldier experience 
+and are assembled in Table 29. Aircraft have been successfully started and 
+flown in temperatures as low as −40°F (−40°C). That said, factors such as 
+rotor wash and high-altitude wind chill can significantly lower cockpit and 
+cabin temperatures, further complicating operations when cumbersome 
+extreme cold weather gear must be worn. In such conditions, mission 
+execution is subject to the commander’s risk tolerance, the criticality of the 
+mission, and the safety of aircrew and support personnel. In extreme cold 
+scenarios, multiple environmental and mechanical factors can increase 
+risk, requiring informed, situationally driven decisions by both command 
+and ground personnel. 
+Table 29. Helicopters, according to Soldier experience. 
+Helicopter Max Operation Zone Minimum Operational Temperature 
+CH-47 Chinook Zone 4 −40°F (−40°C) 
+AH-64 Apache Zone 4 −40°F (−40°C) 
+UH-60 Blackhawk Zone 4 −40°F (−40°C) 
+Note: The true limits have not yet been determined. Operational thresholds are 
+limited to commander risk level and Soldier safety. Extreme cold poses an 
+exponential risk to Soldiers inside of aircraft. 
+@@@ PAGE 40 @@@
+ERDC/CRREL TR-26-5 30 
+ 
+Fixed wing aircraft play a vital role in military operations, offering rapid 
+transport, reconnaissance, and logistical support. The Air Force has been 
+flying large cargo aircraft on successful missions to McMurdo Station, 
+South Pole, for years. However, in these cold environments their 
+performance and reliability can be significantly impacted. Successful 
+operations require meticulous preflight planning, proper cold weather 
+maintenance, and selection and use of the correct fuel for the 
+temperatures. Table 30 outlines the known minimum operational 
+thresholds for each group of aircraft. Knowing and understanding these 
+operational limits will ensure crew safety and mission success. For most 
+aircraft, the majority of minimum operational testing is on the electrical 
+components within the cockpit. However, overall temperature related 
+limitations in aircraft are largely driven by the properties and performance 
+of petroleum, oil, and lubricants in the system.  
+Refer to Air Force Manual (AFMAN) 11-202V3 for temperature correction 
+charts and other pertinent information (DAF 2022). It is also strongly 
+recommended to consult the applicable AFMAN for each specific aircraft 
+variant prior to conducting any flight planning in Arctic conditions. These 
+manuals provide critical guidance on operational limitations, cold weather 
+procedures, and safety considerations essential for mission success in 
+extreme environments. Some specific guidelines are as follows: 
+• Do not take off with ice, snow, frost, or other contamination adhering 
+to wings, control surfaces, propellers, engine inlets etc. (DAF 2022). 
+• Take off under freezing rain should be avoided (DAF 2024). 
+• For C-17 planning purposes flight managers shall not plan any flights 
+to take place for known temperatures of −76°F (DAF 2024). 
+Table 30. Fixed wing aircraft. 
+Aircraft 
+Max Operation 
+Zone 
+Minimum Operational 
+Temperature 
+LC-130 Zone 5C −65°F 
+C-17 Zone 5B −76°F 
+Any cold-soaked aircraft below −25°F should be warmed with installed 
+winterization kit before starting the aircraft.  
+@@@ PAGE 41 @@@
+ERDC/CRREL TR-26-5 31 
+ 
+4 Geospatial Characterization Results 
+4.1 Temperature 
+4.1.1 Skin Temperature (SKT) 
+The average SKT across the Arctic and Subarctic land mass between 
+October and March was −9.0°F according to the 1991–2020 hourly 
+measurements. The lowest temperatures were predominately in northern 
+Greenland and Canada as well as Siberia (Figure 4). The average surface 
+temperature in Scandinavia, western Russia, southern Canadian Arctic 
+and Subarctic, and southern Alaska did not get below −4°F within the 
+band of 60°N and 90°N (Table 31). February was the coldest month based 
+on these average temperatures. The average lowest recorded SKT across 
+the entire 60°N to 90°N landmass between October and March was 
+−62.6°F from the 1991–2020 hourly measurements (Figure 5). Below 
+−60°F surface temperatures occurred across the Arctic and Subarctic 
+countries except for Scandinavia, which had a low between −50°F and 
+−60°F, and Iceland, which did not experience temperatures below −40°F 
+(Figure 5; Table 31). February and January had the lowest extreme 
+temperatures (Figure 5). 
+Table 31. Zonal statistics per location (within 60°N–90°N) for the average surface 
+temperature, defined as the six-month mean (October–March), using hourly data from 
+1991–2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −10.7 −7.0 4.9 19.9 39.3 
+Russia −29.1 −19.7 −4.7 20.2 30.3 
+Finland 16.2 18.2 23.7 29.9 35.7 
+Sweden 15.3 17.2 23.5 30.9 34.7 
+Norway 16.0 18.0 25.1 35.0 41.4 
+Svalbard 2.3 3.2 8.9 17.1 29.0 
+Iceland 17.9 23.5 28.8 34.4 39.0 
+Greenland −33.4 −31.9 −16.4 7.9 27.3 
+Canada −28.5 −20.2 −8.5 6.5 16.2 
+Note: PCT = percentile. 
+@@@ PAGE 42 @@@
+ERDC/CRREL TR-26-5 32 
+ 
+The average lowest recorded SKT across the entire 60°N to 90°N landmass 
+between October and March was −62.6°F from the 1991–2020 hourly 
+measurements (Figure 5). Below −60°F surface temperatures occurred 
+across the Arctic and Subarctic countries except for Scandinavia, which 
+had a low between −50°F and −60°F, and Iceland, which did not 
+experience temperatures below −40°F (Figure 5; Table 32). February and 
+January had the lowest extreme temperatures (Figure 5). 
+The average frequency of surface temperatures being below −40°F was 
+10.57%, with the highest frequency occurring in central Greenland, 
+northern Canada, and northern Greenland (Figure 6). These temperatures 
+occurred most frequently in February, where parts of northern Greenland 
+had frequencies of 92% (Figure 6). 
+Figure 4. Monthly average skin temperature (SKT) between 60°N and 90°N for October 
+(A), November (B), December (C), January (D), February (E), and March (F), from hourly 
+data between 1991 and 2020. 
+ 
+
+@@@ PAGE 43 @@@
+ERDC/CRREL TR-26-5 33 
+ 
+Figure 5. Monthly lowest reanalysis hourly SKT between 60°N and 90°N latitude for October 
+(A), November (B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. 
+ 
+Table 32. Zonal statistics per location (within 60°N–90°N) for the lowest recorded surface 
+temperature, defined as the six-month minimum (October–March), from hourly data from 
+1991 to 2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −76.7 −70.0 −56.4 −33.9 36.0 
+Russia −99.9 −79.8 −66.0 −41.7 32.4 
+Finland −56.0 −52.4 −37.7 −23.0 2.8 
+Sweden −51.6 −48.3 −34.3 −19.4 −0.6 
+Norway −53.5 −47.2 −27.5 11.2 37.9 
+Svalbard −65.1 −60.1 −46.0 −24.5 0.4 
+Iceland −38.3 −29.2 −15.7 9.6 33.1 
+Greenland −84.6 −80.4 −64.0 −43.3 −9.8 
+Canada −90.8 −78.8 −63.4 −49.2 −19.1 
+
+@@@ PAGE 44 @@@
+ERDC/CRREL TR-26-5 34 
+ 
+Figure 6. The monthly frequency of SKT between 60°N and 90°N latitude being 
+recorded at or less than −40°F for October (A), November (B), December (C), January 
+(D), February (E), and March (F), from hourly data between 1991 and 2020. 
+ 
+4.1.2 Two-meter Temperature (2T) 
+The average 2T across the entire 60°N to 90°N landmass between October 
+and March was −5.4°F according to the 1991–2020 hourly measurements. 
+The lowest temperatures were predominately in central Greenland (Figure 
+7). The average 2T in Scandinavia, western Russia, southern Canada, and 
+southern Alaska did not get below −4°F, and nowhere averaged below 
+−34°F when averaged for the portion of the country between 60°N to 
+90°N. The lowest average temperatures occurred in December and 
+January (Figure 7). 
+The average of the lowest recorded 2T across the entire area of study 
+between October and March for the period of record was −56.2°F, using 
+hourly measurements from 1991 to 2020 (Table 33). Below −60°F 2T were 
+recorded mostly in central Greenland and Russia, and below −40°F 
+temperatures were recorded throughout the Arctic except for in most of 
+Scandinavia (Figure 8; Table 34). The extreme temperatures were lowest 
+in February and January (Figure 8). 
+
+@@@ PAGE 45 @@@
+ERDC/CRREL TR-26-5 35 
+ 
+Figure 7. Monthly average 2 m temperature (2T) between 60°N and 90°N for October 
+(A), November (B), December (C), January (D), February (E), and March (F), from hourly 
+data between 1991 and 2020. 
+ 
+Table 33. Zonal statistics per location (within 60°N and 90°N) for the average 2T, according 
+to hourly data from October–March 1991–2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −10.7 −7.0 4.9 19.9 39.3 
+Russia −29.1 −19.7 −4.7 20.2 30.3 
+Finland   16.2   18.2 23.7 29.9 35.7 
+Sweden   15.3   17.2 23.5 30.9 34.7 
+Norway   16.0   18.0 25.1 35.0 41.4 
+Svalbard 2.3     3.2 8.9 17.1 29.0 
+Iceland   17.9   23.5 28.8 34.4 39.0 
+Greenland −33.4 −31.9 −16.4    7.9 27.3 
+Canada −28.5 −20.2 −8.5    6.5 16.2 
+
+@@@ PAGE 46 @@@
+ERDC/CRREL TR-26-5 36 
+ 
+Table 34. Zonal statistics per location for the lowest recorded 2T, using hourly data from 
+October–March, 1991–2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −74.0 −64.8 −50.7 −28.5 11.9 
+Russia −84.6 −75.5 −60.7 −39.1 −4.2 
+Finland −53.8 −49.8 −34.8 −20.9 −4.4 
+Sweden −50.9 −44.5 −29.9 −16.1 0.8 
+Norway −51.4 −43.8 −23.2     0.2 18.1 
+Svalbard −51.6 −48.8 −38.9 −25.5 −9.7 
+Iceland −21.9 −18.4 −6.9     6.4 13.2 
+Greenland −82.4 −75.7 −56.2 −32.8 3.0 
+Canada −78.5 −64.9 −55.2 −44.1 −25.8 
+Figure 8. Monthly lowest reanalysis hourly 2T between 60°N and 90°N latitude for 
+October (A), November (B), December (C), January (D), February (E), and March (F), 
+from hourly data between 1991 and 2020. 
+ 
+The average frequency of 2T being below −40°F between October through 
+March was 5.02%, with the highest percentages occurring in central 
+Greenland (32%) and Siberia (33%). The month of February had the highest 
+frequencies of these extreme temperatures, reaching maximums of 41% in 
+central Greenland. Figure 9 displays maps of 2T being below −40°F.  
+
+@@@ PAGE 47 @@@
+ERDC/CRREL TR-26-5 37 
+ 
+Figure 9. The monthly frequency of 2T between 60°N and 90°N latitude being 
+recorded at or less than −40°F for October (A), November (B), December (C), January 
+(D), February (E), and March (F), from hourly data between 1991 and 2020. 
+ 
+4.1.3 Soil Temperature, Level 1 (STL1) 
+The 0–7 cm average STL1 across the Arctic and Subarctic landmass averaged 
+over October and March was 13.2°F according to the 1991–2020 hourly 
+measurements. The lowest temperatures were predominately in central 
+Greenland (Figure 10). The average winter STL1 in most of the Arctic did not 
+get below −4°F except for Greenland, central Russia, and northern Canada 
+(Table 35). However, the monthly average STL1 shows the coldest month is 
+February (Figure 11). Table 36 shows minimum, maximum, mean, 5th and 
+95th percentile zonal statistics for STL1 per location. 
+
+@@@ PAGE 48 @@@
+ERDC/CRREL TR-26-5 38 
+ 
+Figure 10. Monthly average STL1 between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. 
+ 
+Table 35. Zonal statistics per location (within 60°N and 90°N) for the average STL1, using 
+the hourly reanalysis data averaged over October to March, 1991–2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −5.3   13.7 22.2 30.1 44.4 
+Russia −30.7     2.0 18.5 29.2 40.0 
+Finland    27.6   27.9 30.0 32.5 38.0 
+Sweden    27.8   28.7 30.3 32.5 36.5 
+Norway    27.1   29.8 32.7 39.3 45.4 
+Svalbard 13.6   17.8 23.9 29.5 33.3 
+Iceland 26.7   30.6 33.3 37.4 42.0 
+Greenland −33.7 −25.4 −9.6 24.2 32.3 
+Canada −30.6 −20.1 12.5 28.1 33.1 
+
+@@@ PAGE 49 @@@
+ERDC/CRREL TR-26-5 39 
+ 
+Figure 11. Monthly lowest hourly STL1 between 60°N and 90°N for October (A), November 
+(B), December (C), January (D), February (E), and March (F), from hourly data between 1991 
+and 2020. 
+ 
+Table 36. Zonal statistics per location (within 60°N and 90°N) for the lowest recorded STL1, 
+using hourly data from October–March, 1991–2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −49.9 −36.3 −18.7 4.0 38.3 
+Russia −106.0 −45.3 −20.8 −0.1 33.0 
+Finland −22.6 −19.9 −9.6 1.4 28.2 
+Sweden −20.0 −12.2 −4.3 4.9 14.8 
+Norway −21.1 −13.1 1.7 25.2 38.7 
+Svalbard −29.5 −17.7 −4.4 5.6 13.7 
+Iceland −2.2 2.9 13.0 26.5 36.4 
+Greenland −69.7 −51.0 −28.4 −1.4 19.5 
+Canada −69.5 −53.6 −27.0 −0.6 29.0   
+
+@@@ PAGE 50 @@@
+ERDC/CRREL TR-26-5 40 
+ 
+4.1.4 Wind Chill Temperature (WCT) 
+The average winter WCT across the Arctic and Subarctic landmass 
+between October and March was −23.9°F using the 1991–2020 hourly 
+measurements (Table 37). The lowest temperatures were predominately in 
+central Greenland, northern Canada, and Russia, and January was the 
+coldest month from these average temperatures (Figure 12). The average 
+winter (October–March) WCT in Scandinavia, western Russia, southern 
+Canada, and southern Alaska did not get below −4°F (Table 37). 
+Table 37. Zonal statistics per location (within 60°N and 90°N) for the average WCT, using 
+hourly data averaged over October–March, 1991–2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −32.5 −25.2 −8.8 9.4 37.1 
+Russia −45.6 −38.0 −20.1 11.0 30.4 
+Finland 1.8 7.0 15.1 22.1 29.2 
+Sweden 2.0 5.3 14.3 23.5 27.9 
+Norway 0.9 4.3 14.1 28.2 38.6 
+Svalbard −17.1 −14.7 −6.1 8.4 21.3 
+Iceland −0.3 7.4 15.5 24.9 32.4 
+Greenland −67.5 −65.9 −46.3 −12.3 19.5 
+Canada −60.4 −50.2 −28.1 −4.0 6.2 
+The average lowest recorded WCT across the 60°N to 90°N landmass 
+between October and March was −86.7°F using the 1991–2020 hourly 
+derived data. Below −60°F surface temperatures were recorded across the 
+Arctic, with Scandinavia being the highest region and Greenland being the 
+lowest (Figure 13). The coldest month from these extreme values was 
+February (Figure 12). Most of Greenland as well as northern Russia and 
+Canada had experienced below −100°F WCTs, while most other parts of 
+the Arctic had lows between −60°F and −100°F (Table 38). 
+The average frequency from number of hours per winter of wind chill 
+temperatures being below −65°F was 7.66% (averaged for the full 60°N–
+90°N land mass), with the highest frequency being in northeastern 
+Greenland during the month of February (75%) (Figure 14). 
+@@@ PAGE 51 @@@
+ERDC/CRREL TR-26-5 41 
+ 
+Figure 12. Monthly average WCT between 60°N and 90°N latitude for October ( A), 
+November (B), December (C), January (D), February (E), and March (F) from hourly 
+data between 1991 and 2020. 
+ 
+Figure 13. Monthly lowest WCT between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F) from hourly 
+data between 1991 and 2020. 
+ 
+
+@@@ PAGE 52 @@@
+ERDC/CRREL TR-26-5 42 
+ 
+Table 38. Zonal statistics per location (within 60°N and 90°N) for the lowest recorded WCT, 
+using hourly data from October–March, 1991–2020. 
+Location Min (°F) 5th PCT (°F) Mean (°F) 95th PCT (°F) Max (°F) 
+Alaska −103.7 −93.5 −76.1 −52.8 0.3 
+Russia −129.9 −105.1 −88.5 −61.0 −4.3 
+Finland −80.6 −73.8 −55.4 −38.0 −13.1 
+Sweden −72.6 −67.3 −48.6 −34.5 −12.1 
+Norway −75.3 −68.0 −44.2 −3.3 15.1 
+Svalbard −84.8 −81.9 −67.8 −45.9 −21.4 
+Iceland −50.2 −47.1 −30.9 −3.6 4.0 
+Greenland −121.0 −116.7 −96.5 −66.9 −11.7 
+Canada −117.5 −103.9 −87.6 −69.3 −51.3 
+Figure 14. The monthly frequency of WCT between 60°N and 90°N latitude being recorded at 
+or less than −65°F for October (A), November (B), December (C), January (D), February (E), 
+and March (F) from hourly data between 1991 and 2020. 
+ 
+4.2 Wind 
+The average wind speed across the continental Arctic was 7.9 kn, with 
+most of the higher wind speeds being in Greenland and some parts of 
+
+@@@ PAGE 53 @@@
+ERDC/CRREL TR-26-5 43 
+ 
+northern Canada and Russia (Table 39; Figure 15). The average wind 
+speed peaked in January and was lowest in October (Figure 15). 
+Table 39. Zonal statistics per location (within 60°N and 90°N) for the average wind speed 
+(knots), using hourly data from October–March, 1991–2020. 
+Location Min (knots) 5th PCT (knots) Mean (knots) 95th PCT (knots) Max (knots) 
+Alaska 1.0 2.6 6.1 11.9 18.0 
+Russia 1.4 3.1 6.9 12.2 16.8 
+Finland 5.1 6.2 6.9 8.0 13.6 
+Sweden 3.1 4.4 6.1 7.1 11.2 
+Norway 2.1 3.3 6.0 10.9 17.1 
+Svalbard 2.9 3.7 8.3 13.4 18.6 
+Iceland 3.9 5.2 8.8 12.8 17.6 
+Greenland 0.4 3.0 12.1 17.3 21.8 
+Canada 0.7 2.7 7.4 11.5 18.2 
+Figure 15. Monthly average wind speed and direction between 60°N and 90°N latitude 
+for October (A), November (B), December (C), January (D), February (E), and March (F), 
+from hourly data between 1991 and 2020. 
+ 
+
+@@@ PAGE 54 @@@
+ERDC/CRREL TR-26-5 44 
+ 
+The highest full winter average wind speed averaged for all of the 60°N to 
+90°N landmass was 30.5 kn, with the highest wind speeds being in 
+Greenland—especially southern Greenland and along the east coast—at 81 
+kn (Table 40; Figure 16). 
+Table 40. Zonal statistics per location (within 60°N and 90°N) for the highest recorded wind 
+speed, using hourly data from October–March 1991–2020. 
+Location Min (knots) 5th PCT (knots) Max (knots) 95th PCT (knots) Mean (knots) 
+Alaska 5.7 11.1 57.2 47.5 25.7 
+Russia 6.5 14.4 54.5 44.1 26.6 
+Finland 19.1 20.1 42.5 30.8 23.2 
+Sweden 16.1 20.1 38.1 28.7 24.1 
+Norway 10.1 15.2 57.6 42.9 25.6 
+Svalbard 14.4 18.5 57.9 52.0 34.0 
+Iceland 17.0 25.5 64.5 55.9 40.2 
+Greenland 2.8 15.7 81.0 67.0 45.5 
+Canada 4.8 11.4 55.2 44.1 29.5 
+Figure 16. Monthly highest wind speed between 60°N and 90°N latitude for October ( A), 
+November (B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. 
+ 
+
+@@@ PAGE 55 @@@
+ERDC/CRREL TR-26-5 45 
+ 
+The average frequency of hourly wind speeds over the full winter being 
+greater than 25 kn was 1.15%, with the highest frequency being in southern 
+Greenland. The frequency of these extreme wind events peaked in February, 
+with frequencies of around 22% in southern Greenland and 28% on the 
+eastern coast of Greenland (Figure 17). The frequency of more extreme wind 
+speed events, >80 kn, was near-zero across the area of study. 
+Figure 17. The monthly frequency of wind speed between 60°N and 90°N latitude being 
+recorded at or higher than 25°F for October (A), November (B), December (C), January (D), 
+February (E), and March (F), from hourly data between 1991 and 2020. 
+ 
+4.3 Snow 
+4.3.1 Snow Depth (SD) 
+The winter average SD from October–March, 1991–2020 was 19.0 in. 
+(Figure 18). The average highest SD across the Arctic was 44.4 in., with the 
+highest SD being in the mountainous regions of Scandinavia, Russia, and 
+Alaska (Figure 19). SD increased from October through March, as seen in 
+Figure 19. Notably, the SD on ice sheets was not able to be calculated as the 
+data was skewed by the ice and thus was masked out for Figures 18 and 19. 
+
+@@@ PAGE 56 @@@
+ERDC/CRREL TR-26-5 46 
+ 
+Figure 18. Monthly average SD between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F), from hourly 
+data between 1991 and 2020. 
+ 
+Figure 19. Monthly highest SD between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F), from hourly 
+data between 1991 and 2020. 
+ 
+
+@@@ PAGE 57 @@@
+ERDC/CRREL TR-26-5 47 
+ 
+4.3.2 Snow Load (SL) 
+The average SL calculated from October–March, 1991–2020 was 
+13.8 lb/ft², increasing from October through March (Figure 20). The 
+average highest recorded SL across the Arctic was 42.9 lb/ft² with the 
+highest snow load being in the mountainous regions of Scandinavia, 
+Russia, and Alaska (Figure 21). Notably, the SL on ice sheets was not able 
+to be calculated as the data was skewed by the ice and thus was masked 
+out for Figures 20 and 21. 
+Figure 20. Monthly average SL between 60°N and 90°N latitude for October (A), 
+November (B), December (C), January (D), February (E), and March (F), from hourly data 
+between 1991 and 2020. 
+ 
+
+@@@ PAGE 58 @@@
+ERDC/CRREL TR-26-5 48 
+ 
+Figure 21. Monthly highest SL between 60°N and 90°N latitude for October (A), November 
+(B), December (C), January (D), February (E), and March (F), from hourly data between 1991 
+and 2020. 
+ 
+
+@@@ PAGE 59 @@@
+ERDC/CRREL TR-26-5 49 
+ 
+5 Summary 
+The results of this project have produced a significant amount of 
+information, data, and analyses in a relatively short time span. Over 
+40,000 maps of environmental Arctic and Subarctic conditions have been 
+generated, validated, and archived for ready use (see Deliverables in 
+Section 6.2). The compilation of almost 30 years of hourly reanalysis data 
+for the circumpolar Arctic is archived and easily transferable to future 
+users of these data. Additionally, these data are all parsed into key 
+temporal intervals for operational use. 
+In reviewing the results of the generated maps for coincident extreme 
+environmental parameters, we have concluded that while temperatures 
+below −65°F or winds above 25 kn do occur, the frequency of such events 
+is low (<10%). In terms of operational planning purposes, specific materiel 
+that is operable down to temperatures not quite as low as −65°F can still 
+be deployed and operated in many locations. Average snow load rarely 
+exceeds the 25 lb/ft2 threshold, but can reach over 50 lb/ft2 in many areas 
+especially by February and March. 
+The comparisons between the ERA5 reanalysis data and the METAR 
+observations show relatively good agreement and low standard 
+deviation. There are a few anomalies where the ERA5 data and METAR 
+air temperature observations deviate in a consistent matter, which is 
+likely because of  varying heights of weather instrumentation collecting 
+observational data. The observed METAR  wind speeds trend higher than 
+the ERA5 wind speeds, which is likely because of  the ability of the 
+observational recorded data to capture extremes better than the gridded 
+reanalysis dataset. In -depth analysis and discussion of these 
+observations is detailed in  the Special Report, Development and 
+Management of Arctic Zonal Characterization Products: Geospatial 
+Database (Barrett et al. 2025 ). 
+@@@ PAGE 60 @@@
+ERDC/CRREL TR-26-5 50 
+ 
+6 Discussion and Recommendations 
+6.1 Considerations for Soldiers 
+Cold environments are particularly difficult for soldiers because of the 
+increased need for protective clothing and insulated shelters. Common 
+atmospheric factors in cold environments include temperature, 
+precipitation (snow and ice), fog, and wind. Low temperatures may also 
+impair equipment operation, either temporarily or permanently, by 
+changing the physical properties of materials. Hardening and brittleness 
+of material, differential contraction of dissimilar materials, increased 
+viscosity of lubricants, changes in electronic components, stiffening of 
+shock mounts, and freezing of water are just a few of the potential 
+problems. Ice accumulation on structures and equipment can cause 
+damage and interfere with communication, visibility, and mobility. 
+Aircraft such as helicopters and uncrewed aerial vehicles (UAVs) are 
+especially vulnerable to icing, which can eliminate these key assets from 
+operation. Accumulated snow also affects performance of electromagnetic 
+sensors and additionally imposes a structural load on buildings, shelters, 
+vehicles, and other equipment. There are human psychological and 
+physiological challenges to operating in these extreme environments and 
+the need for sustained training in these conditions cannot be overstated.  
+6.2 Deliverables and Future Needs 
+The deliverables of this project are ready for transition to a permanent 
+location and use by the end-user community. To conclude this project in 
+the 2025 fiscal year, the team at ERDC Cold Regions Research and 
+Engineering Laboratory (CRREL) is working with the University of Alaska 
+Fairbanks (UAF) Alaska Climate Research Center (ACRC) to transfer our 
+compiled ERA5 dataset for hosting on their servers and long-term 
+availability. UAF and CRREL are coproducing a landing page with 
+description of the data on the ACRC’s website (https://akclimate.org/) to allow 
+for easy downloading access for end-users. Additionally, all generated 
+maps will be transferred and accessible via a separate tab on the same 
+website. ERDC-CRREL is developing a user interface (UI) to allow end-
+users to query their specified parameters and populate the corresponding 
+map for download. For example, users will be able to select from the 
+following options: 
+@@@ PAGE 61 @@@
+ERDC/CRREL TR-26-5 51 
+ 
+• Region: The landmass from 60°N to 90°N, which includes the entire 
+Arctic landmass plus portions of Subarctic, 0°–90°W, 90°W–180°E, 
+180°E–90°E, and 90°E–0°. 
+• Variable: SKT, 2T, SD, WSPD, WCT, STL1, SL. 
+• Metric: average, extreme, frequency of extreme event (threshold 
+specified), length of extreme event (threshold-specified). 
+• Interval: six hours, daily, weekly, biweekly, monthly, October–March 
+Winter season. 
+• Month: October, November, December, January, February, and March. 
+Once this UI is available, end-users simply need to specify their desired 
+parameters and a map will be generated and ready for download. This will 
+allow users to download multiple maps and examine the potential for 
+coincident extreme conditions. 
+In addition to this technology transfer effort, there are several options and 
+potential pathways these datasets and maps can be integrated into end-
+user-defined tools. Although these efforts do not fall within the scope of 
+the current project, they should be explored in future efforts. A useful 
+effort could be to develop a standalone UI that generates maps on-demand 
+as opposed to pulling from a static archive. This could additionally include 
+the ability to overlap maps that narrow in on specific parameters that are 
+of interest to view jointly. While the products developed for this project are 
+specific to the Arctic region, the ERA5 dataset includes global coverage 
+that could be applied to other regions of the world with regional 
+observations, or globally. Lastly, the ability to zoom in to a resolution 
+higher than 31 km on the maps is past the limitations of the datasets used 
+in this study, but could be of interest in a future effort to allow for 
+narrowing into smaller regions and viewing conditions at a higher fidelity 
+than regionally. 
+@@@ PAGE 62 @@@
+ERDC/CRREL TR-26-5 52 
+ 
+Bibliography 
+AMS (American Meteorological Society). 2024a. “Analysis.” Glossary of Meteorology. 
+https://glossary.ametsoc.org/wiki/Analysis. 
+AMS (American Meteorological Society). 2024b. “Reanalysis.” Glossary of Meteorology. 
+https://glossary.ametsoc.org/wiki/Reanalysis.  
+Barrett, E. P., B. Hoch, Z. J. Zody, M. L. Michaels, and R. T. Affleck. 2025. Development 
+and Management of Arctic Zonal Characterization Products: Geospatial 
+Database. ERDC/CRREL SR-25-2. US Army Cold Regions Research and 
+Engineering Laboratory. https://dx.doi.org/10.21079/11681/49991. 
+Curtis, J. n.d. Snow Loads. National Weather Service. https://www.weather.gov/media/ajk 
+/articles/snowloads.pdf. 
+DAF (US Department of the Air Force). 2020. Arctic Strategy: Ensuring a Stable Arctic 
+Through Vigilance, Power Projection, Cooperation, and Preparation. US 
+Department of the Air Force. https://www.af.mil/Portals/1/documents/2020SAF/July  
+/ArcticStrategy.pdf.  
+DAF (US Department of the Air Force). 2022. Flight Operations. AFMAN 11-202, Volume 
+3. Headquarters, Department of the Air Force. https://static.e-publishing.af.mil 
+/production/1/af_a3/publication/afman11-202v3/afman11-202v3.pdf. 
+DAF (US Department of the Air Force). 2024. C-17 Configuration and Mission Planning. 
+AFMAN 11-2C-17V3. Headquarters, Department of the Air Force. https://static.e  
+-publishing.af.mil/production/1/af_a3/publication/afman11-2c-17v3add-a/afman11-2c 
+-17v3add-a.pdf. 
+DAF (US Department of the Air Force). n.d. “Country Climatologies.” Air Force Combat 
+Climatology Center. Accessed January 2025. https://climate.af.mil/climatologies  
+/country/. 
+DoD. 1997. Department of Defense Handbook: Global Climatic Data for Developing 
+Military Products. MIL-HDBK-310. Department of Defense. https://cvgstrategy.com  
+/wp-content/uploads/2013/08/MIL-HDBK-310.pdf. 
+DoD. 2024. 2024 Arctic Strategy. US Department of Defense. https://media.defense.gov  
+/2024/Jul/22/2003507411/-1/-1/0/DOD-ARCTIC-STRATEGY-2024.PDF. 
+DON (US Department of the Navy). 2019. Strategic Outlook for the Arctic. US 
+Department of the Navy. https://www.c2f.usff.navy.mil/Portals/24/Documents  
+/Navy_Strategic_Outlook_Arctic_Jan2019.pdf?ver=2019-09-26-105926-343. 
+DOS (US Department of State). 2022. National Strategy for the Arctic Region . US 
+Department of State. https://bidenwhitehouse.archives.gov/wp-content/uploads 
+/2022/10/National-Strategy-for-the-Arctic-Region.pdf. 
+@@@ PAGE 63 @@@
+ERDC/CRREL TR-26-5 53 
+ 
+Earth Observing Laboratory. n.d. “Wind Direction Quick Reference.” National Center for 
+Atmospheric Research. Accessed May 1, 2025. https://www.eol.ucar.edu/content/wind 
+-direction-quick-reference. 
+ECMWF (European Center for Medium Range Weather Forecasting). 2018. “ERA5 
+Hourly Data on Single Levels from 1940 to Present.” Climate Data Store. 
+https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview. 
+ECMWF (European Center for Medium Range Weather Forecasting). 2019. “ERA5 -Land 
+Monthly Averaged Data from 1950 to Present.” Climate Data Store. https://cds  
+.climate.copernicus.eu/datasets/reanalysis-era5-land-monthly-means?tab=overview. 
+ECMWF (European Center for Medium Range Weather Forecasting). 2026. “ERA5: Data 
+Documentation.” Documentation Centre. https://confluence.ecmwf.int/display/CKB  
+/ERA5%3A+data+documentation. 
+ECMWF (European Center for Medium Range Weather Forecasting). n.d. “Climate Data 
+Store.” Accessed 2025. https://cds.climate.copernicus.eu/. 
+Hersbach, H., B. Bell, P. Berrisford, S. Hirahara, A. Horányi, J. Muñoz-Sabater, J. 
+Nicolas, et al. 2020. “The ERA5 Global Reanalysis.” Quarterly Journal of the 
+Royal Meteorological Society 146 (730) 1999–2049. https://doi.org/10.1002 
+/qj.3803. 
+HQDA (Headquarters, Department of the Army). 2020. Research, Development, Test, 
+and Evaluation of Materiel for Worldwide Use. AR 70-38. Headquarters, 
+Department of the Army. https://armypubs.army.mil/epubs/DR_pubs/DR_a/ARN30017  
+-AR_70-38-000-WEB-1.pdf. 
+HQDA (Headquarters, Department of the Army). 2014. Operator Manual for Extended 
+Cold Weather Clothing System Generation III (ECWCS GENIII). TM 10-8415 
+-236-10. Headquarters, Department of the Army. https://ciehub.info/ref/TM/10-8415 
+-236-10_2014.pdf. 
+HQDA (Headquarters, Department of the Army). 2017. Arctic and Cold Weather 
+Maintenance Operations. TM 4-33.31. Headquarters, Department of the Army. 
+HQDA (Headquarters, Department of the Army) and DAF (Department of the Air Force). 
+2021. Weather Support for the US Army. AR 115-10 / AFI 15-157. Headquarters, 
+Department of the Army. https://armypubs.army.mil/epubs/DR_pubs/DR_a/ARN44730  
+-AR_115-10-001-WEB-3.pdf. 
+HQDA (Headquarters, Department of the Army) and USMC. 2025. Arctic and Extreme 
+Cold Weather Operations. ATP 3-90.96/MCTP 12-10E, Change 1. Headquarters, 
+Department of the Army and Headquarters, United States Marine Corps. 
+https://www.marines.mil/Portals/1/Publications/MCTP%2012-10E%20(SECURED).pdf?ver 
+=6UTlOU5xaA3ZkCUunrPJqQ%3D%3D.  
+@@@ PAGE 64 @@@
+ERDC/CRREL TR-26-5 54 
+ 
+ICAO (International Civil Aviation Organization). 2021. Manual of Aeronautical 
+Meteorological Practice, 13th Edition. Doc 8896. International Civil Aviation 
+Organization. https://www2023.icao.int/airnavigation/METP/14th%20Meeting%20WAFS  
+/METPWGMOG14%20IP09%20Att1-%20Doc.8896.update%20Amd%2081.pdf. 
+NCAR-NCL (National Center for Atmospheric Research–NCAR Command Language). 
+2019. “NCAR Command Language - Version 6.6.2.” https://www.ncl.ucar.edu 
+/current_release.shtml. 
+NCAR-NCL (National Center for Atmospheric Research–NCAR Command Language). 
+n.d. “ncl_convert2nc.” NCL Tools. https://www.ncl.ucar.edu/Document/Tools  
+/ncl_convert2nc.shtml. 
+Nelson, C. A., M. Tew, G. Phetteplace, R. Schwerdt, A. Maarouf, R. Osczevski, M. 
+Bluestein, et al. 2002. “Joint Development and Implementation by the United 
+States and Canada of a New Wind Chill Temperature (WCT) Index.” The 15th 
+Conference on Biometeorology and Aerobiology and the 16th International 
+Congress of Biometeorology, Kansas City, MO, October 29. https://ams.confex.com 
+/ams/15BioAero/techprogram/paper_48069.htm. 
+NWS (National Weather Service). 2005. “WGRIB.” Climate Prediction Center. 
+https://www.cpc.ncep.noaa.gov/products/wesley/wgrib.html. 
+Pollard, Tom. 2023. “Python-metar.” Version 1.11.0. https://github.com/python-metar/python 
+-metar. 
+USAF (US Air Force). 2017. 14WS Support Analysis Request (SAR). 14 WS FORM 1. 14th 
+Weather Service. https://climate.af.mil/static/docs/14ws_form_1_sar.pdf . 
+WMO (World Meteorological Organization). 2017. WMO Guidelines on the Calculation of 
+Climate Normals. WMO-No. 1203. World Meteorological Organization. 
+https://library.wmo.int/idurl/4/55797. 
+@@@ PAGE 65 @@@
+ERDC/CRREL TR-26-5 55 
+ 
+Abbreviations 
+ABN DIV Airborne Division 
+ACRC Alaska Climate Research Center 
+AFMAN Air Force Manual 
+AGM Absorbed Glass Mat 
+AMMPS Advanced Medium Mobile Power Sources 
+AMS American Meteorological Society 
+AN-8 Antarctic Jet Fuel 
+AR Army Regulation 
+ATP Army Techniques Publications 
+CFS Climate Forecast System 
+CIF Central Issue Facility 
+CIG Ceiling 
+CLP Cleaner Lubricant Preservative 
+CRREL Cold Regions Research and Engineering Laboratory 
+CSV Comma separated value 
+DAF US Department of the Air Force 
+DON US Department of the Navy 
+DOS US Department of State 
+ECMWF European Centre for Medium-Range Weather 
+Forecasts 
+ECWC Extended Cold Weather Clothing 
+ERA5 European Center for Medium-Range Weather 
+Forecasts Reanalysis v5 
+ERDC Engineer Research and Development Center 
+FARP Forward Arming and Refueling Point 
+@@@ PAGE 66 @@@
+ERDC/CRREL TR-26-5 56 
+ 
+14WS 14th Weather Squadron 
+GLP General Purpose Lubricant 
+GMD Grease, molybdenum disulfide 
+GRIB Gridded binary 
+HQDA Headquarters, Department of the Army 
+ICAO International Civil Aviation Organization 
+IP Interservice Publication 
+JP Jet Propulsion 
+LAW Lubricant Arctic Weight 
+LO Lubrication order 
+LSA Lubricant, Small Arms 
+LSAT Lubricant, Weapon Semifluid (High-Load-Carrying 
+Capacity) 
+MEP Mobile Electric power 
+METAR Meteorological Aerodrome Report 
+MTG Military Tactical Generator 
+NCAR National Center for Atmospheric Research 
+NCL National Center for Atmospheric Research Command 
+Language 
+netCDF Network Common Data Format 
+NWP Numerical weather prediction 
+NWS National Weather Service 
+PCT Percentile 
+PL Preservative Lubricant 
+POL Petroleum, oils, and lubricants 
+RBC Rifle Bore Cleaner 
+@@@ PAGE 67 @@@
+ERDC/CRREL TR-26-5 57 
+ 
+RH Relative humidity 
+SAR Support Analysis Request 
+SAW Squat Automatic Weapon 
+SD Snow depth 
+SD-2 Degreasing Solvent 
+SFP Single Fuel Policy 
+SKT Skin temperature 
+SL Snow load 
+SP Special Purpose 
+STL1 Soil temperature, Level 1 
+SWE Snow water equivalent 
+TM Technical Manual 
+TQG Tactical Quiet Generator 
+TSTMS Thunderstorms 
+Turb Turbulence 
+2T 2 m temperature 
+U Wind Velocity, U-Component 
+UAF University of Alaska Fairbanks 
+UAV Uncrewed Aerial Vehicle 
+UI User interface 
+USAF United States Air Force 
+V Wind velocity, V-Component  
+VIS Visibility 
+WCT Wind chill temperature 
+WDIR Wind direction 
+@@@ PAGE 68 @@@
+ERDC/CRREL TR-26-5 58 
+ 
+WMO World Meteorological Organization 
+WSPD Wind speed 
+Xwind Cross Wind 
+@@@ PAGE 69 @@@
+                
+  
+REPORT DOCUMENTATION PAGE 
+1. REPORT DATE 
+March 2026 
+2. REPORT TYPE 
+Final Technical Report 
+3. DATES COVERED 
+START DATE 
+FY23 
+END DATE 
+FY26 
+4. TITLE AND SUBTITLE 
+Arctic and Subarctic Zonal Characterization and Operational Thresholding (AZCOT) 
+5a. CONTRACT NUMBER 
+ 
+5b. GRANT NUMBER 
+ 
+5c. PROGRAM ELEMENT 
+ 
+5d. PROJECT NUMBER 
+ 
+5e. TASK NUMBER 
+ 
+5f. WORK UNIT NUMBER 
+ 
+6. AUTHOR(S) 
+Rosa T. Affleck, Michelle L. Michaels, Brendon Hoch, Evan P. Barrett, Jenna N. Williams, Zachary J. Zody, Paige Toebben, 
+and Mathew E. Hefner 
+7. PERFORMING ORGANIZATION NAME(S) AND ADDRESS(ES) 
+See reverse. 
+8. PERFORMING ORGANIZATION 
+REPORT NUMBER 
+ERDC/CRREL TR-26-5 
+9. SPONSORING/MONITORING AGENCY NAME(S) AND ADDRESS(ES) 
+US Army Corps of Engineers–Headquarters 
+Washington, DC 20314-1000 
+10. SPONSOR/MONITOR’S 
+ACRONYM(S) 
+USACE 
+11. SPONSOR/MONITOR’S 
+REPORT NUMBER(S) 
+ 
+12. DISTRIBUTION/AVAILABILITY STATEMENT 
+Distribution Statement A. Approved for public release: distribution is unlimited. 
+13. SUPPLEMENTARY NOTES 
+Project NH23-8375, “Arctic Zonal Characterization and Operational Thresholding (AZCOT)” 
+14. ABSTRACT 
+The US military develops and updates environmental parameters specified for the sustainment of operations throughout the world. These 
+requirements are generally based on environmental data providing a baseline of temperature, wind, and precipitation expectati ons for each 
+location. Observational data for Arctic regions is limited because of the remote and sparsely occupied geographical conditions. To address 
+the need for updating these requirements, a 30-year analysis of meteorological conditions was conducted using a European Centre for 
+Medium-Range Weather Forecasts (ECMWF) global reanalysis dataset over the Arctic and Subarctic region, defined by latitude 60° –90° 
+North for this project. Raw hourly datasets were acquired, and the minimum temperatures, maximum wind speeds, maximum snow 
+depths, and averages were determined over the period 1991–2020 between the months of October and March for each parameter. These 
+were then visualized with geospatial analysis, producing a variety of maps designed to assist with the classification of para meters in Arctic 
+zones of operation across a range of temporal resolutions. Finally, a review of operational limits for military equipment was  conducted to 
+match northern zones of operation with suitable capabilities dependent on environmental conditions . 
+15. SUBJECT TERMS 
+Arctic regions; Cold regions; Environment; Geospatial; Geospatial data; Meteorology; Military planning; Operations; Reanalysis; Thresholds; 
+Weather forecasting 
+16. SECURITY CLASSIFICATION OF: 17. LIMITATION OF ABSTRACT 
+SAR 
+18. NUMBER OF PAGES 
+70 a. REPORT 
+Unclassified 
+b. ABSTRACT 
+Unclassified 
+C. THIS PAGE 
+Unclassified 
+19a. NAME OF RESPONSIBLE PERSON 
+Brendon Hoch 
+19b. TELEPHONE NUMBER (include area code) 
+(603) 646-4295 
+Report Documentation Page (SF 298) STANDARD FORM 298 (REV. 5/2020) 
+PREVIOUS EDITION IS OBSOLETE. Prescribed by ANSI Std. Z39.18  
+@@@ PAGE 70 @@@
+                
+  
+7. PERFORMING ORGANIZATION NAMES AND ADDRESSES (concluded) 
+US Army Engineer Research and Development Center (ERDC) 
+Cold Regions Research and Engineering Laboratory (CRREL) 
+72 Lyme Road 
+Hanover, NH 03755-1290 
+Oak Ridge Associated Universities (ORAU) 
+Oak Ridge Institute for Science and Education (ORISE) 
+2902 Newmark Drive 
+PO Box 9,005 
+Champaign, IL 61,826-9005 

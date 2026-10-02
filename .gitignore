@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Claude Code local notes / progress tracking (not for version control)
+CLAUDE.local.md
+.claude/
+
+# EDA derived data cache (rebuild with eda/scripts/build_cubes.py)
+eda/cache/

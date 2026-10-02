@@ -11,6 +11,10 @@ AZCOT builds a 30-year (1991–2020) climatological atlas of cold-season weather
 
 The dataset lives at `/beegfs/SNAP/rltorgerson/AZCOT` and is split across two subdirectories, `disk1` and `disk2`, each documented by its own `README.docx`.
 
+## Exploratory data analysis
+
+See [eda/EDA.md](eda/EDA.md) for a deep dive into the `disk1/Metrics` wind chill and snow load statistics. It covers what each metric means (verified against the hourly data), the operational questions they can answer, maps and charts, and known data quirks, such as `min_WCT` being a mean of annual minima rather than the record low. The scripts to reproduce it are in [eda/scripts/](eda/scripts/).
+
 ## disk1 — raw data and computed statistics
 
 - `data/{month}/{day}/` — hourly GRIB/NetCDF files named `YYMMDDHH.VARIABLE.{grib,nc}` (YY = year, MM = month, DD = day, HH = hour), plus 30-year climatological files named `VARIABLE.monthDDHH.91-20clim.nc`. Variables include `2T` (2m air temp), `SKT` (skin temp), `STL1` (soil temp), `SD` (snow depth), `SWE` (snow water equivalent), `10U`/`10V` (wind components), `WD10`/`WS10_knots` (wind direction/speed, derived), `WCT` (wind chill, derived), and an unlabeled parameter `var29`.

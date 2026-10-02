@@ -1,0 +1,14 @@
+name: azcot-eda
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - xarray
+  - netcdf4
+  - numpy
+  - pandas
+  - matplotlib-base
+  - cartopy
+  - scipy
+  - pypdf
+  - tabulate
