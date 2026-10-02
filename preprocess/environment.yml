@@ -1,4 +1,4 @@
-name: azcot-eda
+name: azcot-preprocess
 channels:
   - conda-forge
 dependencies:
@@ -7,9 +7,5 @@ dependencies:
   - netcdf4
   - numpy
   - pandas
-  - matplotlib-base
-  - cartopy
-  - scipy
-  - pypdf
-  - tabulate
-  - pymupdf
+  - python-eccodes
+  - pillow
