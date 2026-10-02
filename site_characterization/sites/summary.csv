@@ -1,0 +1,9 @@
+site,slug,design_type,zone_design,record_low,n_ok,n_caution,n_no,n_items
+"Fairbanks, AK",fairbanks_ak,C2 Cold,5A,-55.51869201660156,32,13,61,106
+"Utqiagvik, AK",utqiagvik_ak,C2 Cold,4,-56.010799407958984,32,34,40,106
+"Yellowknife, NT",yellowknife_nt,C2 Cold,5A,-50.467262268066406,37,10,59,106
+"Eureka, NU",eureka_nu,C3 Severe cold,5B,-60.8646125793457,28,7,71,106
+"Pituffik, GL",pituffik_gl,C2 Cold,5A,-53.902191162109375,31,13,62,106
+"Tromsø, NO",tromso_no,C1 Basic cold,3,-24.134050369262695,75,7,24,106
+"Norilsk, RU",norilsk_ru,C2 Cold,5A,-57.38128662109375,31,13,62,106
+"Oymyakon, RU",oymyakon_ru,C4 Extreme cold,5C,-78.9532470703125,8,4,94,106

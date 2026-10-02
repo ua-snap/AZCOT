@@ -40,6 +40,9 @@ GLACIER_SL = ERA5_GLACIER_SWE_M * SWE_M_TO_SL  # 2047.24 lb/ft2
 # Grid (output convention: lat ascending like the Metrics files; lon -180..179.75).
 LAT = np.round(np.arange(60.0, 90.0001, 0.25), 2)
 LON = np.round(np.arange(-180.0, 180.0, 0.25), 2)
+# ERA5-Land grid of the snow-depth (SD) files: 0.1 degree, 301 x 3600.
+SD_LAT = np.round(np.arange(60.0, 90.0001, 0.1), 1)
+SD_LON = np.round(np.arange(-180.0, 180.0, 0.1), 1)[:3600]
 
 SURFACE_TYPES = {0: "ocean", 1: "land", 2: "glacier", 3: "perennial_snow"}
 

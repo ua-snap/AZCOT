@@ -1,6 +1,6 @@
-# AZCOT preprocessing: curated wind chill and snow load coverages
+# AZCOT preprocessing: curated cold-season coverages
 
-This pipeline condenses the AZCOT ERA5 cold-season data into a small set of curated NetCDF coverages for **wind chill temperature (WCT)** and **snow load (SL)**, ready for mapping and analysis:
+This pipeline condenses the AZCOT ERA5 cold-season data into a small set of curated NetCDF coverages for **wind chill temperature (WCT)** and **snow load (SL)** (steps 1–5), plus **air temperature (2T)**, **10 m wind speed (WSPD)** and **snow depth (SD)** (steps 6–8), ready for mapping and analysis:
 
 - **Climatology coverages** (daily, monthly, seasonal) with a true **min of min**, **mean of mean**, and **max of max** for every grid cell, recomputed from the raw hourly data.
 - **Stats coverages** (daily, monthly, seasonal) with threshold frequencies, consecutive-hour persistence, and percentiles, taken from `disk1/Metrics`.
@@ -27,10 +27,14 @@ Output root: **`/beegfs/CMIP6/jdpaul3/azcot_preprocess`**
 | `azcot_wct_stats_{monthly,seasonal}.nc` | 6 months / none | `wct_frequency`, `wct_consecutive`, `wct_consecutive_no_ones` |
 | `azcot_sl_stats_daily.nc` | 182 days | `sl_frequency` (% hours ≥ T, T = 0…50 lb/ft²), `sl_percentile` (P = 50, 75, 80, 85, 90, 95, 99) |
 | `azcot_sl_stats_{monthly,seasonal}.nc` | 6 months / none | `sl_frequency` |
+| `azcot_t2_climatology_{daily,monthly,seasonal}.nc` | as above | `t2_min`, `t2_mean`, `t2_max` (°F); monthly/seasonal also `t2_freeze_thaw_days` |
+| `azcot_wspd_climatology_{daily,monthly,seasonal}.nc` | as above | `wspd_min`, `wspd_mean`, `wspd_max` (knots, hourly mean at 10 m; no gusts) |
+| `azcot_sd_climatology_{daily,monthly,seasonal}.nc` | as above | `sd_min`, `sd_mean`, `sd_max` (inches). **ERA5-Land 0.1° grid (3600 × 301)**, NaN over water, no `surface_type` |
+| `azcot_{t2,wspd,sd}_histogram_monthly.nc` | 6 months | `{var}_hour_counts(time, bin, lat, lon)`: hours per 1-unit bin (1 °F, 1 kn, 1 in) and `n_hours` per month |
 
-Every file also has `surface_type` and a `crs` grid-mapping variable. Thresholds and percentiles are coordinate dimensions (`wct_threshold`, `wct_consec_threshold`, `sl_threshold`, `percentile`) rather than one variable per threshold.
+Every file (except the SD files, which are on their own grid) also has `surface_type`, and every file has a `crs` grid-mapping variable. Thresholds and percentiles are coordinate dimensions (`wct_threshold`, `wct_consec_threshold`, `sl_threshold`, `percentile`) rather than one variable per threshold.
 
-`intermediate/` holds `hourly_reduce/{wct,sl}/{mon}_{DD}.nc` (step 1: per-day min / mean / max, plus the mean of annual minima and maxima kept for validation) and `surface_type.nc` (step 2, with the diagnostic fields the rule uses). `validation/validation_report.md` is written by step 5. `logs/` holds the SLURM logs.
+`intermediate/` holds `hourly_reduce/{wct,sl,t2,wspd,sd}/{mon}_{DD}.nc` (step 1: per-day min / mean / max, plus the mean of annual minima and maxima kept for validation) and `surface_type.nc` (step 2, with the diagnostic fields the rule uses). `histograms/` and `freeze_thaw/` (step 6) are also in `intermediate/`. `validation/validation_report.md` is written by step 5 and `validation/validation_report_extra.md` by step 8. `logs/` holds the SLURM logs.
 
 ### What the statistics mean
 
@@ -47,6 +51,22 @@ Monthly and seasonal **frequency** and **consecutive** stats are means of the da
 ### Time axis
 
 Daily and monthly files use a CF climatological time axis. `time` holds nominal dates in a non-leap reference season (2001-10-01 … 2002-03-31) so the files sort in season order, and `climatology_bounds` gives the true span (each calendar day or month, 1991–2020). Daily files also carry `calendar_day` (e.g. `jan_15`), `month`, and `day` coordinates. Seasonal files have no time dimension.
+
+### Air temperature, wind, snow depth (steps 6–8)
+
+These three variables follow the same conventions as WCT and SL: true min, mean and max from all 720 hourly values per calendar day, and no Feb 29. On top of that, each has a **monthly histogram of hourly values** in 1-unit bins. Bin *u* holds hours with *u*−1 < value ≤ *u*, and the first and last bins are open-ended. The share of hours at or below any integer threshold *T* is `counts.sel(bin=slice(None, T)).sum("bin") / n_hours`. Sum over `time` for the whole season. This gives exact "% of hours colder than X" for *any* limit (e.g. an equipment rating of −53 °F), which the fixed 5 °F steps in `Metrics` can't. Percentiles follow from the cumulative sum at 1-unit resolution.
+
+`t2_freeze_thaw_days` is the mean number of days per year (per month, or summed over the season) on which hourly 2T was both below and above 32 °F.
+
+**`Metrics` is not used for these variables, because its stats for them are broken.** Checked against the raw hourly files at Fairbanks, Jan 15:
+
+- **`Metrics` 2T is in kelvin**, but its `frequency_<T>` thresholds (0 … −75) are °F values. As a result every 2T frequency is 0%, while the raw data gives 22.5% of hours ≤ −20 °F. `min_2T` is again a mean of yearly lows.
+- **The raw `*.WS10_knots.nc` files are in m/s, not knots.** `Metrics` `averageWSPD` matches the raw m/s exactly, so its frequency thresholds (8 … 50, meant as knots) were applied to m/s. `max_WSPD` equals `min_WS10` (6.99), while the true maximum is 13.34. The pipeline converts wind to knots.
+- **`Metrics` snow depth is correct** (mean, max and the 8/15/20/40 in frequencies all match the raw data); it is used for validation.
+
+**Missing snow-depth hours.** In the raw SD (ERA5-Land) files, **hours 01–23 of the last day of every month are entirely NaN in every year**; only 00 UTC survives. Three more 00 UTC hours are missing (2008-12-01, 2010-02-01, 2019-03-01). That is 690, 667, 668, 667, 484 and 1 missing hours for October through March.
+
+Step 6 skips any all-NaN hour and records it: `n_missing_hours` in the daily intermediates, `missing_hours` in the histogram. Statistics use only the hours that exist, so the SD climatology for the last day of each month rests on 30 values instead of 720. Step 6 fails on any *partial* change of the data mask. (`Metrics` instead counts missing hours as "below threshold" while still dividing by 720, so its SD frequencies for those days are close to zero.) 2T and WSPD have no missing hours.
 
 ## Glaciers and `surface_type`
 
@@ -76,7 +96,7 @@ Map products should symbolize classes 2 and 3 from `surface_type` (for example w
 # once: create the environment
 micromamba create -f preprocess/environment.yml -p ~/micromamba/envs/azcot-preprocess
 
-# submit the whole pipeline to SLURM (step 1, then steps 2-5 after step 1 succeeds)
+# submit the whole pipeline to SLURM (steps 1 and 6 in parallel, then steps 2-5 and 7-8)
 bash preprocess/run_all.sh
 ```
 
@@ -90,7 +110,11 @@ Or run the steps one at a time from `preprocess/` (`PY=~/micromamba/envs/azcot-p
 | 4 | `$PY step4_stats.py` | 6 stats coverages (peaks at ~16 GB RAM, so use a compute node) | ~1.5 min |
 | 5 | `$PY step5_validate.py` | checks, `validation/validation_report.md`; exits non-zero on failure | ~1 min |
 
-`sbatch steps2to5.slurm` runs steps 2–5 together. Step 1 is **resumable**: each day is written atomically, and finished days are skipped on re-run, so just re-submit after an interruption. Steps 2–5 overwrite their outputs. Set `AZCOT_PRE_OUT=/some/dir` to write somewhere else (e.g. for a test run: `AZCOT_PRE_OUT=/tmp/test $PY step1_reduce_hourly.py --days jan_15`).
+| 6 | `sbatch step6_reduce_extra.slurm` | 3 variables × 182 × 720 raw hourly files → per-day min/mean/max, monthly histograms, freeze–thaw (one task per variable × month; SD is the slowest) | ~1–1.5 h |
+| 7 | `$PY step7_extra_coverages.py` | 12 coverages for t2 / wspd / sd | ~2 min |
+| 8 | `$PY step8_validate_extra.py` | checks, `validation/validation_report_extra.md` | ~5 min |
+
+`sbatch steps2to5.slurm` runs steps 2–5 together, and `sbatch steps7to8.slurm` runs steps 7–8 (step 7 needs step 2's `surface_type`). Step 1 is **resumable**: each day is written atomically, and finished days are skipped on re-run, so just re-submit after an interruption. Steps 2–5 overwrite their outputs. Set `AZCOT_PRE_OUT=/some/dir` to write somewhere else (e.g. for a test run: `AZCOT_PRE_OUT=/tmp/test $PY step1_reduce_hourly.py --days jan_15`).
 
 Code layout: `config.py` (paths, calendar, constants, `out_path()` write guard), `cf.py` (CF metadata, CRS, time axis), and one script per step.
 
@@ -118,6 +142,22 @@ Step 5 checks all 182 days and every grid cell (`validation/validation_report.md
 | `sl_mean` / `sl_max` (daily) vs `Metrics` `averageSL` / `max_SL` | ≤ 1.3e-5 relative (float32 round-off in `Metrics`; ≤ 3.5e-4 lb/ft² on land cells) |
 
 The seasonal coverages also reproduce the TR-26-5 land-wide numbers (unweighted means over ERA5-Land cells): average WCT −24.04 °F (report −23.9), average lowest WCT −86.73 °F (−86.7), average snow load 13.81 lb/ft² (13.8), average highest snow load 42.94 lb/ft² (42.9).
+
+### Steps 6–8 (t2, wspd, sd)
+
+Step 8 (`validation/validation_report_extra.md`) passes. Every check covers all 182 days and every cell:
+
+| Check | Max difference |
+|---|---:|
+| `t2_mean` vs `Metrics` `averageTemp` (K → °F) | 1.1e-3 °F |
+| our mean of yearly 2T minima vs `Metrics` `min_2T` (K → °F) | 2.1e-4 °F |
+| `t2_min` ≤ `Metrics` `percentile_1` | 0 violations |
+| `wspd_mean` vs `Metrics` `averageWSPD` (m/s → kn) | 8.4e-5 kn |
+| `sd_mean` / `sd_max` vs `Metrics` (m → in; complete days) | ≤ 1e-5 relative |
+| Histogram totals = `n_hours` (all three variables) | 0 violations |
+| SD share of hours ≥ 8/15/20/40 in vs `Metrics` (with `Metrics`' ÷720 undone) | 8.5e-6 %-points |
+
+**The Atlas 2T "Lowest Recorded" rasters are not the true minimum.** Unlike the Atlas WCT rasters, which match exactly, the 2T rasters equal the raw-hourly minimum at only 27% of land cells and days, and are *warmer* at the other 73%. They are never colder, so the Atlas pipeline evidently missed hours. The worst case is 66 °N 67 °E on Nov 4: the raw data has a five-hour cold spell reaching −40.2 °F (1992-11-04 00 UTC, and the GRIB copy agrees), while the Atlas shows −6.3 °F. Step 8 therefore only checks that the Atlas is never colder than `t2_min`.
 
 ## Using the coverages
 

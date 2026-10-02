@@ -20,17 +20,18 @@ def crs_var():
         "crs_wkt": WKT_4326, "spatial_ref": WKT_4326, "epsg_code": "EPSG:4326"})
 
 
-def base_dataset(title_suffix, summary):
+def base_dataset(title_suffix, summary, lat=LAT, lon=LON):
     ds = xr.Dataset(coords={
-        "lat": ("lat", LAT, {"standard_name": "latitude", "long_name": "latitude", "units": "degrees_north", "axis": "Y"}),
-        "lon": ("lon", LON, {"standard_name": "longitude", "long_name": "longitude", "units": "degrees_east", "axis": "X"}),
+        "lat": ("lat", lat, {"standard_name": "latitude", "long_name": "latitude", "units": "degrees_north", "axis": "Y"}),
+        "lon": ("lon", lon, {"standard_name": "longitude", "long_name": "longitude", "units": "degrees_east", "axis": "X"}),
     })
+    res = f"{abs(float(lat[1] - lat[0])):g} degree"
     ds["crs"] = crs_var()
     ds.attrs = dict(GLOBAL_ATTRS, title=f"{GLOBAL_ATTRS['title']}: {title_suffix}", summary=summary,
                     date_created=dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                    geospatial_lat_min=60.0, geospatial_lat_max=90.0, geospatial_lon_min=-180.0,
-                    geospatial_lon_max=179.75, geospatial_lat_resolution="0.25 degree",
-                    geospatial_lon_resolution="0.25 degree")
+                    geospatial_lat_min=float(lat.min()), geospatial_lat_max=float(lat.max()),
+                    geospatial_lon_min=float(lon.min()), geospatial_lon_max=float(lon.max()),
+                    geospatial_lat_resolution=res, geospatial_lon_resolution=res)
     return ds
 
 

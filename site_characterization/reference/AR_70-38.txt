@@ -1,0 +1,4893 @@
+
+@@@ PAGE 1 @@@
+UNCLASSIFIED 
+ 
+ 
+Army Regulation 70 – 38 
+Research, Development, and 
+Acquisition 
+Research, 
+Development, 
+Test and 
+Evaluation of 
+Materiel for 
+Worldwide 
+Use 
+ 
+Headquarters 
+Department of the Army 
+Washington, DC 
+26 June 2020 
+
+@@@ PAGE 2 @@@
+ 
+SUMMARY of CHANGE 
+AR 70 – 38 
+Research, Development, Test and Evaluation of Materiel for Worldwide Use 
+This major revision, dated 26 June 2020— 
+o 
+Changes the title of the regulation from Research, Development, Test and Evaluation of Materiel for Extreme Climatic 
+Conditions to Research, Development, Test and Evaluation of Materiel for Worldwide Use (cover). 
+o 
+Reflects changes in policy, guidance, and climatic criteria to address atmospheric, terrestrial, and biological 
+consideration for the design and performance of materiel for worldwide operation (paras 1 – 5 and 3 – 1). 
+o 
+Updates responsibilities (chap 2). 
+o 
+Recognizes change in responsibility for Deputy Chief of Staff, G – 8, as Headquarters, Department of the Army staff 
+lead for management of the Army Requirements Oversight Counsel on matters involving the Joint Capabilities 
+Integration and Development System (para 2 – 6). 
+o 
+Adds a geographic classification framework for ecoregions to address atmospheric, terrestrial, and biological 
+consideration for the design and performance of materiel worldwide in addition to climate extremes (paras 3 – 1 through 
+3 – 9). 
+o 
+Establishes use of global operational environment framework and operational environment analogs defined by climate 
+and terrain factors providing direct comparisons of areas of the world from the aspect of performance of Army materiel 
+wherever based or potentially deployed (paras 4 – 1 through 4 – 3). 
+o 
+Adds an internal control evaluation (app B). 
+ 
+ 
+ 
+
+@@@ PAGE 3 @@@
+ 
+*This regulation supersedes AR 70-38, dated 15 September 1979. 
+ 
+AR 70–38 • 26 June 2020 
+UNCLASSIFIED 
+i 
+ 
+Headquarters 
+Department of the Army 
+Washington, DC 
+*Army Regulation 70 – 38 
+26 June 2020 
+Effective 26 July 2020 
+Research, Development, and Acquisition 
+Research, Development, Test and Evaluation of Materiel for Worldwide Use 
+ 
+History. This publication is a major revi-
+sion. 
+Summary. This regulation prescribes 
+policies, responsibilities, and planning 
+guidance for inclusion of the global opera-
+tional environment climatic and natural en-
+vironment factors in the research, develop-
+ment, test and evaluation of materiel used 
+in combat by the Army. 
+Applicability. This regulation applies to 
+the Regular Army, the Army National 
+Guard/Army National Guard of the United 
+States, and the U.S. Army Reserve, unless 
+otherwise stated.  It also applies to items of 
+materiel developed for use by the Army un-
+less otherwise stated.  It applies to items of 
+materiel developed by another Service to 
+meet Army requirements and where the 
+Army approves the capability requirements 
+documents; has budget responsibility; and 
+is the user. 
+Proponent and exception authority.  
+The proponent of this regulation is the 
+Chief of Engineers. The proponent has the 
+authority to approve exceptions or waivers 
+to this regulation that are consistent with 
+controlling law and regulations. The propo-
+nent may delegate this approval authority, 
+in writing, to a division chief within the pro-
+ponent agency or its direct reporting unit or 
+field operating agency, in the grade of colo-
+nel or the civilian equivalent. Activities 
+may request waivers to this regulation by 
+providing justification that includes a full 
+analysis of the expected benefits and must 
+include formal review by the activity’s sen-
+ior legal officer. All waiver requests will be 
+endorsed by the commander or senior 
+leader of the requesting activity and for-
+warded through their higher headquarter to 
+the policy proponent. Refer to AR 25 – 30 
+for specific guidance. 
+Army internal control process.  This 
+regulation contains internal control provi-
+sions in accordance with AR 11 – 2 and 
+identifies key internal controls that must be 
+evaluated (see appendix B). 
+Supplementation.  Supplementation 
+of this regulation and establishment of com-
+mand or local forms are prohibited without 
+prior approval from the Chief of Engineers, 
+441 G Street NW, Washington, DC 
+20314 – 1000. 
+Suggested improvements.  Users are 
+invited to send comments and suggested 
+improvements on DA Form 2028 (Recom-
+mended Changes to Publications and Blank 
+Forms) directly to Headquarters, Depart-
+ment of the Army, Chief of Engineers, 441 
+G 
+Street 
+NW, 
+Washington, 
+DC 
+20314 – 1000. 
+Distribution. This regulation is available 
+in electronic media only and is intended for 
+the 
+Regular 
+Army, 
+Army 
+National 
+Guard/Army National Guard of the United 
+States, and the U.S. Army Reserve. 
+Contents (Listed by paragraph and page number) 
+Chapter 1 
+Policies and Procedures, page 1 
+Purpose • 1 – 1, page 1 
+References • 1 – 2, page 1 
+Explanation of abbreviations and terms • 1 – 3, page 1 
+Responsibilities • 1 – 4, page 1 
+Records management (recordkeeping) requirements • 1 – 5, page 1 
+Policy • 1 – 6, page 1 
+Application of environmental conditions • 1 – 7, page 2 
+Limitations • 1 – 8, page 3 
+Chapter 2 
+Responsibilities, page 3 
+Deputy Undersecretary of the Army • 2 – 1, page 3 
+Assistant Secretary of the Army (Acquisition, Logistics and Technology) • 2 – 2, page 3 
+Assistant Secretary of the Army (Installations, Energy, and Environment) • 2 – 3, page 3 
+
+@@@ PAGE 4 @@@
+Contents—Continued 
+ii 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Deputy Chief of Staff, G – 3/5/7 • 2 – 4, page 3 
+Deputy Chief of Staff, G – 4 • 2 – 5, page 3 
+Deputy Chief of Staff, G – 8 • 2 – 6, page 4 
+Commanding General, U.S. Army Training and Doctrine Command • 2 – 7, page 4 
+Commanding General, U.S. Army Materiel Command • 2 – 8, page 4 
+Commanding General, U.S. Army Test and Evaluation Command • 2 – 9, page 4 
+Commanding General, U.S. Army Corps of Engineers • 2 – 10, page 5 
+Army acquisition executive, program executive officers, and program managers • 2 – 11, page Error! Bookmark not 
+defined. 
+Chapter 3 
+Climatic Criteria, page 5 
+Section I 
+General, page 5 
+Climatic design types • 3 – 1, page 5 
+Summary of daily cycles • 3 – 2, page 6 
+High elevation and upper air conditions • 3 – 3, page 10 
+Section II 
+Climatic Design Types, page 11 
+Hot climatic design type • 3 – 4, page 11 
+Basic climatic design type • 3 – 5, page 13 
+Cold climatic design type • 3 – 6, page 18 
+Severe cold climatic design type • 3 – 7, page 18 
+Additional environmental elements • 3 – 8, page 19 
+Combined environmental effects • 3 – 9, page 22 
+Chapter 4 
+Global Operating Environments, page 22 
+Geographic classification framework • 4 – 1, page 22 
+Global operational environments • 4 – 2, page 23 
+Operational environments descriptions • 4 – 3, page 24 
+Chapter 5 
+Environmental Factors and Their Effects on Military Equipment, page 29 
+Environmental factors • 5 – 1, page 29 
+Atmospheric factors • 5 – 2, page 30 
+Terrain factors • 5 – 3, page 36 
+Biological factors • 5 – 4, page 40 
+Summary • 5 – 5, page 41 
+Appendixes 
+A. References, page 48 
+B. Internal Control Evaluation, page 50 
+Table List 
+Table 3 – 1: Summary of climatic conditions and daily cycles of temperature, solar radiation, and relative humid-
+ity, page 6 
+Table 3 – 2: Low air pressure and temperature at evaluation, page 11 
+Table 3 – 3: Hot climatic design type A1: Hot-dry daily cycle (Natural and Induced), page 11 
+Table 3 – 4: Hot climatic design type B3: Hot-humid daily cycle, page 12 
+Table 3 – 5: Materials and high humidity deterioration, page 13 
+Table 3 – 6: Basic climatic design type B1: Constant high humidity daily cycle, page 14 
+Table 3 – 7: Basic climatic design type B2: Variable high humidity daily cycle, page 15 
+
+@@@ PAGE 5 @@@
+Contents—Continued 
+ 
+AR 70–38 • 26 June 2020 
+iii 
+ 
+Table 3 – 8: Basic climatic design type A2: Basic hot daily cycle, page 16 
+Table 3 – 9: Basic climatic design type C1; Cold daily cycle, page 17 
+Table 3 – 10: Cold climatic design type C2: Daily cycle, page 18 
+Table 3 – 11: Rainfall intensities—Drop diameter range (mm), page 19 
+Table 3 – 12: Horizontal mass fluxes for blowing snow, page 19 
+Table 3 – 13: Wind speed multiplication factors at selected heights, page 21 
+Table 4 – 1: Distribution of global operational environments and operational environments by percentage of global land 
+area, page 24 
+Table 5 – 1: Environmental factors classified as atmospheric, terrain, or biological, page 29 
+Table 5 – 2: Environmental factors for operational environments within the polar region excluding Antarctica, page 41 
+Table 5 – 3: Environmental factors for operational environments within the humid temperate region, page 43 
+Table 5 – 4: Environmental factors for operational environments within the dry region, page 44 
+Table 5 – 5: Environmental factors within the humid tropic region, page 46 
+Table 5 – 6: Environmental factors within the Special Environments, page 46 
+Figure List 
+Figure 3 – 1: Areas of occurrence of climatic categories A1, A2, and A3, page 8 
+Figure 3 – 2: Areas of occurrence of climatic categories B1, B2, and B3, page 9 
+Figure 3 – 3: Areas of occurrence of climatic categories C0, C1, C2, C3, and C4, page 10 
+Figure 3 – 4: Blown snow crystal diameter formula, page 20 
+Figure 4 – 1: Operational environments (after Bailey 1998), page 24 
+Figure 4 – 2: Global operational environments subdivided to the operational environments level, page 26 
+Figure 4 – 3: Mountain environments within the operating environments framework, page 29 
+Figure 5 – 1: Global distribution of absolute maximum temperatures, page 31 
+Figure 5 – 2: Global distribution of absolute minimum temperatures, page 32 
+Figure 5 – 3: Global distribution of annual precipitation, page 33 
+Figure 5 – 4: Global distribution of average relative humidity, page 34 
+Figure 5 – 5: Generalized global physiography, page 37 
+Figure 5 – 6: Global dust potential, page 39 
+Figure 5 – 7: Global land cover map, page 40 
+Glossary 
+
+@@@ PAGE 6 @@@
+
+@@@ PAGE 7 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+1 
+ 
+ 
+Chapter 1 
+Policies and Procedures 
+1 – 1.  Purpose 
+This regulation establishes policy, identifies responsibilities, and provides climate and terrain factors to ensure mission 
+capable and reliable Army materiel for worldwide operation.  In addition to design guidance, this regulation describes a 
+global operational environment (GOE) framework and operational environment (OE) analogs defined by climate and ter-
+rain factors to provide direct comparisons of areas of the world from the aspect of performance of Army materiel wherever 
+based or potentially deployed.  Application of this regulation ensures that the research, development, test and evaluation 
+(RDTE) decision-making process considers the natural environmental factors that affect equipment performance when 
+preparing capability requirements documents, operation mode summary/mission profile (OMS/MP), and design criteria 
+for acquisition specifications.  Early consideration of design criteria and the OE reduces program risk and lowers life-cycle 
+costs by addressing environmental challenges and potential reliability shortfalls early in the RDTE process when corrective 
+actions have minimum overall impact.  Army equipment tends to remain in the active inventory for extended periods and 
+is likely to be exposed to severe environmental conditions during its lifetime.  Consequently, durability, operational costs, 
+and performance over a full range of environmental factors must be considered during RDTE process. 
+1 – 2.  References and forms 
+See appendix A. 
+1 – 3.  Explanation of abbreviations and terms 
+See glossary. 
+1 – 4.  Responsibilities 
+Responsibilities are listed in chapter 2. 
+ 
+1 – 5.  Records management (recordkeeping) requirements  
+The records management requirement for all record numbers, associated forms, and reports required by this regulation 
+are addressed in the Records Retention Schedule––Army (RRS–A). Detailed information for all related record numbers, 
+forms, and reports are located in Army Records Information Management System (ARIMS)/RRS–A at 
+https://www.arims.army.mil. If any record numbers, forms, and reports are not current, addressed, and/or published 
+correctly in ARIMS/RRS–A, see DA Pam 25–403 for guidance. 
+1 – 6.  Policy 
+a.  This regulation applies to RDTE of all equipment and materiel used for all warfighting functions throughout the full 
+spectrum of military operations, including systems of systems and other materiel approved by Headquarters, Department 
+of the Army (HQDA), unless specifically excluded by the applicable sections of AR 70 – 1. The regulation applies to the 
+following classes of materiel as adapted from the U.S. Army Test and Evaluation Command (ATEC)— 
+(1)  Soldier equipment. 
+(2)  Wheeled, tracked, and special purpose vehicles. 
+(3)  Armament—direct fire weapons. 
+(4)  Armament—indirect fire weapons. 
+(5)  Armament—small arms and automatic weapons. 
+(6)  Ammunition and explosives. 
+(7)  Missile and rocket systems. 
+(8)  Electronic, avionics, and communications equipment (command, control, communication, computers, intelligence, 
+surveillance, and reconnaissance). 
+(9)  Aviation, air delivery equipment, and aircraft weapons systems. 
+(10)  Chemical, biological, radiological, and nuclear defense equipment. 
+(11)  Construction, support, and service equipment. 
+(12)  General supplies and equipment. 
+b.  Army equipment and materiel will deploy to and operate in all parts of the world with the exception of Antarctica, 
+which is demilitarized under The Antarctic Treaty of 1959. Therefore, worldwide use is the requirement for military equip-
+ment unless otherwise stated in capability requirements documents or as specified in an Urgent Capability Acquisition. 
+
+@@@ PAGE 8 @@@
+ 
+2 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Capability requirements documents and the OMS/MP will identify operating, transport, and storage quantitative testable 
+metrics defining qualitative operational conditions.  The RDTE of materiel should use these conditions throughout the 
+entire acquisition process. 
+c.  Materiel should function in all environments without modification. Cost, time constraints, and the state of technology 
+may prevent this.  However, as a minimum, equipment must be fully mission capable over a stated range of temperatures 
+or other environmental factors without kits or special adaptations as dictated in capability requirements documents. Capa-
+bility developers will refer to climatic design types as defined in chapter 3 and global operational factors defined in chapters 
+4 and 5 for climate and environmental guidance within capability requirement documents.  Kits or protective devices may 
+be allowable for operating beyond the stated acceptable temperature range to some maximum or minimum value called 
+out in the requirement documents. 
+d.  All design and test requirements should be structured for each materiel acquisition program based on the OEs of 
+potential deployment, the worst-case anticipated environmental conditions, the applicable OMS/MP, and consideration of 
+the long-term cost of fielding (total life cycle system management). These requirements are necessary to develop the ca-
+pability requirements documents and performance specifications for operations, storage, and transit and test plans.  Refer 
+to DoDI 6055.01 for safety and occupational health (SOH) considerations. 
+e.  A decision not to include end-item/system-level testing in a natural environment analogous to anticipated OE de-
+ployment entails eventual risk to the Soldiers deployed at the extreme conditions. The appropriate authority must approve 
+the decision to eliminate real-world testing for the effects of critical environmental factors at the end-item or platform 
+level. 
+f.  Prior to testing in natural environments, materiel developers plan for simulated environmental testing in climatic 
+chambers unless impractical.  Developers use the results of climatic chamber tests to determine if a system will not satisfy 
+its performance requirements.  Chamber tests may also be valuable in assessing the risk associated with not conducting 
+tests in the natural environment.  Causes for failures in simulated environments must be resolved before natural environ-
+ment testing.  Chamber tests and simulations play a significant role in the beginning of the development cycle but must be 
+integrated with testing conducted in real-world, natural environments.  Test results from climatic chambers cannot be 
+interpreted as a total substitute for tests conducted in the natural environment because they do not provide the synergisms 
+associated with the natural environment. 
+g.  Potentially dangerous items (for example, ammunition) will be designed to operate safely in all OEs worldwide plus 
+meet ammunition specific requirements and applicable standardization agreements regardless of the likelihood that the 
+munition will be used in any specific environment.  It is critical that design temperatures for munitions use the maximum 
+ambient air temperatures as a starting point with additive factors for solar loading, heat gains from the launch platform 
+environment, and other additive heat inputs.  Testing to confirm ammunition safety and performance must use temperatures 
+based on these additional heat factors.  Testing may be conducted above these thresholds when the verification method is 
+to use accelerated life testing.  However, exercise caution because over-temperature stressing may induce unrepresentative 
+failure modes or may not adequately exercise potential failure modes.  Consider the munition and any design limitations.  
+Refer to MIL – STD – 331.  All safety risks will be managed following MIL – STD – 882,  as referenced in AR 70 – 1. 
+h.  Developers must design Army materiel for personnel clothed and equipped for the intended environment (for exam-
+ple extreme cold weather). 
+1 – 7.  Application of environmental conditions 
+a.  The conditions of the environment described, quantified, and mapped in this regulation are intended for the following 
+uses: 
+(1)  Inputs in the development of U.S. Army capability requirements documents and throughout the materiel acquisition 
+process (see AR 70 – 1 and AR 71–9), including RDTE of materiel developed by and for the Army. 
+(2)  Materiel developed by another Service to meet Army’s requirements where the Army: 
+(a)  Approves the capability requirements document. 
+(b)  Has budget responsibility. 
+(c)  Is the user. 
+(3)  Quantitative guidance for developing appropriate design and test requirements, based on realistic natural environ-
+ment conditions. 
+(a)  Non-developmental items and commercial off the shelf items purchased by the Army. 
+(b)  Foreign items purchased for use in combat or by deployed U.S. Army forces. 
+b.  Equipment currently within the acquisition cycle and that has completed environmental testing before the date of 
+publication for this this document will be exempt from requirements herein. 
+
+@@@ PAGE 9 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+3 
+ 
+1 – 8.  Limitations 
+a.  The policies and procedures of this regulation do not apply to the following: 
+(1)  Materiel developed for the sole use of another Service. In this case, the policies and procedures of the using Service 
+will apply. 
+(2)  Materiel developed for the sole use of a foreign government unless the acquisition plan specifies differently. 
+(3)  Materiel specifically excluded in AR 70 – 1, except that officials responsible for such materiel may use the guidance 
+provided in this document where considered appropriate. 
+b.  Some environmental factors that occur naturally can also be induced by human activity.  For example, the dust 
+environment can be a combination of dust caused by atmospheric forcing (for example, dust storms) plus that caused by 
+anthropogenic forcing (for example, brown outs from helicopter down draft).  As another example, equipment and muni-
+tions stored in shelters in a dry or desert environment with extended solar radiation may be exposed to temperatures that 
+are much higher than ambient.  This document does not address induced environmental factors such as electromagnetic 
+radiation and nuclear radiation or induced environmental factors that are mechanical in nature (vibration, shock, and ac-
+celeration), airborne pollutants, and acoustics (reference MIL – STD – 810 for induced environmental factors). 
+Chapter 2 
+Responsibilities 
+2 – 1.  Deputy Under Secretary of the Army 
+The DUSA will coordinate all test and evaluation (T&E) policy with the Office of the Secretary of Defense, Joint Chiefs 
+of Staff, other HQDA offices, U.S. Navy, U.S. Air Force, U.S. Army Materiel Command (AMC), Training and Doctrine 
+Command (TRADOC), Space and Missile Defense Command, Intelligence and Security Command, ATEC, Communica-
+tion and Electronics Command, and U.S. Army Nuclear and Chemical Agency. 
+2 – 2.  Assistant Secretary of the Army (Acquisition, Logistics and Technology) 
+The ASA (ALT) will— 
+a.  Establish policy for RDTE in environments where the Army is expected to conduct its mission worldwide. 
+b.  Ensure that RDTE represents worldwide environmental conditions to reduce the risk of operational failure. 
+    c.  As the Army Acquisitions Executive, along with program executive officers, and program managers will— 
+(1)  Administer, plan, and manage acquisition programs in accordance with Department of Defense (DoD) policies and 
+appropriate regulations, policies, procedures, and standards per AR 70 – 1. 
+(2)  Serve as the materiel developers. 
+(3)  Design, plan, program, coordinate, and execute a viable RDTE program in conjunction with the RDTE working-
+level integrated product team.  This will include coordination of the T&E strategy for their respective systems with ATEC 
+and the research and development strategy with their respective laboratory, as appropriate. 
+(4)  Ensure that all configuration changes of materiel consider environmental performance. 
+(5)  Ensure that performance specifications and other capability requirements documents apply environmental condi-
+tions prescribed herein. 
+(6)  Ensure that subsystem requirements take precedence when operation, transit, and storage environments for sub-
+systems and components of systems are more severe than ambient. 
+2 – 3.  Assistant Secretary of the Army (Installations, Energy and Environment) 
+The ASA (IE&E) will— 
+a.  Support the office of the ASA (ALT) in defining, classifying, and delineating the types of environments worldwide 
+where the Army is expected to operate. 
+b.  As Designated Agency Safety and Health Official responsible for SOH in the Army as a measure to prevent loss and 
+enable the mission, support the ASA (ALT) with risk management and SOH subject matter expertise in Army acquisition 
+life-cycle processes. 
+2 – 4.  Deputy Chief of Staff, G – 3/5/7 
+The DCS, G – 3/5/7 establishes overall capabilities priorities in accordance with high-priority scenarios, war plans, major 
+force elements and operations. 
+2 – 5.  Deputy Chief of Staff, G – 4 
+The DCS, G – 4 will— 
+
+@@@ PAGE 10 @@@
+ 
+4 
+AR 70–38 • 26 June 2020 
+ 
+ 
+a.  Ensure that all configuration changes of materiel coordinated with or approved by the DCS, G – 4 consider environ-
+mental performance requirements. 
+b.  Incorporate environmental performance requirements into supportability assessments as appropriate. 
+2 – 6.  Deputy Chief of Staff, G – 8 
+The DCS, G – 8 will— 
+a.  Establish requirements for the development of materiel capable of operating successfully and surviving in realistic 
+environments that meet capabilities priorities established by the DCS, G–3/5/7. 
+b.  Ensure that all capability requirements documents for which the Army Requirements Oversight Council is the ap-
+proval authority addresses all environmental performance requirements. 
+2 – 7.  Commanding General, U.S. Army Training and Doctrine Command 
+The CG, TRADOC will— 
+a.  Ensure that capability requirements documents state the environmental requirements. 
+b.  Establish criteria for acceptable levels of performance in battlefield environments for all areas of intended use. 
+c.  Include the following in capability requirements documents and the OMS/MP: 
+(1)  A statement of the geographic areas and associated environmental conditions in which materiel will be operated, 
+stored, or transported. 
+(2)  A description of the shelters or other protective devices, if any, in which the materiel will be operated, transported, 
+or stored. 
+(3)  A quantitative summary of expected usage levels and environments over the life of an item (for example, provide 
+percentages of active, training, and peace time along with operational tempo for each; expected percentages in each OE; 
+or expected storage and uploaded durations for ammunition and missiles). 
+d.  Coordinate all capability requirements documents with the U.S. Army Corps of Engineers (USACE) during world-
+wide staffing to determine whether all environmental factors or conditions have received adequate consideration. 
+2 – 8.  Commanding General, U.S. Army Materiel Command 
+The CG, AMC will— 
+a.  Incorporate approved requirements, critical issues, environmental design criteria, and adequate test and evaluation 
+programs into the RDTE of materiel to ensure operational storage and transit capabilities and acceptable reliability for all 
+areas of anticipated deployment. 
+b.  Ensure that the appropriate chamber/laboratory tests are conducted early in the development cycle to screen materiel, 
+components, or entire systems for possible environmentally caused performance or durability problems related to materiel 
+selection and system design. 
+c.  Test selected performance criteria under representative environmental conditions established for the system in capa-
+bility requirements documents. 
+d.  Ensure that systems are subjected to environmental and mechanical stress levels that are appropriate for the maturity 
+of the system and that provide reasonable estimates of the outer limits of the operational performance envelope.  This 
+would include initial reliability testing in representative environments prior to milestone C of the integrated life cycle to 
+demonstrate that the system is on target to meet reliability thresholds. 
+e.  Ensure that environmental tests are conducted prior to milestone C of the integrated life cycle to ensure that system 
+performance, reliability, maintainability, durability, and integrated product support and human systems integration aspects 
+are acceptable throughout all intended use environments. 
+2 – 9.  Commanding General, U.S. Army Test and Evaluation Command 
+The CG, ATEC will— 
+a.  Implement the guidance of this document throughout the materiel test and evaluation process. 
+b.  Include requirements to determine the effects of worldwide environmental conditions on end-item or platform/system 
+performance for all assigned material acquisition programs.  The overall evaluations will include analysis of system and 
+operator performance in all environments of potential use. 
+c.  Consider the effects of worldwide environmental conditions in the planning, conduct, and reporting of operational 
+tests wherever possible.  It will emphasize determining the effects of environmental factors on Soldier performance when 
+using the item under test or system under test during exposure to worldwide conditions. 
+d.  Through its subordinate proving grounds and test centers, include the effects of worldwide environmental conditions 
+in test planning, execution, analysis of equipment failures, and reporting. ATEC maintains test centers in the four GOEs 
+and has safari test capabilities for full spectrum environmental testing. 
+
+@@@ PAGE 11 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+5 
+ 
+2 – 10.  Commanding General, U.S. Army Corps of Engineers 
+Through the Director, U.S. Army Engineer Research and Development Center, the CG, USACE will— 
+a.  Conduct research and development in geospatial research and engineering, military engineering, environmental qual-
+ity, and installations. 
+b.  Conduct special environmental studies and prepare reports as a guide for RDTE of materiel specified in capability 
+developer documents. 
+c.  Provide consulting services for interpreting environmental conditions for the RDTE of materiel. 
+Chapter 3 
+Climatic Criteria 
+Section I 
+General 
+3 – 1.  Climatic design types 
+One of the vital challenges of the tailoring process is to design materiel to operate in climates of the world in which the 
+materiel is expected to be deployed.  Four climatic categories may be called out in mission need, materiel requirement, 
+design, and test documents for tailoring purposes:  Basic, hot, cold, and severe cold categories are described below.  Within 
+each category there are one or more "daily cycles" primarily based on variations in temperature and relative humidity (RH) 
+levels.  All climatic categories are defined in table 3 – 1 and mapped on figures 3 – 1 through 3 – 3.  See North Atlantic Treaty 
+Organization Standardization Agreement (NATO STANAG) 4370, Allied Environmental Conditions and Test Publication 
+(AECTP) – 230, MIL – HDBK – 310, and MIL – STD – 810. The climatic category is listed as follows: 
+a.  Hot climatic category.  This category includes most of the hot-dry low-latitude deserts of the world.  During summer 
+in these areas, outdoor ambient air temperatures above 43° Celsius (C) (110° Fahrenheit (F)) occur frequently.  However, 
+except for a few specific places, outdoor ambient air temperatures will seldom be above 49°C (120°F).  These approximate 
+temperatures of the free air in the shade approximately 1.5 to 2 meters (m) (about 5 or 6 feet (ft.)) above the ground (in an 
+instrument shelter).  The thermal effects of solar loading can be significant for materiel exposed to direct sunlight, but will 
+vary significantly with the exposure situation.  The ground surface can attain temperatures of 17 to 33°C (30 to 60°F) 
+higher than that of the free air, depending on the type/color of the ground surface, radiation, conduction, wind, and turbu-
+lence.  Air layers very close to the surface will be only slightly cooler than the ground, but the decrease in temperature 
+with height above the surface is exponential. 
+b.  Basic climatic category.  This includes the most densely populated and heavily industrialized parts of the world as 
+well as the humid tropics.  The entire range of basic design conditions does not necessarily occur in any one place.  Each 
+single condition (high temperature, low temperature, high humidity) occurs in a wide area.  When taken together, the 
+design values should be valid for materiel used throughout the area. 
+(1)  Humid tropic zone.  Humid tropic areas are included in the basic climatic category rather than being considered an 
+extreme category because humid tropic temperatures are moderate and their humidity levels are equaled at times in some 
+of the other mid-latitude areas.  The features of the humid tropics most important for materiel system design are moderately 
+high temperatures and high rainfall throughout the year that spawn persistent high humidity and high flora and fauna 
+diversity.  These combined environmental conditions greatly increase insect and microbiological damage and promote 
+corrosion more so than any other region of the world.  This is important for DoD’s Corrosion Prevention and Control 
+Program (see DoDI 5000.67). 
+(2)  Intermediate zone.  These are mid-latitude areas that do not combine higher temperatures with higher humidities 
+throughout the year, and at the same time are not climatically extreme enough to meet the conditions for hot or cold climatic 
+categories.  This zone includes the daily cycles shown in table 3 – 1, plus a condition known as "cold-wet" that can occur 
+within the mild cold daily cycle at or near the freezing point (2 to -4°C (35 to 25°F)) with RH tending toward saturation 
+(100 to 95 percent RH) and negligible solar radiation. 
+c.  Cold and severe cold climatic categories.  These areas include northern North America, Greenland, northern Asia, 
+and Tibet.  In the cold climatic category, the temperature during the coldest month in a normal year may be colder than the 
+basic climatic category cold extreme of -32°C (-26°F).  In the severe cold areas, the temperature during the coldest month 
+in a normal year may be colder than the cold climatic category extreme of -46°C (-51°F).  Temperatures colder than -51°C 
+(-60°F) occur no more than 20 percent of the hours in the coldest month of the coldest part of the area (northern Siberia) 
+where temperatures as low as -68°C (-90°F) have been recorded. 
+
+@@@ PAGE 12 @@@
+ 
+6 
+AR 70–38 • 26 June 2020 
+ 
+ 
+3 – 2.  Summary of daily cycles 
+Table 3 – 1 is a summary table of the daily extremes (highest and lowest values in a 24–hour cycle) of temperature, solar 
+radiation, and RH for the eight daily cycles cited in this regulation.  Details of each cycle, and other atmospheric elements 
+(hydrometers, wind, blowing sand, blowing dust, ozone, and atmospheric pressure), are given in section II of this chapter.  
+In most cases, extremes of these other elements do not occur at the same time as the extremes of temperature or humidity.  
+However, with certain severe cold and cold phenomena, two or more elements may occur at the same time, for example, 
+ice, fog, and low temperatures. 
+Note. The numbers shown for the values of the climatic elements represent only the upper and lower limits of the cycles 
+that typify days during which the extremes occur, for example, for the hot-dry cycle, 49°C (120°F) is the maximum daytime 
+temperature, and 32°C (90°F) is the minimum nighttime (or early morning) temperature. 
+ 
+Table 3 – 1 
+Summary of climatic conditions and daily cycles of temperature, solar radiation, and relative humidity — Continued 
+ 
+ 
+Operational Conditions 
+Storage and Transit Condi-
+tions 
+ 
+Climatic 
+ 
+Ambient Air Tem-
+perature2 
+Solar 
+Radia-
+tion 
+Ambient 
+Relative 
+Induced Air 
+Temperature 
+°C 
+(°F) 
+Induced 
+Relative 
+Natural Envi-
+ronment Expo-
+sure Testing7 
+Design 
+Type 
+Daily 
+Cycle 
+Daily 
+Low 
+Daily 
+High 
+W/m2 
+(Bph3) 
+Humidity 
+%RH4 
+Daily 
+Low 
+Daily 
+High 
+Humidity 
+%RH 
+°C 
+(°F) 
+Hot 
+Hot Dry 
+(A1) 
+32 
+(90) 
+49 
+(120) 
+0 to 
+1120 
+(0 to 
+355) 
+8 to 3  
+33 
+(91)  
+71 
+(160) 
+7 to 1 
+32 to 49 
+(90 to 120) 
+ 
+Hot Humid 
+(B3) 
+31 
+(88) 
+41 
+(105) 
+0 to 
+1080 
+(0 to 
+343) 
+88 to 59 
+33 
+(91)  
+71 
+(160) 
+80 to 14 
+Coastal 
+Desert 
+ 
+Basic Hot 
+(A2) 
+30 
+(86) 
+43 
+(110) 
+0 to 
+1120 
+(0 to 
+355) 
+44 to 14 
+30 
+(86) 
+63 
+(145) 
+44 to 5 
+0 to 43 
+ 
+Intermediate6 
+(A3) 
+28 
+(82) 
+39 
+(102) 
+0 to 
+1020 
+(0 to 
+323) 
+78 to 43 
+28 
+(82) 
+58 
+(136) 
+See note 5 
+(32 to 110) 
+Basic 
+Variable High 
+Humidity 
+(B2) 
+26 
+(78) 
+35 
+(95) 
+0 to 970 
+(0 to 
+307) 
+100 to 74 
+30 
+(86) 
+63 
+(145) 
+75 to 19 
+Humid 
+ 
+Constant 
+High Humid-
+ity 
+(B1) 
+Nearly Constant 
+24 (75) 
+Negligi-
+ble 
+95 to 100 
+Nearly Constant 
+27 (80) 
+95 to 100 
+Tropics 
+ 
+Mild Cold6 
+(C0) 
+-19 
+(-2) 
+-6 
+(21) 
+Negligi-
+ble 
+Tending 
+toward 
+saturation 
+-21 
+(-6) 
+-10 
+(14) 
+Tending to-
+ward satu-
+ration 
+0 to -32 
+ 
+Basic Cold 
+(C1) 
+-32 
+(-25) 
+-21 
+(-5) 
+Negligi-
+ble 
+Tending 
+toward 
+saturation 
+-33  
+(–28) 
+-25 
+(-13) 
+Tending 
+ toward 
+saturation 
+(32 to -25) 
+Cold 
+Cold 
+(C2) 
+-46 
+(-50) 
+-37 
+(-35) 
+Negligi-
+ble 
+Tending 
+toward 
+saturation 
+-46 
+(-50) 
+-37 
+(-35) 
+Tending 
+ toward 
+saturation 
+-32 to -46 
+(-26 to -50) 
+
+@@@ PAGE 13 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+7 
+ 
+Table 3 – 1 
+Summary of climatic conditions and daily cycles of temperature, solar radiation, and relative humidity — Continued 
+ 
+ 
+Operational Conditions 
+Storage and Transit Condi-
+tions 
+ 
+Climatic 
+ 
+Ambient Air Tem-
+perature2 
+Solar 
+Radia-
+tion 
+Ambient 
+Relative 
+Induced Air 
+Temperature 
+°C 
+(°F) 
+Induced 
+Relative 
+Natural Envi-
+ronment Expo-
+sure Testing7 
+Design 
+Type 
+Daily 
+Cycle 
+Daily 
+Low 
+Daily 
+High 
+W/m2 
+(Bph3) 
+Humidity 
+%RH4 
+Daily 
+Low 
+Daily 
+High 
+Humidity 
+%RH 
+°C 
+(°F) 
+Severe 
+Cold 
+Severe Cold 
+(C3) 
+-51 
+(-60) 
+Negligi-
+ble 
+Tending 
+toward 
+saturation 
+-51 
+(-60) 
+Tending 
+ toward 
+saturation 
+< -46 
+Extreme 
+Cold 
+Extreme 
+Cold6 (C4) 
+-57 
+(-70) 
+Negligi-
+ble 
+Tending 
+toward 
+saturation 
+-57  
+(-70) 
+Tending to-
+ward  
+saturation 
+(< -50) 
+Notes. 
+1 Designations in parentheses refer to corresponding climatic categories in MIL – HDBK – 310 and AR 
+ 70 – 38 (except the A – 3 category) and NATO STANAG 
+4370, AECTP 230 (see Part One, 2.2.1, 2.2.2, and 2.3). 
+2 ºC values (rounded to the nearest whole degree) derived from data obtained/established on ºF scale. 
+3 Bph represents British Thermal Units per square foot per hour. 
+4 Sequence of RH presentation corresponds to sequence of air temperatures shown (e.g., for HOT – DRY daily cycle, 8 percent RH occurs at 32oC (90oF); 3 
+percent RH occurs at 49oC (120oF). 
+5 Relative humidity for the A3 storage condition vary to widely between different situations to be represented by a single set of conditions. 
+6 Values are only found in NATO STANAG 4370, AECTP 230. 
+7 Delineation to be used for natural environment exposure testing, not applicable to laboratory testing. 
+NOTE. The numbers shown for the values of the climatic elements represent only the upper and lower limits of the cycles that typify days during which the 
+extremes occur; e.g., for the Hot-Dry cycle, 49oC (120oF) is the maximum daytime temperature, and 32oC (90oF) is the minimum nighttime (or early morn-
+ing) temperature. 
+ 
+
+@@@ PAGE 14 @@@
+ 
+8 
+AR 70–38 • 26 June 2020 
+ 
+ 
+ 
+Figure 3 – 1.  Areas of occurrence of climatic categories A1, A2, and A3 
+
+@@@ PAGE 15 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+9 
+ 
+ 
+Figure 3 – 2.  Areas of occurrence of climatic categories B1, B2, and B3 
+
+@@@ PAGE 16 @@@
+ 
+10 
+AR 70–38 • 26 June 2020 
+ 
+ 
+ 
+Legend. 
+C0  Mild Cold 
+C1  Basic Cold 
+C2  Cold 
+C3  Severe cold 
+C4  Extreme cold 
+Figure 3 – 3.  Areas of occurrence of climatic categories C0, C1, C2, C3, and C4 
+3 – 3.  High elevation and upper air conditions 
+a.  For materiel subject to transport through high mountain passes, the temperatures and pressures for elevations as high 
+as 15,000 ft (4,572 m) apply. 
+
+@@@ PAGE 17 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+11 
+ 
+b.  For materiel subject to shipment by air (elevations as high as 50,000 ft or 15,240 m), the low air pressure and tem-
+perature shown in table 3 – 2 could result from failure of cabin pressure and temperature regulation. 
+ 
+Table 3 – 2 
+Low air pressure and temperature at evaluation — Continued 
+Height or Elevation 
+Pressure  
+Temperature 
+Meters 
+Feet 
+Kilopascals (kPa) 
+Millibars (mbar) 
+°C 
+°F 
+3048 
+10,000 
+66 
+660  
+−41 
+−42 
+4572 
+15,000 
+52 
+520  
+−47 
+−53 
+6096 
+20,000 
+41 
+410  
+−56 
+−68 
+9144 
+30,000 
+25.5 
+255  
+−66 
+−87 
+12192 
+40,000 
+16 
+160  
+−72 
+−98 
+15240 
+50,000 
+10 
+100  
+−76 
+−105 
+Section II 
+Climatic Design Types 
+3 – 4.  Hot climatic design type 
+a.  Hot-dry cycle. 
+(1)  Location.  Hot-dry conditions are found seasonally in the deserts of northern Africa, the Middle East, Pakistan and 
+India, southwestern United States, and northern Mexico (see fig 3 – 1). 
+(2)  Temperature, humidity, solar radiation. 
+(a)  Operational conditions.  On the extreme hot-dry days, temperature, humidity, and solar radiation may follow a 
+pattern similar to that shown in table 3 – 3.  Nominal accompanying wind speeds at the time of high temperatures are 13 
+feet per second (fps) (4 meters per second (mps)).  The maximum ground surface temperature is 146°F (63°C). At ground 
+elevations above 3,000 ft (915 m), maximum air temperatures will be lower by approximately 5°F per 1,000 ft (9.1°C per 
+1,000 m), and solar radiation may be higher by approximately 4 Bph (British thermal units per square foot per hour) per 
+1,000 ft (43 W/m2 per 1,000 m) to 15,000 ft. 
+ 
+Table 3 – 3 
+Hot climatic design type A1:  Hot-dry daily cycle (Natural and Induced) — Continued 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT 
+CONDITIONS 
+Local 
+Time 
+Ambient Air 
+Temp. 
+Solar Radia-
+tion 
+RH 
+Dew Point 
+Temp. 
+Wind (at 3m) 
+Induced Air 
+Temp. 
+RH 
+(LST) 
+C (F) 
+Bph 
+W/m2 
+Percent 
+C (F) 
+m/s 
+ft/sec 
+C (F) 
+Percent 
+0100 
+35 (95) 
+0 
+0 
+6 
+−7 (19) 
+3 
+9 
+35 (95) 
+6 
+0200 
+34 (94) 
+0 
+0 
+7 
+−6 (21) 
+3 
+9 
+34 (94) 
+7 
+0300 
+34 (93) 
+0 
+0 
+7 
+−7 (20) 
+3 
+9 
+34 (93) 
+7 
+0400 
+33 (92) 
+0 
+0 
+8 
+−6 (22) 
+3 
+9 
+33 (92) 
+7 
+0500 
+33 (91) 
+0 
+0 
+8 
+−6 (22) 
+3 
+9 
+33 (92) 
+7 
+0600 
+32 (90) 
+18 
+55 
+8 
+−6 (22) 
+3 
+9 
+33 (91) 
+7 
+0700 
+33 (91) 
+85 
+270 
+8 
+−6 (22) 
+3 
+9 
+36 (97) 
+5 
+0800 
+35 (95) 
+160 
+505 
+6 
+−7 (19) 
+3 
+9 
+40 (104) 
+4 
+0900 
+38 (101) 
+231 
+730 
+6 
+−5 (23) 
+3 
+9 
+44 (11) 
+4 
+1000 
+41 (106) 
+291 
+915 
+5 
+−4 (24) 
+4 
+14 
+51 (124) 
+3 
+1100 
+43 (110) 
+330 
+1040 
+4 
+−6 (21) 
+4 
+14 
+56 (133) 
+2 
+1200 
+44 (112) 
+355 
+1120 
+4 
+−5 (23) 
+4 
+14 
+63 (145) 
+2 
+1300 
+47 (116) 
+355 
+1120 
+3 
+−8 (18) 
+4 
+14 
+69 (156) 
+1 
+
+@@@ PAGE 18 @@@
+ 
+12 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Table 3 – 3 
+Hot climatic design type A1:  Hot-dry daily cycle (Natural and Induced) — Continued 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT 
+CONDITIONS 
+Local 
+Time 
+Ambient Air 
+Temp. 
+Solar Radia-
+tion 
+RH 
+Dew Point 
+Temp. 
+Wind (at 3m) 
+Induced Air 
+Temp. 
+RH 
+(LST) 
+C (F) 
+Bph 
+W/m2 
+Percent 
+C (F) 
+m/s 
+ft/sec 
+C (F) 
+Percent 
+1400 
+48 (118) 
+330 
+1040 
+3 
+−9 (16) 
+4 
+14 
+70 (158) 
+1 
+1500 
+48 (119) 
+291 
+915 
+3 
+−8 (18) 
+4 
+14 
+71 (160) 
+1 
+1600 
+49 (120) 
+231 
+730 
+3 
+−7 (19) 
+4 
+14 
+70 (158) 
+1 
+1700 
+48 (119) 
+160 
+505 
+3 
+−8 (18) 
+4 
+14 
+67 (153) 
+1 
+1800 
+48 (118) 
+85 
+270 
+3 
+−9 (16) 
+4 
+14 
+63 (145) 
+2 
+1900 
+46 (114) 
+18 
+55 
+3 
+−7 (19) 
+4 
+14 
+55 (131) 
+2 
+2000 
+42 (108) 
+0 
+0 
+4 
+−7 (20) 
+4 
+14 
+48 (118) 
+3 
+2100 
+41 (105) 
+0 
+0 
+5 
+−6 (22) 
+4 
+14 
+41 (105) 
+5 
+2200 
+39 (102) 
+0 
+0 
+6 
+−4 (24) 
+4 
+14 
+39 (103) 
+6 
+2300 
+38 (100) 
+0 
+0 
+6 
+−6 (22) 
+4 
+14 
+37 (99) 
+6 
+2400 
+37 (98) 
+0 
+0 
+6 
+−7 (20) 
+3 
+9 
+35 (95) 
+6 
+ 
+(b)  Storage and transit conditions.  The daily cycle for storage and transit in table 3 – 3 shows 5 continuous hours with 
+air temperatures above 150°F (66°C) and an extreme air temperature of 160°F (71°) for not more than 1 hour.  Testing for 
+these conditions should be done, if practicable, according to the daily cycle, because prolonged exposure to the high-
+temperature extremes may impose an unrealistic heat load on materiel.  If not practicable, testing will be done at a temper-
+ature representative of the peak temperature that the materiel would attain during a daily cycle.  
+b.  Hot-humid cycle. 
+(1)  Location.  These severe dew point conditions occur only along a very narrow coastal strip (probably less than 5 
+miles) bordering bodies of water with high surface temperatures, specifically the Persian Gulf and the Red Sea.  The hot-
+humid cycle will be used as a design condition only for systems intended for use or likely to be used in these limited areas.  
+Areas reporting these highest worldwide dew points may also experience hot-dry conditions at other times.  Tests against 
+hot-humid cycle conditions should be required only for systems that are specified for use in these designated areas. 
+(2)  Temperature, humidity, solar radiation. 
+(a)  Operational conditions.  On days with extremely high dew points (high absolute humidity), a cycle such as that in 
+table 3 – 4 may occur, along with wind speeds between 8 and 17 fps (2.4 and 5.2 mps) and a maximum ground surface 
+temperature of 130°F (54°C).  
+(b)  Storage and transit conditions.  Induced storage temperatures are presumed to be the same as those for the hot-dry 
+cycle although relative humilities in the enclosed space are considerably higher. 
+ 
+ 
+Table 3 – 4 
+Hot climatic design type B3:  Hot-humid daily cycle — Continued 
+ 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT 
+CONDITIONS 
+Local 
+Time 
+Ambient Air 
+Temperature 
+Solar Radiation 
+RH 
+Dew Point Tem-
+perature 
+Induced Air Tem-
+perature 
+RH 
+C 
+F 
+W/m2 
+Bph 
+Percent 
+C 
+F 
+C 
+F 
+Percent 
+0100 
+31 
+88 
+0 
+0 
+88 
+29 
+84 
+35 
+95 
+67 
+0200 
+31 
+88 
+0 
+0 
+88 
+29 
+84 
+34 
+94 
+72 
+0300 
+31 
+88 
+0 
+0 
+88 
+29 
+84 
+34 
+94 
+75 
+0400 
+31 
+88 
+0 
+0 
+88 
+29 
+84 
+34 
+93 
+77 
+0500 
+31 
+88 
+0 
+0 
+88 
+29 
+84 
+33 
+92 
+79 
+
+@@@ PAGE 19 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+13 
+ 
+Table 3 – 4 
+Hot climatic design type B3:  Hot-humid daily cycle — Continued 
+ 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT 
+CONDITIONS 
+Local 
+Time 
+Ambient Air 
+Temperature 
+Solar Radiation 
+RH 
+Dew Point Tem-
+perature 
+Induced Air Tem-
+perature 
+RH 
+C 
+F 
+W/m2 
+Bph 
+Percent 
+C 
+F 
+C 
+F 
+Percent 
+0600 
+32 
+90 
+45 
+15 
+85 
+29 
+85 
+33 
+91 
+80 
+0700 
+34 
+93 
+315 
+100 
+80 
+30 
+86 
+36 
+97 
+70 
+0800 
+36 
+96 
+560 
+177 
+76 
+31 
+87 
+40 
+104 
+54 
+0900 
+37 
+98 
+790 
+251 
+73 
+31 
+88 
+44 
+111 
+42 
+1000 
+38 
+100 
+950 
+302 
+69 
+31 
+88 
+51 
+124 
+31 
+1100 
+39 
+102 
+1035 
+328 
+65 
+31 
+88 
+57 
+135 
+24 
+1200 
+40 
+104 
+1080 
+343 
+62 
+31 
+88 
+62 
+144 
+17 
+1300 
+41 
+105 
+1000 
+317 
+59 
+31 
+88 
+66 
+151 
+16 
+1400 
+41 
+105 
+885 
+280 
+59 
+31 
+88 
+69 
+156 
+15 
+1500 
+41 
+105 
+710 
+225 
+59 
+31 
+88 
+71 
+160 
+14 
+1600 
+41 
+105 
+465 
+147 
+59 
+31 
+88 
+69 
+156 
+16 
+1700 
+39 
+102 
+210 
+66 
+65 
+31 
+88 
+66 
+151 
+18 
+1800 
+37 
+99 
+15 
+4 
+69 
+31 
+87 
+63 
+145 
+21 
+1900 
+36 
+97 
+0 
+0 
+73 
+31 
+87 
+58 
+136 
+29 
+2000 
+34 
+94 
+0 
+0 
+79 
+30 
+86 
+50 
+122 
+41 
+2100 
+33 
+91 
+0 
+0 
+85 
+30 
+86 
+41 
+105 
+53 
+2200 
+32 
+90 
+0 
+0 
+85 
+29 
+85 
+39 
+103 
+58 
+2300 
+32 
+89 
+0 
+0 
+88 
+29 
+85 
+37 
+99 
+62 
+2400 
+31 
+88 
+0 
+0 
+88 
+29 
+84 
+35 
+95 
+63 
+3 – 5.  Basic climatic design type 
+Four daily cycles represent conditions that may be found in areas where the basic climatic design type prevails.  Two of 
+these cycles represent high humidity conditions and two represent the extreme temperatures of the basic set of design 
+values. 
+a.  High humidity daily cycles. 
+(1)  Location.  Basic high humidity conditions are found most often in tropical areas, although they occur briefly or 
+seasonally in the mid-latitudes.  One of the two high humidity cycles (constant high humidity) represents conditions in the 
+heavily forested areas where nearly constant conditions may prevail during rainy and wet seasons.  The other daily cycle 
+(variable high humidity) represents conditions found in the open in tropical areas.  In the first cycle, exposed materiel is 
+likely to be constantly wet or damp for many days at a time.  In the second cycle, exposed items are subject to alternate 
+wetting and drying.  Both conditions promote severe deterioration in materiel.  The one that is most important, as shown 
+in table 3 – 5, depends on the nature of the equipment involved. 
+ 
+Table 3 – 5 
+Materials and high humidity deterioration — Continued 
+Type Material 
+Type of Site with the Highest Deterioration Rates 
+Elastomers  
+Open  
+Polymers  
+Open  
+
+@@@ PAGE 20 @@@
+ 
+14 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Table 3 – 5 
+Materials and high humidity deterioration — Continued 
+Type Material 
+Type of Site with the Highest Deterioration Rates 
+Textiles  
+Forest  
+Metals  
+Coastal swamp (mangrove) and forest  
+ 
+(2)  Temperature, humidity, solar radiation (constant high humidity cycle). 
+(a)  Operational conditions.  RH above 95 percent in association with a nearly constant temperature at 75°F (24°C) 
+persists for periods of several days (see table 3 – 6). 
+(b)  Storage and transit conditions.  RH above 95 percent in association with a nearly constant 80°F (27°C) temperature 
+occurs for periods of a day or more. 
+ 
+Table 3 – 6 
+Basic climatic design type B1:  Constant high humidity daily cycle — Continued 
+ 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT CONDITIONS 
+Local 
+Time 
+Ambient Air 
+Temperature 
+Solar Radiation 
+RH 
+Dew Point 
+Temperature 
+Induced Air 
+Temperature 
+RH 
+C 
+F 
+Bph 
+W/m2 
+Percent 
+C 
+F 
+C 
+F 
+Percent 
+0100 
+Nearly constant 
+at 24°C (75°F) 
+throughout the 24 
+hours. 
+Negligible 
+100 
+24 
+75 
+Nearly con-
+stant at 27°C 
+(80°F) 
+Throughout the 
+24 hours. 
+Same as operational condi-
+tions. 
+0200 
+100 
+24 
+75 
+0300 
+100 
+24 
+75 
+0400 
+100 
+24 
+75 
+0500 
+100 
+24 
+75 
+0600 
+100 
+24 
+75 
+0700 
+98 
+23 
+74 
+0800 
+97 
+23 
+74 
+0900 
+95 
+23 
+74 
+1000 
+95 
+23 
+74 
+1100 
+95 
+23 
+74 
+1200 
+95 
+23 
+74 
+1300 
+95 
+23 
+74 
+1400 
+95 
+23 
+74 
+1500 
+95 
+23 
+74 
+1600 
+95 
+23 
+74 
+1700 
+95 
+23 
+74 
+1800 
+95 
+23 
+74 
+1900 
+97 
+23 
+74 
+2000 
+98 
+23 
+74 
+2100 
+100 
+24 
+75 
+2200 
+100 
+24 
+75 
+2300 
+100 
+24 
+75 
+2400 
+100 
+24 
+75 
+ 
+(3)  Temperature, humidity, solar radiation (variable high humidity cycle). 
+
+@@@ PAGE 21 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+15 
+ 
+(a)  Operational conditions.  The daily cycle outlined in table 3 – 7 has a maximum ambient air temperature of 95°F 
+(35°C) for 2 hours.  The maximum solar radiation load of 307 Bph (970 W/m2) for not more than 2 hours, is accompanied 
+by wind speeds of less than 7 fps (2 mps) and a maximum ground surface temperature of 130°F (54°C). 
+(b)  Storage and transit conditions.  See storage and transit conditions associated with the hot-humid daily cycle of the 
+hot climatic design type. 
+ 
+Table 3 – 7 
+Basic climatic design type B2:  Variable high humidity daily cycle — Continued 
+ 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT CONDITIONS 
+Local 
+Time 
+Ambient Air 
+Temperature 
+Solar Radiation 
+RH 
+Dew Point Tem-
+perature 
+Induced Air Tem-
+perature 
+RH 
+C 
+F 
+W/m2 
+Bph 
+Percent 
+C 
+F 
+C 
+F 
+Percent 
+0100 
+27 
+80 
+0 
+0 
+100 
+27 
+80 
+33 
+91 
+69 
+0200 
+26 
+79 
+0 
+0 
+100 
+26 
+79 
+32 
+90 
+70 
+0300 
+26 
+79 
+0 
+0 
+100 
+26 
+79 
+32 
+90 
+71 
+0400 
+26 
+79 
+0 
+0 
+100 
+26 
+79 
+31 
+88 
+72 
+0500 
+26 
+78 
+0 
+0 
+100 
+26 
+78 
+30 
+86 
+74 
+0600 
+26 
+78 
+45 
+15 
+100 
+26 
+78 
+31 
+88 
+75 
+0700 
+27 
+81 
+230 
+73 
+94 
+26 
+79 
+34 
+93 
+64 
+0800 
+29 
+84 
+435 
+138 
+88 
+27 
+80 
+38 
+101 
+54 
+0900 
+31 
+87 
+630 
+200 
+82 
+27 
+81 
+42 
+107 
+43 
+1000 
+32 
+89 
+795 
+252 
+79 
+28 
+82 
+45 
+113 
+36 
+1100 
+33 
+92 
+900 
+286 
+77 
+28 
+83 
+51 
+124 
+29 
+1200 
+34 
+94 
+970 
+307 
+75 
+29 
+84 
+57 
+134 
+22 
+1300 
+34 
+94 
+970 
+307 
+74 
+29 
+84 
+61 
+142 
+21 
+1400 
+35 
+95 
+900 
+286 
+74 
+29 
+85 
+63 
+145 
+20 
+1500 
+35 
+95 
+795 
+252 
+74 
+30 
+86 
+63 
+145 
+19 
+1600 
+34 
+93 
+630 
+200 
+76 
+29 
+85 
+62 
+144 
+20 
+1700 
+33 
+92 
+435 
+138 
+79 
+29 
+84 
+60 
+140 
+21 
+1800 
+32 
+90 
+230 
+73 
+82 
+29 
+84 
+57 
+134 
+22 
+1900 
+31 
+88 
+45 
+15 
+86 
+28 
+83 
+50 
+122 
+32 
+2000 
+29 
+85 
+0 
+0 
+91 
+28 
+83 
+44 
+111 
+43 
+2100 
+28 
+83 
+0 
+0 
+95 
+28 
+82 
+38 
+101 
+54 
+2200 
+28 
+82 
+0 
+0 
+96 
+27 
+81 
+35 
+95 
+59 
+2300 
+27 
+81 
+0 
+0 
+100 
+27 
+81 
+34 
+93 
+63 
+2400 
+27 
+80 
+0 
+0 
+100 
+27 
+80 
+33 
+91 
+68 
+ 
+(4)  High humidity chamber testing.  Climate chamber tests can be used to determine whether materiel is likely to resist 
+fungus growth and the mechanical effects of moisture.  They cannot be expected to produce the overall effects on materiel 
+that will result from tropical field testing. 
+b.  Basic hot daily cycle. 
+(1)  Location.  Basic hot conditions exist in many parts of the world extending outward from the areas of hot-dry con-
+ditions in the United States, Mexico, Africa, Asia, and Australia.  They also occur in southern Africa, South America, 
+southern Spain, and in southwest Asia. 
+
+@@@ PAGE 22 @@@
+ 
+16 
+AR 70–38 • 26 June 2020 
+ 
+ 
+(2)  Temperature, humidity, solar radiation. 
+(a)  Operational conditions.  Design criteria are 8 continuous hours with an ambient air temperature above 105°F (41°C) 
+with an extreme temperature of 110°F (43°C) for not more than 3 hours, a maximum ground surface temperature of 140°F 
+(60°C), solar radiation (horizontal surface) at a rate of 355 Bph (1120 W/m2) for not more than 2 hours (not concurrent 
+with the extreme temperature), a wind speed between 10 and 16 fps (3 and 5 mps) during the period with temperature 
+above 105°F (41°C), and an RH of approximately 14 percent concurrent with the high temperatures (see table 3 – 8). For 
+elevations of 3,000 ft to 10,000 ft (914 to 3048 m), the ground surface temperature and wind remain the same.  Ambient 
+air temperatures, however, decrease 5°F per 1,000 ft (9.1°C per 1,000 m), and solar radiation increases at a rate of 4 Bph 
+per 1,000 ft (43 W/m2 per 1,000 m).  
+(b)  Storage and transit conditions.  Design criteria are 4 continuous hours with an induced air temperature above 140°F 
+(60°C) with RH less than 8 percent, and an air temperature extreme of 145°F (63°C) for not more than 2 hours without the 
+benefit of solar radiation and with negligible wind (see table 3 – 8). 
+ 
+Table 3 – 8 
+Basic climatic design type A2:  Basic hot daily cycle — Continued 
+ 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT CONDITIONS 
+Local 
+Time 
+Ambient Air Tem-
+perature 
+Solar Radiation 
+RH 
+Dew Point Tem-
+perature 
+Induced Air 
+Temperature 
+RH 
+C 
+F 
+W/m2 
+Bph 
+Percent 
+C 
+F 
+C 
+F 
+Percent 
+0100 
+33 
+91 
+0 
+0 
+36 
+15 
+61 
+33 
+91 
+36 
+0200 
+32 
+90 
+0 
+0 
+38 
+16 
+60 
+32 
+90 
+38 
+0300 
+32 
+90 
+0 
+0 
+41 
+17 
+63 
+32 
+90 
+41 
+0400 
+31 
+88 
+0 
+0 
+44 
+17 
+62 
+31 
+88 
+44 
+0500 
+30 
+86 
+0 
+0 
+44 
+17 
+62 
+30 
+86 
+44 
+0600 
+30 
+86 
+55 
+18 
+44 
+17 
+62 
+31 
+88 
+43 
+0700 
+31 
+88 
+270 
+85 
+41 
+16 
+61 
+34 
+93 
+37 
+0800 
+34 
+93 
+505 
+160 
+34 
+16 
+61 
+38 
+101 
+30 
+0900 
+37 
+99 
+730 
+231 
+29 
+17 
+62 
+42 
+107 
+23 
+1000 
+39 
+102 
+915 
+291 
+24 
+14 
+58 
+45 
+113 
+17 
+1100 
+41 
+106 
+1040 
+330 
+21 
+14 
+58 
+51 
+124 
+14 
+1200 
+42 
+107 
+1120 
+355 
+18 
+13 
+55 
+57 
+134 
+8 
+1300 
+43 
+109 
+1120 
+355 
+16 
+11 
+52 
+61 
+142 
+6 
+1400 
+43 
+110 
+1040 
+330 
+15 
+11 
+52 
+63 
+145 
+6 
+1500 
+43 
+110 
+915 
+291 
+14 
+10 
+50 
+63 
+145 
+5 
+1600 
+43 
+110 
+730 
+231 
+14 
+10 
+50 
+62 
+144 
+6 
+1700 
+43 
+109 
+505 
+160 
+14 
+9 
+49 
+60 
+140 
+6 
+1800 
+42 
+107 
+270 
+85 
+15 
+9 
+49 
+57 
+134 
+6 
+1900 
+40 
+104 
+55 
+18 
+17 
+10 
+50 
+50 
+122 
+10 
+2000 
+38 
+100 
+0 
+0 
+20 
+11 
+51 
+44 
+111 
+14 
+2100 
+36 
+97 
+0 
+0 
+22 
+11 
+51 
+38 
+101 
+19 
+2200 
+35 
+95 
+0 
+0 
+25 
+12 
+54 
+35 
+95 
+25 
+2300 
+34 
+93 
+0 
+0 
+28 
+12 
+54 
+34 
+93 
+28 
+2400 
+33 
+91 
+0 
+0 
+33 
+14 
+58 
+33 
+91 
+33 
+ 
+
+@@@ PAGE 23 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+17 
+ 
+c.  Basic cold daily cycle. 
+(1)  Location.  Basic cold conditions are found only in the Northern Hemisphere south of the coldest areas and on high-
+latitude coasts (for example, the southern coast of Alaska) where maritime effects prevent occurrence of very low temper-
+atures.  Small areas of basic cold weather conditions may be found at high elevations in lower latitudes. 
+(2)  Temperature, humidity, solar radiation. 
+(a)  Operational conditions.  Design conditions are 5 continuous hours with an ambient air temperature of −25°F 
+(−31°C), a minimum ground surface temperature of −35°F (−37°C), wind speed less than 16 fps (5 mps), negligible solar 
+radiation (horizontal surface), and humidity tending toward saturation (see table 3 – 7). Saturation is the result of the ex-
+tremely low temperatures.  The absolute humidity and vapor pressure are very low when these temperatures prevail.  Alt-
+hough not typical, wind speeds greater than 16 fps (5 mps) may be associated with temperatures of −25°F (−31°C). 
+(b)  Storage and transit conditions.  Design criteria are five continuous hours with an induced air temperature of −28°F 
+(−33°C) with no wind or solar radiation and humidity tending toward saturation (see table 3 – 9). 
+ 
+Table 3 – 9 
+Basic climatic design type C1; Cold daily cycle — Continued 
+ 
+OPERATIONAL CONDITIONS (Natural Environment) 
+STORAGE AND TRANSIT CONDITIONS 
+Local Time 
+Ambient Air Tempera-
+ture 
+Solar Radiation 
+RH 
+Induced Air Tem-
+perature 
+RH 
+ 
+C 
+F 
+W/m 
+Bph 
+Percent 
+C 
+F 
+Percent 
+0100 
+−31 
+−24 
+Negligible During Low 
+Temperature Periods 
+Tending To-
+wards Satura-
+tion 
+−33 
+−27 
+Tending Toward 
+Saturation 
+0200 
+−32 
+−25 
+−33 
+−28 
+0300 
+−32 
+−25 
+−33 
+−28 
+0400 
+−32 
+−25 
+−33 
+−28 
+0500 
+−32 
+−25 
+−33 
+−28 
+0600 
+−32 
+−25 
+−33 
+−28 
+0700 
+−30 
+−22 
+−33 
+−27 
+0800 
+−28 
+−18 
+−33 
+−27 
+0900 
+−26 
+−15 
+−32 
+−26 
+1000 
+−24 
+−12 
+−31 
+−24 
+1100 
+−22 
+−8 
+−30 
+−22 
+1200 
+−21 
+−5 
+−28 
+−19 
+1300 
+−21 
+−5 
+−27 
+−17 
+1400 
+−21 
+−6 
+−26 
+−15 
+1500 
+−21 
+−6 
+−25 
+−13 
+1600 
+−22 
+−8 
+−26 
+−15 
+1700 
+−24 
+−11 
+−28 
+−18 
+1800 
+−25 
+−13 
+−29 
+−20 
+1900 
+−26 
+−15 
+−30 
+−22 
+2000 
+−27 
+−17 
+ 
+ 
+−31 
+−24 
+ 
+2100 
+−28 
+−19 
+ 
+−32 
+−26 
+2200 
+−29 
+−21 
+ 
+−33 
+−27 
+2300 
+−30 
+−22 
+ 
+−33 
+−27 
+2400 
+−31 
+−24 
+ 
+−33 
+−27 
+
+@@@ PAGE 24 @@@
+ 
+18 
+AR 70–38 • 26 June 2020 
+ 
+ 
+3 – 6.  Cold climatic design type 
+a.  Location.  Cold conditions are found in the Northern Hemisphere in Canada, Alaska, Greenland, northern Scandina-
+via, northern Asia, and Tibet.  Very small areas of the cold type may be found at higher elevations in both the Northern 
+and Southern Hemisphere (for example, Alps, Himalayas, and the Andes). 
+b.  Temperature, humidity, solar radiation. 
+(1)  Operational conditions.  Design conditions are 6 continuous hours with an ambient air temperature of −50°F 
+(−46°C), a minimum snow surface temperature of −50°F (−46°C), wind speed less than 16 fps (5 mps), negligible solar 
+radiation (horizontal surface), and RH tending towards saturation (see table 3 – 10). 
+(2)  Storage and transit conditions.  Same as operational conditions (see table 3 – 10). 
+ 
+Table 3 – 10 
+Cold climatic design type C2: Daily cycle — Continued 
+ 
+OPERATIONAL CONDITIONS 
+(Natural Environment) 
+STORAGE AND TRANSIT 
+CONDITIONS 
+Local 
+Ambient Air Tem-
+perature 
+Solar Radiation 
+RH 
+Induced Air Temperature 
+RH 
+Time 
+C 
+F 
+Bph 
+W/m2 
+Percent 
+C 
+F 
+Percent 
+0100 
+−46 
+−51 
+Negligible 
+Tending To-
+wards Satura-
+tion 
+−46 
+−51 
+Tending To-
+wards Satura-
+tion 
+0200 
+−46 
+−51 
+−46 
+−51 
+0300 
+−46 
+−51 
+−46 
+−51 
+0400 
+−46 
+−51 
+−46 
+−51 
+0500 
+−46 
+−51 
+−46 
+−51 
+0600 
+−46 
+−51 
+−46 
+−51 
+0700 
+−45 
+−49 
+−45 
+−49 
+0800 
+−44 
+−47 
+−44 
+−47 
+0900 
+−43 
+−45 
+−43 
+−45 
+1000 
+−41 
+−42 
+−41 
+−42 
+1100 
+−39 
+−38 
+−39 
+−38 
+1200 
+−37 
+−35 
+−37 
+−35 
+1300 
+−37 
+−35 
+−37 
+−35 
+1400 
+−37 
+−35 
+−37 
+−35 
+1500 
+−37 
+−35 
+−37 
+−35 
+1600 
+−38 
+−36 
+−38 
+−36 
+1700 
+−39 
+−38 
+−39 
+−38 
+1800 
+−39 
+−38 
+−39 
+−38 
+1900 
+−41 
+−42 
+−41 
+−42 
+2000 
+−42 
+−44 
+−42 
+−44 
+2100 
+−43 
+−45 
+−43 
+−45 
+2200 
+−44 
+−47 
+−44 
+−47 
+2300 
+−44 
+−47 
+−44 
+−47 
+2400 
+−45 
+−49 
+−45 
+−49 
+3 – 7.  Severe cold climatic design type 
+a.  Location.  Severe cold conditions are found in the Northern Hemisphere in the interior of Alaska extending into the 
+Yukon in Canada.  They also exist in the interior of the northern islands of the Canadian Archipelago, on the Greenland 
+icecap, and in northern Asia. 
+b.  Temperature, humidity, solar radiation. 
+
+@@@ PAGE 25 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+19 
+ 
+(1)  Operational conditions.  The design condition is a minimum temperature of −60°F (−51°C).  (For testing purposes, 
+this is a cold soak temperature.)  Solar radiation (horizontal surface) is negligible and RH toward saturation (because of 
+low temperature, not high absolute humidity or vapor pressure).  Wind speeds are less than 16 fps (5 mps).  In rare cases 
+where materiel is designed to operate solely in areas where the cold climatic design type applies, the reverse season, or 
+expected maximum, temperature is 95°F (35°C). 
+(2)  Storage and transit conditions.  Same as paragraph 3–7b(1). 
+(3)  Daily Cycle.  No cycle is given because temperature, humidity, and solar radiation remain nearly constant through-
+out the 24–hour period. 
+3 – 8.  Additional environmental elements 
+Several additional climatic or other environmental elements are known to have effects on some kinds of military materiel.  
+The elements are discussed in the following paragraphs, and where possible, operational extremes are given. 
+a.  Rain.  The world’s highest rainfall intensities are in areas that experience the constant high humidity conditions of 
+the basic climates, particularly Southeast Asia.  The operational value is an instantaneous (1 minute) rate of 0.03 inches 
+per minute (in./min) (0.80 millimeters per minute (mm/min)).  Based on data from Southeast Asia, this is the value ex-
+ceeded only 0.5 percent of the hours in the rainiest month.  For certain classes of materiel (for example, missiles and 
+aircraft) that might be subject to erosion from the more extreme rainfall intensities, a design value of 0.07 in./min (1.80 
+mm/min), derived from the same area should be considered.  This is the intensity that is exceeded only 0.1 percent of the 
+hours in the most extreme month. Much higher rainfall intensities can occur, but they are normally of short duration and 
+usually are restricted to small areas.  The highest rainfall intensity ever officially recorded is 1.23 in./min (31 mm/min). 
+(1)  A nominal drop-size spectrum for the 0.5 percent extreme is shown in table 3 – 11. 
+ 
+Table 3 – 11 
+Rainfall intensities—Drop diameter range (mm) — Continued 
+Number per m3 
+0.5 – 1.4 
+1.5 – 2.4 
+2.5 – 3.4 
+3.5 – 4.4 
+4.5 – 5.4 
+5.5 – 6.4 
+ 
+2626 
+342 
+45 
+6 
+1 
+<1 
+ 
+(2)  The rainfall intensities shown in table 3 – 11 may be accompanied by intermittent winds up to 60 fps (18 mps).  
+Higher wind speeds occur in hurricanes and typhoons (up to 148 fps or 45 mps), along with intense rain that falls almost 
+horizontally penetrating cracks around doors, hatches, and other vertical openings.  Rain affects the performance of electro-
+optical systems because of its attenuation of electromagnetic radiation in the atmosphere. 
+b.  Snow.  Three aspects of snow are discussed in relation to equipment design.  Falling snow also affects the perfor-
+mance of electro-optical systems because of the attenuation and degradation of electromagnetic radiation in the atmos-
+phere. 
+(1)  Snowfall rate.  No operational extreme is given for rate of snowfall accumulation because conditions are more se-
+vere when snow is windblown.  (See para 3–8b(2)).  The greatest snowfall accumulation during a 24–hour period ever 
+recorded in the United States, the snowier sections of which receive as much snow as any part of the world, was 76 inches 
+(in.) (1930 millimeters (mm)), a rate of about 3 inches per hour (76 mm/hour).  Crystal sizes of snow particles range from 
+0.05 to 20 mm diameter with a median range of 0.1 to 1.0 mm.  Larger sizes are associated with temperatures near freezing 
+and light winds. 
+(2)  Blowing snow.  Operational extremes for blowing snow are given in terms of horizontal mass flux of snow particles, 
+that is, the mass of snow moving horizontally across a unit area per unit time.  Mass flux decreases significantly with 
+increasing height; highest fluxes are found below 2 in. (0.05 m).  Therefore, extremes of blowing snow are given for height 
+intervals up to 33 ft (10 m).  Design values should be based on the height of the equipment.  The horizontal mass fluxes 
+for operational extremes, with a wind speed of 44 fps (13 mps) at a height above ground or snow surface of 10 ft (3 m), 
+are shown in table 3 – 12.  When blown by strong winds, snow crystals are broken and abraded into roughly equal size 
+grains with rounded or sub-angular corners.  More particles occur in the size range of 7.87 × 10 – 4 to 1.57 × 10 – 3 in. (0.02 
+to 0.4 mm), where the size is the effective diameter as shown in figure 3 – 4, in the plane of measurement.  Smaller sizes 
+tend to occur at lower temperatures.  Within the basic cold regions, the typical temperature range during periods of blowing 
+snow is 14°F to −4°F (−10°C to −20°C).  Within the cold and severe cold regions, snowfall is common at temperatures 
+between −10°F and −20°F (−23°C to −29°C).  Blowing snow may occur at temperatures as low as −40°F (−40°C). 
+ 
+
+@@@ PAGE 26 @@@
+ 
+20 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Table 3 – 12 
+Horizontal mass fluxes for blowing snow — Continued 
+Height 
+Mass Flux 
+Feet 
+Meters 
+lbs./ft./sec 
+kg/m2/sec 
+33.0 
+10.0 
+0.45 × 10−3 
+2.2 × 10−3 
+25.0 
+7.5 
+0.68 × 10−3 
+3.3 × 10−3 
+16.0 
+5.0 
+0.82 × 10−3 
+4.0 × 10−3 
+8.2 
+2.5 
+1.4 × 10−3 
+6.9 × 10−3 
+3.3 
+1.0 
+3.3 × 10−3 
+16.0 × 10−3 
+2.5 
+0.75 
+4.5 × 10−3 
+22.0 × 10−3 
+1.6 
+0.5 
+6.6 × 10−3 
+32.0 × 10−3 
+0.82 
+0.25 
+14.0 × 10−3 
+66.0 × 10−3 
+0.33 
+0.1 
+41.0 × 10−3 
+200.0 × 10−3 
+0.16 
+0.05 
+109.0 × 10−3 
+530.0 × 10−3 
+ 
+ 
+Figure 3 – 4.  Blown snow crystal diameter formula 
+(3)  Snow load.  A third important effect of snow is the structural load imposed by accumulated snow upon buildings, 
+shelters, vehicles, or other relatively large military items.  Snow load extremes are not applicable to operations; however, 
+designers of the above equipment may wish to consider the following extremes, which are for snow loads on the ground.  
+Snow loads on military equipment would usually be less than on the nearby ground. 
+(a)  Portable equipment usually involves small items, such as tentage, which may be moved daily.  This equipment 
+generally will shed snow; but in instances where it does not, distortion will be noticeable and daily cleaning mandatory. 
+The design criterion for this equipment is based on 24–hour snowfalls.  The snow load value is 10 lb/ft2 (48.9 kg/m2), 
+which is equivalent to a depth of 20 in. (508 mm) of snow with a specific gravity of 0.1. 
+(b)  Temporary equipment usually involves large items on which snow can collect, rigid shelters, portable hangars, and 
+so forth, which can be cleared of snow between storms.  This equipment will not sag much due to the snow loading but 
+may collapse when its limits are exceeded.  The design criterion for this equipment is based on snowfalls associated with 
+storms lasting longer than one day.  The snow load value is 20 lb/ft2 (97.7 kg/m2), which is equivalent to a snow depth of 
+40 in. (1016 mm) with a specific gravity of 0.1. 
+(c)  Semi permanently installed equipment is usually demountable and not very mobile.  Snow is not removed between 
+snowfalls.  The design criterion for this equipment is based on seasonal accumulation of snow.  The snow load value is 48 
+lb/ft2 (235 kg/m2), which is equivalent to a snow depth of 96 in. (2438 mm) with a specific gravity of 0.1. 
+c.  Icing phenomena.  Icing phenomena include glaze (freezing rain), hoarfrost, and rime, which cause problems of ice 
+accretion on aircraft and other materiel, and ice fog, which interferes with visibility.  Although reliable and systematic data 
+on ice accumulation are scarce, fairly large areas of the United States and Europe can expect to endure seven or more ice 
+storms per year.  The effects of the storms may last from a few hours to several days.  In the same areas, probably one 
+storm per year on the average is severe enough to cause some damage.  In perhaps one year out of two or three, ice 
+accumulation will probably be a half-inch or more.  Therefore, if all-weather operation of materiel is desired within the 
+areas where icing may occur, the operational design value should be for one-half inch of glaze with specific gravity of 0.9.  
+This includes the colder sections within the basic design type and all the cold and severe cold areas.  If equipment failure 
+during the time of icing can be tolerated, the question of withstanding more severe storms without permanent damage 
+becomes important.  For withstanding, the values as given in MIL – HDBK – 310 are as follows: 
+(1)  3 in. (76 mm) glaze, specific gravity 0.9. 
+
+@@@ PAGE 27 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+21 
+ 
+(2)  6 in. (152 mm) glaze and rime mixed, specific gravity 0.5. 
+(3)  6 in. (152 mm) rime near the surface increasing linearly to 20 in. (508mm) at 400 ft (122 m), specific gravity 0.2. 
+(4)  Deposits of hoarfrost, the only type of ice accretion that occurs when air temperatures are well below 32°F (O°C), 
+may be several inches thick but will have a specific gravity of less than 0.2. 
+(5)  Ice fog consists of suspended ice crystals averaging 1.97 × 10 – 4 to 7.87 × 10 – 4 in. (5 to 20 micrometers (μm)) in 
+diameter.  In areas where sufficient water vapor is present, ice fog occurs mainly at temperatures below −20°F (−37°C); 
+ice fog may be very dense, limiting visibility of a few feet.  Ice fog is often locally induced by the operation of motor 
+vehicles, power plants, and weapon systems.  It is usually high in concentration of contaminants from the burning of 
+hydrocarbon fuels and explosive fuels. It affects the performance of electro-optical systems because of its attenuation and 
+degradation of electromagnetic radiation in the atmosphere.  
+d.  Hail.  Hail occurs too infrequently to warrant specification of an operational extreme.  When hail-caused equipment 
+failure would endanger life or limb, designers should consider the possibility of encountering hailstones up to 2 in. (51 
+mm) in diameter.  The largest hailstone ever recorded measures 5.6 in. (142 mm) in diameter. 
+e.  Wind.  Wind is probably the most complex of all climatic elements affecting materiel.  Wind effects are difficult to 
+analyze because wind is a vector quantity subject to rapid temporal and areal changes in speed and direction.  In addition 
+to parameters of average speed and direction, a complete description of wind includes the random motions of widely 
+different scales and periods called atmospheric turbulence or eddies.  The wind forces on a structure result from differential 
+pressures, positive and negative, caused by an obstruction to the free flow of the wind.  Thus, these forces are functions of 
+the velocity and turbulence of the wind and of the orientation, area, and shape of the elements of the structure. 
+(1)  For operations, the following extremes, as given in MIL – HDBK – 310, are a steady wind speed of 73 fps (22 mps) 
+and a gust of 95 fps (29 mps). 
+(2)  The above operational wind speeds are for a height of 10 ft (3 m).  Multiplication factors for obtaining speeds at the 
+height of equipment are shown in table 3 – 13. 
+ 
+Table 3 – 13 
+Wind speed multiplication factors at selected heights — Continued 
+Height 
+Operational 
+Meters 
+Feet 
+Steady winds 
+Gusts 
+1.5 
+0.5 
+0.917 
+0.946 
+3 
+10 
+1.000 
+1.000 
+6 
+20 
+1.090 
+1.057 
+9 
+30 
+1.147 
+1.092 
+12 
+40 
+1.189 
+1.117 
+15 
+50 
+1.222 
+1.137 
+23 
+75 
+1.286 
+1.175 
+30 
+100 
+1.334 
+1.202 
+61 
+200 
+1.454 
+1.271 
+91 
+300 
+1.510 
+1.313 
+122 
+400 
+1.586 
+1.343 
+152 
+500 
+1.631 
+1.368 
+305 
+1000 
+1.778 
+1.445 
+ 
+f.  Sand and dust.  Sand and dust are usually differentiated on the basis of particle size, although there are no generally 
+accepted specific size limits for the two kinds of particles.  For most military applications, it is important to distinguish 
+between the smaller particles (dust) and the larger particles (sand) because of their different effects on equipment.  Dust 
+can penetrate small openings, causing undue wear to moving parts, and interfere with electrical contacts.  Engine and 
+electronic cooling system ingestion of particulate materials require evaluation; complex chemical compositions can create 
+engine deposits or a conductive electrical path.  Blowing sand, which may be too large to penetrate the smaller openings, 
+can erode and abrade the outside of equipment.  Sand and dust present in the air affect the performance of electro-optical 
+systems because of their attenuation and degradation of electromagnetic radiation in the atmosphere.  Airborne particulate 
+materials from natural and induced sources can create degraded visual environments (brownout) with near zero visibility 
+
+@@@ PAGE 28 @@@
+ 
+22 
+AR 70–38 • 26 June 2020 
+ 
+ 
+for rotary/fixed wing aircraft and ground operations.  Particles vary in diameter from 3.94 × 10 – 6 to 3.94 × 10 – 2 in. (0.1 
+to 1,000 μm), but most airborne particles are less than 2.91 × 10 – 3 in. (74 μm). 
+(1)  Three operational levels are given; selection of the appropriate one depends on intended use of the materiel under 
+consideration.  Items likely to be used in close proximity to aircraft operating over unpaved surfaces should be designed 
+for particle concentrations of about 1.32 × 10 – 4 lb/ft3 (2.19 × 10 – 3 kg/m3) in multidirectional strong winds (downwash 
+from helicopter rotors).  The extinction coefficient for this particle concentration is estimated to be 161 miles−1 (100 kilo-
+meters (km)−1) for visible wavelengths through the middle infrared (4.72 × 10 – 4 in (12 μm)).  Such particles range in size 
+up to 1.97 × 10 – 2 in. (500 μm) in diameter.  Items never used or never exposed in close proximity to operating aircraft but 
+which may be found near operating surface vehicles, should be designed for particle concentrations of 6.61 × 10 – 5 lb/ft3 
+(106 × 10 – 3 kg/m3) with wind speeds up to 59 fps (18 mps) at a height of 10 ft (3 m).  Particle sizes will range from less 
+than 2.91 × 10 – 3 in. (74 μm) in diameter to 3.94 × 10 – 2 in. (1,000 μm), with the bulk of the particles ranging in size from 
+13.8 × 10 – 3 in. (74 to 350 μm).  
+(2)  The above two categories are likely to include most military items.  However, items that are ensured of being 
+subjected only to natural conditions should be designed for particle concentrations of 1.10 × 10 – 5 lb/ft3 (0.177 × 10 – 3 
+kg/m3) with wind speeds of 59 fps (18 mps) at a height of 10 ft (3 m).  Under these conditions, the bulk of the particle sizes 
+are likely to be less than 5.90 × 10 – 3 in. (150 μm) except that some large particles (up to 3.94 × 10 – 2 in., 1,000 μm) may 
+be in motion within several feet of the ground.  In all categories, temperatures are typically above 70°F (21°C), and relative 
+humidity is less than 30 percent.  For testing purposes, particle sizes up to 5.90 × 10 – 3 in. (150 μm) should be used if the 
+primary concern is with the penetration of fine particles.  If the abrasion effect of blowing sand is the primary concern, 
+particle sizes up to 3.94 × 10 – 2 in. (1,000 μm) should be used, but the bulk of the particles should be between 5.90 × 10 – 3 
+and 1.97 × 10 – 2 in. (150 and 500 μm).  Many items, such as rifles, vehicles, and helicopters, may be exposed to particles 
+up to 3.94 × 10 – 2 in. (1,000 μm) that can penetrate the space between moving parts. 
+g.  Ozone concentration.  For operations, a value of 1.37 × 10 – 8 lb/ft3 (220 × 10 – 3 kg/m3) is recommended. 
+h.  Atmospheric pressure.  Atmospheric pressure usually is not considered in the design and testing of military equip-
+ment.  Ambient pressure, however, may be important for a few types of equipment, for example, items that require oxygen 
+for combustion and sealed units, which might explode or collapse under abnormally low or high pressure. 
+(1)  High pressure.  The operational extreme high pressure is 1,080 mbar (31.89 inches of mercury (inHg)). 
+(2)  Low pressure.  The operational extreme low pressure is estimated to be 508 mbar (15.00 inHg) at 15,000 ft (4,572 
+m), the highest elevation at which Army equipment is likely to be used. At sea level, the operational extreme is 877 mbar 
+(25.90 inHg). 
+3 – 9.  Combined environmental effects 
+The climatic design types in this regulation are based primarily on temperature extremes and secondly on humidity ex-
+tremes.  The climatic elements discussed in paragraph 3 – 8; however, may interact concurrently with temperature and 
+humidity and with each other to produce effects on materiel either different or more severe than the sum of the effects 
+caused by the separate elements acting independently.  These are known as combined or synergistic environmental effects.  
+The fact that these synergistic effects exist is one of the prime arguments for conducting field tests because it is extremely 
+difficult or impossible to reproduce the interacting environmental factors concurrently in a test chamber. 
+Chapter 4 
+Global Operating Environments 
+4 – 1.  Geographic classification framework 
+GOE and OE framework builds on Bailey’s ecoregions method of geographical classification (Ecosystem Geography, 
+Bailey, R.G., 1996) to address atmospheric, terrestrial, and biological consideration for the design and performance of 
+material worldwide.  The Bailey classification system is used both nationally and internationally, including being used to 
+manage DoD and other federal lands. This standardized geographical classification system provides— 
+a.  Direct connectivity to a large volume of existing environmental information. 
+b.  The ability to classify an area of interest anywhere in the world so that direct analogs in more accessible areas can 
+be identified for RDTE activities. 
+c.  Identifying environmental factors that have a high possibility of affecting performance of equipment, materials, or 
+personnel during operations in these areas. 
+
+@@@ PAGE 29 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+23 
+ 
+4 – 2.  Global operational environments 
+a.  Each climatic region comprises land areas characterized by broad similarities in mean annual temperature, precipi-
+tation, and evapotranspiration.  Three of the regions are humid and differentiated on the basis of temperature regime— 
+(1)  Polar—low temperatures, severe winters, and small amounts of precipitation. 
+(2)  Humid temperate—rainy with mild to severe winters. 
+(3)  Humid tropical—rainy with no winter season. 
+(4)  Dry—defined on the basis of moisture deficit and covers land areas that transect the otherwise humid climates. 
+b.  The geographic distribution of these four regions is described below. 
+(1)  The polar region.  This region occupies approximately 26 percent of the earth’s land area, including Antarctica, and 
+is located at high latitudes with climate controlled by polar and Arctic air masses.  This area is generally cool with severely 
+low temperatures in the winter.  Annual precipitation is low with most of it occurring in the summer.  Because of the low 
+air and soil temperatures, total annual evaporation is also limited.  Traditionally, the Army has established an operational 
+lower limit at −50°F (−46°C) with storage at −60°F (−51°C).  The Antarctic Treaty of 1959 limits military activity in 
+Antarctica to scientific research and other peaceful purposes.  
+(2)  The humid temperate region.  This region lies in the mid-latitudes between 30° and 60° north and 30° and 60° south 
+latitude, covers approximately 16 percent of the earth’s land area, generally consists of coniferous and broad-leafed forests, 
+and is concentrated in North America, Central Europe, southern China, eastern South America, coastal Southeastern Aus-
+tralia, and New Zealand.  This area is diverse in climatic characteristics, including pronounced seasonal temperature vari-
+ation, a high frequency of precipitation, and periodic freeze-thaw cycles.  Most of the world’s industrialized nations lie 
+within this region. 
+(3)  The humid tropical region.  This region covers approximately 26 percent of the Earth’s land surface, lying between 
+the Tropic of Cancer and Tropic of Capricorn in Central and South America, Africa, and southeastern Asia.  This region 
+is characterized by mean monthly temperatures above 64°F (18°C), variable to constant high humidity, and no winter 
+season.  Average annual rainfall is abundant but can be seasonal.  The world’s tropic rainforests and major watersheds are 
+found in these regions. 
+(4)  The dry region.  This region encompasses semi-arid and arid areas, covering approximately 32 percent of the Earth’s 
+land area, including western and southwestern North America, the Atacama and Patagonia regions of South America, the 
+interior of Australia, Central Asia, Southwest Asia, and Northern Africa.  This region is defined on the basis of atmospheric 
+moisture balance, where potential evapotranspiration exceeds precipitation.  The area includes regions that vary from dry 
+deserts to high-altitude steppes.  Aridity can be constant throughout the year or seasonal.  This region includes the world’s 
+hottest areas where ambient temperatures can exceed 120°F (49°C) during the hot season.  The GOEs are illustrated in 
+figure 4 – 1. 
+
+@@@ PAGE 30 @@@
+ 
+24 
+AR 70–38 • 26 June 2020 
+ 
+ 
+ 
+Figure 4 – 1.  Operational environments (after Bailey 1998) 
+4 – 3.  Operational environments descriptions 
+OEs are 15 subdivisions of the GOEs plus 4 special environments that are selected for their demonstrated effects on oper-
+ations of military equipment.  Table 4 – 1 depicts the distribution of the GOEs and the associated OEs by percentage of 
+global land area.  Figure 4 – 2 illustrates the OEs that are subdivisions of the GOEs.  All OEs are described below along 
+with identification of the environmental factors of greatest concern.  Figure 4 – 2 depicts the distribution of the GOEs and 
+the associated OEs by percentage of global land mass. 
+ 
+ 
+Table 4 – 1 
+Distribution of global operational environments and operational environments by percentage of global land area — Continued 
+Global Operational 
+Environment 
+Global Land Area (%) 
+OE 
+% of Global 
+Land Area 
+Polar (Cold) (Antarctic Only) 
+9 
+Ice cap (Antarctic) 
+9 
+Polar (Cold) (Excluding Antarctica) 
+17 
+Ice cap 
+1 
+ 
+Tundra 
+4 
+ 
+Subarctic 
+12 
+Humid Temperate 
+16 
+Warm Continental 
+2 
+ 
+Hot Continental 
+2 
+
+@@@ PAGE 31 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+25 
+ 
+Table 4 – 1 
+Distribution of global operational environments and operational environments by percentage of global land area — Continued 
+Global Operational 
+Environment 
+Global Land Area (%) 
+OE 
+% of Global 
+Land Area 
+ 
+Subtropical 
+4 
+ 
+Marine 
+2 
+ 
+Prairie 
+4 
+ 
+Mediterranean 
+2 
+Dry 
+32 
+Tropical/Subtropical Steppe 
+10 
+ 
+Tropical/Subtropical Desert 
+14 
+ 
+Temperate Steppe 
+4 
+ 
+Temperate Desert 
+4 
+Humid Tropical 
+26 
+Savanna 
+17 
+ 
+Rainforest 
+9 
+Note. This does not include special environments such as hot-humid costal desert, littoral, mountain, and sea environments. 
+ 
+a.  Polar region.  This region is divided into three OEs: icecap, tundra, and subarctic.  Throughout this region, the en-
+vironmental factors of greatest concern are low temperatures, high winds, ice fog/whiteout, frozen soil, surface snow/ice, 
+precipitation (snow, freezing rain, hail, and rain, depending on season and temperature), the difficulty of movement over 
+thawed ground, and landforms such as mountain ranges and watersheds that inhibit movement.  In the subarctic OE, there 
+are additional concerns over movement due to longer thawed season, larger rivers that are unfrozen for longer periods, 
+more vegetation, and wider distribution of mountain ranges.  Temperature inversions are another atmospheric factor that 
+are very prevalent in the polar regions.  These occur when the temperature is colder at the bottom of the layer and warms 
+with height, versus normally cooling with height.  This will cause mountains to warm with height to an extent depending 
+on how deep the inversion is.  These inversions are normally formed when stagnant conditions become present with calm 
+winds and clear skies, which allows optimal radiational cooling to occur.  This is then exacerbated even further due to the 
+limited amount of solar radiation that is experienced during the winter months.  It then builds a very stable layer at the 
+surface and continues to build in depth with further cooling, which can be as high as several hundred meters and have a 
+temperature gradient of 59°F (15°C) or warmer at the top of the inversion.  It is then this stable layer that traps the pollutants 
+and water vapor in the lower levels, which reduces visibility.  These temperature inversions also cause sound and shock-
+waves to travel much farther near the surface, due to the refraction of the inversion.  This refraction of light and sound can 
+also affect other materiel, including targeting systems and communication systems. 
+(1)  Icecap.  The icecap includes the large ice sheets, such as those found in Greenland, Antarctica, and on small islands 
+in the high northern latitudes.  Mean annual temperatures are constantly below freezing, with low amounts of annual 
+precipitation occurring as snow, and landscapes generally devoid of vegetation and soils. 
+(2)  Tundra.  Located in the northern continental fringes of North America, Iceland, coastal Greenland, and the Arctic 
+coast of Eurasia, this OE has long, severe winters and very short, cool summers.  The mean monthly temperature of the 
+warmest month is between 32°F and 50°F (0°C and 10°C).  Annual precipitation is less than 8 in. (200 mm), but low rates 
+of evaporation make the climate humid.  Vegetation consists of low-growing forbs, grasses, lichens, mosses, and brush 
+with treeless plains.  Soils are poorly developed and have a permanently frozen sub layer (permafrost) that may seasonally 
+thaw at the surface.  Surface and subsurface drainage is poor, creating muddy summertime conditions.  Tundra is predom-
+inately composed of coastal plains, low-interior and high-interior plains, and lesser areas of low- and high-relief mountains. 
+(3)  Subarctic.  The subarctic OE is found only in the northern hemisphere and at least 1 month of the year has a mean 
+monthly temperature above 50°F (10°C).  The boundaries of this OE are ecosystem defined and not latitude defined.  
+Precipitation is concentrated in the three summer months.  Vegetation consists primarily of needle-leaf forests and open 
+woodlands.  Soils are acidic, seasonally frozen, and contain discontinuous permafrost.  Numerous lakes, ponds, peat bogs, 
+and swamps exist because of poor subsurface drainage.  Subarctic is composed of coastal plains, high-relief and low-relief 
+mountains, lesser areas composed of low and high-interior plains, and extensive areas of rock and non-cohesive sand. 
+
+@@@ PAGE 32 @@@
+ 
+26 
+AR 70–38 • 26 June 2020 
+ 
+ 
+ 
+Figure 4 – 2.  Global operational environments subdivided to the operational environments level 
+b.  The humid temperate region.  This region is divided into six OEs: warm continental, hot continental, subtropical, 
+marine, prairie, and Mediterranean.  By definition, temperate zones do not contain climatic extremes.  However, the sea-
+sonal variations can be wide ranging.  These variations introduce frequent rains, mud, and on a seasonal basis, severe 
+winters with temperatures well below freezing.  The forests, rivers, and low to moderate altitude mountain ranges can 
+inhibit military movements.  This regulation does not consider the effects of widespread urbanization, but drafters of 
+capability requirements documents and specifications must. 
+(1)  Warm continental.  This OE occurs in the northern hemisphere, specifically the northeastern United States; south-
+eastern Canada; southeastern Siberia; northern Japan; and eastern Europe, including the Balkans and Russia as far east as 
+the Ural Mountains.  It is characterized by very cold, snowy winters, warm summers, and no dry season.  These areas have 
+4 to 7 months when mean monthly temperatures exceed 50°F (0°C).  The mean temperature during the coldest month is 
+below 32°F (0°C), and absolute minimum temperatures may be below −25°F (−32°C).  Snow and freeze-thaw cycles are 
+common during the winter.  Precipitation occurs throughout the year but is substantially greater during the summer.  Veg-
+etation consists of mixed coniferous and deciduous forests.  Soils have a rich organic layer (humus) and are generally 
+acidic.  Hydrologic features include perennial streams, lakes, bogs, and wetlands.  Warm continental is predominately 
+composed of low- and high-relief mountains, with lesser areas of basin and range, and plateaus. 
+(2)  Hot continental.  This OE is located in central and eastern parts of the United States, northern China, Korea, northern 
+Japan, and Central and Eastern Europe.  It has hot, humid summers with the mean temperatures in the warmest month 
+exceeding 72°F (22°C) and cool winters with the mean temperature in the coldest month less than 32°F (0°C).  These 
+climatic characteristics are similar to but more moderate than those found in the warm continental OE.  The natural vege-
+tation is deciduous forest, dominated by tall broadleaf trees.  Soils are rich in humus.  Human occupancy and agriculture 
+have largely modified these locations, resulting in second- and third-growth forests.  Hot continental includes low-interior 
+plains, high-interior plains, and high-relief mountains. 
+
+@@@ PAGE 33 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+27 
+ 
+(3)  Subtropical.  This OE includes the southeastern United States, southern China, Taiwan, Uruguay, southern Brazil 
+and Argentina, the eastern coast of Australia, and the North Island of New Zealand.  The subtropical OE is rainy and 
+characterized by mild winters, with mean monthly temperatures that are greater than 32°F (0°C), and hot summers with 
+high humidity.  The mean temperature of the warmest month is above 72°F (22°C).  Rainfall is ample throughout the year 
+but greatest during the summer months due to atmospheric cyclonic activity.  Rivers and streams flow continuously.  The 
+dominant vegetation is forest, including broadleaf evergreen and pine.  Soils are strongly leached, with concentrations of 
+aluminum and iron oxides.  Subtropical includes high-relief mountains, high-interior plains, and plateaus. 
+(4)  Marine.  The marine OE is located on continental west coasts and islands in latitudes between 40° and 60°.  These 
+locations are characterized by a damp, humid climate with abundant cloud cover, rainy and mild winters, and warm sum-
+mers.  Mean monthly temperatures exceed 32°F (0°C), and precipitation is abundant but markedly reduced during the 
+summer months.  Dominant vegetation is needle-leaf coniferous forest including redwoods, firs, and cedars.  Mosses and 
+ferns dominate the forest floor.  Soils are strongly leached and acidic with heavy surface organic deposits.  Marine includes 
+high-interior plains, low-interior plains, coastal plains, high- and low-relief mountains, and major basins. 
+(5)  Prairie.  The prairie OE is a transition zone in the mid-latitudes between forest and desert.  Prairie locations include 
+mid-North America from Texas to southern Alberta and Saskatchewan, the Pampas in Argentina, Uruguay and southern 
+Brazil, the Puszta of Hungary, the northern Russian steppes, South Africa, Manchuria, and Australia.  Mean temperatures 
+exceed 72°F (22°C) during the warmest month and are less than 32°F (0°C) in the coldest months.  Precipitation occurs 
+primarily in the summer months.  Vegetation consists of both forests and tall grasslands.  Soils have rich, organic surface 
+horizons that are extremely fertile.  Human settlement and agriculture have largely modified these locations.  In addition, 
+the prairie OE can be located on coastal plains and plateaus and may be dissected by mountains. 
+(6)  Mediterranean.  The Mediterranean OE is situated along the western margins of continents mainly in the northern 
+hemisphere between 30° and 45° north latitude, including southern California, Chile, southern South Africa, segments of 
+coastal Australia, and coastlines of the Mediterranean Sea.  This OE is characterized by dry, hot summers that often expe-
+rience severe drought and rainy, warm winters.  Mean monthly temperatures exceed 72°F (22°C) during the warmest 
+month and are less than 64°F (18°C) in the coldest months.  Natural vegetation consists of hard-leafed evergreen trees and 
+shrubs.  Soils are typical of semi-arid grasslands.  Topography ranges between coastal lowlands to high mountain ranges 
+inland that often produce high-energy streams and deposition of alluvial fans in low-lying areas.  Mediterranean includes 
+high-relief mountains, high-interior plains, low-interior plains, low-relief mountains, and sand sea/dunes. 
+c.  The humid tropical region.  This region is divided into two OEs: savanna and rainforest.  Environmental factors of 
+greatest concern are heavy/frequent precipitation, constant high humidity, and constant warm temperatures.  These com-
+bine to produce dense vegetation; destructive combinations of micro- and macro-organisms; and in coastal regions, ex-
+tremely rapid corrosion of materials and equipment.  Mobility is constrained in rainforest areas because of dense vegeta-
+tion, soft soils, and frequent watercourses. 
+(1)  Savanna.  This OE is the transition zone between Rainforest and more arid locations.  Large areas of savanna sur-
+round rainforest locations in Brazil and central Africa and exist in India and northern Australia.  Mean temperatures during 
+all months exceed 64°F (18°C) with an annual variation less than 22°F (12°C).  The savanna is characterized by distinct 
+wet summer (heavy rainfall) and dry winter seasons (both more than two months in length).  Dominant vegetation includes 
+tall grasslands that contain drought-tolerant shrubs and trees.  Dense tropical forests occur along streams.  Rivers and 
+streams experience high seasonal fluctuations.  Plains and plateaus are common surface features.  Soils are characterized 
+by heavy leaching.  Savanna includes low-interior plains and plateaus. 
+(2)  Rainforest.  This OE exists in equatorial locations from 10° north to 10° south latitude, including the central African 
+Congo, South American Amazon, parts of southeastern Asia, and the Indonesian Islands.  The rainforest has a wet equa-
+torial climate and no distinct dry season, and all months exceed 3 in.(60 mm) of rainfall.  Mean monthly temperatures 
+during all months exceed 64°F (18°C) with an annual variation less than 5°F (3°C).  Undisturbed natural vegetation is 
+rainforest consisting of triple canopy in some places.  Soils are rich in hydroxides of iron, magnesium, and aluminum.  The 
+stream flow is constant throughout the year.  The rainforest OE may include major river basins, plateaus, low-interior 
+plains, high-interior plains, and coastal plains. 
+d.  The dry region.  This region is divided into four distinct OEs: tropical/subtropical steppes, tropical/subtropical de-
+serts, temperate steppes, and temperate deserts.  Environmental factors shared by all dry region OEs are extreme dust 
+conditions on at least a seasonal basis.  Movement can be inhibited by rough or steep terrain, sand dunes, and loose soils.  
+Rains are infrequent but are generally severe when they occur, resulting in flash floods.  Snow, ice, and extreme cold 
+temperatures can occur in the colder, high-altitude deserts.  Within the dry regions, the tropical/subtropical deserts provide 
+the world’s highest ambient temperatures, which may exceed 120°F (49°C); highest levels of solar radiation; and solar-
+induced internal and external (surface) temperatures for equipment and personnel.  These are the world’s driest areas; 
+consequently, dust is a constant problem made worse by winds and/or military operations. 
+
+@@@ PAGE 34 @@@
+ 
+28 
+AR 70–38 • 26 June 2020 
+ 
+ 
+(1)  Tropical/subtropical steppe.  This OE is the semi-arid transition zone between tropical deserts to the north and south 
+and more humid savanna OE toward the equator.  Major locations include the southwestern United States, Kalahari Desert 
+of South Africa, northeastern Brazil, and large portions of Australia.  Potential annual evaporation rates exceed precipita-
+tion, and all months have monthly mean temperatures above 32°F (0°C) with mean maximum monthly temperatures above 
+64°F (18°C).  Rainfall varies greatly, ranging between 10 to 30 in. (250 and 750 mm) annually.  Vegetation consists of 
+grasslands with localized shrubs and woodlands.  Tropical/subtropical steppe includes major river basins, low-interior 
+plains, coastal plains, and mountains. 
+(2)  Tropical/subtropical desert.  This OE includes the vast desert belt of the Sahara in North Africa, Arabia, the Thar 
+Desert in Iran and Pakistan, the Tibetan plateau, the Sonoran Desert of the southwestern United States and northern Mex-
+ico, and the Great Australian Desert.  Except where modified by high altitude (for example, the Tibetan plateau) these 
+locations are characterized by extremely arid conditions with high air and soil temperatures throughout the year.  Mean 
+monthly temperatures exceed 64°F (18°C) in all months of the year.  Direct solar radiation is very high, and extreme 
+temperature variations occur between day and night.  Annual rainfall is less than 8 in. (200 mm).  Vegetation consists of 
+drought-adapted plants that provide negligible ground cover.  Soils are sandy and rocky, may have significant bedrock 
+exposure at the surface, and are sources of natural and induced atmospheric dust.  Stream channels (arroyos and wadis) 
+are incised, intermittent, and subject to flash flooding.  Tropical/subtropical desert includes sand sea/dunes, low-interior 
+plains, plateaus, and major river basins. 
+(3)  Temperate steppe.  This OE includes the Columbia Plateau and northern Great Plains of the central United States 
+and southern Canada, the Steppes of Central Asia, the Pampas of South America, and the Veldt of Africa.  This OE is 
+characterized by a semi-arid continental climate with cold winters and warm to hot summers.  The coldest month has a 
+mean temperature below 32°F (0°C), and the warmest month has mean temperatures above 64°F (18°C).  Maximum rain-
+fall occurs in the summer with mean annual precipitation of 1 to 10 in. (30 to 250 mm), but overall annual evaporation 
+exceeds precipitation.  Vegetation is typically short-grass prairie and shrubs (sagebrush).  Soils have little organic content 
+and contain clay horizons and salt accumulations.  Temperate steppe includes sand sea/dunes, basin and range, and high-
+relief mountains and plateaus. 
+(4)  Temperate desert.  This OE includes the Great Basin of North America, the Turkestan and Gobi regions of Central 
+Asia, and the Patagonia in Argentina.  These locations are interior to continents.  They are arid with hot summers, cold 
+winters, and limited rainfall.  These locations have the highest percentage of possible sunshine of all mid-latitude climates.  
+At least one month has a mean monthly temperature below 32°F (0°C), and some precipitation occurs as snow.  Vegetation 
+consists of sparse shrubs.  Soils are low in humus and have high calcium carbonate content.  Temperate desert includes 
+sand sea/dunes and low-relief mountains. 
+e.  Special environments.  There are some special environments or conditions that introduce specific challenges to the 
+operation, storage, and transport of military equipment intended for worldwide use.  These are added to the list of OEs to 
+ensure consideration during RDTE of materiel and include the following: 
+(1)  Hot-humid coastal desert.  The hot-humid coastal desert exists only along a very narrow coastal strip bordering 
+bodies of water with high surface temperatures (that is, the Persian Gulf and the Red Sea).  High humidity, high tempera-
+tures, and high concentrations of salt aerosols combine to produce extremely high corrosion rates that degrade materials 
+and equipment. 
+(2)  Littoral.  Littoral environments are found along the coasts of all oceans and along the banks of rivers and lakes.  
+The proximity of water bodies results in particular types of landforms, such as sand dunes, steep cliffs, lagoons, bays, and 
+estuaries.  Coastal littoral OEs are subject to salt spray and salt fall.  Biologically, the availability of water and increased 
+humidity creates a microclimate that enables a variety of unique plant and animal life.  The shallow water of these areas 
+often creates muddy waters that can affect military operations (for example, infiltration by sea). 
+(3)  Mountains.  Mountain ranges are found within all OEs and cover approximately 22 percent of the earth’s land sur-
+face.  Lower mountain environments, those below 10,000 ft (3,048 m) in elevation, generally exhibit the climatic charac-
+teristics associated with adjacent lowlands.  As elevation increases, the pattern of climate and vegetation modifies signifi-
+cantly, which greatly increases the complexity of military operations and negatively affects personnel and equipment.  
+Higher mountains, those over 10,000 ft (3,048 m), can introduce seasonal or nighttime microclimates equivalent to those 
+found in the subarctic military operating environment.  For example, although the Tibetan Plateau (comprising 1 percent 
+of the earth’s land mass) is part of the tropical/subtropical desert OE, it exhibits temperatures more closely identified with 
+the subarctic OE.  Mountain environments can affect aviation operations (for example, lift of helicopters).  The operational 
+extreme low pressure is estimated to be 508 mbar (15.00 in Hg) at 15,000 ft (4,572 m) at 32°F (0°C), the highest elevation 
+at which Army equipment is likely to be used.  Figure 4 – 3 depicts the mountain environments within the OEs. 
+
+@@@ PAGE 35 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+29 
+ 
+ 
+Figure 4 – 3.  Mountain environments within the operating environments framework 
+(4)  Sea environment.  The sea environment is not within the scope of this document, though salt fog and salt spray 
+effects on materiel items are briefly discussed.  Logistics may be affected by cold sea environments (for example, super-
+structure sea spray icing when loading and shipping equipment). See AECTP – 230 for additional information. 
+Chapter 5 
+Environmental Factors and Their Effects on Military Equipment 
+5 – 1.  Environmental factors 
+a.  Table 5 – 1 contains specific environmental factors classified as either atmospheric, terrain, or biological.  These 
+environmental factors can be described in terms of daily cycles, annual or monthly extremes, annual or monthly averages, 
+total yearly values, or the frequency of occurrence.  Such data and additional details on the factors and their effects on 
+military equipment have been compiled in several military publications, including MIL – HDBK – 310. 
+b.  Some effects, like reduced visibility, can be the result of one or several environmental factors.  These effects are 
+addressed under the appropriate environmental factors. 
+ 
+Table 5 – 1 
+Environmental factors classified as atmospheric, terrain, or biological — Continued 
+Environmental Factors 
+Atmospheric 
+Temperature 
+Precipitation—Rain, Snow 
+Humidity 
+
+@@@ PAGE 36 @@@
+ 
+30 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Table 5 – 1 
+Environmental factors classified as atmospheric, terrain, or biological — Continued 
+Environmental Factors 
+Fog / Ice Fog / Whiteout 
+Wind 
+Salt / Salt Fog 
+Solar Radiation 
+High Elevation (low pressure) 
+Terrain 
+Landforms (topography, slope, relief) 
+Exposed Rock 
+Sand 
+Mud 
+Dust 
+Surface Water 
+Frozen Soil 
+Surface Snow and Ice 
+Biological 
+Vegetation 
+Microbiota 
+Macrobiota 
+5 – 2.  Atmospheric factors 
+Atmospheric factors considered in this regulation consist of temperature, humidity, precipitation, fog, wind, salt spray, 
+solar radiation, and high elevation. 
+a.  High temperature. 
+(1)  The highest temperatures in the world are found seasonally in low-altitude tropical/subtropical desert OEs, such as 
+the northern and western Sahara Desert, desert areas in the southwestern United States, the low-lying desert areas of the 
+Persian Gulf, the deserts of central and eastern Australia, and parts of eastern Pakistan.  During the warmest summer month 
+in these areas, daily maximum temperatures exceed 100°F (38°C) 99 percent of the days and exceed 120°F (49°C) less 
+than 1 percent of the days.  Direct exposure to solar radiation can significantly increase exposed surface and ground tem-
+peratures above the ambient air temperature and approach 160°F (71°C) in closed storage conditions (see 
+MIL – HDBK – 310).  Environmental data from Operation Desert Storm indicates that temperatures in solar-loaded storage 
+locations can reach nearly 190°F (88°C).  The ground surface can attain temperatures 59°F to 86°F (15°C to 30°C) higher 
+than the free air temperature, depending on radiation, conduction, wind, and turbulence.  Figure 5 – 1 depicts global distri-
+bution of maximum temperatures. 
+(2)  High temperatures can detrimentally affect Soldier performance so that operations in hot deserts require careful 
+monitoring of Soldier physical condition.  High temperatures cause differential expansion of dissimilar materials, an in-
+creased rate of chemical reactions, lowered lubricant viscosity, electronic circuit instability, outgassing, deterioration of 
+desired functional characteristics, and other effects.  The increased rate of chemical reaction will cause batteries to deteri-
+orate rapidly.  Coatings on equipment may efficiently absorb direct sunlight.  When coupled, materials with low thermal 
+conductivity and low thermal mass (that is, composites) can cause the temperature of objects to rise significantly above 
+the ambient temperature.  High temperatures are particularly damaging to energetic materials (explosives, propellants, and 
+primers) along with adhesives.  Planning of tests must consider maximum induced high temperatures to verify storage/ser-
+vice life requirements for ammunition. 
+b.  Low temperature. 
+(1)  The lowest worldwide temperatures are found in the polar regions and the interior continental areas north of the 
+Arctic Circle (for example, northeastern Asia, interior Alaska extending into Canada, and on the Greenland Ice Cap).  
+During January in these areas, 10 to 50 percent of the month has temperatures below −25°F (−32°C) with as much as 95 
+percent of the month colder than −25°F (−32°C) in continental northeastern Asia.  Figure 5 – 2 presents the global distribu-
+tion of minimum temperatures. 
+
+@@@ PAGE 37 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+31 
+ 
+ 
+Figure 5 – 1.  Global distribution of absolute maximum temperatures 
+(2)  Cold environments are particularly difficult for soldiers because of the increased need for protective clothing and 
+shelter, which makes movement and maneuver difficult.  Low temperatures may also impair equipment operation, either 
+temporarily or permanently, by changing the physical properties of materials.  Hardening and brittleness of material, dif-
+ferential contraction of dissimilar materials, increased viscosity of lubricants, changes in electronic components, stiffening 
+of shock mounts, condensation, and freezing of water are just a few of the potential problems. 
+
+@@@ PAGE 38 @@@
+ 
+32 
+AR 70–38 • 26 June 2020 
+ 
+ 
+ 
+Figure 5 – 2.  Global distribution of absolute minimum temperatures 
+c.  Precipitation—rain. 
+(1)  The world’s highest rainfall amounts and intensities occur in areas that experience the constant high humidity con-
+ditions of the humid tropics.  The highest rainfall rates are associated with thunderstorms and tropical cyclones.  In south-
+eastern Asia, rainfall intensity can be as high as 0.08 to 0.12 in./min (0.2 to 0.3 cm/min).  Similar intensities, although of 
+shorter duration, can occur in the areas of the humid temperate region.  The record rainfall associated with thunderstorms 
+is 1.2 in.(3.1 cm) in 1 minute and 12 in. (30.5 cm) in 42 minutes.  Records for longer rainfalls occur in tropical cyclones 
+and are 53.1 in. (135 cm) for a 12–hour period, 74 in. (188 cm) in 24 hours, and 169.3 in. (430 cm) in 5 days. 
+(2)  In addition to its erosive effects, rainfall is an agent of moisture infiltration into parts, corrosion, and the attenuation 
+of electromagnetic radiation in the atmosphere, thus affecting the performance of some electro-optical systems (for exam-
+ple, visible and infrared sights).  Rainfall can create wet soil conditions that may affect off-road mobility.  It also degrades 
+the performance of personnel and their equipment during exposed activities. 
+d.  Precipitation—snow, freezing rain, and hail. 
+(1)  Snow is the primary precipitation in winter months of the polar region and common during the winter months of 
+the warm continental and prairie OEs of the humid temperate region.  Annual snowfall in these regions varies from as little 
+as 10 in. (25.4 cm) to more than 800 in. (20.3 m).  Some of the highest annual snowfall is associated with high altitudes 
+and coastal locations.  Lesser annual snowfall occurs in mid-continental areas.  Mean rates of global precipitation (which 
+include both rain and snow as water equivalent) are presented in figure 5 – 3. 
+
+@@@ PAGE 39 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+33 
+ 
+ 
+Figure 5 – 3.  Global distribution of annual precipitation 
+(2)  Icing phenomena, such as freezing rain, hoarfrost, and rime, can cause ice accretion and interfere with visibility.  
+Icing can occur in areas that experience temperatures below freezing, where sufficient water vapor or freezing precipitation 
+events occur (for example, the polar region or northern coastal areas or continental areas of the humid temperate region 
+subjected to winter storms).  Hail occurs in the mid-latitude continental areas where there is intense thunderstorm activity 
+during the summer months.  Ice accumulation on structures and equipment can cause damage and interfere with commu-
+nication, visibility, and mobility.  Aircraft such as helicopters and unmanned aircraft systems are especially vulnerable to 
+icing, which can eliminate these key assets from operation.  The primary effect of hail is damage. 
+(3)  Falling snow attenuates electromagnetic signals (for example, optical and infrared sights) and is a natural battlefield 
+obscurant.  Accumulated snow also affects performance of electromagnetic sensors and additionally imposes a structural 
+load on buildings, shelters, vehicles, and other equipment.  Snow accumulation on the ground affects the mobility of 
+vehicles.  These effects can be made more severe when the snow is windblown or when the temperature of the snow is 
+close to freezing. 
+(4)  Freeze-thaw cycles occur on any day that the temperature crosses the freezing point and is described by the number 
+of days in which they occur.  The maximum number of freeze-thaw days in non-mountainous areas occurs in the humid 
+temperate region.  These mid-latitude areas also have great variance in average number of freeze-thaw days.  In general, 
+sites that have the most months with mean monthly temperatures at or near 0°C (32°F) will have the greatest annual number 
+of freeze-thaw days.  The effects on materiel are caused by expansion and contraction as any moisture present freezes and 
+thaws.  These effects can exert great stress on susceptible components of materiel.  For the above reason, freeze-thaw is of 
+greatest potential concern in areas where abundant moisture is present immediately before or during the occurrence of the 
+freeze-thaw cycle.  Freezing and thawing of off-road surfaces can impede mobility, creating ice-covered and muddy sur-
+faces. 
+e.  Humidity—high constant, high cyclic, and low. 
+
+@@@ PAGE 40 @@@
+ 
+34 
+AR 70–38 • 26 June 2020 
+ 
+ 
+(1)  High RH is a characteristic of the humid tropics, where daily RH may vary from 88 percent to near saturation (100 
+percent) in heavily forested areas and from 74 percent to near saturation in open areas (see MIL – HDBK – 310).  High and 
+cyclic RHs are also present seasonally in parts of the humid temperate region. 
+(2)  High humidity complicates the effect of the ambient temperatures; and temperature/humidity variations can trigger 
+condensation inside and on materiel, initiate fogging, cause oxidation or corrosion, increase chemical reactions, change 
+materiel properties, degrade optical and infrared properties, modify lubricant behavior, and change elasticity or plasticity.  
+Exposed material is likely to remain wet or damp for days in the humid tropics, which in combination with high temperature 
+quickly produces corrosion, wood rot, and fabric deterioration.  A global distribution of average RH map is presented in 
+figure 5 – 4. 
+ 
+Figure 5 – 4.  Global distribution of average relative humidity 
+f.  Fog/ice fog/whiteout. 
+(1)  Fog.  Fog is created by the presence of minute water droplets in the atmosphere at or near the earth’s surface.  It 
+forms when the air cools to a point where water vapor begins to condense into droplets of water that are sufficiently small 
+to remain suspended in the air.  Fog typically occurs in coastal areas in mid-north latitude areas or in mountain valleys in 
+the winter.  Fog is an obscurant that reduces the transmission of electromagnetic signals, affecting visibility, mobility, 
+communication systems, and sensors.  Reduced visibility can severely restrict operation of both air and ground vehicles.  
+Fog also degrades laser range finding and target acquisition systems. 
+(2)  Ice fog.  Ice fog occurs naturally in temperatures below −40°F (−40°C) when water vapor freezes into ice crystals 
+that remain suspended in air.  It occurs at temperatures below approximately −22°F (−30°C) when particulate matter and 
+water vapor are provided by vehicle exhaust, combustion, or explosive processes.  Ice fog can be extremely dense and 
+persistent.  It impacts electromagnetic signal transmission and visibility and may also provide a signature of human activity.  
+Sudden drops in visibility will occur due to artillery fire in these conditions.  Visibility may be reduced to as little as 10 ft 
+
+@@@ PAGE 41 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+35 
+ 
+(3 m).  Vertical and horizontal scattering of light by ice crystals can make estimating distance almost impossible.  Ice fog 
+is an environmental factor that can be induced by military equipment operating in cold weather.  In addition to vehicles 
+and living/working areas, weapons firing can produce ice fog that obscures the vision of the operator and provides the 
+enemy an easy to spot location signature.  Ice fog is also greatly increased in populated areas due to the increased amount 
+of water vapor being introduced into the atmosphere. 
+(3)  Whiteout.  Whiteout is an optical condition resulting from a variety of weather conditions, such as blowing snow, 
+low clouds, snowfall, or fog, in which objects do not cast shadows, the horizon is not discernible, and light-colored objects 
+are difficult to see.  The senses of depth and orientation are lost.  Like fog, whiteout reduces visibility and can restrict 
+operation of both air and ground vehicles. 
+g.  Wind. 
+(1)  Wind is a complex atmospheric phenomenon that occurs at multiple scales, from local air movement lasting minutes 
+to persistent global winds.  When considering surface winds, the area having the highest wind gusts in the world (excluding 
+mountain peaks and tornado tracks) is the typhoon belt of the western North Pacific Ocean, an area of the humid tropics 
+that otherwise has relatively low wind speeds.  Generally, average wind speed in the humid tropics is less than 3 miles per 
+hour (mph) (5 km/hour) and seldom exceeds 8 mph (13 km/hour).  Average wind speeds of 3.7 to 6.8 mph (6 to 11 km/hour) 
+are representative of most desert locations.  However, some desert areas have strong winds (greater than 30 mph (48 
+km/hour)) associated with sand or dust storms.  These storms occur with a frequency of 3 or 4 per year in the deserts of 
+southwestern North America and as many as 20 per year in North Africa. 
+(2)  Excessively strong winds can be damaging to structures and operations.  The wind is also often combined with 
+precipitation and/or cold temperature, causing blowing rain or snow, obscuration, reduced visibility, and increased mois-
+ture penetration.  In dry regions, strong winds can generate severe dust storms, which have serious consequences on hu-
+mans and all classes of materiel.  While surface winds are of most concern to Army land operations, high-altitude winds 
+affect the flight of aircraft, unmanned aircraft systems, tethered surveillance systems, and long-range projectiles. 
+h.  Salt/salt fog. 
+(1)  Salt and salt spray are phenomena that affect coastal regions throughout the world.  In these areas, yearly salt-fall 
+from all sources varies from a minimum of 25 to more than 300 lb/acre/year (336 kg/hectare/year).  Daily salt-fall during 
+maximum periods may be as high as 20 lb/acre/day (22 kg/hectare/year).  A belt of decreasing salt-fall extends from the 
+coast to a point 50 to 1000 miles (80 to 1609 km) inland where salt-fall is reduced to a minimum.  In this inland area, salt-
+fall varies from a minimum of about 3 to a maximum of 25 lb/acre/year (28 kg/hectare/year). 
+(2)  The principle effect of salt, salt fog, and salt water on materials is the acceleration of metallic corrosion, resulting 
+in loss of mechanical and structural strength, alteration of electrical properties, and surface deterioration. 
+i.  Solar radiation. 
+(1)  The important characteristics of solar radiation that impact military operations are the intensity of the radiation and 
+the differential interaction of spectrum within the atmosphere and with the surface.  Radiation intensity is primarily deter-
+mined by the solar geometry relative to the surface and is a function of latitude, time of day, and time of year.  Radiation 
+is modified during transmission to the surface through scattering and absorption by clouds, atmospheric gases, aerosols, 
+and other particles.  At the surface, reflection and absorption by terrain and surface materials further attenuate or enhance 
+the intensity. 
+(2)  Solar radiation produces a variety of effects that influence performance of materiel, including photochemical deg-
+radation of materials, heating of materiel and the environment, personnel performance degradation, optical sensor degra-
+dation, and decreased covertness. 
+j.  High elevation. 
+(1)  As Army operations move from low to high elevations, there are significant impacts on equipment and material 
+primarily caused by the decrease in atmospheric pressure and changes in other environmental factors.  As the elevation 
+increases, the temperature and dew point temperature normally decrease, the wind speed increases, the solar radiation 
+increases (especially in the ultraviolet region), reduced atmospheric pressure results in less oxygen intake, and precipitation 
+increases on the windward side of mountains. 
+(2)  The transport of equipment and materiel from low to high altitude reduces outside air pressure relative to internal 
+higher pressure.  This difference in pressure can cause seals to rupture or containers to distort, especially if pressure reduc-
+tion is rapid (for example, inside an aircraft cargo space, which is not pressurized).  When pressure changes, liquids can 
+leak from containers and control systems, the lubrication capability of oil and grease decreases, electrical breakdowns can 
+occur, heat transfer is less efficient, and liquids vaporize at lower temperatures.  Additionally, combustion processes are 
+less efficient at lower pressures.  Helicopter lift is reduced in the “thinner air” or lower pressure at higher elevations, 
+especially in high desert mountains with relatively high temperatures. 
+
+@@@ PAGE 42 @@@
+ 
+36 
+AR 70–38 • 26 June 2020 
+ 
+ 
+5 – 3.  Terrain factors 
+In addition to the conditions of the lower atmosphere, the earth surface landscape is also important to military operations.  
+In this regulation, the term terrain is defined as all of the physical components of the land surface, including topography, 
+soil type, surface cover, and water features (for example, rivers, lakes, swamps, marshes, and so forth).  These terrain 
+elements are important because they can affect troop movement and supply, mobility, sensor operations, and defensive 
+and offensive operations.  Mobility is often the prime factor of success in military operations, and terrain character deter-
+mines the degree and magnitude of trafficability, off-road mobility, and river crossing problems.  The effect of terrain on 
+mobility and on other operations is usually the result of the combined influence of several terrain elements; therefore, it is 
+necessary to plan for each of them. 
+a.  Topography—landforms, slope, relief, and roughness. 
+(1)  Landforms are conspicuous topographic features on the surface of the earth.  Eleven landform types are mapped in 
+Figure 5 – 5 (Global Physiographic and Climatic Maps to Support Revision of Environmental Testing Guidelines, McDon-
+ald, et al., 2009). 
+(2)  Figure 5 – 5 depicts the landforms on a global scale.  Each physiographic class exhibits unique topographic attributes 
+that are characterized by its relief (that is, flat versus steep and smooth versus. rough) and soil conditions.  These classes 
+also extend across the different ecoregions of the world as defined by Bailey (Ecoregions Map of North America: Explan-
+atory Note, Bailey, R.G., 1998).  The land surface of the earth can also be subdivided on the basis of the drainage networks 
+(that is, watersheds) of the world’s major rivers.  These drainage networks can crosscut the landforms shown in figure 5 – 5 
+and the ecoregions described in chapter 4.  The drainage networks can present additional obstacles to military mobility and 
+maneuver over-and-above that caused by local landform character. 
+
+@@@ PAGE 43 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+37 
+ 
+ 
+Figure 5 – 5.  Generalized global physiography 
+(3)  Topography is of primary concern for cross-country mobility of both soldiers and equipment.  It may also affect 
+sensors, artillery effectiveness, communications, concealment, and detectability. 
+b.  Soil. 
+(1)  The Army is principally a ground force.  As a result, soil properties in large part control the ease with which an 
+Army moves.  Soil is the interface between the lithosphere (rocky part of the earth) and the atmosphere and is a multicom-
+ponent, dynamic system composed of weathered rock and chemical precipitates, organic matter, water, and gas.  Soil depth 
+can vary from centimeters to many meters.  The composition and physical properties of a soil profile at a location depend 
+on many factors acting in concert, including— 
+(a)  Climate/energy and moisture exchanges with the atmosphere. 
+(b)  Flora and fauna. 
+(c)  Topography. 
+(d)  Bedrock composition. 
+(e)  Length of time material has been exposed to climate, vegetation, and fauna. 
+(2)  Soil changes as climate, geology, vegetation, and topography vary with location.  Classification schemes to describe 
+soil are related to its texture, such as sand, silt, and clay composition; soil structure or morphology, which is related to its 
+developmental history as rated by the U.S. Department of Agriculture and the United Nations Food and Agriculture Or-
+ganization; or according to engineering and geological properties, such as mobility as used by the USACE in the Unified 
+Soil Classification System (USCS).   
+(3)  The USCS scheme is most useful for military operations because it considers texture, plasticity, and moisture con-
+tent with no regard for agricultural properties.  The composition and physical properties of soils and related surface cover 
+features are important to mobility, sensor performance, engineering construction considerations, and health physics.  Soil 
+bearing strength and shear strength, for example, are controlled by soil composition and soil moisture.  Dry clay supports 
+
+@@@ PAGE 44 @@@
+ 
+38 
+AR 70–38 • 26 June 2020 
+ 
+ 
+more weight than wet clay; and moist, frozen sand will allow better mobility because of its higher bearing strength and 
+resistance to shear forces than thawed, dry sand.  Particle size and depth of a soil are important factors on which cohesive-
+ness, sound wave transmission, and moisture-holding capacity depend.  Fine sand, silt, and clay-sized fraction of soils may 
+become mud when wet, whereas with little moisture, the same soil composition and particle size fraction has high dust 
+potential. 
+c.  Exposed rock.  Exposed rock can be present where the underlying bedrock has not been eroded or where soil has 
+been removed over time by climate factors.  Exposed rock is abrasive on tires and tracks, impedes mobility, and creates 
+additional shock and vibration that causes mechanical damage to suspensions.  Rocky surfaces can be slippery and present 
+challenges for Soldier movement and cause increased wear to boots and equipment. 
+d.  Sand.  Deep, dry sand degrades mobility because it provides poor traction for vehicles.  Sand is abrasive, causing 
+excessive wear on brakes, tires, and other components that are in contact with a sandy surface. 
+e.  Mud.  A combination of silt and clay soil constituents and water produce mud, which impedes mobility of both the 
+Soldier and vehicles.  Operations under muddy conditions also affect durability; for example, there is increased abrasion 
+and damage to seals. 
+f.  Airborne sand and dust.  Soil type and moisture content are the major inputs into dust potential throughout the world 
+(see fig 5 – 6).  Few areas are exempt from dust problems.  However, the highest dust potential is in the dry regions of the 
+world. 
+(1)  Dust potential is a result of soil conditions, vegetation conditions, atmospheric humidity, and wind or human activ-
+ity.  Sand and dust are terms used to designate small soil particles, usually of mineral origin.  Sand and dust are distin-
+guished on the basis of size (dust particles are smaller), but there are no generally accepted specific size limits for the two 
+kinds of particles.  Important characteristics are size, hardness, shape, and atmospheric concentrations.  Particles vary in 
+diameter from 3.94 × 10 – 6 to 3.94 × 10 – 2 in. (0.1 to 1,000 μm), but most airborne particles are less than approximately 
+2.95 × 10 – 3 in. (75 μm in diameter).  Hardness also varies widely (from 1 to 9 on the Mohs scale), depending largely on 
+mineral composition.  Quartz, typically the most common mineral in larger particles, has a hardness of 7.  The greatest 
+airborne particle concentrations are found near helicopters hovering over dry loose surfaces.  Lesser concentrations are 
+found near ground vehicles operating on unpaved surfaces and roads.  Smaller concentrations are associated with natural 
+dust storms although the spatial extent of such storms may be larger. 
+
+@@@ PAGE 45 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+39 
+ 
+ 
+Figure 5 – 6.  Global dust potential 
+(2)  Airborne sand and dust are atmospheric obscurants, can be damaging to equipment, and present a health hazard 
+when inhaled.  Airborne dust is primarily damaging because of its penetration into mechanical equipment, air filters, and 
+other materiel and its adhesion to oil-bearing surfaces (for example, lubricated weapons).  Airborne sand is primarily 
+damaging because of its erosion and abrasion effects on equipment (for example, helicopter blades). 
+(3)  Emerging data indicates that the chemical composition of dust in some operational areas must be considered in 
+addition to particle size distribution and hardness.  Complex dust mixtures can contain carbonates, corrosive salts, and 
+potentially harmful microorganisms. 
+g.  Surface water.  Surface waters of concern are those that form obstructions or obstacles during military operations 
+(for example, rivers, lakes, bays, estuaries, or marshes).  Information of interest for military purposes includes parameters 
+such as bank height relative to the water surface, side slopes, water depth, water width, and water velocity, which indicate 
+the fordability of a river. 
+h.  Frozen soil. 
+(1)  In areas that are subjected to seasonal frost, the depth of frost penetration varies depending on the number of days 
+below freezing, soil moisture conditions, and the ground cover condition.  Permafrost, which occurs in the polar region, is 
+frozen ground that never thaws.  In summer, a thaw layer that is commonly saturated and poorly drained forms over 
+permafrost and creates muddy or boggy conditions. 
+(2)  Freezing typically increases the load-carrying capacity of soils and improves cross-country mobility.  However, soil 
+with high moisture content is very hard and resists the penetration of tent stakes and howitzer spades.  Also, frozen soil, 
+while it improves mobility, in combination with low temperatures may increase damage to suspensions. 
+i.  Surface snow and ice. 
+(1)  Accumulation of seasonal snow cover is a function of the seasonal volume of precipitation and temperature cycles.  
+In the polar regions, melting seldom occurs during the 6 to 8 months of winter.  The major difference between recorded 
+
+@@@ PAGE 46 @@@
+ 
+40 
+AR 70–38 • 26 June 2020 
+ 
+ 
+annual snowfall and snow on the ground is due to settling, consolidation, and sublimation, not to melting.  Snow accumu-
+lation in warmer areas, such as the warm continental region, may also be reduced by frequent winter thaws.  High winds 
+may clear exposed areas of snow and deposit it in protected areas to depths several times the normal snowfall for a locality. 
+(2)  The depth of snow on the ground imposes a physical barrier to mobility.  Freezing and thawing of off-road surfaces 
+can impede mobility, creating ice-covered and muddy surfaces.  Designs must consider the snow load (that is, weight of 
+snow on a surface or structure). 
+5 – 4.  Biological factors 
+a.  Dense vegetation. 
+(1)  Land cover is often characterized by land use (for example, urban or cropland) or by the dominant vegetation struc-
+ture (for example, forest or shrub land) as shown in figure 5 – 7,  which is based on the U.S. Geological Survey Land Cover 
+Characteristics Database.  For RDTE purposes, dense vegetation is best described in terms of its structural characteristics 
+that have direct effect on military operational requirements to move, shoot, and communicate.  These characteristics in-
+clude stem density, stem diameter, plant height, and plant canopy. 
+ 
+Figure 5 – 7.  Global land cover map 
+(2)  Stem diameter and density affect mobility and cover; plant height and canopy affect cover and communications.  
+Seasonal change in dense vegetation, especially deciduous broadleaf forests in temperate and tropic regions, can have 
+significant effects on operational factors, such as cover and communications.  Tropical rainforests and other forms of dense 
+vegetation are significant to military operations because they often restrict mobility, visibility, and communications.  Con-
+versely, they may provide cover and concealment critical to tactical advantage on the battlefield and in covert operations. 
+b.  Macro- and microorganisms. 
+
+@@@ PAGE 47 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+41 
+ 
+(1)  Macroorganisms include all life forms except microorganisms (or microbes).  Microbes exist throughout the envi-
+ronment in water, soil, and air.  Moisture and temperature are the critical growth factors for microbes.  Areas in the humid 
+temperate region and particularly the humid tropics have the temperature and moisture to support large microbial and 
+macrobiological populations.  In the dry region, because of the lack of moisture, macro-organisms such as insects exist but 
+generally do not create significant problems.  Likewise, the lack of moisture for microbial growth prevents biodegradation 
+by microorganisms. 
+(2)  Both microbes and macroorganisms present potential problems to military operations, including human injury and 
+disease, spoilage of perishable items, fouling of equipment, and bio-deterioration of materiel.  Materiel damage by macro-
+organisms ranges from nuisance to destructive through direct contact (chewing, eating, moving, nesting, and burrowing).  
+For example, termites are an important group of macro-organisms capable of the physical and chemical breakdown of 
+plant material; and as such, they are a factor in the degradation of cellulose-containing test materials.  Microbes are the 
+major agent of biodegradation; and microbe species have evolved that attack all naturally occurring compounds and many, 
+though not all, synthetic materials.  Microbes may oxidize metal pipes, causing corrosion, or foul lubricating grease in 
+equipment, causing excessive wear.  Canvas and other cloth items and optics or sensors may be damaged by the growth of 
+algae or fungi on fabrics, plastics, glass, or coatings. 
+5 – 5.  Summary 
+Tables 5 – 2 through 5 – 6 summarize the environmental characteristics of each OE. 
+a.  Because the special environments of hot-humid coastal desert and mountains are presented in table 5 – 6, climate 
+information for those areas was excluded from the OEs that they transected. 
+b.  Information on atmospheric factors, terrain factors, and surface snow cover were developed from work done in sup-
+port of this revision by McDonald, et al., 2009. 
+c.  Information on biological factors, surface cover, surface water, and frozen soil was derived from information pre-
+sented in Ecosystem Geography (Bailey, R.G., 1996). 
+d.  Climate information was calculated using the last 30 years of worldwide meteorological data.  The 5 percent extreme 
+values were used for high temperatures, low temperatures, wind gusts, and maximum sustained winds for each OE and a 
+1 percent extreme for the maximum 6–hour precipitation. 
+e.  Information on atmospheric factors, terrain factors, and surface snow cover were developed from work done in sup-
+port of this revision by McDonald, et al., 2009. 
+f.  Information on biological factors, surface cover, surface water, and frozen soil was derived from information pre-
+sented in Ecosystem Geography (Bailey, R.G., 1996). 
+ 
+Table 5 – 2 
+Environmental factors for operational environments within the polar region excluding Antarctica — Continued 
+Environmental Factors 
+Operational Environments1 
+ 
+Icecap 
+Tundra 
+Subarctic 
+Atmospheric 
+Factors 
+Low Temp °C (°F) (5% extreme)2 
+−54 (−65) 
+−53 (−63) 
+−54 (−62) 
+High Temp °C (°F) (5% extreme)2 
+19 (66) 
+29 (84) 
+36 (96) 
+Yearly avg. Precipitation mm (in.)2, 4 
+343 (13.5) 
+224 (8.8) 
+429 (16.9) 
+6–hour Max (1% extreme) Precip. mm (in.)2, 4 
+25 (1.0) 
+25 (1.0) 
+61 (2.4) 
+Yearly avg. snow mm (in.)2 
+1299 (51.1) 
+643 (25.3) 
+973 (38.3) 
+Mean RH % / Mean Dew Point °C (°F)2 
+75% / −12 (10) 
+80% / −11 (13) 
+74% / −4 (25) 
+Fog / Ice Fog / Whiteout Mean (days)2 
+19 
+32 
+19 
+Visibility Mean (miles)2 
+17 
+13 
+16 
+Wind: Gusts/Max Sustained (knots) (5% ex-
+treme)2 
+71 / 50 
+71 / 59 
+78 / 43 
+Terrain Factors 
+Landforms (Physiography); 
+greater than 15% total area (% area)2 
+Icecap (97%) 
+Low-interior 
+plain(40%), coastal 
+plain (18%), high-
+interior plain (16%) 
+Coastal plain 
+(37%), low-relief 
+mountains (18%), 
+
+@@@ PAGE 48 @@@
+ 
+42 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Table 5 – 2 
+Environmental factors for operational environments within the polar region excluding Antarctica — Continued 
+Environmental Factors 
+Operational Environments1 
+ 
+Icecap 
+Tundra 
+Subarctic 
+high-relief moun-
+tains (16%) 
+Predominate National Resources Conservation 
+Service (NRCS) soil order; greater than 15% 
+total area 
+Soil Order (% Area)2,5 
+Ice (97%) 
+Inceptisols (30%); 
+Gelisols (26%) 
+Gelisols (84%) 
+Extensive areas of exposed bedrock/limited 
+soil cover (High, Moderate, Low)2 
+Low 
+Moderate 
+High 
+Extensive areas of non-cohesive (Sand and 
+Gravel)2 
+Low 
+Moderate 
+Moderate 
+Extensive areas of non-cohesive Silt and Clay 
+(mud and mud potential)2 
+Low 
+High 
+Moderate 
+Potential for generating dust; greater than 15% 
+total area; Rating (% Area)2 
+None (96%) 
+Low (50%); 
+moderate (31%); 
+very low (19%) 
+Very low (39%); 
+low (34%) 
+Surface Water (Hydrography)3 
+Limited 
+Poor drainage, 
+50% covered in 
+summer. Lakes, 
+swamps, bogs 
+Poor drainage, 
+spring flooding 
+Frozen Soil3 
+Continuous Per-
+mafrost 
+Continuous Perma-
+frost 
+Discontinuous Per-
+mafrost, and deep 
+seasonal frost 
+Surface Cover 
+Snow Cover3 
+Permanent 
+Persistent 
+Persistent 
+Surface Ice Cover3 
+Year-round ice 
+50% in winter 
+Associated with 
+wet areas, little 
+freeze-thaw 
+Biological Fac-
+tors 
+Vegetation Structure3 
+Algae, lichen, 
+moss 
+Grass, sedges, 
+brush 
+Needle-leaf, mixed 
+deciduous 
+Microbiology3 
+Limited activity 
+Limited activity 
+Limited activity 
+Macrobiology3 
+Limited 
+Abundant insects, 
+birds seasonally 
+Abundant insects 
+and birds season-
+ally; rodents and 
+other mammals all 
+year 
+Notes. 
+1 The Antarctic continent is excluded from these areas. The special cases of mountains and hot/humid coastal desert and salt/salt spray/salt fog and solar 
+radiation are not addressed. 
+2 Based on summaries of meteorological and physiographic data (McDonald, et al., 2009). 
+3 Information was derived from Ecosystem Geography (Bailey, R.G., 1996). 
+4 Precipitation includes water equivalent snow. 
+5 Although the USCS is the preferred soil classification system used by the Army, worldwide available data is predominantly classified using the NRCS sys-
+tem. The National Geospatial-Intelligence Agency (NGA) has long-term plans to classify soil worldwide using USCS, but it is not available for this regulation. 
+ 
+ 
+
+@@@ PAGE 49 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+43 
+ 
+ 
+Table 5 – 3 
+Environmental factors for operational environments within the humid temperate region — Continued 
+ 
+Environmental Factors 
+Operational Environments1 
+ 
+ 
+Warm Continental 
+Hot Continental 
+Subtropical 
+Atmospheric 
+Factors 
+Low Temp °C (°F) (5% extreme)2 
+−42 (−44) 
+−37 (−34) 
+−15 (4) 
+High Temp °C (°F) (5% extreme)2 
+33 (92) 
+35 (95) 
+46 (115) 
+Yearly avg. Precipitation mm (in.)2, 4 
+599 (23.6) 
+665 (26.2) 
+1016 (40.0) 
+6-hour Max(1% extreme)  
+Precip mm (in.)2,4 
+69 (2.7) 
+51 (2.0) 
+155 (6.1) 
+Yearly avg. snow mm (in.)2 
+640 (25.2) 
+549 (21.6) 
+109 (4.3) 
+Mean RH % / Mean Dew Point °C 
+(°F)2 
+75% / 2 (35) 
+71% / 4 (40) 
+71% / 12 (53) 
+Fog/Ice fog/Whiteout Mean (days)2 
+35 
+47 
+44 
+Visibility Mean (miles)2 
+10 
+9 
+9 
+Wind: Gusts/Max Sustained (knots) 
+(5% extreme)2 
+60 / 41 
+70 / 45 
+75 / 59 
+Terrain Factors 
+Landforms (Physiography); greater 
+than 15% total area (% area)2 
+High-relief mtns 
+22%, low-relief 
+mountains 20% 
+Low-interior plain 39%, 
+high-interior plain 28%, 
+high-relief mnts15% 
+High-relief mtns 34%, 
+high-interior plain 
+19%, plateau 17% 
+Predominate NRCS soil order; 
+greater than 15% total area Soil  
+Order (% Area)2,5 
+Entisols 27%; 
+Aridisols 24% 
+Inceptisols 19%; 
+Ultisols 18% 
+Mollisols 33%; 
+Inceptisols 27%; 
+Gelisols 22%; 
+ Entisols 19%; 
+Aridisols 17%; 
+Inceptisols 15% 
+Terrain Factors 
+Extensive areas of exposed bed-
+rock/limited soil cover (High, Moder-
+ate, Low)2 
+High 
+Moderate 
+Moderate 
+Extensive areas of non-cohesive 
+(Sand and Gravel)2 
+Low 
+Moderate 
+Low 
+Extensive areas of non-cohesive Silt 
+and Clay (mud and mud potential)2 
+Low 
+Moderate 
+Moderate 
+Potential for generating dust; greater 
+than 15% total area; Rating (Percent 
+Area)2 
+Low (37%); 
+very high (26%); 
+moderate (24%) 
+Moderate (36%); low 
+(32%); very low (16%); 
+high (15%) 
+Moderate (26%); 
+high (25%); 
+very low 22%; 
+low (16%) 
+Surface Water (Hydrography)3 
+Seasonally frozen 
+Seasonally frozen 
+Rivers streams flow 
+year-round 
+Frozen Soil3 
+Seasonal frost 
+Seasonal frost 
+None 
+Surface Cover 
+Snow Cover3 
+Intermittent 
+Intermittent 
+None 
+Surface Ice Cover3 
+Freeze-thaw 
+Freeze-thaw 
+None 
+Biological  
+Factors 
+Vegetation Structure3 
+Mixed boreal and de-
+ciduous forests 
+Deciduous forests 
+Broad-leafed and ev-
+ergreen forests 
+Microbiology3 
+Limited activity dur-
+ing winter 
+ 
+ 
+
+@@@ PAGE 50 @@@
+ 
+44 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Table 5 – 3 
+Environmental factors for operational environments within the humid temperate region — Continued 
+ 
+Environmental Factors 
+Operational Environments1 
+ 
+ 
+Warm Continental 
+Hot Continental 
+Subtropical 
+Macrobiology3 
+Abundant insects, 
+birds, rodents, and 
+other small mam-
+mals 
+Abundant insects, 
+birds, rodents, and 
+other small mammals 
+Abundant insects, 
+birds, rodents, and 
+other small mammals 
+Notes. 
+1 The Antarctic continent is excluded from these areas. The special cases of mountains and hot/humid coastal desert and salt/salt spray/salt fog and solar 
+radiation are not addressed. 
+2 Based on summaries of meteorological and physiographic data (McDonald, et al., 2009). 
+3 Information was derived from Ecosystem Geography (Bailey, R.G., 1996). 
+4 Precipitation includes water equivalent snow. 
+5 Although the USCS is the preferred soil classification system used by the Army, worldwide available data is predominantly classified using the NRCS sys-
+tem. The NGA has long-term plans to classify soil worldwide using USCS, but it is not available for this regulation. 
+ 
+ 
+Table 5 – 4 
+Environmental factors for operational environments within the dry region — Continued 
+Environmental Factors 
+Operational Environments1 
+ 
+Tropic / subtrop-
+ical Steppe 
+Tropic / subtrop-
+ical Desert 
+Temperate 
+Steppe 
+Temperate De-
+sert 
+Atmospheric 
+Factors 
+Low Temp °C (°F)  
+(5% extreme)2 
+−25 (−14) 
+−15 (5) 
+−38 (−36) 
+−36 (−32) 
+High Temp °C (°F)  
+(5% extreme)2 
+44 (112) 
+54 (129) 
+41 (105) 
+42 (108) 
+Yearly avg. Precipitation mm 
+(in.)2, 4 
+333 (13.1) 
+155 (6.1) 
+302 (11.9) 
+157 (6.2) 
+6-hour Max(1% extreme) Precip 
+mm (in.)2, 4 
+127 (5.0) 
+201 (7.9) 
+51 (2.0) 
+71 (2.8) 
+Yearly avg. snow mm (in.)2 
+71 (2.8) 
+10 (0.4) 
+378 (14.9) 
+290 (11.4) 
+Mean RH %/ Mean Dew Point 
+°C (°F)2 
+56% / 9 (48) 
+42% / 8 (46) 
+67% / 1 (34) 
+53% / −1 (30) 
+Fog/ice fog/Whiteout Mean 
+(days)2 
+12 
+3 
+25 
+12 
+Visibility Mean (miles)2 
+14 
+12 
+12 
+17 
+Wind: Gusts/Max Sustained 
+(knots)  
+(5% extreme)2 
+68 / 40 
+90 / 46 
+78 / 66 
+66 / 47 
+Terrain  
+Factors 
+Landforms (Physiography); 
+greater than 15% total area (% 
+area)2 
+Major river basin 
+(36%), low-inte-
+rior plain (17%), 
+coastal plain 
+(16%) 
+Sand sea (31%), 
+low-interior plain 
+(16%), plateau 
+(15%) 
+Sand sea (33%), 
+basin and range 
+(16%) 
+Sand sea (68%) 
+Predominate NRCS soil order; 
+greater than 15% total area Soil 
+Order (% Area)2 
+Entisols (22%); 
+Alfisols (19%); 
+Ultisols (19%) 
+Entisols (31%); 
+Ultisols (16%) 
+Aridisols (35%); 
+Entisols (34%) 
+Entisols (46%); 
+Aridisols (18%); 
+Shifting 
+Sand(16%) 
+
+@@@ PAGE 51 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+45 
+ 
+Table 5 – 4 
+Environmental factors for operational environments within the dry region — Continued 
+Environmental Factors 
+Operational Environments1 
+ 
+Tropic / subtrop-
+ical Steppe 
+Tropic / subtrop-
+ical Desert 
+Temperate 
+Steppe 
+Temperate De-
+sert 
+Extensive areas of exposed 
+bedrock/limited soil cover (High, 
+Moderate, Low)2 
+Moderate 
+Moderate 
+High 
+High 
+Extensive areas of non-cohe-
+sive (Sand and Gravel)2 
+Moderate 
+High 
+High 
+High 
+Extensive areas of non- cohe-
+sive Silt and Clay (mud and 
+mud potential)2 
+High 
+Low 
+Moderate 
+Low 
+Potential for generating dust; 
+greater than 15% total area; 
+Rating (% Area)2 
+Moderate (46%); 
+low (32%); 
+high (20%) 
+High (35%);  
+moderate (27%); 
+low (20%); 
+very high (17%) 
+High (40%); 
+very high (39%) 
+High (46%); 
+very high (32%) 
+Surface Water (Hydrography)3 
+Dry stream beds 
+Often dry stream 
+beds, subterra-
+nean water 
+Few perennial 
+streams with low 
+velocity and 
+braiding 
+Abundant water 
+from mountains 
+Frozen Soil3 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+Surface 
+Cover 
+Snow Cover3 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+Surface Ice Cover3 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+May be present 
+at high altitude 
+Biological  
+Factors 
+Vegetation Structure3 
+Short grass, 
+shrubs 
+Shrubs, sparse 
+grass, barren 
+Short grass, 
+shrubs 
+Shrubs, sparse 
+grass, barren 
+Microbiology3 
+Slow decomposi-
+tion 
+Slow decomposi-
+tion 
+Slow decomposi-
+tion 
+Slow decomposi-
+tion 
+Macrobiology3 
+Insect, rodent, 
+and reptile popu-
+lations present all 
+year 
+Insect, rodent, 
+and reptile popu-
+lations present all 
+year 
+Insect, rodent, 
+and reptile popu-
+lations present all 
+year 
+Insect, rodent, 
+and reptile popu-
+lations present all 
+year 
+Notes. 
+1 The Antarctic continent is excluded from these areas. The special cases of mountains and hot/humid coastal desert and salt/salt spray/salt fog and solar 
+radiation are not addressed. 
+2 Based on summaries of meteorological and physiographic data (McDonald, et al., 2009). 
+3 Information was derived from Ecosystem Geography (Bailey, R.G., 1996). 
+4 Precipitation includes water equivalent snow. 
+5 Although the USCS is the preferred soil classification system used by the Army, worldwide available data is predominantly classified using the NRCS sys-
+tem. The NGA has long-term plans to classify soil worldwide using USCS, but it is not available for this regulation. 
+ 
+ 
+
+@@@ PAGE 52 @@@
+ 
+46 
+AR 70–38 • 26 June 2020 
+ 
+ 
+ 
+Table 5 – 5 
+Environmental factors within the humid tropic region — Continued 
+Environmental Factors 
+Operational Environments
+1 
+ 
+Savanna 
+Rainforest 
+Atmospheric  
+Factors 
+Low Temp °C (°F) (5% extreme)2 
+−5 (23) 
+3 (37) 
+High Temp °C (°F) (5% extreme)2 
+46 (114) 
+43 (109) 
+Yearly avg. Precipitation mm (in.)2, 4 
+662.9 (26.1) 
+1001 (39.4) 
+6-hour Max(1% extreme) Precip mm (in.)2, 4 
+201 (7.9) 
+221 (8.7) 
+Yearly avg. snow mm (in.) 2 
+5 (0.2) 
+8 (0.3) 
+Mean RH %/ Mean Dew Point °C (°F)2 
+67% / 18 (64) 
+78% / 22 (71) 
+Fog/Ice fog/Whiteout Mean (days)2 
+6 
+10 
+Visibility Mean (miles)2 
+10 
+9 
+Wind: Gusts/Max Sustained (knots) (5% ex-
+treme)2 
+90 / 90 
+78 / 51 
+Terrain Factors 
+Landforms (Physiography); greater than 15% 
+total area (% area)2 
+Low-interior plain (46%), plateau 
+(15%) 
+Major river basin (31%), plateau 
+(23%) 
+Predominate NRCS soil order; greater than 
+15% total area Soil Order (% Area)2, 5 
+Aridisols (25%); Entisols (24%); 
+Alfisols (15%) 
+Oxisols (41%); Ultisols (20); Entisols 
+(23%) 
+Extensive areas of exposed bedrock/limited 
+soil cover (High, Moderate, Low)2 
+Moderate 
+Low 
+Extensive areas of non-cohesive (Sand and 
+Gravel)2 
+Moderate 
+Low 
+Extensive areas of non-cohesive Silt and 
+Clay (mud and mud potential)2 
+Moderate 
+High 
+Potential for generating dust; greater than 
+15% total area; Rating (Percent Area)2 
+High (49%); moderate (31%) 
+Low (42%); moderate (36%); high 
+(20%) 
+Surface Water (Hydrography)3 
+Perennial small- to medium-width 
+streams 
+Streams with nominal velocities 
+Frozen Soil3 
+Not applicable 
+Not applicable 
+Surface Cover 
+Snow Cover3 
+Not applicable 
+Not applicable 
+Surface Ice Cover3 
+Not applicable 
+Not applicable 
+Biological  
+Factors 
+Vegetation Structure3 
+Open woodlands, grasslands 
+Evergreen tropical rainforest (dense 
+forest, heavy undergrowth) 
+Microbiology3 
+Diverse and active decomposer 
+population 
+Diverse and active decomposer popu-
+lation 
+Macrobiology3 
+Abundant insects, birds, rodents, 
+and other small mammals all 
+year 
+Abundant insects, birds, rodents. and 
+other small mammals all year 
+Notes. 
+1 The Antarctic continent is excluded from these areas. The special cases of mountains and hot/humid coastal desert and salt/salt spray/salt fog and solar 
+radiation are not addressed. 
+2 Based on summaries of meteorological and physiographic data (McDonald, et al., 2009). 
+3 Information was derived from Ecosystem Geography (Bailey, R.G., 1996). 
+4 Precipitation includes water equivalent snow. 
+5 Although the USCS is the preferred soil classification system used by the Army, worldwide available data is predominantly classified using the NRCS sys-
+tem. NGA has long-term plans to classify soil worldwide using USCS, but it is not available for this regulation. 
+ 
+ 
+Table 5 – 6 
+Environmental factors within the Special Environments — Continued 
+Environmental Factors 
+Operational Environments1, 6 
+ 
+Hot-Humid Coastal Desert 
+Mountains 
+Low Temp °C (°F) (5% extreme)2 
+6 (43) 
+−54 (−66) 
+High Temp °C (°F) (5% extreme)2 
+45 (113) 
+47 (117) 
+
+@@@ PAGE 53 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+47 
+ 
+Table 5 – 6 
+Environmental factors within the Special Environments — Continued 
+Environmental Factors 
+Operational Environments1, 6 
+ 
+Hot-Humid Coastal Desert 
+Mountains 
+Yearly avg. Precipitation mm (in.)2,4 
+25 (1.0) 
+180 (7.1) 
+6–hour Max(1% extreme) Precip mm (in.)2,4 
+208 (8.5) 
+480 (18.9) 
+Yearly avg. snow mm (in.)2 
+3 (0.1) 
+475 (18.7) 
+Mean RH %/Mean Dew Point °C (°F)2 
+61% / 19 (67) 
+68% / 4 (39) 
+Fog/Ice fog/Whiteout Mean (days)2 
+6 
+22 
+Visibility Mean (miles)2 
+7 
+13 
+Wind: Gusts/Max Sustained (knots) (5% ex-
+treme)2 
+58 / 58 
+98 / 76 
+Notes. 
+1 The Antarctic continent is excluded from these areas. The special cases of mountains and hot/humid coastal desert and salt/salt spray/salt fog and solar 
+radiation are not addressed. 
+2 Based on summaries of meteorological and physiographic data (McDonald, et al., 2009). 
+3 Information was derived from Ecosystem Geography (Bailey, R.G., 1996). 
+4 Precipitation includes water equivalent snow. 
+5 Although the USCS is the preferred soil classification system used by the Army, worldwide available data is predominantly classified using the NRCS sys-
+tem. The National Geospatial-Intelligence Agency has long-term plans to classify soil worldwide using USCS, but it is not available for this regulation. 
+6 Only atmospheric factors are considered for these special environments.  The sea and littoral OEs are not addressed here. 
+ 
+ 
+
+@@@ PAGE 54 @@@
+ 
+48 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Appendix A 
+References 
+Section I 
+Required Publications 
+AR 70 – 1 
+Army Acquisition Policy (Cited in para 1–6a.) 
+DoDI 6055.01 
+DoD Safety and Occupational Health (SOH) Program (Cited in para 1–6d.) (Available at https://www.esd.whs.mil/Direc-
+tives/.) 
+Section II 
+Related Publications 
+A related publication is a source of additional information. The user does not have to read a related publication to under-
+stand this regulation. 
+AECTP – 100 
+Environmental Guidelines for Defence Materiel (Available at http://www.everyspec.com.) 
+AECTP – 200 
+Environmental Conditions (Available at http://www.everyspec.com.) 
+AECTP – 230 
+Climatic Conditions. (Available at http://www2.fhi.nl/plot2012/archief/2010/images/aectp-230.pdf.) 
+Antarctic Treaty  
+The Antarctic Treaty of 1959. (Available at https://www.state.gov/t/avc/trty/193967.htm.) 
+AR 11 – 2 
+Managers’ Internal Control Program 
+AR 25 – 30 
+Army Publishing Program 
+AR 71 – 9 
+Warfighting Capabilities Determination 
+AR 73 – 1 
+Test and Evaluation Policy 
+AR 385 – 10 
+The Army Safety Program 
+DA Pam 73 – 1 
+Test and Evaluation in Support of Systems Acquisition 
+DoDI 5000.67 
+Prevention and Mitigation of Corrosion on DoD Military Equipment and Infrastructure (Available at 
+https://www.esd.whs.mil/Directives/.) 
+Ecoregions Map of North America: Explanatory Note, Bailey, R. G., (1998) 
+USDA – USFS Miscellaneous Publication Number 1548, USDA Forest Service, Washington, DC. (Available at https://ar-
+chive.org/details/ecoregionsmapofn1548bail) 
+Ecosystem Geography. Springer–Verlag, New York, Bailey, R. G., (1996) 
+(Available at http://nbn-resolving.de/urn:nbn:de:1111 – 2011090258.) 
+Global Physiographic and Climatic Maps to Support Revision of Environmental Testing Guidelines 
+McDonald, E. V., Bacon, S. N., Bassett, S. D., and Jenkins, S. E. (2009)  DRI/DEES/TAP – 2009 – R43 – FINAL, U.S. 
+Army Yuma Proving Ground, Natural Environments Test Office, Yuma, AZ. (Available at 
+https://apps.dtic.mil/dtic/tr/fulltext/u2/a508853.pdf.) 
+
+@@@ PAGE 55 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+49 
+ 
+MIL – HDBK – 310 
+Global Climatic Data for Developing Military Products (Available at https://quicksearch.dla.mil/qsSearch.aspx.) 
+MIL – STD – 331D 
+Fuzes, Ignition Safety Devices and Other Related Components, Environmental and Performance Tests For (Available at 
+https://quicksearch.dla.mil/qsSearch.aspx.) 
+MIL – STD – 810H 
+Environmental Engineering Considerations and Laboratory Tests (Available at 
+https://quicksearch.dla.mil/qsSearch.aspx.) 
+MIL – STD – 882E 
+System Safety (Available at https://quicksearch.dla.mil/qsSearch.aspx.) 
+NATO STANAG 4370 
+Environmental Testing (Available at https://standards.globalspec.com/.) 
+Section III 
+Prescribed Forms 
+This section contains no entries. 
+Section IV 
+Referenced Forms 
+Unless 
+otherwise 
+indicated, 
+DA 
+forms 
+are 
+available 
+on 
+the 
+Army 
+Publishing 
+Directorate 
+website: 
+https://armypubs.army.mil/. 
+DA Form 11 – 2 
+Internal Control Evaluation Certification 
+DA Form 2028 
+Recommended Changes to Publications and Blank Forms 
+ 
+ 
+
+@@@ PAGE 56 @@@
+ 
+50 
+AR 70–38 • 26 June 2020 
+ 
+ 
+Appendix B 
+Internal Control Evaluation 
+B – 1.  Function 
+The function covered by this evaluation is research, development, test, and evaluation of materiel for worldwide deploy-
+ment by the U.S. military services into multiple areas of operation with varying environmental effects. 
+B – 2.  Purpose 
+The purpose of this evaluation is to assist the RDTE community, requirements developers, and program managers in 
+evaluating the key internal controls listed.  It is intended as a guide and does not cover all controls. 
+B – 3.  Instructions 
+Answers must be based upon the actual testing of controls (for example, document analysis, direct observation, sampling, 
+simulation, and/or others).  Answers that indicate deficiencies must be explained and the corrective action indicated in the 
+supporting documentation.  These management controls must be evaluated at least once every 5 years. Certification that 
+this evaluation has been conducted must be accomplished on DA Form 11 – 2 (Internal Control Evaluation Certification).  
+Responses may be directed to the Commander, U.S. Army Corps of Engineers (CERD) 441 G Street NW, Washington, 
+DC 20314 – 1000. 
+B – 4.  Test questions 
+a.  Does the US Army Corps of Engineers retain the subject matter expertise as the proponent of this regulation? 
+b.  Have environmental parameters for subject OEs been properly evaluated and addressed? 
+c.  Are the range of temperatures, OEs, and environmental effects appropriate for RDTE of materiel and equipment? 
+d.  Are testing policies found within the regulation adequate, relevant, and appropriate with current science, technology, 
+and engineering practices, that is, composite materials expansion/contraction? 
+e.  Are RDTE policies for worldwide use of materials found within the regulation adequate, relevant, and appropriate 
+with current ASA (ALT) acquisition policy? 
+f.  Are performance criteria listed within the regulation adequate for RDTE processes? 
+B – 5.  Supersession 
+This evaluation replaces any  previously published evaluations in AR 70–38. 
+B – 5.  Comments 
+Help to make this a better tool for evaluating internal controls.  Submit comments to the Assistant Secretary of the Army 
+(Financial Management and Comptroller) (SAFM – FOA), 109 Army Pentagon, Washington, DC 20310 – 0109. 
+ 
+ 
+
+@@@ PAGE 57 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+51 
+ 
+Glossary 
+Section I 
+Abbreviations 
+AECTP 
+Allied Environmental Conditions and Test Publication 
+AMC 
+U.S. Army Materiel Command 
+AR 
+Army regulation 
+ARIMS 
+Army Records Information Management System 
+ASA (ALT) 
+Assistant Secretary of the Army (Acquisition, Logistics and Technology) 
+ASA (IE&E) 
+Assistant Secretary of the Army (Installations, Energy and Environment) 
+ATEC 
+U.S. Army Test and Evaluation Command 
+Bph 
+British Thermal Units per square foot per hour 
+C 
+Celsius 
+CG 
+commanding general 
+DA 
+Department of the Army 
+DCS 
+Deputy Chief of Staff 
+DoD 
+Department of Defense 
+DoDI 
+Department of Defense instruction 
+DUSA 
+Deputy Under Secretary of the Army 
+F 
+Fahrenheit 
+fps 
+feet per second 
+ft. 
+feet 
+GOE 
+global operational environment 
+HQDA 
+Headquarters, Department of the Army 
+in. 
+inches 
+
+@@@ PAGE 58 @@@
+ 
+52 
+AR 70–38 • 26 June 2020 
+ 
+ 
+in./min 
+inches per minute 
+inHg 
+inches of mercury 
+kg 
+kilogram 
+km 
+kilometers 
+lb 
+pound 
+m 
+meter 
+mbar 
+millibars 
+MIL – HDBK 
+Military Handbook 
+MIL – STD 
+Military Standard 
+mm 
+millimeters 
+mm/min 
+millimeters per minute 
+mph 
+miles per hour 
+mps 
+meters per second 
+NATO STANAG 
+North Atlantic Treaty Organization Standardization Agreement 
+NGA 
+National Geospatial-Intelligence Agency 
+NRCS 
+National Resources Conservation Service 
+OE 
+operational environment 
+OMS/MP 
+operation mode summary/mission profile 
+RDTE 
+research, development, test, and evaluation 
+RH 
+relative humidity 
+sec 
+second 
+SOH 
+safety and occupational health 
+T&E 
+test and evaluation 
+
+@@@ PAGE 59 @@@
+ 
+ 
+AR 70–38 • 26 June 2020 
+53 
+ 
+TRADOC 
+U.S. Army Training and Doctrine Command 
+USACE 
+U.S. Army Corps of Engineers 
+USCS 
+Unified Soil Classification System 
+Section II 
+Terms 
+Environment 
+The combination of natural and induced conditions occurring or encountered at any time or place.  This document focuses 
+on the naturally occurring conditions of environment. 
+Global operational environments 
+A framework build on Bailey’s ecoregions method of geographical classification (Bailey, R.G., 1996) to address atmos-
+pheric, terrestrial, and biological consideration for the design and performance of material worldwide.  GOEs identify four 
+climate regions: polar, humid temperate, humid tropical, and dry.  Each climatic region comprises land areas characterized 
+by broad similarities in mean annual temperature, precipitation, and evapotranspiration. 
+Natural environmental factors 
+Includes atmospheric factors, terrain factors, and biological factors.  Other factors are considered induced. 
+Operational environments 
+More detailed geographic classification system than the GOE system.  Under this OE system, the world is subdivided into 
+nineteen subgroups.  These are further discussed in chapter 3. 
+Section III 
+Special Abbreviations and Terms 
+This section contains no entries. 
+
+@@@ PAGE 60 @@@
+
+@@@ PAGE 61 @@@
+ 
+UNCLASSIFIED 
+PIN 004453–000 
+ 
+  

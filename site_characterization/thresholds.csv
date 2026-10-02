@@ -1,0 +1,179 @@
+id,source,table,category,item,rule,variable,lo,hi,units,band,notes,missing_data
+T1,TR-26-5,Table 1,Design type,AR 70-38 climatic design type (C1-C4),classify_design_type,t2,,,degF,,"Coldest-month 1%-hour air temperature vs C1 -25F, C2 -50F, C3 -60F, C4 -70F (AR 70-38 / MIL-HDBK-310 1% convention)",
+T2,TR-26-5 / ATP 3-90.96,Table 2 / Table 1-3,Design type,ATP 3-90.96 cold temperature zone,classify_zone,t2,,,degF,,"Zones 1: 39..20, 2: 19..-4, 3: -5..-24, 4: -25..-40, 5A: -41..-50, 5B: -51..-60, 5C: < -61 (TR-26-5 split of ATP zone 5)",
+T3a,TR-26-5 / ATP 3-90.96,Table 3 / Table B-3,Vehicles in snow,Wheeled vehicle,max_snow_depth,sd,,8,in,,,
+T3b,TR-26-5 / ATP 3-90.96,Table 3 / Table B-3,Vehicles in snow,Wheeled 4x4 or greater,max_snow_depth,sd,,15,in,,,
+T3c,TR-26-5 / ATP 3-90.96,Table 3 / Table B-3,Vehicles in snow,Wheeled 4x4 or greater with snow chains,max_snow_depth,sd,,20,in,,,
+T3d,TR-26-5 / ATP 3-90.96,Table 3 / Table B-3,Vehicles in snow,Tracked vehicle,max_snow_depth,sd,,40,in,,,
+T3e,TR-26-5 / ATP 3-90.96,Table 3 / Table B-3,Vehicles in snow,Over-snow vehicle,max_snow_depth,sd,,,in,,No upper limit (required where snow is deeper than 40 in),
+T4,TR-26-5,Tables 4-5,Personnel,Frostbite danger level (green / amber / red),frostbite_shares,wct,,,degF,,"Approximated from wind chill (cut-offs 0 / -20 / -60 F, see plots/plots.md)","Exact classes need hourly air temperature AND wind speed jointly"
+T6a,TR-26-5,Table 6,Operations stoplight,Airborne ops (static line),band,wspd,,12,kn,favorable,Wind < 12 kn,"Ceiling, visibility, precipitation, thunderstorms; gusts"
+T6b,TR-26-5,Table 6,Operations stoplight,Airborne ops (static line),band,wspd,12,13,kn,marginal,Wind 12-13 kn (gap between the favorable and unfavorable limits),"Ceiling, visibility, precipitation, thunderstorms; gusts"
+T6c,TR-26-5,Table 6,Operations stoplight,Airborne ops (static line),band,wspd,13,,kn,unfavorable,Wind > 13 kn,"Ceiling, visibility, precipitation, thunderstorms; gusts"
+T6d,TR-26-5,Table 6,Operations stoplight,Fixed wing,band,wspd,,35,kn,favorable,,"Ceiling, visibility, thunderstorms; gusts"
+T6e,TR-26-5,Table 6,Operations stoplight,Fixed wing,band,wspd,35,50,kn,marginal,,"Ceiling, visibility, thunderstorms; gusts"
+T6f,TR-26-5,Table 6,Operations stoplight,Fixed wing,band,wspd,50,,kn,unfavorable,,"Ceiling, visibility, thunderstorms; gusts"
+T6g,TR-26-5,Table 6,Operations stoplight,Rotary wing,band,wspd,,30,kn,favorable,,"Ceiling, visibility, turbulence, thunderstorms; gusts"
+T6h,TR-26-5,Table 6,Operations stoplight,Rotary wing,band,wspd,30,45,kn,marginal,,"Ceiling, visibility, turbulence, thunderstorms; gusts"
+T6i,TR-26-5,Table 6,Operations stoplight,Rotary wing,band,wspd,45,,kn,unfavorable,,"Ceiling, visibility, turbulence, thunderstorms; gusts"
+T6j,TR-26-5,Table 6,Operations stoplight,Medevac ops,band,wspd,,45,kn,favorable,,"Ceiling, visibility; gusts"
+T6k,TR-26-5,Table 6,Operations stoplight,Medevac ops,band,wspd,45,,kn,unfavorable,,"Ceiling, visibility; gusts"
+T6l,TR-26-5,Table 6,Operations stoplight,Gray Eagle UAV (wind),band,wspd,,20,kn,favorable,,"Ceiling, visibility, precipitation, crosswind, turbulence, thunderstorms; gusts"
+T6m,TR-26-5,Table 6,Operations stoplight,Gray Eagle UAV (wind),band,wspd,20,26,kn,marginal,,"Ceiling, visibility, precipitation, crosswind, turbulence, thunderstorms; gusts"
+T6n,TR-26-5,Table 6,Operations stoplight,Gray Eagle UAV (wind),band,wspd,26,,kn,unfavorable,,"Ceiling, visibility, precipitation, crosswind, turbulence, thunderstorms; gusts"
+T6o,TR-26-5,Table 6,Operations stoplight,Gray Eagle UAV (temperature),band,t2,-14,,degF,favorable,Temp -14 to 109 F,
+T6p,TR-26-5,Table 6,Operations stoplight,Gray Eagle UAV (temperature),band,t2,-24,-14,degF,marginal,Temp -15 to -24 F,
+T6q,TR-26-5,Table 6,Operations stoplight,Gray Eagle UAV (temperature),band,t2,,-24,degF,unfavorable,Temp <= -25 F,
+T6r,TR-26-5,Table 6,Operations stoplight,Shadow UAV (wind),band,wspd,,15,kn,favorable,,"Ceiling, visibility, precipitation, thunderstorms; gusts"
+T6s,TR-26-5,Table 6,Operations stoplight,Shadow UAV (wind),band,wspd,15,25,kn,marginal,,"Ceiling, visibility, precipitation, thunderstorms; gusts"
+T6t,TR-26-5,Table 6,Operations stoplight,Shadow UAV (wind),band,wspd,25,,kn,unfavorable,,"Ceiling, visibility, precipitation, thunderstorms; gusts"
+T6u,TR-26-5,Table 6,Operations stoplight,Personnel (temperature),band,t2,20,,degF,favorable,Temp 20 to 85 F,Precipitation
+T6v,TR-26-5,Table 6,Operations stoplight,Personnel (temperature),band,t2,-15,20,degF,marginal,Temp -15 to 19 F,Precipitation
+T6w,TR-26-5,Table 6,Operations stoplight,Personnel (temperature),band,t2,,-15,degF,unfavorable,Temp < -15 F,Precipitation
+T6x,TR-26-5,Table 6,Operations stoplight,Air assault,band,wspd,,25,kn,favorable,,"Ceiling, visibility; gusts"
+T6y,TR-26-5,Table 6,Operations stoplight,Air assault,band,wspd,25,40,kn,marginal,,"Ceiling, visibility; gusts"
+T6z,TR-26-5,Table 6,Operations stoplight,Air assault,band,wspd,40,,kn,unfavorable,,"Ceiling, visibility; gusts"
+T6aa,TR-26-5,Table 6,Operations stoplight,CH-47 sling load,band,wspd,,15,kn,favorable,Wind <= 14 kn,Turbulence; gusts
+T6ab,TR-26-5,Table 6,Operations stoplight,CH-47 sling load,band,wspd,15,31,kn,marginal,Wind 15-30 kn,Turbulence; gusts
+T6ac,TR-26-5,Table 6,Operations stoplight,CH-47 sling load,band,wspd,31,,kn,unfavorable,Wind > 30 kn,Turbulence; gusts
+T6ad,TR-26-5,Table 6,Operations stoplight,CH-60 sling load,band,wspd,,9,kn,favorable,Wind <= 8 kn,Turbulence; gusts
+T6ae,TR-26-5,Table 6,Operations stoplight,CH-60 sling load,band,wspd,9,15,kn,marginal,Wind 9-14 kn,Turbulence; gusts
+T6af,TR-26-5,Table 6,Operations stoplight,CH-60 sling load,band,wspd,15,,kn,unfavorable,Wind > 15 kn (14-15 kn falls between the published bands; counted unfavorable),Turbulence; gusts
+T6ag,TR-26-5,Table 6,Operations stoplight,FARP ops,band,wspd,,30,kn,favorable,,Gusts
+T6ah,TR-26-5,Table 6,Operations stoplight,FARP ops,band,wspd,30,45,kn,marginal,,Gusts
+T6ai,TR-26-5,Table 6,Operations stoplight,FARP ops,band,wspd,45,,kn,unfavorable,,Gusts
+T6aj,TR-26-5,Table 6,Operations stoplight,Air trafficability (< 1000 ft),missing,,,,,,,"Precipitation, icing, visibility"
+T6ak,TR-26-5,Table 6,Operations stoplight,Illumination,missing,,,,,,,"Lunar illumination and elevation (computable from astronomy, not in AZCOT)"
+T7a,TR-26-5,Table 7,Clothing (ECWC active),Cold 0 to 30 F: levels 1+2+5,band,t2,0,30,degF,use,,
+T7b,TR-26-5,Table 7,Clothing (ECWC active),Extreme cold -25 to 0 F: levels 1+2+3+5,band,t2,-25,0,degF,use,,
+T7c,TR-26-5,Table 7,Clothing (ECWC active),Wet ~40 F: levels 1+4+5(B),missing,,,,,,,Precipitation / wetness (temperature alone cannot identify wet conditions)
+T7d,TR-26-5,Table 7,Clothing (ECWC active),Cold/wet 35 to 45 F: levels 1+5,missing,,,,,,,Precipitation / wetness
+T7e,TR-26-5,Table 7,Clothing (ECWC active),Below -25 F: no active-wear configuration published,band,t2,,-25,degF,use,Hours colder than any ECWC active configuration,
+T8a,TR-26-5,Table 8,Clothing (ECWC static),Cold 0 to 30 F: levels 2+5+7(T),band,t2,0,30,degF,use,,
+T8b,TR-26-5,Table 8,Clothing (ECWC static),Extra cold -50 to 0 F: levels 1+2+3+5+7,band,t2,-50,0,degF,use,,
+T8c,TR-26-5,Table 8,Clothing (ECWC static),Cold/wet 30 to 45 F; wet above 45 F,missing,,,,,,,Precipitation / wetness
+T8d,TR-26-5,Table 8,Clothing (ECWC static),Below -50 F: no static-wear configuration published,band,t2,,-50,degF,use,Hours colder than any ECWC static configuration,
+T9a,TR-26-5,Table 9,Worn gear,Standard issue light duty leather gloves,min_temp,t2,35,,degF,,,
+T9b,TR-26-5,Table 9,Worn gear,"Arctic mittens; OR mittens; OR trigger finger mittens; OR convoy gloves; OR contact gloves",missing,,,,,,Companies will not commit to temperature ratings,Manufacturer temperature ratings
+T9c,TR-26-5,Table 9,Worn gear,Vapor barrier boots,min_temp,t2,-50,,degF,,,
+T9d,TR-26-5,Table 9,Worn gear,"Danner boots (400 g, 600 g, 1200 g)",min_temp,t2,-20,,degF,,With heavyweight wool socks,
+T9e,TR-26-5,Table 9,Worn gear,Mukluk boots,min_temp,t2,-40,,degF,,-40 F standard; -100 F with the coldest-rated inserts,
+T9f,TR-26-5,Table 9,Worn gear,Type I temperate sleeping bag inner,min_temp,t2,15,,degF,,,
+T9g,TR-26-5,Table 9,Worn gear,Type II cold sleeping bag (stand alone),min_temp,t2,5,,degF,,Rated 5 to 20 F,
+T9h,TR-26-5,Table 9,Worn gear,Type III (Type II over Type I),min_temp,t2,-13,,degF,,Rated -13 to 5 F,
+T9i,TR-26-5,Table 9,Worn gear,Modular sleeping bag intermediate cold,min_temp,t2,0,,degF,,Rated 0 to 32 F,
+T9j,TR-26-5,Table 9,Worn gear,Complete sleep system wearing ECWCS,min_temp,t2,-50,,degF,,,
+T10a,TR-26-5,Table 10,Equipment,Electrical and ignition systems,min_temp,t2,-30,,degF,,,
+T10b,TR-26-5,Table 10,Equipment,Vehicle crew heaters,min_temp,t2,-25,,degF,,,
+T10c,TR-26-5,Table 10,Equipment,Personnel heaters,min_temp,t2,-40,,degF,,,
+T10d,TR-26-5,Table 10,Equipment,Level vials,min_temp,t2,-40,,degF,,,
+T10e,TR-26-5,Table 10,Equipment,Cold-soaked vehicles (start without pre-warming),min_temp,t2,-25,,degF,,Warm before starting below -25 F,
+T11a,TR-26-5,Table 11,Shelter,Arctic 10-man tent (Ahkio),min_temp,t2,-40,,degF,,,
+T11b,TR-26-5,Table 11,Shelter,HDT Airbeam,min_temp,t2,-25,,degF,,,
+T11c,TR-26-5,Table 11,Shelter,HDT Airbeam (Arctic),min_temp,t2,-65,,degF,,,
+T11d,TR-26-5,Table 11,Shelter,Base-X,min_temp,t2,-40,,degF,,,
+T11e,TR-26-5,Table 11,Shelter,Deployable Rapid Assembly Shelter (DRASH),min_temp,t2,-40,,degF,,,
+SLa,TR-26-5,Section 1 (MIL-HDBK-310 5.1.13),Shelter,Portable equipment / tentage (10 lb/ft2 from a 24-hour snowfall),missing,,,,,,Design load is the snow from one 24-hour snowfall (shelter cleared afterwards); accumulated ground load is not the right comparison,"24-hour snowfall load (derivable from hourly SWE increases in the raw AZCOT data, not in the coverages)"
+SLb,TR-26-5,Section 1 (MIL-HDBK-310 5.1.13),Shelter,Temporary rigid shelters / portable hangars (20 lb/ft2 from a multi-day storm),missing,,,,,,Design load is one multi-day storm (cleared between storms); accumulated ground load is not the right comparison,"Storm-total snowfall load (derivable from hourly SWE increases in the raw AZCOT data, not in the coverages)"
+SLc,TR-26-5,Section 1,Shelter,Life-sustaining structures (25 lb/ft2),max_snow_load,sl,,25,lbf/ft2,,Compared with accumulated ground snow load (TR-26-5 does not say whether the structure is cleared),
+SLd,TR-26-5,Section 1 (MIL-HDBK-310 5.1.13),Shelter,Semipermanent (demountable) structures (48 lb/ft2 seasonal accumulation),max_snow_load,sl,,48,lbf/ft2,,Share of hours uses the 45 lb/ft2 frequency (conservative; no 48 threshold in the coverages),
+WNa,TR-26-5,Section 1,Shelter,Life-sustaining structures (100 mph wind),max_wind,wspd,,87,kn,,"100 mph = 87 kn; compared with hourly-mean 10 m wind",Wind gusts (structures are rated for gusts; ERA5 hourly means understate them)
+T12a,TR-26-5,Table 12,Batteries,Battery storage,min_temp,t2,10,,degF,,,
+T12b,TR-26-5,Table 12,Batteries,AGM battery (fully charged),min_temp,t2,-70,,degF,,,
+T12c,TR-26-5,Table 12,Batteries,AGM battery (not fully charged),min_temp,t2,10,,degF,,,
+T12d,TR-26-5,Table 12,Batteries,Fully charged battery (general),min_temp,t2,-70,,degF,,Rated -70 to -77 F,
+T12e,TR-26-5,Table 12,Batteries,Gel battery (fully charged),min_temp,t2,-70,,degF,,,
+T12f,TR-26-5,Table 12,Batteries,Lithium battery Li-SO2,min_temp,t2,-58,,degF,,,
+T12g,TR-26-5,Table 12,Batteries,Lithium battery LiMnO2,min_temp,t2,-22,,degF,,,
+T12h,TR-26-5,Table 12,Batteries,Rechargeable dry cell Type I and II,min_temp,t2,-4,,degF,,,
+T12i,TR-26-5,Table 12,Batteries,Rechargeable dry cell Type III and IV,min_temp,t2,-22,,degF,,Table lists Zone 1 with -22 F (inconsistent); the temperature is used,
+T12j,TR-26-5,Table 12,Batteries,Wet cell battery (fully charged),min_temp,t2,-75,,degF,,,
+T13a,TR-26-5,Table 13,Electronics,Larger workstation computers,min_temp,t2,0,,degF,,,
+T13b,TR-26-5,Table 13,Electronics,Handheld computers,min_temp,t2,-30,,degF,,,
+T13c,TR-26-5,Table 13,Electronics,Ruggedized display / projection,min_temp,t2,-4,,degF,,,
+T13d,TR-26-5,Table 13,Electronics,LCD screens,missing,,,,,,Check manufacturer specs,Manufacturer temperature ratings
+T13e,TR-26-5,Table 13,Electronics,Digital light processing projectors,min_temp,t2,-40,,degF,,,
+T13f,TR-26-5,Table 13,Electronics,Mortar ballistic computer,min_temp,t2,-50,,degF,,,
+T13g,TR-26-5,Table 13,Electronics,RG-8 cable,min_temp,t2,-20,,degF,,,
+T13h,TR-26-5,Table 13,Electronics,RG213 coaxial cable,min_temp,t2,-40,,degF,,,
+T14a,TR-26-5,Table 14,Generators,MEP (nonwinterized),min_temp,t2,-25,,degF,,,
+T14b,TR-26-5,Table 14,Generators,MEP (winterized),min_temp,t2,-50,,degF,,,
+T14c,TR-26-5,Table 14,Generators,Generator storage,min_temp,t2,-60,,degF,,,
+T14d,TR-26-5,Table 14,Generators,Military Tactical Generator (MTG),min_temp,t2,-50,,degF,,,
+T14e,TR-26-5,Table 14,Generators,TQG (nonwinterized),min_temp,t2,-25,,degF,,,
+T14f,TR-26-5,Table 14,Generators,TQG (winterized),min_temp,t2,-50,,degF,,,
+T14g,TR-26-5,Table 14,Generators,AMMPS,min_temp,t2,-50,,degF,,,
+T14h,TR-26-5,Table 14,Generators,Power distribution and illumination system,min_temp,t2,-25,,degF,,,
+T15a,TR-26-5,Table 15,Fuels,JP-8,min_temp,t2,-53,,degF,,,
+T15b,TR-26-5,Table 15,Fuels,F-24,min_temp,t2,-40,,degF,,,
+T15c,TR-26-5,Table 15,Fuels,Jet A,min_temp,t2,-40,,degF,,,
+T15d,TR-26-5,Table 15,Fuels,Jet A-1,min_temp,t2,-52.6,,degF,,,
+T15e,TR-26-5,Table 15,Fuels,Jet B,min_temp,t2,-58,,degF,,,
+T15f,TR-26-5,Table 15,Fuels,JP-5,min_temp,t2,-51,,degF,,,
+T15g,TR-26-5,Table 15,Fuels,JP-4,min_temp,t2,-74,,degF,,,
+T15h,TR-26-5,Table 15,Fuels,Antarctic jet fuel (AN-8),min_temp,t2,-74,,degF,,,
+T16a,TR-26-5,Table 16,Engine oils,OE/HDO-SCPL,min_temp,t2,-58,,degF,,,
+T16b,TR-26-5,Table 16,Engine oils,OEA-30,min_temp,t2,-58,,degF,,,
+T16c,TR-26-5,Table 16,Engine oils,OE/HDO 40,min_temp,t2,20,,degF,,,
+T16d,TR-26-5,Table 16,Engine oils,OE/HDO-10/30,min_temp,t2,-15,,degF,,,
+T16e,TR-26-5,Table 16,Engine oils,OE/HDO-5/40,min_temp,t2,-30,,degF,,,
+T16f,TR-26-5,Table 16,Engine oils,OE/HDO-15/40,min_temp,t2,0,,degF,,,
+T16g,TR-26-5,Table 16,Engine oils,15W40 (transmission oil),min_temp,t2,-10,,degF,,,
+T17a,TR-26-5,Table 17,Hydraulic fluids,MIL-PRF-6083 / OHT,min_temp,t2,-65,,degF,,,
+T17b,TR-26-5,Table 17,Hydraulic fluids,MIL-PRF-46170 / FRH,min_temp,t2,-40,,degF,,,
+T17c,TR-26-5,Table 17,Hydraulic fluids,MIL-PRF-5606 / OHA,min_temp,t2,-65,,degF,,,
+T17d,TR-26-5,Table 17,Hydraulic fluids,MIL-PRF-83282,min_temp,t2,-40,,degF,,,
+T17e,TR-26-5,Table 17,Hydraulic fluids,MIL-PRF-87257,min_temp,t2,-65,,degF,,,
+T17f,TR-26-5,Table 17,Hydraulic fluids,MIL-PRF-46176,min_temp,t2,-67,,degF,,,
+T18a,TR-26-5,Table 18,Gear oils,GO-75 (first entry),min_temp,t2,50,,degF,,Table 18 lists GO-75 twice (50 F and -50 F); both shown,
+T18b,TR-26-5,Table 18,Gear oils,GO-80/90,min_temp,t2,-18,,degF,,,
+T18c,TR-26-5,Table 18,Gear oils,GO-85/140,min_temp,t2,4,,degF,,,
+T18d,TR-26-5,Table 18,Gear oils,GO-75 (second entry),min_temp,t2,-50,,degF,,Table 18 lists GO-75 twice (50 F and -50 F); both shown,
+T19a,TR-26-5,Table 19,Greases,Grease (automotive and artillery),min_temp,t2,-65,,degF,,,
+T19b,TR-26-5,Table 19,Greases,Grease (aircraft general purpose wide temperature range),min_temp,t2,-65,,degF,,,
+T19c,TR-26-5,Table 19,Greases,Grease (aircraft and instrument; gear and actuator screw),min_temp,t2,-99,,degF,,,
+T19d,TR-26-5,Table 19,Greases,Grease (molybdenum disulfide; low and high temperature),min_temp,t2,-100,,degF,,,
+T19e,TR-26-5,Table 19,Greases,Grease (graphite),min_temp,t2,-9,,degF,,,
+T20a,TR-26-5,Table 20,Solvents and liquids,Rifle bore cleaner (RBC),min_temp,t2,32,,degF,,,
+T21a,TR-26-5,Table 21,Solvents and liquids,Propylene-glycol deicing fluid,min_temp,t2,-60,,degF,,,
+T21b,TR-26-5,Table 21,Solvents and liquids,Propane,min_temp,t2,-40,,degF,,,
+T21c,TR-26-5,Table 21,Solvents and liquids,Arctic antifreeze,min_temp,t2,-90,,degF,,,
+T21d,TR-26-5,Table 21,Solvents and liquids,Wheel bearing lubricants,min_temp,t2,-65,,degF,,,
+T21e,TR-26-5,Table 21,Solvents and liquids,"Lubricating oil, internal combustion engine, arctic",min_temp,t2,-67,,degF,,,
+T21f,TR-26-5,Table 21,Solvents and liquids,Ethylene-glycol / distilled water mixture,min_temp,t2,-50,,degF,,Rated -50 to 32 F depending on mix,
+T21g,TR-26-5,Table 21,Solvents and liquids,Arctic antifreeze (ethylene-glycol based),min_temp,t2,-40,,degF,,Rated -40 to -90 F depending on mix; conservative -40 used,
+T22a,TR-26-5,Table 22,Weapons,Machine guns,min_temp,t2,-40,,degF,,,
+T22b,TR-26-5,Table 22,Weapons,Rifles,min_temp,t2,-40,,degF,,,
+T22c,TR-26-5,Table 22,Weapons,Rockets,min_temp,t2,-40,,degF,,,
+T23a,TR-26-5,Table 23,Weapon lubricants,PL-S,min_temp,t2,-49,,degF,,,
+T23b,TR-26-5,Table 23,Weapon lubricants,Cleaner lubricant preservative (CLP),min_temp,t2,-60,,degF,,,
+T23c,TR-26-5,Table 23,Weapon lubricants,Lubricant small arms (LSA),min_temp,t2,-65,,degF,,,
+T23d,TR-26-5,Table 23,Weapon lubricants,LSAT (semifluid high-load),min_temp,t2,-30,,degF,,,
+T23e,TR-26-5,Table 23,Weapon lubricants,Lubricant arctic weight (LAW),min_temp,t2,-70,,degF,,,
+T24a,TR-26-5,Tables 24-28,Lubrication schedule,Rifles: CLP or LSA (above -10 F),band,t2,-10,,degF,use,,
+T24b,TR-26-5,Tables 24-28,Lubrication schedule,Rifles: LAW (10 F and below),band,t2,,10,degF,use,,
+T25a,TR-26-5,Tables 24-28,Lubrication schedule,M249 SAW: CLP (effective to -30 F),min_temp,t2,-30,,degF,,,
+T26a,TR-26-5,Tables 24-28,Lubrication schedule,Machine guns: LSAT / GMD / LAW (to -20 F),min_temp,t2,-20,,degF,,,
+T27a,TR-26-5,Tables 24-28,Lubrication schedule,Mortars: general purpose lubricant (above 10 F),band,t2,10,,degF,use,,
+T27b,TR-26-5,Tables 24-28,Lubrication schedule,Mortars: LAW (below 10 F),band,t2,,10,degF,use,,
+T27c,TR-26-5,Tables 24-28,Lubrication schedule,Mortars: PL special purpose (below 0 F),band,t2,,0,degF,use,,
+T28a,TR-26-5,Tables 24-28,Lubrication schedule,Artillery: CLP (to -10 F),min_temp,t2,-10,,degF,,,
+T29a,TR-26-5,Table 29,Aircraft,CH-47 Chinook,min_temp,t2,-40,,degF,,True limits not determined; commander's risk decision,
+T29b,TR-26-5,Table 29,Aircraft,AH-64 Apache,min_temp,t2,-40,,degF,,True limits not determined; commander's risk decision,
+T29c,TR-26-5,Table 29,Aircraft,UH-60 Blackhawk,min_temp,t2,-40,,degF,,True limits not determined; commander's risk decision,
+T30a,TR-26-5,Table 30,Aircraft,LC-130,min_temp,t2,-65,,degF,,,
+T30b,TR-26-5,Table 30,Aircraft,C-17,min_temp,t2,-76,,degF,,Do not plan flights at -76 F,
+ATP-F,ATP 3-90.96,Tables F-1 to F-10,Personnel,Safety recommendations for each cold temperature zone reached,zone_tables,t2,,,degF,,Lists the applicable appendix F tables,
+ATP-1-7,ATP 3-90.96,Table 1-7,Personnel,Season chart (winter / break-up / summer / freeze-up),missing,,,,,,Temperature zone is available,"Precipitation type, ground condition, river and lake ice condition"
+ATP-1-1,ATP 3-90.96,Tables 1-1 and 1-2,Vehicles in snow,Snow wetness and density / hardness (trafficability),missing,,,,,,,"Snow liquid-water content and density/hardness (SWE/depth ratio could estimate density, but SWE is ERA5 and depth is ERA5-Land)"
+ATP-1-6,ATP 3-90.96,Table 1-6,Operations stoplight,Snowfall categories and blizzards,missing,,,,,,,"Snowfall rate, visibility, gusts"
+ATP-B-1,ATP 3-90.96,Table B-1,Vehicles in snow,Skis vs snowshoes,missing,,,,,,Qualitative (speed / distance / brush),"Vegetation and terrain"
+ATP-B-2,ATP 3-90.96,Table B-2,Vehicles in snow,Frost depth for crossing soft terrain,missing,,,,,,,"Frost depth / soil temperature profile (AZCOT has only the 0-7 cm soil layer STL1) and soil wetness"
+ATP-B-4,ATP 3-90.96,Table B-4,Vehicles in snow,Over-snow movement planning rates,missing,,,,,,,"Snow type, terrain and vegetation"
+ATP-C,ATP 3-90.96,Tables C-1 to C-5,Vehicles in snow,Ice load capacity / landing zones on freshwater ice,missing,,,,,,,"Lake and river ice thickness (could be estimated from freezing degree-days of the air temperature)"
+MIL-1,MIL-HDBK-310,5.1.2,Design type,"Low temperature 1, 5, 10% values (coldest month)",design_percentiles,t2,,,degF,,,
+MIL-FT,MIL-HDBK-310,5.1.22,Design type,Freeze-thaw cycles,freeze_thaw,t2,,,days,,,
+MIL-ICE,MIL-HDBK-310,5.1.14,Shelter,Ice accretion on structures,missing,,,,,,,"Freezing rain / supercooled cloud frequency"
+MIL-BS,MIL-HDBK-310 / AR 70-38,5.1.12 / Table 3-12,Shelter,Blowing snow mass flux,missing,,,,,,,"Blowing-snow flux (could be modeled from wind speed plus snow cover)"
+MIL-P,MIL-HDBK-310,5.1.17-5.1.19,Design type,Low pressure / air density,missing,,,,,,,Surface pressure (not in AZCOT)
+ATP4-33,ATP 4-33,(all),Equipment,Maintenance operations,missing,,,,,,ATP 4-33 has no condition-to-equipment tables; the cold-weather limits come from TM 4-33.31 via TR-26-5,
