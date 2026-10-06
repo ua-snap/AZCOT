@@ -16,7 +16,7 @@
 | Freeze-thaw days per winter | 5 (Oct 4, Nov 1) |
 | Snow depth: typical peak / record | 22 / 33 in |
 | Snow load: typical peak / record | 16 / 27 lb/ft² |
-| Wind (10 m hourly mean): record | 92 kn (no gust data) |
+| Wind (10 m hourly mean): record | 92 kn (hourly mean; gusts not used, see data gaps) |
 
 ## Shopping list
 
@@ -152,8 +152,8 @@ Partial: TR-26-5 Table 6 also needs ceiling, visibility, precipitation, turbulen
 - Cold/wet 35 to 45 F: levels 1+5 (TR-26-5 Table 7): needs Precipitation / wetness
 - Cold/wet 30 to 45 F; wet above 45 F (TR-26-5 Table 8): needs Precipitation / wetness
 - Arctic mittens; OR mittens; OR trigger finger mittens; OR convoy gloves; OR contact gloves (TR-26-5 Table 9): needs Manufacturer temperature ratings
-- Portable equipment / tentage (10 lb/ft2 from a 24-hour snowfall) (TR-26-5 Section 1 (MIL-HDBK-310 5.1.13)): needs 24-hour snowfall load (derivable from hourly SWE increases in the raw AZCOT data, not in the coverages)
-- Temporary rigid shelters / portable hangars (20 lb/ft2 from a multi-day storm) (TR-26-5 Section 1 (MIL-HDBK-310 5.1.13)): needs Storm-total snowfall load (derivable from hourly SWE increases in the raw AZCOT data, not in the coverages)
+- Portable equipment / tentage (10 lb/ft2 from a 24-hour snowfall) (TR-26-5 Section 1 (MIL-HDBK-310 5.1.13)): needs 24-hour snowfall load (ERA5 hourly snowfall sf; needs a new download. Differencing AZCOT SWE is unreliable because of assimilation increments)
+- Temporary rigid shelters / portable hangars (20 lb/ft2 from a multi-day storm) (TR-26-5 Section 1 (MIL-HDBK-310 5.1.13)): needs Storm-total snowfall load (ERA5 hourly snowfall sf; needs a new download. Differencing AZCOT SWE is unreliable because of assimilation increments)
 - LCD screens (TR-26-5 Table 13): needs Manufacturer temperature ratings
 - Season chart (winter / break-up / summer / freeze-up) (ATP 3-90.96 Table 1-7): needs Precipitation type, ground condition, river and lake ice condition
 - Snow wetness and density / hardness (trafficability) (ATP 3-90.96 Tables 1-1 and 1-2): needs Snow liquid-water content and density/hardness (SWE/depth ratio could estimate density, but SWE is ERA5 and depth is ERA5-Land)

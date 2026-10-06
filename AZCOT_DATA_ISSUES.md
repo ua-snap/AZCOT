@@ -122,6 +122,7 @@ The Atlas **WCT** Extreme rasters, by contrast, match the true hourly minimum ex
 - **Misnamed variable:** `daily_SD_stats` stores the snow-depth mean as `averageSL`.
 - **No CRS:** none of the NetCDF files declare a CRS or `grid_mapping` (the data are implicitly EPSG:4326).
 - **Differing latitude order:** the hourly files store latitude 90 → 60, while `Metrics` stores 60 → 90. This is not an error, but it is easy to trip on.
+- **Unlabeled `var29`:** the `*.var29.{grib,nc}` files are ERA5 *instantaneous 10 m wind gust* (`I10FG`, parameter 228029, m/s), present only at 06 and 18 UTC. Labeling them would make the dataset's only gust data findable.
 
 ## 9. TR-26-5 operational tables
 
@@ -134,6 +135,11 @@ The Atlas **WCT** Extreme rasters, by contrast, match the true hourly minimum ex
 ## Observations (expected behavior, worth documenting)
 
 - **Glacier cap in snow load.** SL ≈ 2047.24 lb/ft² over ice sheets and ice caps is ERA5's constant 10 m water equivalent on glacier points (Muñoz-Sabater et al. 2021, ESSD, §2.1), not a real load. That is about 10,000 cells. A further ~4,200 partly glaciated cells accumulate snow every year without limit (500–2,000 lb/ft²). Flagging both in the data, not only masking them in figures, would help users.
+- **Snow load is accumulated snow on the ground, not snowfall.** SL is computed correctly from ERA5 SWE: SL = SWE[in] × 5.2, where 5.2 lb/ft² per inch is the weight of water, so no snow-density assumption is involved. We matched it exactly against `*.SWE.grib`. Two points are worth stating in the documentation:
+  - **The SWE files are named after ERA5's own parameter, "snow depth" (`sd`, 141), but hold metres of water equivalent.** The separate `SD` files are physical depth from ERA5-Land. The names invite confusion between the two.
+  - **ERA5 SWE is an instantaneous state variable**, so SL describes the snowpack at each hour. It fits the seasonal-accumulation design loads (life-sustaining structures 25 lb/ft², semipermanent 48 lb/ft²), but not the tentage (one 24-hour snowfall, 10 lb/ft²) or rigid-shelter (one multi-day storm, 20 lb/ft²) criteria that TR-26-5 §1 lists alongside them.
+
+  Differencing hourly SWE is not a reliable substitute. It includes data-assimilation increments: in January, when there is essentially no melt, hourly SWE losses over land are 3–5× larger at 00, 03, 10 and 22 UTC than at other hours, and every hourly change above 1 lb/ft² falls on those hours. It also nets out melt and sublimation. ERA5 hourly snowfall (`sf`, parameter 144, accumulated over the hour ending at the valid time) gives 24-hour and storm-total snowfall loads directly, and would be the better input for those criteria.
 - **Report averages.** The land-wide statistics in TR-26-5 are unweighted grid-cell means, which over-weight high latitudes on a lat/lon grid. For example, the share of hours with WCT ≤ −65 °F is 7.66% by pixel mean but 5.87% area-weighted.
 
 ---

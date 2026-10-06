@@ -213,7 +213,7 @@ def characterize(name, lat, lon, catalog):
         L.append(f"| Snow load: typical peak / record | {np.max(sl_mean):.0f} / {np.max(sl_max):.0f} lb/ft² |")
     else:
         L.append(f"| Snow load | not meaningful (cell is {stype}) |")
-    L.append(f"| Wind (10 m hourly mean): record | {np.max(ws_max):.0f} kn (no gust data) |\n")
+    L.append(f"| Wind (10 m hourly mean): record | {np.max(ws_max):.0f} kn (hourly mean; gusts not used, see data gaps) |\n")
 
     L.append("## Shopping list\n")
     L.append("**OK** = the 30-year record low (or high) never crosses the item's limit. **Caution** = only rare hours "
