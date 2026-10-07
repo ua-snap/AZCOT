@@ -91,12 +91,12 @@ The raw AZCOT hourly files (1.4 TB) hold more than the current coverages use. Le
 | Product | Source | Tables it serves | Est. hours |
 |---|---|---|---|
 | **Exact frostbite danger classes**: hourly time-to-frostbite from air temperature and wind (TR-26-5 Eq. 5), classified green / amber / red; replaces the wind-chill approximation in maps and site pages | raw 2T + WS10 | TR-26-5 T4–T5 | 1.5–2 |
+| **24-hour and storm-total snowfall loads**: rolling 24-hour and storm sums of hourly snowfall (water equivalent × 204.7 → lb/ft²), as coverages, maps and site-page verdicts | ERA5 hourly snowfall (`sf`), sourced from existing SNAP ERA5 holdings if available, otherwise from Copernicus (~45 GB) | TR-26-5 §1 tentage 10 lb/ft², rigid shelters 20 lb/ft² | 2–3 |
 | **Joint stoplight categories**: per-hour favorable / marginal / unfavorable for operations limited by both wind *and* temperature (Gray Eagle, personnel), instead of each separately | raw 2T + WS10 | TR-26-5 T6 | 1–1.5 |
 | **Partial gust climatology** from `var29` (ERA5 instantaneous gust, 06 and 18 UTC only), flagged as a lower bound on peak gusts | raw `var29` | T6 wind limits, 100 mph structure rating | ~1 |
 | **Equipment suitability layers** for all minimum-temperature items (first and last usable month, share of hours below the limit) | t2 histograms | TR-26-5 T9–T30 | ~1 |
 | **Lunar illumination and elevation** (astronomical calculation, no data) | computed | T6 illumination | 0.5–1 |
 | **App-backend proof of concept**: the site characterization re-pointed to query Rasdaman (WCPS) instead of local files, so any clicked coordinate works | Level 1 Rasdaman | all | 1–2 |
-| **24-hour and storm-total snowfall loads**: rolling 24-hour and storm sums of hourly snowfall (water equivalent × 204.7 → lb/ft²), as coverages, maps and site-page verdicts | ERA5 hourly snowfall (`sf`), sourced from existing SNAP ERA5 holdings if available, otherwise from Copernicus (~45 GB) | TR-26-5 §1 tentage 10 lb/ft², rigid shelters 20 lb/ft² | 2–3 |
 | Updates to docs, plots, site pages and validation | — | — | ~1 |
 
 **Effort:** 8–13 h of Claude time (cumulative 10–17 h). Each raw pass is a 30–60 min SLURM job. **Storage:** +4–7 GB of coverages, plus ~45 GB of raw snowfall if kept.
