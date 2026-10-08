@@ -75,7 +75,7 @@ Text extracted to `reference/` for searching:
 | Document | Contents |
 |---|---|
 | ERDC/CRREL TR-26-5 (2026) | Tables 1–30 |
-| ATP 3-90.96 / MCTP 12-10E (2025) | Arctic Operations |
+| ATP 3-90.96 / MCTP 12-10E (2025, Change 2 2026) | Arctic and Extreme Cold Weather Operations |
 | MIL-HDBK-310 (1997) | Global Climatic Data for Developing Military Products |
 | AR 70-38 (2020) | Research, Development, Test and Evaluation of Materiel for Worldwide Use |
 | ATP 4-33 (2019) | Maintenance Operations; it has no condition-based tables |

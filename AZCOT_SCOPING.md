@@ -1,4 +1,57 @@
-# AZCOT: scoping the next phase
+# AZCOT: scoping next steps
+
+## Work completed so far
+
+We independently checked the AZCOT dataset (ERDC/CRREL) against its own raw hourly ERA5 files and found it largely sound, with several significant errors in the pre-computed `Metrics`. These are documented, with evidence, in an [author-facing issues report](AZCOT_DATA_ISSUES.md):
+- the "minimum" fields are averages of yearly lows rather than record lows;
+- metrics for Feb 29 (leap day) were computed incorrectly;
+- air temperature is stored in kelvin while its thresholds are in °F, so every air-temperature frequency is zero;
+- wind is in m/s, not knots;
+- snow-depth hours are missing systematically;
+- the Atlas air-temperature "lowest recorded" maps are too warm.
+
+We then built a validated preprocessing pipeline ([preprocess/](preprocess/README.md)). Its output is 24 CF-compliant NetCDF coverages for wind chill, snow load, air temperature, wind speed and snow depth (1991–2020, Oct–Mar), with glacier cells flagged. Validation reproduces the published TR-26-5 numbers.
+
+The pipeline works from the raw hourly files rather than `Metrics` wherever `Metrics` is wrong, so the coverages are free of the issues above, except the snow-depth gaps:
+
+| Issue | Status in our coverages |
+|---|---|
+| "Minimum" fields are averages of yearly lows | **Fixed.** True minimum, mean and maximum recomputed from all 720 hourly values per day, for every variable. |
+| Feb 29 computed incorrectly | **Fixed.** Feb 29 dropped (182-day calendar). |
+| Air temperature in kelvin with °F thresholds | **Fixed.** Converted to °F at the source. Frequencies come from our own hourly histograms; `Metrics` air-temperature statistics are not used. |
+| Wind in m/s, not knots | **Fixed.** Converted to knots. Frequencies and maximums recomputed from the hourly data; `Metrics` wind statistics are not used. |
+| Missing snow-depth hours | **Worked around, not fixed.** Missing hours are skipped and recorded, and statistics use only the hours that exist. The last day of each month therefore rests on 30 values instead of 720. Fixing it needs the data re-downloaded. |
+| Atlas air-temperature "lowest recorded" maps too warm | **Replaced, not corrected.** The Atlas rasters are untouched, but our true record lows (`t2_min`) can stand in for them. |
+
+Two lesser problems are fixed as well:
+- **Metadata:** the coverages carry units, a CRS and provenance.
+- **Snow load over ice:** the ERA5 glacier cap (2047 lb/ft²) is flagged, so it can't be mistaken for a real load.
+
+On top of the coverages are:
+- the initial [exploratory analysis](eda/EDA.md);
+- [18 maps and charts](plots/plots.md), including approximate frostbite-danger maps and the recommended glacier symbology;
+- a [site-characterization proof of concept](site_characterization/README.md). It checks every condition-to-equipment table in TR-26-5, ATP 3-90.96, MIL-HDBK-310 and AR 70-38 against the climatology of any point, and produces a one-page "OK / caution / no" shopping list with a [data-gap inventory](site_characterization/data_gaps.md).
+
+Two supporting checks inform the plan below:
+- **Snow load:** a review confirmed that AZCOT computes it correctly from SWE, but that 24-hour (tent) and storm (rigid-shelter) loads need ERA5 hourly snowfall.
+- **CASC / SNAP's ERA5 holdings:** an inventory found that hourly snowfall and precipitation are already available locally.
+
+### Source documents
+
+All are in [`docs/`](docs/); their extracted text is in `eda/reference/` and `site_characterization/reference/`.
+
+| Document | Title | Date | How we use it |
+|---|---|---|---|
+| [ERDC/CRREL TR-26-5](docs/ERDC-CRREL%20TR-26-5.pdf) | *Arctic and Subarctic Zonal Characterization and Operational Thresholding (AZCOT)* | March 2026 | Main AZCOT report; Tables 1–30 (cold zones, frostbite, stoplight, clothing and equipment limits); snow-load design criteria |
+| [ERDC/CRREL SR-25-2](docs/ERDC-CRREL%20SR-25-2.pdf) | *Development and Management of Arctic Zonal Characterization Products Geospatial Database* | October 2025 | How the AZCOT metrics and Atlas were produced |
+| [ATP 3-90.96 / MCTP 12-10E](docs/ARN46141-ATP_3-90.96-002-WEB-5.pdf) | *Arctic and Extreme Cold Weather Operations* | February 2025 (incl. Change 2, March 2026) | Cold temperature zones, snow and vehicle tables, ice capacity, safety recommendations per zone |
+| [MIL-HDBK-310](docs/MIL-HDBK-310.pdf) | *Global Climatic Data for Developing Military Products* | 23 June 1997 | 1%-of-hours design convention; low temperature, snow load, ice accretion, freeze–thaw |
+| [AR 70-38](docs/AR%2070-38.pdf) | *Research, Development, Test and Evaluation of Materiel for Worldwide Use* | 26 June 2020 | Climatic design types (C1–C4) |
+| [ATP 4-33](docs/ATP-4-33-Maints-Ops-July-2019.pdf) | *Maintenance Operations* | July 2019 | Reviewed; no condition-to-equipment tables (its cold-weather limits reach TR-26-5 via TM 4-33.31) |
+
+## Future work
+
+### The three levels
 
 This outlines three levels of effort for turning the AZCOT work into usable products. Each level includes everything in the levels below it. The guiding aim is the most interpretive value from pairing ERA5 with the specification tables in the military documents (TR-26-5, ATP 3-90.96, MIL-HDBK-310, AR 70-38), without research-grade modeling such as lake and river ice thickness.
 
@@ -34,7 +87,7 @@ Treat the estimates as ±50%. They exclude human review and Rasdaman administrat
 
 ---
 
-## SNAP's existing ERA5 holdings
+### SNAP's existing ERA5 holdings
 
 `/import/AKCASC/data/cds/reanalysis-era5-single-levels` (read-only; owned by the AKCASC group) holds **global, hourly, 0.25°** ERA5 single-level fields:
 - **Layout:** one NetCDF file per variable and month.
