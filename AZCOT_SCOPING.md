@@ -2,18 +2,18 @@
 
 This outlines three levels of effort for turning the AZCOT work into usable products. Each level includes everything in the levels below it. The guiding aim is the most interpretive value from pairing ERA5 with the specification tables in the military documents (TR-26-5, ATP 3-90.96, MIL-HDBK-310, AR 70-38), without research-grade modeling such as lake and river ice thickness.
 
-| | Level 1: as is | Level 2: mine AZCOT fully + snowfall | Level 3: fill gaps with more ERA5 data |
+| | Level 1: as is | Level 2: mine AZCOT + SNAP's ERA5 holdings | Level 3: fill gaps with downloaded ERA5 |
 |---|---|---|---|
-| New ERA5 data | none | 1 hourly variable (snowfall) | 12 more hourly variables |
-| Table rows answered: fully / at least partly* | 70% / 89% | 72% / 90% (also gains in accuracy: exact frostbite, joint stoplight, gusts) | ~76% / ~96% (proxies flagged) |
-| Claude active hours (this level / cumulative) | 2–4 / 2–4 | 8–13 / 10–17 | 10–18 / 20–35 |
+| New ERA5 data | none | snowfall + total precipitation, **already on our system** (no download) | dew point (on our system) + **11 variables to download** |
+| Table rows answered: fully / at least partly* | 70% / 89% | ~74% / ~94% (also gains in accuracy: exact frostbite, joint stoplight, gusts) | ~76% / ~96% (proxies flagged) |
+| Claude active hours (this level / cumulative) | 2–4 / 2–4 | 9–14 / 11–18 | 8–16 / 19–34 |
 | Wall-clock time | 1–2 days | ~1 week | ~2 weeks |
-| New storage | ~5–10 GB (Rasdaman copy) | +4–7 GB processed; raw snowfall ~45 GB if kept | +10–15 GB processed; raw ERA5 ~0.55 TB if kept, ~50–100 GB peak if processed and deleted year by year |
+| New storage | ~5–10 GB (Rasdaman copy) | +5–8 GB processed (ERA5 read in place, no raw copy) | +8–12 GB processed; raw downloads ~0.5 TB if kept, ~50–100 GB peak if processed and deleted year by year |
 
 \* *Counted from the 178 rows of [`site_characterization/thresholds.csv`](site_characterization/thresholds.csv).*
 - *"Fully" means every input the row needs is available.*
 - *"Partly" means some inputs are missing. Most of these are the 33 stoplight rows from TR-26-5 Table 6, which also need ceiling, visibility, turbulence or icing. Visibility and turbulence are not in ERA5, so those rows stay partial at every level.*
-- *The Level 3 figures are projections.*
+- *The Level 2 and Level 3 figures are projections.*
 
 **How the hours were estimated.** All AZCOT work to date took about **6 hours of active Claude time** (Opus, high effort) over about 13 hours of wall-clock time across three sessions. The difference is waiting on SLURM jobs and on human review. That covered:
 - the EDA;
@@ -31,6 +31,33 @@ From that, the working rates are:
 | New rule family in the site characterization | ~0.5 h | — |
 
 Treat the estimates as ±50%. They exclude human review and Rasdaman administration.
+
+---
+
+## SNAP's existing ERA5 holdings
+
+`/import/AKCASC/data/cds/reanalysis-era5-single-levels` (read-only; owned by the AKCASC group) holds **global, hourly, 0.25°** ERA5 single-level fields:
+- **Layout:** one NetCDF file per variable and month.
+- **Formats:** two CDS formats: classic NetCDF with 16-bit packing, and NetCDF-4.
+- **Coverage:** most variables start in 1940–1959 and run to 2023–2026.
+- **Same ERA5 as AZCOT:** air temperature (`t2m`) matches the AZCOT raw 2T exactly at a spot check, so the two can be used interchangeably.
+
+Checked against the 180 AZCOT months (1991–2020, Oct–Mar):
+
+| Variable | Availability for 1991–2020 Oct–Mar | Use in this plan |
+|---|---|---|
+| `sf` snowfall | complete, hourly | **Level 2:** 24-hour and storm snowfall loads (no download needed) |
+| `tp` total precipitation | complete, hourly | **Level 2:** precipitation intensity; rain vs. snow (`tp` − `sf`); wet-cold bands; freezing-rain proxy |
+| `d2m` 2 m dew point | complete, hourly | **Level 3:** humidity / frost formation (no download needed) |
+| `msl` mean sea-level pressure (+ invariant geopotential in `reanalysis-era5-invariants`) | complete, hourly | Level 3 fallback: surface-pressure proxy if `sp` isn't downloaded |
+| `tcc` total cloud cover | 2000–2009 **not readable** with our permissions | weak cloud proxy only; a ceiling needs cloud base height (`cbh`) |
+| `t2m`, `u10`, `v10`, `sd` | complete, hourly | same as the AZCOT inputs; would let the climatology be updated past 2020 (e.g. a 1994–2023 normal) |
+| `skt` | daily (00 UTC) only | not needed (AZCOT has hourly SKT) |
+| `cp`, `lsp`, `pev`, `slhf`, `sshf`, `ssr`, `ssrd`, `str`, `fdir`, `tcrw`, `sst`, `swvl3`, `swvl4` | various; `sst` is 2024 only; `tcrw` has gaps; `swvl3`/`swvl4` are not readable | not used by the specification tables |
+
+**Not on the system** (sibling directories hold only ERA5-Land snow depth, geopotential and a few pressure-level fields): hourly 10 m gust (`10fg`), precipitation type (`ptype`), cloud base height (`cbh`), low cloud cover (`lcc`), snow density (`rsn`), soil temperature levels 2–4 (`stl2`–`stl4`), soil moisture levels 1–2 (`swvl1`–`swvl2`), and surface pressure (`sp`). These 11 are Level 3's downloads.
+
+Before Level 2 and 3 start, ask the data owner for group read access to `tcc` 2000–2009 and to `swvl3`/`swvl4`.
 
 ---
 
@@ -84,14 +111,15 @@ The intermediates (2.4 GB) can be deleted once ingested.
 
 ---
 
-## Level 2: extract everything AZCOT already contains, plus hourly snowfall
+## Level 2: mine AZCOT and SNAP's ERA5 holdings (no downloads)
 
-The raw AZCOT hourly files (1.4 TB) hold more than the current coverages use. Level 2 processes them further, adds one ERA5 variable (hourly snowfall) to close the tent and shelter snow-load gap, and adds an app-style query layer.
+The raw AZCOT hourly files (1.4 TB) hold more than the current coverages use. Level 2 processes them further and adds two variables already on our system: ERA5 hourly **snowfall** and **total precipitation**, read in place. Together they close the tent and shelter snow-load gap and the precipitation and wet-cold gaps. Level 2 also adds an app-style query layer.
 
 | Product | Source | Tables it serves | Est. hours |
 |---|---|---|---|
 | **Exact frostbite danger classes**: hourly time-to-frostbite from air temperature and wind (TR-26-5 Eq. 5), classified green / amber / red; replaces the wind-chill approximation in maps and site pages | raw 2T + WS10 | TR-26-5 T4–T5 | 1.5–2 |
-| **24-hour and storm-total snowfall loads**: rolling 24-hour and storm sums of hourly snowfall (water equivalent × 204.7 → lb/ft²), as coverages, maps and site-page verdicts | ERA5 hourly snowfall (`sf`), sourced from existing SNAP ERA5 holdings if available, otherwise from Copernicus (~45 GB) | TR-26-5 §1 tentage 10 lb/ft², rigid shelters 20 lb/ft² | 2–3 |
+| **24-hour and storm-total snowfall loads**: rolling 24-hour and storm sums of hourly snowfall (water equivalent × 204.7 → lb/ft²), as coverages, maps and site-page verdicts | SNAP ERA5 hourly snowfall (`sf`), complete for 1991–2020 | TR-26-5 §1 tentage 10 lb/ft², rigid shelters 20 lb/ft² | 1.5–2.5 |
+| **Precipitation products**: hourly intensity frequencies (stoplight light / medium / heavy); liquid vs. frozen share (`tp` − `sf`); **wet-cold occurrence** for the ECWC wet clothing bands; rain-on-snow; a **freezing-rain screen** (liquid precipitation with air temperature ≤ 32 °F), flagged as a proxy until precipitation type is added in Level 3 | SNAP ERA5 `tp` + `sf`, raw 2T | TR-26-5 T6–T8; MIL-HDBK-310 §5.1.14; ATP T1-7 | 1.5–2 |
 | **Joint stoplight categories**: per-hour favorable / marginal / unfavorable for operations limited by both wind *and* temperature (Gray Eagle, personnel), instead of each separately | raw 2T + WS10 | TR-26-5 T6 | 1–1.5 |
 | **Partial gust climatology** from `var29` (ERA5 instantaneous gust, 06 and 18 UTC only), flagged as a lower bound on peak gusts | raw `var29` | T6 wind limits, 100 mph structure rating | ~1 |
 | **Equipment suitability layers** for all minimum-temperature items (first and last usable month, share of hours below the limit) | t2 histograms | TR-26-5 T9–T30 | ~1 |
@@ -99,25 +127,25 @@ The raw AZCOT hourly files (1.4 TB) hold more than the current coverages use. Le
 | **App-backend proof of concept**: the site characterization re-pointed to query Rasdaman (WCPS) instead of local files, so any clicked coordinate works | Level 1 Rasdaman | all | 1–2 |
 | Updates to docs, plots, site pages and validation | — | — | ~1 |
 
-**Effort:** 8–13 h of Claude time (cumulative 10–17 h). Each raw pass is a 30–60 min SLURM job. **Storage:** +4–7 GB of coverages, plus ~45 GB of raw snowfall if kept.
+**Effort:** 9–14 h of Claude time (cumulative 11–18 h). Each raw pass is a 30–60 min SLURM job. The SNAP ERA5 files are global, so each pass subsets 60–90 °N on read. **Storage:** +5–8 GB of coverages. The ERA5 files are read in place; nothing is copied, and the source is never modified.
 
-**Still open after Level 2:** full hourly gusts; precipitation and wet-cold bands; ceiling; snow density and snowfall-rate categories; frost depth; pressure. All of these need more ERA5 data.
+**Still open after Level 2:** full hourly gusts; true precipitation type (freezing rain is only proxied); ceiling; snow density and snowfall-rate categories; frost depth; pressure; humidity.
 
 ---
 
-## Level 3: add the remaining ERA5 variables and fill the gaps
+## Level 3: download the remaining ERA5 variables and fill the gaps
 
-Download hourly ERA5 single-level fields for 60–90 °N, October–March, 1991–2020, and process each with the existing pipeline machinery (true extremes, Feb 29 dropped, monthly histograms, validation).
+Dew point is already on our system. The other **11 variables are not**, and must be downloaded from the Copernicus CDS as hourly fields for 60–90 °N, October–March, 1991–2020. Each is processed with the existing pipeline machinery (true extremes, Feb 29 dropped, monthly histograms, validation).
 
 | ERA5 variable (short name) | New products | Tables it serves |
 |---|---|---|
-| 10 m wind gust, hourly (`10fg`) | **Hourly gust climatology**; gust parts of the stoplight; 100 mph structure check; blizzard frequency (gust ≥ 35 mph with snowfall) | TR-26-5 T6, §1; ATP 1-6 |
-| Total precipitation (`tp`), precipitation type (`ptype`) | **Precipitation intensity and type frequencies**; stoplight precipitation categories; **wet-cold occurrence** for the ECWC wet bands; **freezing-rain frequency** as an icing screen; rain-on-snow | TR-26-5 T6–T8; MIL-HDBK-310 §5.1.14 |
-| Cloud base height (`cbh`), low cloud cover (`lcc`) | **Ceiling proxy** for the stoplight. ERA5 cloud base is not a formal ceiling, so this is flagged. | TR-26-5 T6 |
-| Snow density (`rsn`) | **Snow density classes** as a trafficability proxy; **snowfall-rate categories** (snowfall depth per hour, from the Level 2 snowfall and density) | ATP 1-2, 1-6 |
-| Soil temperature levels 2–4 (`stl2`–`stl4`); soil moisture (`swvl1`–`swvl2`) | **Frost-depth estimate**: depth of the 0 °C level across the four ERA5 soil layers (coarse), with wet/dry soil from soil moisture | ATP B-2 (vehicle crossing over soft terrain) |
-| Surface pressure (`sp`) | Low pressure / air density | MIL-HDBK-310 §5.1.17–5.1.19 |
-| 2 m dew point (`d2m`) | Humidity and frost-formation conditions | AR 70-38 cold cycles |
+| 10 m wind gust, hourly (`10fg`): download | **Hourly gust climatology**; gust parts of the stoplight; 100 mph structure check; blizzard frequency (gust ≥ 35 mph with snowfall) | TR-26-5 T6, §1; ATP 1-6 |
+| Precipitation type (`ptype`): download | **True freezing-rain and ice-pellet frequencies**, replacing the Level 2 temperature-based proxy as the icing screen; precipitation-type split for the stoplight | TR-26-5 T6; MIL-HDBK-310 §5.1.14 |
+| Cloud base height (`cbh`), low cloud cover (`lcc`): download | **Ceiling proxy** for the stoplight. ERA5 cloud base is not a formal ceiling, so this is flagged. The total cloud cover on our system can't substitute. | TR-26-5 T6 |
+| Snow density (`rsn`): download | **Snow density classes** as a trafficability proxy; **snowfall-rate categories** (snowfall depth per hour, from the Level 2 snowfall and density) | ATP 1-2, 1-6 |
+| Soil temperature levels 2–4 (`stl2`–`stl4`); soil moisture (`swvl1`–`swvl2`): download | **Frost-depth estimate**: depth of the 0 °C level across the four ERA5 soil layers (coarse), with wet/dry soil from soil moisture | ATP B-2 (vehicle crossing over soft terrain) |
+| Surface pressure (`sp`): download (fallback: `msl` + geopotential, on our system) | Low pressure / air density | MIL-HDBK-310 §5.1.17–5.1.19 |
+| 2 m dew point (`d2m`): **on our system** | Humidity and frost-formation conditions | AR 70-38 cold cycles |
 
 With these, almost every "not determined" row in the site pages becomes determined, or a clearly flagged proxy. The new products then flow into the maps, the equipment layers, Rasdaman and the site pages.
 
@@ -125,18 +153,18 @@ With these, almost every "not determined" row in the site pages becomes determin
 
 | Task | Claude active hours |
 |---|---|
-| Data sourcing (existing SNAP ERA5 holdings, else CDS API; reuses the Level 2 setup) | ~0.5 |
-| Per-variable reduction, coverages and validation (~9 steps) | 5–9 |
-| New derived products (blizzard index, precipitation and ceiling categories, snowfall-rate categories, frost depth, density classes) | 3–5 |
+| CDS download set-up and orchestration (account + API key needed; none configured now) | ~1 |
+| Per-variable reduction, coverages and validation (~9 steps) | 5–8 |
+| New derived products (blizzard index, freezing-rain and ceiling categories, snowfall-rate categories, frost depth, density classes) | 2.5–4.5 |
 | Updating the thresholds catalog, site pages, plots and docs | 2–3 |
-| **Total for Level 3** | **10–18** |
-| **Cumulative (Levels 1–3)** | **20–35** |
+| **Total for Level 3** | **8–16** |
+| **Cumulative (Levels 1–3)** | **19–34** |
 
-**Wall-clock time:** about **2 weeks**. Much of this ERA5 data is probably already in SNAP's holdings, in which case sourcing it is a copy or subset rather than a download. Anything that isn't comes from the Copernicus CDS, which needs a free account and API key (none is configured on this account now).
+**Wall-clock time:** about **2 weeks**, including the CDS downloads of the 11 variables. SNAP's holdings were checked (see above) and don't contain them.
 
 **Storage:**
-- **Raw downloads:** each hourly 0.25° field for 60–90 °N is ~341 KB as 16-bit GRIB (measured on the AZCOT files), so one variable for the full period (131,760 hours) is ~45 GB. The 12 Level 3 variables are **~0.55 TB** if kept. Processing a year at a time and deleting raw files keeps the peak to **~50–100 GB**. BeeGFS also compresses transparently.
-- **Processed coverages:** ~0.5–1 GB per variable, **+10–15 GB** in total.
+- **Raw downloads:** each hourly 0.25° field for 60–90 °N is ~341 KB as 16-bit GRIB (measured on the AZCOT files), so one variable for the full period (131,760 hours) is ~45 GB. The 11 downloaded variables are **~0.5 TB** if kept. Processing a year at a time and deleting raw files keeps the peak to **~50–100 GB**. BeeGFS also compresses transparently.
+- **Processed coverages:** ~0.5–1 GB per variable, **+8–12 GB** in total.
 
 ### What stays out of scope even at Level 3
 
@@ -154,8 +182,8 @@ With these, almost every "not determined" row in the site pages becomes determin
 
 **Level 1 is nearly free and should happen regardless.** It turns existing, validated work into a queryable service.
 
-**Level 2 is the best value per hour.** It adds exact frostbite classes, joint stoplight categories, the tent and shelter snowfall loads, and an app-backend proof of concept, with only one new ERA5 variable. Its gust layer is only a lower bound and should be presented that way.
+**Level 2 is the best value per hour.** It adds exact frostbite classes, joint stoplight categories, the tent and shelter snowfall loads, precipitation and wet-cold products, and an app-backend proof of concept, all from data already on our system. Its gust layer is only a lower bound and should be presented that way.
 
-**Level 3 closes most of what's left in about two weeks.** The first thing to do is check which of the 12 variables SNAP's ERA5 holdings already contain. **Hourly gusts** should come first, since they drive the stoplight and structure limits.
+**Level 3 closes most of what's left in about two weeks.** It's the only level that needs downloads: 11 variables not in SNAP's holdings. Set up a CDS account early, and start with **hourly gusts**, which drive the stoplight and structure limits.
 
 *Prepared October 2026. Estimates assume Claude Opus at high effort, working in this repository with the existing pipeline.*
