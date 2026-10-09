@@ -1,0 +1,72 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_sd_climatology_seasonal",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_sd_climatology_seasonal.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT snow depth climatology (seasonal)",
+            "Summary": "Seasonal climatology of hourly ERA5 snow depth, 1991-2020, Oct-Mar. ERA5-Land snow depth on its native 0.1-degree grid (m converted to inches); NaN over water.",
+            "Units": "{\"sd_min\": \"inches\", \"sd_mean\": \"inches\", \"sd_max\": \"inches\"}",
+            "Encoding": "{}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "sd_min",
+              "identifier": "sd_min",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sd_mean",
+              "identifier": "sd_mean",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sd_max",
+              "identifier": "sd_max",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 0
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

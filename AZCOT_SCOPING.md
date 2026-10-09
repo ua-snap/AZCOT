@@ -6,20 +6,21 @@ We independently checked the AZCOT dataset (ERDC/CRREL) against its own raw hour
 - the "minimum" fields are averages of yearly lows rather than record lows;
 - metrics for Feb 29 (leap day) were computed incorrectly;
 - air temperature is stored in kelvin while its thresholds are in °F, so every air-temperature frequency is zero;
-- wind is in m/s, not knots;
+- wind chill is computed from skin temperature rather than 2 m air temperature, which makes it colder (found 9 Oct 2026);
 - snow-depth hours are missing systematically;
 - the Atlas air-temperature "lowest recorded" maps are too warm.
 
 We then built a validated preprocessing pipeline ([preprocess/](preprocess/README.md)). Its output is 24 CF-compliant NetCDF coverages for wind chill, snow load, air temperature, wind speed and snow depth (1991–2020, Oct–Mar), with glacier cells flagged. Validation reproduces the published TR-26-5 numbers.
 
-The pipeline works from the raw hourly files rather than `Metrics` wherever `Metrics` is wrong, so the coverages are free of the issues above, except the snow-depth gaps:
+The pipeline works from the raw hourly files rather than `Metrics` wherever `Metrics` is wrong, so the coverages are free of the issues above, except the snow-depth gaps and the skin-temperature wind chill:
 
 | Issue | Status in our coverages |
 |---|---|
 | "Minimum" fields are averages of yearly lows | **Fixed.** True minimum, mean and maximum recomputed from all 720 hourly values per day, for every variable. |
 | Feb 29 computed incorrectly | **Fixed.** Feb 29 dropped (182-day calendar). |
 | Air temperature in kelvin with °F thresholds | **Fixed.** Converted to °F at the source. Frequencies come from our own hourly histograms; `Metrics` air-temperature statistics are not used. |
-| Wind in m/s, not knots | **Fixed.** Converted to knots. Frequencies and maximums recomputed from the hourly data; `Metrics` wind statistics are not used. |
+| Wind chill computed from skin temperature, not 2 m air temperature | **Not fixed.** The WCT coverages keep AZCOT's definition. The Level 2 frostbite classes use 2 m air temperature. Fixing WCT means recomputing it from 2T and wind (about one more SLURM pass). |
+| `Metrics` `max_WSPD` is a copy of `min_WS10` | **Fixed.** Wind maximums recomputed from the hourly data. (*Correction, 9 Oct 2026:* we had also reported the wind files as m/s rather than knots. That was our error; they are knots. Our wind coverages had been converted twice and were 1.94× too high; they have been rebuilt.) |
 | Missing snow-depth hours | **Worked around, not fixed.** Missing hours are skipped and recorded, and statistics use only the hours that exist. The last day of each month therefore rests on 30 values instead of 720. Fixing it needs the data re-downloaded. |
 | Atlas air-temperature "lowest recorded" maps too warm | **Replaced, not corrected.** The Atlas rasters are untouched, but our true record lows (`t2_min`) can stand in for them. |
 
@@ -50,6 +51,18 @@ All are in [`docs/`](docs/); their extracted text is in `eda/reference/` and `si
 | [ATP 4-33](docs/ATP-4-33-Maints-Ops-July-2019.pdf) | *Maintenance Operations* | July 2019 | Reviewed; no condition-to-equipment tables (its cold-weather limits reach TR-26-5 via TM 4-33.31) |
 
 ## Future work
+
+### Progress (9 October 2026)
+
+| Item | Status |
+|---|---|
+| **Level 1:** Rasdaman recipes | ✅ **Drafted, not ingested.** [rasdaman/](rasdaman/README.md) has 39 recipes (house style), a prep script and acceptance queries with expected answers. Ingesting is on hold by decision. Rasdaman would need 17.3 GB uncompressed, more than the 4–8 GB estimated below. |
+| **Level 2:** exact frostbite classes | ✅ **Done and validated.** TR-26-5 Eq. 5 is applied to every hour of air temperature and wind; maps, site pages and the frostbite plots now use it. |
+| **Level 2:** 24-hour and storm snowfall loads | ✅ **Done and validated.** Uses SNAP ERA5 hourly snowfall. Only 2.8% of seasonal land ever reached 10 lb/ft² in 24 h (tentage), and 4.4% a 20 lb/ft² storm (rigid shelters). The storm definition (dry gaps ≤ 12 h) is our choice, documented with its sensitivity in [preprocess/storm_definition/](preprocess/storm_definition/README.md). |
+| **Level 2:** precipitation products, joint stoplight, partial gusts, equipment layers, lunar, app backend | Deferred. |
+| Found along the way | Our wind coverages were 1.94× too high (the raw files are knots, not m/s); fixed and rebuilt. AZCOT wind chill is computed from skin temperature (data-issues report, issue 10); not fixed in the WCT coverages. |
+
+✅ = done, ◐ = partly done. SLURM time for the Level 2 passes: step 9 7 min, step 10 22 min, steps 11–12 11 min, plus the 15 min wind rerun.
 
 ### The three levels
 
@@ -150,17 +163,17 @@ The repository also holds the [EDA](eda/EDA.md), the [plots](plots/plots.md), th
 
 ### Work required
 
-- Rasdaman ingest recipes for three kinds of coverage:
+- ✅ Rasdaman ingest recipes for three kinds of coverage ([rasdaman/](rasdaman/README.md); drafted, not ingested):
   - the 3-D time × lat × lon coverages;
   - the 4-D histogram and stats coverages, which add a threshold, bin or percentile axis;
   - the separate snow-depth grid.
-- Possibly adjusting the climatological time axis (nominal dates) to suit Rasdaman.
-- Testing representative WCPS queries: point value, area summary, share of hours beyond a limit.
-- Documentation.
+- ✅ Possibly adjusting the climatological time axis (nominal dates) to suit Rasdaman. (Done: `mmdd` and `month` axes hold real calendar values.)
+- ◐ Testing representative WCPS queries: point value, area summary, share of hours beyond a limit. (Queries and expected answers are written in `rasdaman/test_wcps.py`; they run once the coverages are ingested.)
+- ✅ Documentation.
 
 The intermediates (2.4 GB) can be deleted once ingested.
 
-**Effort:** 2–4 h of Claude time plus Rasdaman administration. **Storage:** the existing 4.1 GB, plus Rasdaman's internal copy (~4–8 GB).
+**Effort:** 2–4 h of Claude time plus Rasdaman administration. **Storage:** the existing 4.1 GB, plus Rasdaman's internal copy (~4–8 GB). *Measured when the recipes were drafted: 15.3 GB uncompressed for these coverages, 17.3 GB with Level 2.*
 
 ---
 
@@ -170,15 +183,15 @@ The raw AZCOT hourly files (1.4 TB) hold more than the current coverages use. Le
 
 | Product | Source | Tables it serves | Est. hours |
 |---|---|---|---|
-| **Exact frostbite danger classes**: hourly time-to-frostbite from air temperature and wind (TR-26-5 Eq. 5), classified green / amber / red; replaces the wind-chill approximation in maps and site pages | raw 2T + WS10 | TR-26-5 T4–T5 | 1.5–2 |
-| **24-hour and storm-total snowfall loads**: rolling 24-hour and storm sums of hourly snowfall (water equivalent × 204.7 → lb/ft²), as coverages, maps and site-page verdicts | SNAP ERA5 hourly snowfall (`sf`), complete for 1991–2020 | TR-26-5 §1 tentage 10 lb/ft², rigid shelters 20 lb/ft² | 1.5–2.5 |
+| ✅ **Exact frostbite danger classes**: hourly time-to-frostbite from air temperature and wind (TR-26-5 Eq. 5), classified green / amber / red; replaces the wind-chill approximation in maps and site pages | raw 2T + WS10 | TR-26-5 T4–T5 | 1.5–2 |
+| ✅ **24-hour and storm-total snowfall loads**: rolling 24-hour and storm sums of hourly snowfall (water equivalent × 204.7 → lb/ft²), as coverages, maps and site-page verdicts | SNAP ERA5 hourly snowfall (`sf`), complete for 1991–2020 | TR-26-5 §1 tentage 10 lb/ft², rigid shelters 20 lb/ft² | 1.5–2.5 |
 | **Precipitation products**: hourly intensity frequencies (stoplight light / medium / heavy); liquid vs. frozen share (`tp` − `sf`); **wet-cold occurrence** for the ECWC wet clothing bands; rain-on-snow; a **freezing-rain screen** (liquid precipitation with air temperature ≤ 32 °F), flagged as a proxy until precipitation type is added in Level 3 | SNAP ERA5 `tp` + `sf`, raw 2T | TR-26-5 T6–T8; MIL-HDBK-310 §5.1.14; ATP T1-7 | 1.5–2 |
 | **Joint stoplight categories**: per-hour favorable / marginal / unfavorable for operations limited by both wind *and* temperature (Gray Eagle, personnel), instead of each separately | raw 2T + WS10 | TR-26-5 T6 | 1–1.5 |
 | **Partial gust climatology** from `var29` (ERA5 instantaneous gust, 06 and 18 UTC only), flagged as a lower bound on peak gusts | raw `var29` | T6 wind limits, 100 mph structure rating | ~1 |
 | **Equipment suitability layers** for all minimum-temperature items (first and last usable month, share of hours below the limit) | t2 histograms | TR-26-5 T9–T30 | ~1 |
 | **Lunar illumination and elevation** (astronomical calculation, no data) | computed | T6 illumination | 0.5–1 |
 | **App-backend proof of concept**: the site characterization re-pointed to query Rasdaman (WCPS) instead of local files, so any clicked coordinate works | Level 1 Rasdaman | all | 1–2 |
-| Updates to docs, plots, site pages and validation | — | — | ~1 |
+| ◐ Updates to docs, plots, site pages and validation (done for the two items above) | — | — | ~1 |
 
 **Effort:** 9–14 h of Claude time (cumulative 11–18 h). Each raw pass is a 30–60 min SLURM job. The SNAP ERA5 files are global, so each pass subsets 60–90 °N on read. **Storage:** +5–8 GB of coverages. The ERA5 files are read in place; nothing is copied, and the source is never modified.
 

@@ -1,18 +1,22 @@
 """Step 8: validate the t2 / wspd / sd coverages (steps 6-7) against Metrics and the Atlas.
 
 Writes validation/validation_report_extra.md; exits non-zero if a check fails.
-Unit conversions applied to Metrics before comparing: 2T K -> degF; WSPD m/s -> knots; SD m -> inches.
+Unit conversions applied to Metrics before comparing: 2T K -> degF; SD m -> inches (Metrics WSPD is in knots, like the
+raw WS10). The wind units are also checked independently: raw WS10 must equal hypot(10U, 10V) x 1.943844 from the
+10U/10V GRIBs (m/s), and the step-6 reader must return that value.
 """
 import datetime as dt
 import os
 import sys
 from multiprocessing import Pool
 
+import eccodes
 import numpy as np
 import xarray as xr
 from PIL import Image
 
-from config import ATLAS, COVERAGES, DAYS, INTERMEDIATE, MONTH_NUM, MONTHS, metrics_daily, out_path
+from config import ATLAS, COVERAGES, DAYS, INTERMEDIATE, MONTH_NUM, MONTHS, RAW, metrics_daily, out_path
+from step6_reduce_extra import read
 
 TOL = {"t2": 0.01, "wspd": 0.01, "sd": 0.01}
 K2F = lambda k: (k - 273.15) * 9 / 5 + 32
@@ -30,8 +34,7 @@ def day_checks(args):
                                                                           - K2F(mt.min_2T.values)))
         out["t2 min <= Metrics percentile_1 (violations)"] = float(np.sum(t["min"].values > K2F(mt.percentile_1.values) + 0.01))
     with xr.open_dataset(metrics_daily("WSPD", m, d)) as mw:
-        out["wspd mean vs Metrics averageWSPD (m/s->kn)"] = np.nanmax(abs(w["mean"].values
-                                                                         - mw.averageWSPD.values * 1.943844))
+        out["wspd mean vs Metrics averageWSPD (both knots)"] = np.nanmax(abs(w["mean"].values - mw.averageWSPD.values))
     with xr.open_dataset(metrics_daily("SD", m, d)) as ms:
         sd_m = ms[list(ms.data_vars)[0]].values  # SD mean, misnamed averageSL in Metrics
         missing = s.attrs.get("n_missing_hours", 0)
@@ -56,6 +59,29 @@ def day_checks(args):
     for f in (t, w, s):
         f.close()
     return out
+
+
+def _grib(path):
+    with open(path, "rb") as fh:
+        g = eccodes.codes_grib_new_from_file(fh)
+        units = eccodes.codes_get(g, "units")
+        v = eccodes.codes_get_values(g).reshape(eccodes.codes_get(g, "Nj"), eccodes.codes_get(g, "Ni"))
+        eccodes.codes_release(g)
+    if units != "m s**-1":
+        raise ValueError(f"{path}: units {units!r}")
+    return v[::-1]  # GRIB rows run 90 -> 60; the step-6 reader returns lat ascending
+
+
+def wind_unit_checks():
+    """Raw WS10 ('*_knots.nc') vs hypot(10U, 10V) in m/s from the GRIBs, at a fixed sample of hours."""
+    worst = 0.0
+    for m, d, yy, hh in [("oct", 3, 92, 6), ("dec", 16, 16, 7), ("jan", 15, 0, 12), ("jan", 15, 94, 23),
+                         ("feb", 10, 95, 2), ("mar", 20, 20, 2)]:
+        stem = RAW / m / f"{d:02d}" / f"{yy:02d}{MONTH_NUM[m]:02d}{d:02d}{hh:02d}"
+        kn = read("wspd", stem.with_name(stem.name + ".WS10_knots.nc"))
+        ms = np.hypot(_grib(stem.with_name(stem.name + ".10U.grib")), _grib(stem.with_name(stem.name + ".10V.grib")))
+        worst = max(worst, float(np.max(abs(kn - ms * 1.943844))))
+    return {"wspd (step-6 reader) vs hypot(10U,10V) x 1.943844 from GRIB, knots": worst}
 
 
 def hist_checks():
@@ -98,6 +124,7 @@ def main():
     info = "t2: share of cells where Atlas 2T min equals ours (info, lowest day)"
     checks[info] = -max(r.get(info, 0) for r in per_day)  # stored negated so max() picked the lowest share
     checks.update(hist_checks())
+    checks.update(wind_unit_checks())
 
     def passed(k, v):
         if "violations" in k:

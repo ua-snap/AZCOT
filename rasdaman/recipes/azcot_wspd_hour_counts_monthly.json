@@ -1,0 +1,75 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_wspd_hour_counts_monthly",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_wspd_hour_counts_monthly.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"month\"@OGC/0/Index1D?axis-label=\"bin\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT 10 m wind speed (hourly mean), knots hourly-value histograms (monthly)",
+            "Summary": "Counts of hourly 10 m wind speed (hourly mean), knots values per unit bin, by month, 1991-2020 Oct-Mar (Feb 29 excluded). Sum over time for the whole season.",
+            "Units": "{\"wspd_hour_counts\": \"1\"}",
+            "Encoding": "{\"month\": {\"1\": \"jan\", \"2\": \"feb\", \"3\": \"mar\", \"10\": \"oct\", \"11\": \"nov\", \"12\": \"dec\"}, \"bin\": \"bin upper edge u; the bin holds hours with u-1 < value <= u (first and last bins open-ended) (knots)\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "wspd_hour_counts",
+              "identifier": "wspd_hour_counts"
+            }
+          ],
+          "axes": {
+            "month": {
+              "min": "${netcdf:variable:month:min}",
+              "max": "${netcdf:variable:month:max}",
+              "directPositions": "${netcdf:variable:month}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "bin": {
+              "min": "${netcdf:variable:bin:min}",
+              "max": "${netcdf:variable:bin:max}",
+              "directPositions": "${netcdf:variable:bin}",
+              "irregular": true,
+              "gridOrder": 1
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 2
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

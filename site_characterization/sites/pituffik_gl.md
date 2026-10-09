@@ -12,11 +12,12 @@
 | AR 70-38 climatic design type | **C2 Cold** (from the coldest-month 1% value) |
 | ATP 3-90.96 cold zone: typical / design / record | 3 / 5A / 5B |
 | Safety tables that apply (ATP 3-90.96 App. F) | F-1 / F-6, F-2 / F-7, F-3 / F-8, F-4 / F-9, F-5 / F-10 |
-| Frostbite danger, share of Oct–Mar hours (approx.) | green 21% · amber 64% · red 6.7% (red peaks at 18.0% in Feb) |
+| Frostbite danger (TR-26-5 Eq. 5), share of Oct–Mar hours | green 8% · amber 81% · red 1.2% (red peaks at 3.1% in Feb) |
 | Freeze-thaw days per winter | 2 (Oct 2) |
 | Snow depth: typical peak / record | 31 / 59 in |
 | Snow load: typical peak / record | 24 / 50 lb/ft² |
-| Wind (10 m hourly mean): record | 74 kn (hourly mean; gusts not used, see data gaps) |
+| Snowfall load: record 24-hour / 72-hour / storm total | 6.6 / 9.7 / 10.5 lb/ft² (tentage limit 10, rigid shelters 20; storm = snowfall with lulls of at most 12 h, a definition we chose: see [storm definition](../../preprocess/storm_definition/README.md)) |
+| Wind (10 m hourly mean): record | 38 kn (hourly mean; gusts not used, see data gaps) |
 
 ## Shopping list
 
@@ -38,7 +39,7 @@
 
 **Shelter**
 
-- OK: HDT Airbeam (Arctic) (-65 °F); Life-sustaining structures (100 mph wind) (87 kn (hourly mean))
+- OK: HDT Airbeam (Arctic) (-65 °F); Portable equipment / tentage (10 lb/ft2 from a 24-hour snowfall) (10 lb/ft² from one 24-hour snowfall); Temporary rigid shelters / portable hangars (20 lb/ft2 from a multi-day storm) (20 lb/ft² from one storm total); Life-sustaining structures (100 mph wind) (87 kn (hourly mean))
 - No: Arctic 10-man tent (Ahkio) (-40 °F; no in Feb, caution in Dec–Jan, Mar); HDT Airbeam (-25 °F; no in Dec–Mar, caution in Oct–Nov); Base-X (-40 °F; no in Feb, caution in Dec–Jan, Mar); Deployable Rapid Assembly Shelter (DRASH) (-40 °F; no in Feb, caution in Dec–Jan, Mar); Life-sustaining structures (25 lb/ft2) (25 lb/ft²; no in Oct–Mar); Semipermanent (demountable) structures (48 lb/ft2 seasonal accumulation) (48 lb/ft²; no in Mar)
 
 **Batteries**
@@ -130,18 +131,18 @@ Partial: TR-26-5 Table 6 also needs ceiling, visibility, precipitation, turbulen
 
 | Operation | Favorable | Marginal | Unfavorable | Worst month (unfavorable) |
 |---|---:|---:|---:|---|
-| Airborne ops (static line) | 43% | 9% | 47.8% | Oct 52.4% |
-| Fixed wing | 98% | 2% | 0.3% | Nov 0.4% |
-| Rotary wing | 96% | 3% | 0.6% | Nov 0.8% |
-| Medevac ops | 99% | — | 0.6% | Nov 0.8% |
-| Gray Eagle UAV (wind) | 90% | 4% | 5.4% | Nov 6.3% |
+| Airborne ops (static line) | 93% | 1% | 5.8% | Nov 6.7% |
+| Fixed wing | 100% | 0% | 0.0% | never |
+| Rotary wing | 100% | 0% | 0.0% | never |
+| Medevac ops | 100% | — | 0.0% | never |
+| Gray Eagle UAV (wind) | 99% | 1% | 0.3% | Nov 0.4% |
 | Gray Eagle UAV (temperature) | 61% | 24% | 15.7% | Feb 32.1% |
-| Shadow UAV (wind) | 70% | 24% | 5.9% | Nov 6.9% |
+| Shadow UAV (wind) | 96% | 4% | 0.3% | Nov 0.5% |
 | Personnel (temperature) | 6% | 58% | 36.7% | Feb 60.8% |
-| Air assault | 94% | 5% | 1.1% | Nov 1.6% |
-| CH-47 sling load | 70% | 27% | 3.3% | Nov 4.3% |
-| CH-60 sling load | 22% | 48% | 30.0% | Nov 34.0% |
-| FARP ops | 96% | 3% | 0.6% | Nov 0.8% |
+| Air assault | 100% | 0% | 0.0% | never |
+| CH-47 sling load | 96% | 4% | 0.0% | Feb 0.1% |
+| CH-60 sling load | 85% | 11% | 4.0% | Nov 5.0% |
+| FARP ops | 100% | 0% | 0.0% | never |
 
 ## Not determined from AZCOT data
 
@@ -151,8 +152,6 @@ Partial: TR-26-5 Table 6 also needs ceiling, visibility, precipitation, turbulen
 - Cold/wet 35 to 45 F: levels 1+5 (TR-26-5 Table 7): needs Precipitation / wetness
 - Cold/wet 30 to 45 F; wet above 45 F (TR-26-5 Table 8): needs Precipitation / wetness
 - Arctic mittens; OR mittens; OR trigger finger mittens; OR convoy gloves; OR contact gloves (TR-26-5 Table 9): needs Manufacturer temperature ratings
-- Portable equipment / tentage (10 lb/ft2 from a 24-hour snowfall) (TR-26-5 Section 1 (MIL-HDBK-310 5.1.13)): needs 24-hour snowfall load (ERA5 hourly snowfall sf; needs a new download. Differencing AZCOT SWE is unreliable because of assimilation increments)
-- Temporary rigid shelters / portable hangars (20 lb/ft2 from a multi-day storm) (TR-26-5 Section 1 (MIL-HDBK-310 5.1.13)): needs Storm-total snowfall load (ERA5 hourly snowfall sf; needs a new download. Differencing AZCOT SWE is unreliable because of assimilation increments)
 - LCD screens (TR-26-5 Table 13): needs Manufacturer temperature ratings
 - Season chart (winter / break-up / summer / freeze-up) (ATP 3-90.96 Table 1-7): needs Precipitation type, ground condition, river and lake ice condition
 - Snow wetness and density / hardness (trafficability) (ATP 3-90.96 Tables 1-1 and 1-2): needs Snow liquid-water content and density/hardness (SWE/depth ratio could estimate density, but SWE is ERA5 and depth is ERA5-Land)

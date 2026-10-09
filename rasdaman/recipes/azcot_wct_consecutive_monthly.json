@@ -1,0 +1,81 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_wct_consecutive_monthly",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_wct_consecutive_monthly.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"month\"@OGC/0/Index1D?axis-label=\"wct_consec_threshold\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT wind chill threshold statistics (monthly)",
+            "Summary": "Threshold frequencies, persistence and percentiles from disk1/Metrics/daily_WCT_stats, 1991-2020 Oct-Mar, Feb 29 excluded.",
+            "Units": "{\"wct_consecutive\": \"hours\", \"wct_consecutive_no_ones\": \"hours\"}",
+            "Encoding": "{\"month\": {\"1\": \"jan\", \"2\": \"feb\", \"3\": \"mar\", \"10\": \"oct\", \"11\": \"nov\", \"12\": \"dec\"}, \"wct_consec_threshold\": \"wind chill threshold for consecutive runs (WCT <= threshold) (degF)\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "wct_consecutive",
+              "identifier": "wct_consecutive",
+              "nilValue": "nan"
+            },
+            {
+              "name": "wct_consecutive_no_ones",
+              "identifier": "wct_consecutive_no_ones",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "month": {
+              "min": "${netcdf:variable:month:min}",
+              "max": "${netcdf:variable:month:max}",
+              "directPositions": "${netcdf:variable:month}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "wct_consec_threshold": {
+              "min": "${netcdf:variable:wct_consec_threshold:min}",
+              "max": "${netcdf:variable:wct_consec_threshold:max}",
+              "directPositions": "${netcdf:variable:wct_consec_threshold}",
+              "irregular": true,
+              "gridOrder": 1
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 2
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

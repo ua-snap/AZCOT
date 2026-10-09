@@ -5,6 +5,8 @@
 
 We recomputed the cold-season (Oct–Mar, 1991–2020) statistics directly from the hourly files in `disk1/data` and compared them with `disk1/Metrics` and the `disk2/Atlas` rasters. Most of the dataset reproduces exactly. For example, `Metrics` means and percentiles match the hourly data to within float32 round-off, and the land-wide numbers in TR-26-5 reproduce to the first decimal. The items below are the exceptions.
 
+> **Correction, 9 October 2026.** An earlier version of this document (issue 4) said the hourly wind files are in m/s, not knots. That was our error: they are in knots, as their names say, and the `Metrics` wind thresholds are therefore correct. Issue 4 now covers only `max_WSPD`. The same check found a new issue (10): wind chill is computed from **skin** temperature, not 2 m air temperature.
+
 Each issue gives the evidence, so it can be checked. Grid cells are given as lat/lon on the 0.25° ERA5 grid; temperatures are in °F unless noted.
 
 ## Summary
@@ -14,12 +16,13 @@ Each issue gives the evidence, so it can be checked. Grid cells are given as lat
 | 1 | `Metrics` `min_WCT`, `min_2T` | "Minimum" is the 30-year **mean of annual minima**, not the record low | High |
 | 2 | `Metrics` Feb 29 files | `min_WCT` divides the sum of **8** yearly minima by **30** | High (one day) |
 | 3 | `Metrics` `daily_2T_stats`, `6h_2T_stats` | Values are in **kelvin**, but thresholds are in °F, so every 2T frequency is 0% | High |
-| 4 | `disk1/data/*.WS10_knots.nc`, `Metrics` WSPD | Wind is in **m/s**, not knots; frequency thresholds were applied to m/s; `max_WSPD` duplicates `min_WS10` | High |
+| 4 | `Metrics` WSPD | `max_WSPD` duplicates `min_WS10` (wind units are correct; corrected 9 Oct 2026) | Medium |
 | 5 | `disk1/data/*.SD.nc` | **Hours 01–23 of the last day of every month are missing** (all NaN) in every year | Medium |
 | 6 | `Metrics` `daily_SD_stats` | Missing hours count as "not exceeding" and the divisor stays 720, so frequencies are biased low | Medium |
 | 7 | `disk2/Atlas` 2T Extreme rasters | "Lowest recorded" 2T is warmer than the true hourly minimum at 73% of cells and days | High |
 | 8 | `Metrics` (all) | No `units` attributes; the SD mean variable is named `averageSL` | Low |
 | 9 | TR-26-5 Tables 4, 5, 12, 18 | Internal inconsistencies in the operational tables | Low–Medium |
+| 10 | `disk1/data/*.WCT.nc` (and everything built on it) | Wind chill uses **skin temperature (SKT)**, not 2 m air temperature as TR-26-5 eq. 3 states; over land it is ~3.5 °F colder and doubles the hours ≤ −65 °F | High |
 
 ---
 
@@ -68,19 +71,17 @@ The other Feb 29 fields (`averageTemp`, `percentile_*`, `frequency_*`) match the
 
 **Suggested fix:** convert 2T to °F before thresholding, as was done for WCT, and add `units` attributes.
 
-## 4. Wind files are in m/s, not knots; `max_WSPD` is wrong
+## 4. `max_WSPD` duplicates `min_WS10` (wind units are correct)
 
-The hourly `disk1/data/*/*.WS10_knots.nc` files contain `WS10 = sqrt(10U² + 10V²)`, per their own `history` attribute, which is in **m/s**. `Metrics` `averageWSPD` matches the hourly m/s mean exactly (Fairbanks, Jan 15: 5.0882). So the WSPD frequency thresholds (8, 13, 15 … 50, documented as knots in SR-25-2) were applied to **m/s**:
+*Corrected 9 October 2026: an earlier version said the wind files were in m/s. They are in knots.*
 
-| Fairbanks, Jan 15 | Value |
-|---|---:|
-| `frequency_8` (stored) | 17.5% |
-| Share of hours ≥ 8 m/s | 17.5% |
-| Share of hours ≥ 8 **kn** | 54.2% |
+The hourly `disk1/data/*/*.WS10_knots.nc` files are in **knots**, as named. At every one of 62 random hours, `WS10` equals sqrt(10U² + 10V²) × 1.943844 (the m/s-to-knots factor) to float precision, using the `*.10U.grib`/`*.10V.grib` files (units "m s**-1"). For example, 1994-01-15 23 UTC at 62.0 N 47.75 W: 10U = −33.51, 10V = 10.08 m/s → 34.99 m/s = 68.02 kn, and `WS10` = 68.02. ERA5 u10/v10 from an independent copy of ERA5 agree.
 
-Also at Fairbanks on Jan 15, `max_WSPD` = `min_WS10` = 6.9944, while the true maximum of the 720 hours is 13.34 m/s. This looks like one field was copied into the other.
+We were misled by the files' `history` attribute, which records only the intermediate step (`cdo ... -sqrt -add -sqr 10U -sqr 10V`, i.e. m/s); the conversion to knots that followed is not recorded. Since `Metrics` `averageWSPD` matches the hourly values exactly, the `Metrics` WSPD statistics are in knots and their knot thresholds (8, 13 … 50) are applied correctly.
 
-**Suggested fix:** rename the hourly files, or convert them to knots, before computing the stats; recompute `max_WSPD` and `min_WS10`.
+One problem remains: at Fairbanks on Jan 15, `max_WSPD` = `min_WS10` = 6.9944, while the true maximum of the 720 hours is 13.34 kn. This looks like one field was copied into the other.
+
+**Suggested fix:** recompute `max_WSPD`; add a history entry (or `units` attribute) for the knot conversion.
 
 ## 5. Missing snow-depth hours: last day of every month
 
@@ -118,7 +119,7 @@ The Atlas **WCT** Extreme rasters, by contrast, match the true hourly minimum ex
 
 ## 8. Metadata
 
-- **No `units` attributes** in any `Metrics` file. Units have to be inferred, and they are inconsistent: 2T in K, WCT in °F, WSPD in m/s, SD in m, SL in lb/ft².
+- **No `units` attributes** in any `Metrics` file. Units have to be inferred, and they are inconsistent: 2T in K, WCT in °F, WSPD in knots, SD in m, SL in lb/ft².
 - **Misnamed variable:** `daily_SD_stats` stores the snow-depth mean as `averageSL`.
 - **No CRS:** none of the NetCDF files declare a CRS or `grid_mapping` (the data are implicitly EPSG:4326).
 - **Differing latitude order:** the hourly files store latitude 90 → 60, while `Metrics` stores 60 → 90. This is not an error, but it is easy to trip on.
@@ -131,6 +132,26 @@ The Atlas **WCT** Extreme rasters, by contrast, match the true hourly minimum ex
 - **Table 5 vs. Eq. 5:** Eq. 5 doesn't reproduce Table 5's minutes; at −10 °F and 5 mph it gives 14 min, against the table's 31.
 - **Table 12:** "Rechargeable dry cell Type III and IV" is listed as Zone 1 with a −22 °F limit, which falls in Zone 3.
 - **Table 18:** GO-75 appears twice, with limits of 50 °F and −50 °F.
+
+## 10. Wind chill is computed from skin temperature, not 2 m air temperature
+
+TR-26-5 eq. 3 defines WCT from 2 m air temperature (2T) and 10 m wind speed (NWS 2001 formula, °F and mph). The hourly `disk1/data/*/*.WCT.nc` files instead use **skin temperature (SKT)**: the NWS formula with SKT (°F) and `WS10` converted from knots to mph reproduces `WCT.nc` to within 0.01 °F at **every grid cell in 40 of 40 random hours** across the season. With 2T, the median cell differs by about 1.9 °F, and only ~1% of cells agree to 0.05 °F. (The wind part is right: true mph.)
+
+Over snow in the Arctic winter, the skin is usually colder than the air at 2 m (surface inversion), so the stored WCT is too cold. **All 720 hours of Jan 15, non-glacier land (53,233 cells):**
+
+| | AZCOT WCT (SKT) | WCT from 2T (eq. 3) |
+|---|---:|---:|
+| Mean difference (2T − SKT) | — | +3.5 °F (hourly range +1.8 to +5.3) |
+| Record low, land mean difference | — | +3.9 °F warmer (95th percentile +16 °F, max +35 °F) |
+| Share of hours ≤ −40 °F (land mean) | 45.6% | 39.5% |
+| **Share of hours ≤ −65 °F (land mean)** | **10.1%** | **5.3%** |
+| Eureka, NU (80.0 N 86.0 W): hours ≤ −40 °F | 86.7% | 58.5% |
+| Utqiagvik, AK: record low | −75.5 °F | −69.9 °F |
+| Oymyakon, RU: record low | −84.2 °F | −87.7 °F |
+
+The effect is largest where strong inversions form (high Arctic, coasts), and it can go either way locally. Every WCT product inherits it: the `Metrics` WCT statistics, the Atlas WCT maps, and TR-26-5's headline numbers (e.g. 7.66% of hours ≤ −65 °F, the Army materiel requirement).
+
+**Suggested fix:** recompute WCT from 2T, or document that WCT is a skin-temperature wind chill and say why.
 
 ## Observations (expected behavior, worth documenting)
 

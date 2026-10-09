@@ -1,0 +1,104 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_snowfall_daily",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_snowfall_daily.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"mmdd\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT snowfall loads (daily)",
+            "Summary": "Daily climatology of 24-hour and storm-total snowfall loads, 1991-2020, Oct-Mar (Feb 29 excluded). Snowfall load = ERA5 hourly snowfall (m water equivalent) x 204.724 lb/ft2 per m (TR-26-5 eq. 4), read in place from the SNAP ERA5 holdings. 24-hour load: trailing 24-hour sum. Storm (a definition we chose; TR-26-5 gives none, see preprocess/storm_definition/README.md): wet hours (>= 0.1 mm w.e./h) with dry gaps of at most 12 h; storm total = all snowfall from its first to its last wet hour, credited to the day it ends. Not masked: snowfall over glaciers and sea ice is real (see surface_type).",
+            "Units": "{\"sf24_max\": \"lbf ft-2\", \"sf24_mean_annual_max\": \"lbf ft-2\", \"sf24_ge10_years\": \"%\", \"storm_max\": \"lbf ft-2\", \"storm_mean_annual_max\": \"lbf ft-2\", \"storm_ge20_years\": \"%\", \"sf72_max\": \"lbf ft-2\", \"sf72_mean_annual_max\": \"lbf ft-2\"}",
+            "Encoding": "{\"mmdd\": \"month*100+day, e.g. 115 = Jan 15, 1001 = Oct 1\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "sf24_max",
+              "identifier": "sf24_max",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sf24_mean_annual_max",
+              "identifier": "sf24_mean_annual_max",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sf24_ge10_years",
+              "identifier": "sf24_ge10_years",
+              "nilValue": "nan"
+            },
+            {
+              "name": "storm_max",
+              "identifier": "storm_max",
+              "nilValue": "nan"
+            },
+            {
+              "name": "storm_mean_annual_max",
+              "identifier": "storm_mean_annual_max",
+              "nilValue": "nan"
+            },
+            {
+              "name": "storm_ge20_years",
+              "identifier": "storm_ge20_years",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sf72_max",
+              "identifier": "sf72_max",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sf72_mean_annual_max",
+              "identifier": "sf72_mean_annual_max",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "mmdd": {
+              "min": "${netcdf:variable:mmdd:min}",
+              "max": "${netcdf:variable:mmdd:max}",
+              "directPositions": "${netcdf:variable:mmdd}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 1
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}

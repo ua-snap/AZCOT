@@ -1,0 +1,40 @@
+coverage_id,axes,shape,bands,units,uncompressed_MB,source
+azcot_frostbite_daily,mmdd lat lon,182 x 121 x 1440,frostbite_red_share frostbite_amber_share frostbite_green_share frostbite_none_share frostbite_time_min,% % % % min,605,azcot_frostbite_daily.nc
+azcot_frostbite_hour_counts_monthly,month bin lat lon,6 x 25 x 121 x 1440,frostbite_hour_counts,1,50,azcot_frostbite_histogram_monthly.nc
+azcot_frostbite_monthly,month lat lon,6 x 121 x 1440,frostbite_red_share frostbite_amber_share frostbite_green_share frostbite_none_share frostbite_time_min,% % % % min,20,azcot_frostbite_monthly.nc
+azcot_frostbite_seasonal,lat lon,121 x 1440,frostbite_red_share frostbite_amber_share frostbite_green_share frostbite_none_share frostbite_time_min,% % % % min,3,azcot_frostbite_seasonal.nc
+azcot_sd_climatology_daily,mmdd lat lon,182 x 301 x 3600,sd_min sd_mean sd_max,inches inches inches,2257,azcot_sd_climatology_daily.nc
+azcot_sd_climatology_monthly,month lat lon,6 x 301 x 3600,sd_min sd_mean sd_max,inches inches inches,74,azcot_sd_climatology_monthly.nc
+azcot_sd_climatology_seasonal,lat lon,301 x 3600,sd_min sd_mean sd_max,inches inches inches,12,azcot_sd_climatology_seasonal.nc
+azcot_sd_hour_counts_monthly,month bin lat lon,6 x 121 x 301 x 3600,sd_hour_counts,1,1500,azcot_sd_histogram_monthly.nc
+azcot_sf24_day_counts_monthly,month sf24_bin lat lon,6 x 80 x 121 x 1440,sf24_day_counts,1,160,azcot_snowfall_histogram_monthly.nc
+azcot_sl_climatology_daily,mmdd lat lon,182 x 121 x 1440,sl_min sl_mean sl_max,lbf ft-2 lbf ft-2 lbf ft-2,363,azcot_sl_climatology_daily.nc
+azcot_sl_climatology_monthly,month lat lon,6 x 121 x 1440,sl_min sl_mean sl_max,lbf ft-2 lbf ft-2 lbf ft-2,12,azcot_sl_climatology_monthly.nc
+azcot_sl_climatology_seasonal,lat lon,121 x 1440,sl_min sl_mean sl_max,lbf ft-2 lbf ft-2 lbf ft-2,2,azcot_sl_climatology_seasonal.nc
+azcot_sl_frequency_daily,mmdd sl_threshold lat lon,182 x 11 x 121 x 1440,sl_frequency,%,1331,azcot_sl_stats_daily.nc
+azcot_sl_frequency_monthly,month sl_threshold lat lon,6 x 11 x 121 x 1440,sl_frequency,%,44,azcot_sl_stats_monthly.nc
+azcot_sl_frequency_seasonal,sl_threshold lat lon,11 x 121 x 1440,sl_frequency,%,7,azcot_sl_stats_seasonal.nc
+azcot_sl_percentile_daily,mmdd percentile lat lon,182 x 7 x 121 x 1440,sl_percentile,lbf ft-2,847,azcot_sl_stats_daily.nc
+azcot_snowfall_daily,mmdd lat lon,182 x 121 x 1440,sf24_max sf24_mean_annual_max sf24_ge10_years storm_max storm_mean_annual_max storm_ge20_years sf72_max sf72_mean_annual_max,lbf ft-2 lbf ft-2 % lbf ft-2 lbf ft-2 % lbf ft-2 lbf ft-2,968,azcot_snowfall_daily.nc
+azcot_snowfall_monthly,month lat lon,6 x 121 x 1440,sf24_max sf24_mean_annual_max sf24_ge10_years sf24_ge10_days storm_max storm_mean_annual_max storm_ge20_years storm_ge20_per_year sf72_max sf72_mean_annual_max,lbf ft-2 lbf ft-2 % days lbf ft-2 lbf ft-2 % 1 lbf ft-2 lbf ft-2,40,azcot_snowfall_monthly.nc
+azcot_snowfall_seasonal,lat lon,121 x 1440,sf24_max sf24_mean_annual_max sf24_ge10_years sf24_ge10_days storm_max storm_mean_annual_max storm_ge20_years storm_ge20_per_year sf72_max sf72_mean_annual_max,lbf ft-2 lbf ft-2 % days lbf ft-2 lbf ft-2 % 1 lbf ft-2 lbf ft-2,7,azcot_snowfall_seasonal.nc
+azcot_storm_counts_monthly,month storm_bin lat lon,6 x 80 x 121 x 1440,storm_counts,1,160,azcot_snowfall_histogram_monthly.nc
+azcot_surface_type,lat lon,121 x 1440,surface_type,flag,0,azcot_wct_climatology_seasonal.nc
+azcot_t2_climatology_daily,mmdd lat lon,182 x 121 x 1440,t2_min t2_mean t2_max,degF degF degF,363,azcot_t2_climatology_daily.nc
+azcot_t2_climatology_monthly,month lat lon,6 x 121 x 1440,t2_min t2_mean t2_max t2_freeze_thaw_days,degF degF degF days,16,azcot_t2_climatology_monthly.nc
+azcot_t2_climatology_seasonal,lat lon,121 x 1440,t2_min t2_mean t2_max t2_freeze_thaw_days,degF degF degF days,3,azcot_t2_climatology_seasonal.nc
+azcot_t2_hour_counts_monthly,month bin lat lon,6 x 201 x 121 x 1440,t2_hour_counts,1,401,azcot_t2_histogram_monthly.nc
+azcot_wct_climatology_daily,mmdd lat lon,182 x 121 x 1440,wct_min wct_mean wct_max,degF degF degF,363,azcot_wct_climatology_daily.nc
+azcot_wct_climatology_monthly,month lat lon,6 x 121 x 1440,wct_min wct_mean wct_max,degF degF degF,12,azcot_wct_climatology_monthly.nc
+azcot_wct_climatology_seasonal,lat lon,121 x 1440,wct_min wct_mean wct_max,degF degF degF,2,azcot_wct_climatology_seasonal.nc
+azcot_wct_consecutive_daily,mmdd wct_consec_threshold lat lon,182 x 16 x 121 x 1440,wct_consecutive wct_consecutive_no_ones,hours hours,3871,azcot_wct_stats_daily.nc
+azcot_wct_consecutive_monthly,month wct_consec_threshold lat lon,6 x 16 x 121 x 1440,wct_consecutive wct_consecutive_no_ones,hours hours,128,azcot_wct_stats_monthly.nc
+azcot_wct_consecutive_seasonal,wct_consec_threshold lat lon,16 x 121 x 1440,wct_consecutive wct_consecutive_no_ones,hours hours,21,azcot_wct_stats_seasonal.nc
+azcot_wct_frequency_daily,mmdd wct_threshold lat lon,182 x 21 x 121 x 1440,wct_frequency,%,2540,azcot_wct_stats_daily.nc
+azcot_wct_frequency_monthly,month wct_threshold lat lon,6 x 21 x 121 x 1440,wct_frequency,%,84,azcot_wct_stats_monthly.nc
+azcot_wct_frequency_seasonal,wct_threshold lat lon,21 x 121 x 1440,wct_frequency,%,14,azcot_wct_stats_seasonal.nc
+azcot_wct_percentile_daily,mmdd percentile lat lon,182 x 7 x 121 x 1440,wct_percentile,degF,847,azcot_wct_stats_daily.nc
+azcot_wspd_climatology_daily,mmdd lat lon,182 x 121 x 1440,wspd_min wspd_mean wspd_max,knots knots knots,363,azcot_wspd_climatology_daily.nc
+azcot_wspd_climatology_monthly,month lat lon,6 x 121 x 1440,wspd_min wspd_mean wspd_max,knots knots knots,12,azcot_wspd_climatology_monthly.nc
+azcot_wspd_climatology_seasonal,lat lon,121 x 1440,wspd_min wspd_mean wspd_max,knots knots knots,2,azcot_wspd_climatology_seasonal.nc
+azcot_wspd_hour_counts_monthly,month bin lat lon,6 x 121 x 121 x 1440,wspd_hour_counts,1,241,azcot_wspd_histogram_monthly.nc

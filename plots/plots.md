@@ -4,6 +4,9 @@ This document redraws the EDA's operational maps and charts ([eda/EDA.md](../eda
 
 - **How to draw glaciers on snow-load maps** using the `surface_type` flag (§2).
 - **Frostbite danger-level maps** in the green / amber / red classes of ERDC/CRREL TR-26-5 Tables 4–5 (§3).
+- **Snowfall design-load maps** for tentage and rigid shelters (§3b).
+
+**Caveat on wind chill (found 9 Oct 2026).** All wind chill figures in §1 use AZCOT's wind chill as distributed. It is computed from **skin** temperature, not the 2 m air temperature TR-26-5 specifies. Over land it runs about 3.5 °F colder, and it roughly doubles the share of hours at or below −65 °F (Jan 15: 10.1% vs. 5.3%; see [AZCOT_DATA_ISSUES.md](../AZCOT_DATA_ISSUES.md), issue 10). The frostbite maps in §3 use air temperature.
 
 All figures come from the coverages in `/beegfs/CMIP6/jdpaul3/azcot_preprocess/coverages/`. Nothing reads the raw AZCOT data. To regenerate them, see §4.
 
@@ -79,16 +82,16 @@ The first day on which the daily `sl_mean` crosses each threshold (the SR-25-2 �
 
 | Location | Jan avg WCT (°F) | Jan 1st-pct WCT (°F) | Record low WCT (°F) | % hrs ≤ −40 | % hrs ≤ −65 | % hrs green | % hrs amber | % hrs red | Peak avg SL | Record SL | Avg SL ≥ 25 from |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| Fairbanks, AK | −15.8 | −60.0 | −72.9 | 4.6 | 0.09 | 30.8 | 19.7 | 0.39 | 17.3 | 77.3 | never |
-| Utqiagvik, AK | −33.9 | −65.8 | −88.2 | 19.8 | 0.82 | 24.1 | 52.4 | 2.06 | 16.3 | 26.5 | never |
-| Yellowknife, NT | −30.3 | −66.2 | −74.9 | 12.7 | 0.39 | 26.2 | 38.0 | 1.03 | 13.3 | 22.7 | never |
-| Eureka, NU | −55.0 | −78.0 | −93.7 | 60.2 | 10.59 | 10.7 | 68.1 | 18.96 | 4.6 | 10.2 | never |
-| Pituffik, GL | −43.2 | −71.7 | −90.7 | 36.4 | 3.24 | 20.5 | 64.4 | 6.68 | 25.3 | 49.6 | Mar 28 |
-| Tromsø, NO | 2.5 | −30.7 | −47.8 | 0.1 | 0.00 | 19.3 | 4.4 | 0.00 | 35.7 | 86.3 | Feb 22 |
-| Norilsk, RU | −39.5 | −78.0 | −96.1 | 27.9 | 3.89 | 24.2 | 52.8 | 6.70 | 34.1 | 66.0 | Feb 4 |
-| Oymyakon, RU | −52.9 | −80.3 | −94.2 | 46.9 | 8.25 | 15.2 | 59.5 | 14.07 | 9.6 | 17.3 | never |
+| Fairbanks, AK | −15.8 | −60.0 | −72.9 | 4.6 | 0.09 | 15.0 | 43.3 | 0.96 | 17.3 | 77.3 | never |
+| Utqiagvik, AK | −33.9 | −65.8 | −88.2 | 19.8 | 0.82 | 8.2 | 70.4 | 0.47 | 16.3 | 26.5 | never |
+| Yellowknife, NT | −30.3 | −66.2 | −74.9 | 12.7 | 0.39 | 11.1 | 57.5 | 1.05 | 13.3 | 22.7 | never |
+| Eureka, NU | −55.0 | −78.0 | −93.7 | 60.2 | 10.59 | 2.5 | 85.0 | 11.03 | 4.6 | 10.2 | never |
+| Pituffik, GL | −43.2 | −71.7 | −90.7 | 36.4 | 3.24 | 8.3 | 80.8 | 1.19 | 25.3 | 49.6 | Mar 28 |
+| Tromsø, NO | 2.5 | −30.7 | −47.8 | 0.1 | 0.00 | 9.2 | 9.4 | 0.00 | 35.7 | 86.3 | Feb 22 |
+| Norilsk, RU | −39.5 | −78.0 | −96.1 | 27.9 | 3.89 | 8.9 | 71.5 | 2.98 | 34.1 | 66.0 | Feb 4 |
+| Oymyakon, RU | −52.9 | −80.3 | −94.2 | 46.9 | 8.25 | 4.7 | 57.2 | 30.95 | 9.6 | 17.3 | never |
 
-The percentages are shares of all Oct–Mar hours. Green, amber and red are the frostbite danger levels from §3.
+The percentages are shares of all Oct–Mar hours. Green, amber and red are the exact frostbite danger levels from §3 (updated 9 Oct 2026); the wind chill columns use AZCOT's skin-temperature wind chill.
 
 ---
 
@@ -126,54 +129,59 @@ The close-up shows why there are *two* classes. ERA5 applies the 10 m constant o
 
 TR-26-5 (Tables 4 and 5, from Nelson et al. 2002) defines three frostbite danger levels by **time until frostbite on dry, exposed skin**:
 
-| Level | TR-26-5 color | Time to frostbite |
-|---|---|---|
-| Slight danger | green | < 120 min |
-| Increased danger | orange (shown here as **amber**) | < 45 min |
-| Great danger | red | ≤ 5 min |
+| Level | TR-26-5 color | Time to frostbite | Used here |
+|---|---|---|---|
+| Slight danger | green | < 120 min | 45 < FT ≤ 120 min |
+| Increased danger | orange (shown here as **amber**) | < 45 min | 5 < FT ≤ 45 min |
+| Great danger | red | ≤ 5 min | FT ≤ 5 min |
 
-### Why not read the classes straight off Table 4?
+**These maps are exact for the report's method.** Every hour of 1991–2020 (Oct–Mar) gets its time to frostbite from TR-26-5 **Eq. 5**, using that hour's 2 m air temperature and 10 m wind speed ([preprocess](../preprocess/README.md), steps 9 and 11). The hours are then counted per level.
 
-Table 4 lists wind chill values, so it looks as if it could be applied to wind chill directly. But its cells are colored by **time to frostbite**, which depends on air temperature and wind speed *separately*, not on wind chill alone. As a result, the same wind chill gets different colors in different cells. For example, −17 °F is green at 50 mph but orange at 25 mph, and −64 °F is still orange at 15 mph while −60 °F is already red at 30 mph. The coverages hold only wind chill, so any map built from them needs one cut-off per class. The figure compares the published table (left) with the cut-offs used here (right):
+*Until 9 October 2026 these maps approximated the levels with wind-chill cut-offs (0 / −20 / −60 °F), because the coverages held only wind chill. That approximation also inherited AZCOT's wind chill, which turns out to use skin temperature instead of air temperature ([AZCOT_DATA_ISSUES.md](../AZCOT_DATA_ISSUES.md), issue 10).*
 
-![Table 4 vs wind-chill-only classes](figures/fb_table4_check.png)
+### Table 4 vs. Eq. 5
 
-| Level | Wind chill cut-off used here | Basis |
-|---|---|---|
-| Slight (green) | −20 < WCT ≤ 0 °F | The table's own "< 120 min" definition. The report's frostbite-time equation (Eq. 5) puts 120 minutes at WCT ≈ 0 °F (−5 to +6 °F across 5–50 mph). |
-| Increased (amber) | −60 < WCT ≤ −20 °F | Best fit to the table's orange/red coloring. |
-| Great (red) | WCT ≤ −60 °F | Best fit to the table's coloring; Eq. 5 puts 5 minutes at WCT ≈ −60 °F. |
+Table 4 colors its wind chill values by frostbite time, and those colors don't follow from wind chill alone. The figure compares the published colors (left) with Eq. 5 at the same air temperature and wind (right):
 
-Of Table 4's 180 cells, 36 get a different class:
-- **23** are cells the table shades green at wind chills of +1 to +19 °F (air temperatures of 10–25 °F). By Eq. 5, frostbite takes more than 120 minutes there, so the shading contradicts the table's own "< 120 min" label. (Table 5 also shades ">120 min" cells green, which points to an inconsistency in the report rather than in this method.) These cells also can't be reproduced from the coverages, whose wind chill frequencies stop at 0 °F.
-- **10** lie on the amber/red edge, which depends on wind. At high wind, red starts near −51 °F; at low wind, amber lasts to −72 °F.
-- **3** lie on the green/amber edge (−17 to −19 °F).
+![Table 4 vs Eq. 5](figures/fb_table4_check.png)
 
-Two smaller issues in the report itself:
-- Table 4's 15 °F column duplicates the 10 °F column (e.g. 6, 6 at 15 mph).
-- Eq. 5 doesn't reproduce Table 5's minutes exactly; at −10 °F and 5 mph it gives 14 minutes against the table's 31.
+43 of the 180 cells differ, for three reasons:
+- **Green above 23 °F.** The table shades cells green at air temperatures of 10–25 °F, down to wind chills of +19 °F. There, Eq. 5 gives no frostbite (it is undefined at or above 23.4 °F) or more than 120 minutes. This contradicts the table's own "< 120 min" label, and Table 5 also shades ">120" cells green.
+- **Low wind, very cold air.** At −40 to −50 °F with 5–15 mph wind, Eq. 5 gives 5 minutes or less (red), while the table shows orange. Eq. 5 is faster than Table 5 at low wind; at −10 °F and 5 mph it gives 14 minutes against the table's 31.
+- **The amber/green edge.** Eq. 5 starts amber at slightly warmer air than the table does: at −5 to +5 °F with 5–10 mph wind, and at 10 °F with 30–50 mph.
 
-**Treat these maps as a wind-chill approximation of the TR-26-5 classes.** An exact version would classify every hour from air temperature and wind speed. That needs one extra preprocessing step reading the raw hourly 2T and wind files, about 15 minutes on SLURM.
+Table 4's 15 °F column also duplicates its 10 °F column. We use Eq. 5 because it is the report's stated method and applies to any temperature and wind.
 
 ### What share of hours falls in each danger level?
 
-Each share comes straight from the coverage frequencies:
-- red = `wct_frequency(−60)`
-- amber = `wct_frequency(−20)` − `wct_frequency(−60)`
-- green = `wct_frequency(0)` − `wct_frequency(−20)`
-
 ![Seasonal share of hours per danger level](figures/fb_seasonal_shares.png)
 
-Averaged over all land cells (including the ice sheets, as unweighted pixel means), Oct–Mar hours divide roughly as follows:
+Averaged over all land cells, including the ice sheets (unweighted pixel means), Oct–Mar hours divide as follows. The earlier wind-chill approximation is shown for comparison:
 
-| Level | Share of Oct–Mar hours |
-|---|---:|
-| No frostbite danger | 25% |
-| Green | 20% |
-| Amber | 45% |
-| Red | 11% |
+| Level | Exact (Eq. 5) | Earlier approximation |
+|---|---:|---:|
+| No frostbite danger | 23% | 25% |
+| Green | 8% | 20% |
+| Amber | 62% | 45% |
+| Red | 6.7% | 10.8% |
 
-In January the red share rises to 19%. Red occurs at some point on **92% of land**, and in at least 10% of hours in its worst month on **57%**. The land that never reaches red is mostly Scandinavia (about 3,900 of the ~5,700 cells), followed by Iceland, coastal south Greenland, and southern Alaska.
+In January the red share is 13%. Red occurs at some point on **91% of land**, and in at least 10% of hours in its worst month on **45%**.
+
+At the example sites (share of Oct–Mar hours, green / amber / red, in %):
+
+| Site | Exact | Earlier approximation |
+|---|---|---|
+| Fairbanks | 15 / 43 / 1.0 | 31 / 20 / 0.4 |
+| Utqiagvik | 8 / 70 / 0.5 | 24 / 52 / 2.1 |
+| Eureka | 3 / 85 / 11 | 11 / 68 / 19 |
+| Oymyakon | 5 / 57 / 31 | 15 / 60 / 14 |
+| Tromsø | 9 / 9 / 0.0 | 19 / 4 / 0.0 |
+
+![Red: exact vs approximation](figures/fb_exact_vs_wct.png)
+
+The red level moves in two directions:
+- It shrinks over Greenland, the Canadian Archipelago and coastal Arctic, where the skin-temperature wind chill ran too cold.
+- It grows in the calm, very cold interior of East Siberia (Oymyakon 31% vs 14%). There Eq. 5 gives fast frostbite even without wind, which wind chill doesn't capture.
 
 **By month, one map series per level:**
 
@@ -183,13 +191,31 @@ In January the red share rises to 19%. Red occurs at some point on **92% of land
 
 ![Red: great danger](figures/fb_red_monthly.png)
 
-Red, where frostbite takes 5 minutes or less, is a Greenland-only signal in October. It spreads across the Canadian Archipelago and Siberia from November, peaks in January–February (above 50% of hours on the Greenland ice sheet), and pulls back in March.
-
 ### Which level dominates each month?
 
 ![Most common danger level by month](figures/fb_dominant_monthly.png)
 
-For a single map per month, this shows the class (including "no danger") that covers the most hours in each grid cell. Amber dominates most of the Arctic from November to March. Red dominates the Greenland interior and, in midwinter, the northern Canadian Archipelago. Because each cell shows only one class, this map hides how much of the time the other classes occur, so use the per-level maps above for planning.
+For a single map per month, this shows the class (including "no danger") that covers the most hours in each grid cell. Amber dominates almost all of the Arctic from November to March. Red dominates the Greenland interior from December to March, and the coldest Siberian valleys in December and January. Because each cell shows only one class, this map hides how often the other classes occur, so use the per-level maps above for planning.
+
+## 3b. Snowfall design loads: tentage and rigid shelters
+
+TR-26-5 §1 gives two design loads that depend on **snowfall**, not on the snow on the ground:
+- **Tentage** must carry 10 lb/ft² from one 24-hour snowfall.
+- **Rigid shelters and portable hangars** must carry 20 lb/ft² from one storm lasting more than a day, being cleared between storms.
+
+AZCOT's snow load (SL) is the snowpack, so it can't answer either. These maps use ERA5 hourly snowfall from SNAP's existing ERA5 holdings, read in place ([preprocess](../preprocess/README.md), steps 10–11).
+- **24-hour load:** the largest trailing 24-hour snowfall, as water equivalent × 204.7 lb/ft² per m.
+- **Storm:** wet hours (≥ 0.1 mm water equivalent) with dry gaps of at most 12 h. A half-day lull is taken as the chance to clear the shelter. The definition is ours, because the report gives none. It matters only in snowy maritime climates, where it can change the answer: Tromsø's record storm is 14.9, 30.9 or 36.8 lb/ft² with a 6, 12 or 24 h gap. See [preprocess/storm_definition/README.md](../preprocess/storm_definition/README.md).
+
+![Snowfall design loads](figures/snowfall_design_loads.png)
+
+**Across most of the Arctic, neither load is ever reached.** On non-glacier land the average record 24-hour load is 4.6 lb/ft², and only **2.8%** of land saw 10 lb/ft² in one day in 30 winters. The average record storm total is 8.3 lb/ft², and only **4.4%** of land saw a 20 lb/ft² storm. Those places are maritime and mountainous: southeast Greenland, Iceland, coastal Norway, southern coastal Alaska, and Russia's Pacific coast. Record 24-hour loads at the example sites, in lb/ft²: Eureka 2.4, Oymyakon 2.7, Utqiagvik 3.4, Yellowknife 4.4, Fairbanks 4.6, Norilsk 5.7, Pituffik 6.6, Tromsø 7.3. Valdez, Alaska, a snowy maritime comparison, reaches 21.7.
+
+![Storm totals ≥ 20 lb/ft² by month](figures/snowfall_storm_ge20_monthly.png)
+
+Where storms do reach the shelter limit, they do so in every month from October to March, most often along the southeast Greenland and southern Alaska coasts.
+
+The coverages also hold a **72-hour** load, which needs no storm definition, so the storm numbers can be checked against it. The monthly histograms (`azcot_snowfall_histogram_monthly.nc`) give the share of days or storms beyond any other limit.
 
 ---
 
@@ -200,7 +226,8 @@ PY=~/micromamba/envs/azcot-eda/bin/python     # spec: eda/environment.yml
 cd plots/scripts
 $PY make_plots.py              # all figures + tables/locations.csv (a few minutes on a login node)
 $PY make_plots.py q8 fb_red    # or just some: q1..q10, surface, surface_zoom, fb_monthly, fb_seasonal,
-                               #   fb_dominant, fb_table4, tables
+                               #   fb_dominant, fb_table4, fb_exact_vs_wct, snowfall_design,
+                               #   snowfall_storm_monthly, tables
 ```
 
-Set `AZCOT_PRE_OUT` to read coverages from a different preprocess output root. The code is in `scripts/style.py` (palette, polar maps, `surface_type` symbology) and `scripts/make_plots.py` (one function per figure; the frostbite cut-offs are set once in `FB_CUTS` and applied by `fb_shares()`).
+Set `AZCOT_PRE_OUT` to read coverages from a different preprocess output root. The code is in `scripts/style.py` (palette, polar maps, `surface_type` symbology) and `scripts/make_plots.py` (one function per figure; `fb_shares()` reads the exact frostbite coverages, and `FB_CUTS` / `fb_shares_wct()` keep the old wind-chill approximation for the comparison figure).

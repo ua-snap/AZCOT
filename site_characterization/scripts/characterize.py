@@ -19,6 +19,7 @@ COV = Path(os.environ.get("AZCOT_PRE_OUT", "/import/beegfs/CMIP6/jdpaul3/azcot_p
 MONTHS = [10, 11, 12, 1, 2, 3]
 MNAME = {10: "Oct", 11: "Nov", 12: "Dec", 1: "Jan", 2: "Feb", 3: "Mar"}
 CAUTION_SHARE = 0.01  # MIL-HDBK-310 / AR 70-38: 1% of hours in the month
+CAUTION_YEARS = 0.10  # snowfall design loads (one event): "no" if reached in more than 1 year in 10
 
 SITES = [
     ("Fairbanks, AK", 64.84, -147.72), ("Utqiagvik, AK", 71.29, -156.79), ("Yellowknife, NT", 62.45, -114.37),
@@ -87,9 +88,9 @@ def month_list(mask):
     return ", ".join(runs)
 
 
-def verdict(record_fails, shares):
+def verdict(record_fails, shares, limit=CAUTION_SHARE):
     """3-tier verdict per month -> (overall, caution months, no months)."""
-    no = (shares > CAUTION_SHARE)
+    no = (shares > limit)
     caution = record_fails & ~no
     overall = "NO" if no.any() else "CAUTION" if caution.any() else "OK"
     return overall, month_list(caution), month_list(no)
@@ -141,6 +142,10 @@ def characterize(name, lat, lon, catalog):
     wct = xr.open_dataset(COV / "azcot_wct_stats_monthly.nc").wct_frequency.isel(**p)
     wct_s = xr.open_dataset(COV / "azcot_wct_stats_seasonal.nc").wct_frequency.isel(**p)
     stype = {0: "ocean", 1: "land", 2: "glacier", 3: "perennial snow"}[int(st.isel(**p))]
+    snf = xr.open_dataset(COV / "azcot_snowfall_monthly.nc").isel(**p)
+    snf_s = xr.open_dataset(COV / "azcot_snowfall_seasonal.nc").isel(**p)
+    fbm = xr.open_dataset(COV / "azcot_frostbite_monthly.nc").isel(**p)
+    fbs = xr.open_dataset(COV / "azcot_frostbite_seasonal.nc").isel(**p)
 
     p1 = t2.percentile(1)
     cold = int(np.argmin(t2_mean))
@@ -165,6 +170,12 @@ def characterize(name, lat, lon, catalog):
             shares = sls.sl_frequency.sel(sl_threshold=thr).isel(**p).values / 100
             ov, cm, nm = verdict(sl_max >= hi, shares)
             results.append((r, ov, cm, nm, f"{hi:g} lb/ft²"))
+        elif r.rule == "max_snowfall_load":
+            # one 24-hour snowfall (sf24) or one storm (storm); judged by the share of years reaching the limit
+            years = snf[f"{r.variable}_ge{hi:g}_years"].values / 100
+            ov, cm, nm = verdict(snf[f"{r.variable}_max"].values >= hi, years, CAUTION_YEARS)
+            what = "24-hour snowfall" if r.variable == "sf24" else "storm total"
+            results.append((r, ov, cm, nm, f"{hi:g} lb/ft² from one {what}"))
         elif r.rule == "max_wind":
             ov, cm, nm = verdict(ws_max >= hi, ws.share_ge(hi))
             results.append((r, ov, cm, nm, f"{hi:g} kn (hourly mean)"))
@@ -177,10 +188,8 @@ def characterize(name, lat, lon, catalog):
 
     # ---- at-a-glance numbers
     season_hours = t2.n.sum()
-    fb = {"green": (wct_s.sel(wct_threshold=0) - wct_s.sel(wct_threshold=-20)).item(),
-          "amber": (wct_s.sel(wct_threshold=-20) - wct_s.sel(wct_threshold=-60)).item(),
-          "red": wct_s.sel(wct_threshold=-60).item()}
-    fb_red_m = wct.sel(wct_threshold=-60).values
+    fb = {c: float(fbs[f"frostbite_{c}_share"]) for c in ("green", "amber", "red")}
+    fb_red_m = fbm["frostbite_red_share"].values
     # Zones holding at least 0.1% of the season's hours (by 1-degF bin).
     season_share = t2.counts.sum(axis=0) / season_hours
     zones_reached = {zone(u) for u, sh in zip(t2.bins, season_share) if sh >= 0.001} - {"above zone 1"}
@@ -203,7 +212,7 @@ def characterize(name, lat, lon, catalog):
              f"{zone(np.min(t2_min))} |")
     L.append(f"| Safety tables that apply (ATP 3-90.96 App. F) | "
              + ", ".join(f"F-{k} / F-{k + 5}" for k in sorted({int(z[0]) for z in zones_reached})) + " |")
-    L.append(f"| Frostbite danger, share of Oct–Mar hours (approx.) | green {fb['green']:.0f}% · amber {fb['amber']:.0f}% · "
+    L.append(f"| Frostbite danger (TR-26-5 Eq. 5), share of Oct–Mar hours | green {fb['green']:.0f}% · amber {fb['amber']:.0f}% · "
              f"red {fb['red']:.1f}% " + (f"(red peaks at {np.max(fb_red_m):.1f}% in {MNAME[MONTHS[int(np.argmax(fb_red_m))]]})"
                                        if np.max(fb_red_m) >= 0.05 else "(red never reached)") + " |")
     L.append(f"| Freeze-thaw days per winter | {np.sum(ftd):.0f} (" + ", ".join(
@@ -213,6 +222,10 @@ def characterize(name, lat, lon, catalog):
         L.append(f"| Snow load: typical peak / record | {np.max(sl_mean):.0f} / {np.max(sl_max):.0f} lb/ft² |")
     else:
         L.append(f"| Snow load | not meaningful (cell is {stype}) |")
+    L.append(f"| Snowfall load: record 24-hour / 72-hour / storm total | {float(snf_s.sf24_max):.1f} / "
+             f"{float(snf_s.sf72_max):.1f} / {float(snf_s.storm_max):.1f} lb/ft² (tentage limit 10, rigid shelters 20; "
+             "storm = snowfall with lulls of at most 12 h, a definition we chose: see "
+             "[storm definition](../../preprocess/storm_definition/README.md)) |")
     L.append(f"| Wind (10 m hourly mean): record | {np.max(ws_max):.0f} kn (hourly mean; gusts not used, see data gaps) |\n")
 
     L.append("## Shopping list\n")

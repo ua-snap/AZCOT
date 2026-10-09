@@ -1,0 +1,89 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_frostbite_daily",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_frostbite_daily.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"mmdd\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT frostbite danger levels (daily)",
+            "Summary": "Daily climatology of hourly frostbite danger, 1991-2020, Oct-Mar (Feb 29 excluded). Time to frostbite of exposed, dry cheek skin from ERA5 hourly 2 m air temperature and 10 m wind speed with TR-26-5 Eq. 5 (Nelson et al. 2002), as published (wind in mph x 8/5). Danger levels follow TR-26-5 Table 4: red FT <= 5 min, amber ('increased', orange in the report) 5 < FT <= 45, green ('slight') 45 < FT <= 120. Eq. 5 does not reproduce every value of TR-26-5 Table 5 (see preprocess/README.md).",
+            "Units": "{\"frostbite_red_share\": \"%\", \"frostbite_amber_share\": \"%\", \"frostbite_green_share\": \"%\", \"frostbite_none_share\": \"%\", \"frostbite_time_min\": \"min\"}",
+            "Encoding": "{\"mmdd\": \"month*100+day, e.g. 115 = Jan 15, 1001 = Oct 1\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "frostbite_red_share",
+              "identifier": "frostbite_red_share",
+              "nilValue": "nan"
+            },
+            {
+              "name": "frostbite_amber_share",
+              "identifier": "frostbite_amber_share",
+              "nilValue": "nan"
+            },
+            {
+              "name": "frostbite_green_share",
+              "identifier": "frostbite_green_share",
+              "nilValue": "nan"
+            },
+            {
+              "name": "frostbite_none_share",
+              "identifier": "frostbite_none_share",
+              "nilValue": "nan"
+            },
+            {
+              "name": "frostbite_time_min",
+              "identifier": "frostbite_time_min",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "mmdd": {
+              "min": "${netcdf:variable:mmdd:min}",
+              "max": "${netcdf:variable:mmdd:max}",
+              "directPositions": "${netcdf:variable:mmdd}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 1
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}

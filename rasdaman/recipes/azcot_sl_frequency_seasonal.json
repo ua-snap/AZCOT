@@ -1,0 +1,69 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_sl_frequency_seasonal",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_sl_frequency_seasonal.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"sl_threshold\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT snow load threshold statistics (seasonal)",
+            "Summary": "Threshold frequencies, persistence and percentiles from disk1/Metrics/daily_SL_stats, 1991-2020 Oct-Mar, Feb 29 excluded.",
+            "Units": "{\"sl_frequency\": \"%\"}",
+            "Encoding": "{\"sl_threshold\": \"snow load threshold (hour counted if SL >= threshold) (lbf ft-2)\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "sl_frequency",
+              "identifier": "sl_frequency",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "sl_threshold": {
+              "min": "${netcdf:variable:sl_threshold:min}",
+              "max": "${netcdf:variable:sl_threshold:max}",
+              "directPositions": "${netcdf:variable:sl_threshold}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 1
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}

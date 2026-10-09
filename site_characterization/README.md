@@ -4,7 +4,7 @@
 
 For a point, this proof of concept looks up the AZCOT cold-season climatology and checks it against every condition-to-equipment table in five source documents: ERDC/CRREL TR-26-5, ATP 3-90.96, MIL-HDBK-310, AR 70-38 and ATP 4-33. The output for each site is one page:
 
-1. **At a glance:** climatic design type, cold zones, design-cold temperatures, frostbite danger, freeze–thaw, snow depth, snow load, wind.
+1. **At a glance:** climatic design type, cold zones, design-cold temperatures, frostbite danger, freeze–thaw, snow depth, snow load, snowfall loads, wind.
 2. **Shopping list:** about 100 items, grouped by category (worn gear, shelter, batteries, electronics, generators, fuels, oils, weapons, lubricants, aircraft, vehicles in snow), each rated **OK / Caution / No**, with the months that matter.
 3. **Use-when guidance:** which clothing configuration and lubricants apply, and how often, by month.
 4. **Operations stoplight:** the wind and temperature parts of the Combat Weather Team chart.
@@ -12,18 +12,18 @@ For a point, this proof of concept looks up the AZCOT cold-season climatology an
 
 The eight example sites are the same as in the EDA and plots: [Fairbanks](sites/fairbanks_ak.md), [Utqiagvik](sites/utqiagvik_ak.md), [Yellowknife](sites/yellowknife_nt.md), [Eureka](sites/eureka_nu.md), [Pituffik](sites/pituffik_gl.md), [Tromsø](sites/tromso_no.md), [Norilsk](sites/norilsk_ru.md), [Oymyakon](sites/oymyakon_ru.md).
 
-At a glance, out of the 106 evaluated items:
+At a glance, out of the 108 evaluated items:
 
 | Site | AR 70-38 design type | Design cold zone | Record low | OK | Caution | No |
 |---|---|---|---:|---:|---:|---:|
-| [Fairbanks, AK](sites/fairbanks_ak.md) | C2 Cold | 5A | -56 °F | 32 | 13 | 61 |
-| [Utqiagvik, AK](sites/utqiagvik_ak.md) | C2 Cold | 4 | -56 °F | 32 | 34 | 40 |
-| [Yellowknife, NT](sites/yellowknife_nt.md) | C2 Cold | 5A | -50 °F | 37 | 10 | 59 |
-| [Eureka, NU](sites/eureka_nu.md) | C3 Severe cold | 5B | -61 °F | 28 | 7 | 71 |
-| [Pituffik, GL](sites/pituffik_gl.md) | C2 Cold | 5A | -54 °F | 31 | 13 | 62 |
-| [Tromsø, NO](sites/tromso_no.md) | C1 Basic cold | 3 | -24 °F | 75 | 7 | 24 |
-| [Norilsk, RU](sites/norilsk_ru.md) | C2 Cold | 5A | -57 °F | 31 | 13 | 62 |
-| [Oymyakon, RU](sites/oymyakon_ru.md) | C4 Extreme cold | 5C | -79 °F | 8 | 4 | 94 |
+| [Fairbanks, AK](sites/fairbanks_ak.md) | C2 Cold | 5A | -56 °F | 34 | 13 | 61 |
+| [Utqiagvik, AK](sites/utqiagvik_ak.md) | C2 Cold | 4 | -56 °F | 35 | 33 | 40 |
+| [Yellowknife, NT](sites/yellowknife_nt.md) | C2 Cold | 5A | -50 °F | 39 | 10 | 59 |
+| [Eureka, NU](sites/eureka_nu.md) | C3 Severe cold | 5B | -61 °F | 30 | 7 | 71 |
+| [Pituffik, GL](sites/pituffik_gl.md) | C2 Cold | 5A | -54 °F | 33 | 13 | 62 |
+| [Tromsø, NO](sites/tromso_no.md) | C1 Basic cold | 3 | -24 °F | 76 | 8 | 24 |
+| [Norilsk, RU](sites/norilsk_ru.md) | C2 Cold | 5A | -57 °F | 33 | 13 | 62 |
+| [Oymyakon, RU](sites/oymyakon_ru.md) | C4 Extreme cold | 5C | -79 °F | 10 | 4 | 94 |
 
 Every site page explains the verdicts with the months involved. The large "No" counts are expected: much standard-issue gear is rated well above what interior Arctic winters reach. The pages show which winterized or arctic alternatives are OK.
 
@@ -42,8 +42,10 @@ Each item in [thresholds.csv](thresholds.csv) has a limit, for example a minimum
 The comparisons use:
 - **Equipment, clothing and fluids:** 2 m air temperature.
 - **Vehicles:** snow depth.
-- **Shelters:** snow load and wind.
-- **Frostbite:** wind chill, approximated as in [plots.md](../plots/plots.md#3-frostbite-danger-levels).
+- **Shelters:** snow load, snowfall loads (24-hour and storm total) and wind.
+- **Frostbite:** hourly time to frostbite from air temperature and wind (TR-26-5 Eq. 5), from `azcot_frostbite_*` coverages.
+
+**Snowfall design loads** (tentage 10 lb/ft² from one 24-hour snowfall; rigid shelters 20 lb/ft² from one storm) are single events, so the 1%-of-hours rule doesn't fit. For them, **caution** means the load was reached in at most 1 year in 10 in that month, and **no** means more often. The shelter load uses a **storm definition we chose** (snowfall hours with lulls of at most 12 h), since TR-26-5 gives none. In snowy maritime places it can decide the verdict; Tromsø would be OK instead of caution with a 6 h lull. See [preprocess/storm_definition/README.md](../preprocess/storm_definition/README.md).
 
 The shares of hours come from the monthly hourly-value histograms in the preprocessed coverages, so any limit can be evaluated exactly to the nearest degree.
 

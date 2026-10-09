@@ -9,7 +9,7 @@ Outputs (coverages/):
                                                                  resolution follows from these.
 t2 and wspd are on the 0.25-degree ERA5 grid with surface_type; sd stays on the 0.1-degree ERA5-Land grid (NaN over
 water, no surface_type). The Metrics 2T and WSPD threshold statistics are NOT used: Metrics 2T is in kelvin with degF
-thresholds and Metrics WSPD is in m/s with knot thresholds (see README).
+thresholds; Metrics max_WSPD is a copy of min_WS10 (see README).
 """
 import numpy as np
 import xarray as xr

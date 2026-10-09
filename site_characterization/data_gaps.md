@@ -9,16 +9,18 @@ This lists every table in the five source documents that the site characterizati
 | Variable | What it is |
 |---|---|
 | Air temperature (2T) | Includes monthly hourly-value histograms and freeze–thaw days |
-| Wind chill | — |
+| Wind chill | AZCOT's own; computed from skin temperature, not 2 m air temperature (see [AZCOT_DATA_ISSUES.md](../AZCOT_DATA_ISSUES.md), issue 10) |
+| Frostbite danger | Hourly time to frostbite from 2 m air temperature and wind (TR-26-5 Eq. 5), green / amber / red shares |
 | 10 m wind speed | Hourly *mean* |
 | 10 m wind gust | Raw files only (`var29` = ERA5 instantaneous gust), **at 06 and 18 UTC only**; not yet in the coverages or used here |
-| Snow load | Derived from SWE |
+| Snow load | Derived from SWE (snow on the ground) |
+| Snowfall loads | 24-hour, 72-hour and storm-total snowfall (ERA5 hourly snowfall from SNAP's ERA5 holdings) |
 | Snow depth | ERA5-Land |
 | Surface type | Ocean / land / glacier / perennial snow |
 
 ## Fully determined
 
-These tables depend only on temperature, snow depth or snow load.
+These tables depend only on temperature, wind and temperature together (frostbite), snow depth, snow load or snowfall.
 
 | Table(s) | What it decides | Data used |
 |---|---|---|
@@ -30,12 +32,13 @@ These tables depend only on temperature, snow depth or snow load.
 | TR-26-5 T3 · ATP 3-90.96 B-3 | Vehicle type versus snow depth | Snow-depth histogram |
 | TR-26-5 §1 · MIL-HDBK-310 §5.1.13 | Life-sustaining (25 lb/ft²) and semipermanent (48 lb/ft², seasonal accumulation) structure snow loads | Snow-load record and frequencies (glacier cells marked N/A) |
 | MIL-HDBK-310 §5.1.22 | Freeze–thaw cycles | Air temperature |
+| TR-26-5 T4–T5 | Frostbite danger level (green / amber / red) | Hourly time to frostbite from air temperature and wind (TR-26-5 Eq. 5). Eq. 5 doesn't reproduce every minute value in Table 5; the Eq. is used as published. |
+| TR-26-5 §1 · MIL-HDBK-310 §5.1.13 | Tentage (10 lb/ft² from one 24-hour snowfall) and rigid shelters / portable hangars (20 lb/ft² from one storm, cleared between storms) | 24-hour and storm-total snowfall loads. A storm is wet hours (≥ 0.1 mm water equivalent) with dry gaps of at most 12 h. This is a choice we made, and it can change the verdict in snowy maritime climates; see [preprocess/storm_definition/README.md](../preprocess/storm_definition/README.md). Verdicts use the share of years reaching the load (caution ≤ 1 year in 10). |
 
 ## Partly determined
 
 | Table | What we can say | What's missing | Where it could come from |
 |---|---|---|---|
-| TR-26-5 T4–T5 frostbite danger | Approximate green / amber / red share of hours from wind chill | The joint air temperature *and* wind speed of each hour | **Already in AZCOT:** the raw hourly 2T and WS10 files. This needs one more preprocessing step, no new data. |
 | TR-26-5 T6 stoplight (airborne, fixed and rotary wing, medevac, UAVs, air assault, sling loads, FARP) | Share of hours in each wind band (hourly mean wind), plus the UAV and personnel temperature bands | Gusts, cloud ceiling, visibility, precipitation type and intensity, thunderstorms, turbulence, icing, crosswind (runway heading) | Gusts: partly **already in AZCOT** (`var29`, two samples a day, which will miss most peak gusts); hourly ERA5 10 m gust (`10fg`) for complete coverage. Others: ERA5 cloud base height, precipitation type and rate; visibility and present weather from external METAR/ASOS station archives (AZCOT's `disk1/METAR Analysis` holds only gridded ERA5 daily averages, no station observations; ERA5 has no visibility); turbulence and icing from aviation products |
 | TR-26-5 T7–T8 wet bands (wet, cold/wet) | The temperature part only | Precipitation and wetness | ERA5 total precipitation and precipitation type |
 | TR-26-5 §1 wind rating for life-sustaining structures (100 mph) | Hourly-mean wind compared against 87 kn | Gusts (structures are rated for gusts) | Partly **already in AZCOT** (`var29` gusts at 06 and 18 UTC, a lower bound on the true peak); hourly ERA5 10 m gust (`10fg`) for the full record |
@@ -45,7 +48,6 @@ These tables depend only on temperature, snow depth or snow load.
 
 | Table | What it decides | What's missing | Where it could come from |
 |---|---|---|---|
-| TR-26-5 §1 tentage (10 lb/ft²) and rigid shelters (20 lb/ft²) | Whether one 24-hour snowfall, or one multi-day storm, overloads a structure that is cleared afterwards | 24-hour and storm-total snowfall load | **Needs a new download:** ERA5 hourly snowfall (`sf`), summed over 24 hours or a storm. AZCOT only has SWE, the snow on the ground at each hour. Differencing it is unreliable, because data-assimilation jumps at fixed hours look like snowfall or cancel it, and melt is netted out. That only works as a rough cross-check. |
 | TR-26-5 T9 gloves and mittens (arctic, OR mittens, trigger finger, convoy, contact) | Glove choice | Temperature ratings (manufacturers won't commit to one) | Manufacturer or test data |
 | TR-26-5 T13 LCD screens | Display use | Temperature rating | Manufacturer specification |
 | TR-26-5 T6 air trafficability, illumination | Low-level flight; night operations | Icing, visibility, precipitation; lunar illumination and elevation | Icing and visibility as above. Lunar values can be computed from astronomy, with no data needed. |

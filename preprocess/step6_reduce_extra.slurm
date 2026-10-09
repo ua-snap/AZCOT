@@ -12,4 +12,4 @@
 set -euo pipefail
 cd "${SLURM_SUBMIT_DIR:-/import/home/jdpaul3/AZCOT/preprocess}"
 PY=${PY:-/import/home/jdpaul3/micromamba/envs/azcot-preprocess/bin/python}
-$PY step6_reduce_extra.py --workers "${SLURM_CPUS_PER_TASK:-18}"
+$PY step6_reduce_extra.py --workers "${SLURM_CPUS_PER_TASK:-18}" "$@"  # e.g. sbatch step6_reduce_extra.slurm --vars wspd

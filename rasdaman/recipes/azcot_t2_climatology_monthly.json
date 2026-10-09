@@ -1,0 +1,84 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_t2_climatology_monthly",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_t2_climatology_monthly.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"month\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT 2 m air temperature climatology (monthly)",
+            "Summary": "Monthly climatology of hourly ERA5 2 m air temperature, 1991-2020, Oct-Mar. ERA5 2 m temperature (K converted to degF).",
+            "Units": "{\"t2_min\": \"degF\", \"t2_mean\": \"degF\", \"t2_max\": \"degF\", \"t2_freeze_thaw_days\": \"days\"}",
+            "Encoding": "{\"month\": {\"1\": \"jan\", \"2\": \"feb\", \"3\": \"mar\", \"10\": \"oct\", \"11\": \"nov\", \"12\": \"dec\"}}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "t2_min",
+              "identifier": "t2_min",
+              "nilValue": "nan"
+            },
+            {
+              "name": "t2_mean",
+              "identifier": "t2_mean",
+              "nilValue": "nan"
+            },
+            {
+              "name": "t2_max",
+              "identifier": "t2_max",
+              "nilValue": "nan"
+            },
+            {
+              "name": "t2_freeze_thaw_days",
+              "identifier": "t2_freeze_thaw_days",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "month": {
+              "min": "${netcdf:variable:month:min}",
+              "max": "${netcdf:variable:month:max}",
+              "directPositions": "${netcdf:variable:month}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 1
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}

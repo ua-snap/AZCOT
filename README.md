@@ -15,6 +15,14 @@ The dataset lives at `/beegfs/SNAP/rltorgerson/AZCOT` and is split across two su
 
 See [eda/EDA.md](eda/EDA.md) for a deep dive into the `disk1/Metrics` wind chill and snow load statistics. It covers what each metric means (verified against the hourly data), the operational questions they can answer, maps and charts, and known data quirks, such as `min_WCT` being a mean of annual minima rather than the record low. The scripts to reproduce it are in [eda/scripts/](eda/scripts/).
 
+## Products built from it
+
+- [preprocess/](preprocess/README.md): curated, validated NetCDF coverages (wind chill, snow load, air temperature, wind, snow depth), plus the Level 2 frostbite danger classes and 24-hour / storm snowfall loads.
+- [plots/](plots/plots.md): maps and charts from those coverages.
+- [site_characterization/](site_characterization/README.md): per-site equipment and operations verdicts against the TR-26-5 / ATP / MIL-HDBK / AR tables.
+- [rasdaman/](rasdaman/README.md): draft Rasdaman ingest recipes for all coverages (not ingested).
+- [AZCOT_DATA_ISSUES.md](AZCOT_DATA_ISSUES.md): issues found in the source dataset. [AZCOT_SCOPING.md](AZCOT_SCOPING.md): levels of further work.
+
 ## disk1 — raw data and computed statistics
 
 - `data/{month}/{day}/` — hourly GRIB/NetCDF files named `YYMMDDHH.VARIABLE.{grib,nc}` (YY = year, MM = month, DD = day, HH = hour), plus 30-year climatological files named `VARIABLE.monthDDHH.91-20clim.nc`. Variables include `2T` (2m air temp), `SKT` (skin temp), `STL1` (soil temp), `SD` (snow depth), `SWE` (snow water equivalent), `10U`/`10V` (wind components), `WD10`/`WS10_knots` (wind direction/speed, derived), `WCT` (wind chill, derived), and an unlabeled parameter `var29`.
@@ -82,4 +90,4 @@ Three variables (`2T`, `SKT`, and `STL1`) exist as both `.grib` and `.nc` files 
 The remaining variables exist in only one format, because they aren't raw/converted pairs at all:
 
 - **GRIB-only**: `10U`, `10V`, `SWE` — raw ERA5 inputs that were never converted to NetCDF.
-- **NetCDF-only**: `SD`, `WCT`, `WD10`, `WS10_knots` — derived/computed variables that were only ever written as NetCDF (e.g. `WCT` is wind chill computed from `2T` and wind speed; `WD10`/`WS10_knots` are wind direction/speed computed from the `10U`/`10V` components).
+- **NetCDF-only**: `SD`, `WCT`, `WD10`, `WS10_knots` — derived/computed variables that were only ever written as NetCDF (e.g. `WCT` is wind chill, which turns out to be computed from **`SKT`**, not `2T`, and wind speed; `WD10`/`WS10_knots` are wind direction/speed computed from the `10U`/`10V` components, and `WS10_knots` really is in knots). See [AZCOT_DATA_ISSUES.md](AZCOT_DATA_ISSUES.md).

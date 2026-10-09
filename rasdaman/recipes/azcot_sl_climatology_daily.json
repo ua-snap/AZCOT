@@ -1,0 +1,79 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_sl_climatology_daily",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_sl_climatology_daily.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"mmdd\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT snow load climatology (daily)",
+            "Summary": "Daily climatology of hourly ERA5 snow load, 1991-2020, Oct-Mar. Snow load on a flat surface, SL = SWE[in] x 5.2 (TR-26-5 eq. 4), from ERA5 snow depth (m w.e.).",
+            "Units": "{\"sl_min\": \"lbf ft-2\", \"sl_mean\": \"lbf ft-2\", \"sl_max\": \"lbf ft-2\"}",
+            "Encoding": "{\"mmdd\": \"month*100+day, e.g. 115 = Jan 15, 1001 = Oct 1\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "sl_min",
+              "identifier": "sl_min",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sl_mean",
+              "identifier": "sl_mean",
+              "nilValue": "nan"
+            },
+            {
+              "name": "sl_max",
+              "identifier": "sl_max",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "mmdd": {
+              "min": "${netcdf:variable:mmdd:min}",
+              "max": "${netcdf:variable:mmdd:max}",
+              "directPositions": "${netcdf:variable:mmdd}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 1
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}

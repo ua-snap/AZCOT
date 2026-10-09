@@ -1,0 +1,76 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_sl_percentile_daily",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_sl_percentile_daily.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"mmdd\"@OGC/0/Index1D?axis-label=\"percentile\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT snow load threshold statistics (daily)",
+            "Summary": "Threshold frequencies, persistence and percentiles from disk1/Metrics/daily_SL_stats, 1991-2020 Oct-Mar, Feb 29 excluded.",
+            "Units": "{\"sl_percentile\": \"lbf ft-2\"}",
+            "Encoding": "{\"mmdd\": \"month*100+day, e.g. 115 = Jan 15, 1001 = Oct 1\", \"percentile\": \"percentile of the 720 hourly values (percent)\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "sl_percentile",
+              "identifier": "sl_percentile",
+              "nilValue": "nan"
+            }
+          ],
+          "axes": {
+            "mmdd": {
+              "min": "${netcdf:variable:mmdd:min}",
+              "max": "${netcdf:variable:mmdd:max}",
+              "directPositions": "${netcdf:variable:mmdd}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "percentile": {
+              "min": "${netcdf:variable:percentile:min}",
+              "max": "${netcdf:variable:percentile:max}",
+              "directPositions": "${netcdf:variable:percentile}",
+              "irregular": true,
+              "gridOrder": 1
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 2
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

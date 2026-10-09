@@ -22,7 +22,7 @@ VARS = {
     # Added by step 7 (built from step-6 intermediates):
     "t2": {"name": "2 m air temperature", "units": "degF", "note": "ERA5 2 m temperature (K converted to degF)."},
     "wspd": {"name": "10 m wind speed", "units": "knots",
-             "note": "ERA5 10 m wind speed, hourly mean (no gusts); the raw '*_knots.nc' files are m/s, converted here."},
+             "note": "ERA5 10 m wind speed, hourly mean (no gusts); the raw '*_knots.nc' files are knots (= hypot(10U, 10V) x 1.943844)."},
     "sd": {"name": "snow depth", "units": "inches",
            "note": "ERA5-Land snow depth on its native 0.1-degree grid (m converted to inches); NaN over water."},
 }

@@ -1,0 +1,75 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_storm_counts_monthly",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_storm_counts_monthly.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"month\"@OGC/0/Index1D?axis-label=\"storm_bin\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT snowfall-load histograms (monthly)",
+            "Summary": "Days per bin of the day's highest 24-hour snowfall load, and storms per bin of storm total, by month, 1991-2020 Oct-Mar (Feb 29 excluded). Snowfall load = ERA5 hourly snowfall (m water equivalent) x 204.724 lb/ft2 per m (TR-26-5 eq. 4), read in place from the SNAP ERA5 holdings. 24-hour load: trailing 24-hour sum. Storm (a definition we chose; TR-26-5 gives none, see preprocess/storm_definition/README.md): wet hours (>= 0.1 mm w.e./h) with dry gaps of at most 12 h; storm total = all snowfall from its first to its last wet hour, credited to the day it ends. Not masked: snowfall over glaciers and sea ice is real (see surface_type).",
+            "Units": "{\"storm_counts\": \"1\"}",
+            "Encoding": "{\"month\": {\"1\": \"jan\", \"2\": \"feb\", \"3\": \"mar\", \"10\": \"oct\", \"11\": \"nov\", \"12\": \"dec\"}, \"storm_bin\": \"bin upper edge u: storms with previous edge < total <= u (first bin from 0; last open-ended) (lbf ft-2)\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "storm_counts",
+              "identifier": "storm_counts"
+            }
+          ],
+          "axes": {
+            "month": {
+              "min": "${netcdf:variable:month:min}",
+              "max": "${netcdf:variable:month:max}",
+              "directPositions": "${netcdf:variable:month}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "storm_bin": {
+              "min": "${netcdf:variable:storm_bin:min}",
+              "max": "${netcdf:variable:storm_bin:max}",
+              "directPositions": "${netcdf:variable:storm_bin}",
+              "irregular": true,
+              "gridOrder": 1
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 2
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

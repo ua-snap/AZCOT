@@ -33,7 +33,7 @@ Daily variables: `2T, SKT, STL1, WCT, WSPD, SD, SL`. Six-hour variables: `2T, SK
 | `daily_WCT_stats` | `averageTemp`, `min_WCT`, `percentile_{1,5,10,15,20,25,50}`, `frequency_{0,−5,…,−100}`, `consecutive_{0,…,−75}`, `consecutive_{…}_no_ones` |
 | `daily_SL_stats` | `averageSL`, `max_SL`, `percentile_{50,75,80,85,90,95,99}`, `frequency_{0,5,…,50}` |
 
-Wind chill uses the NWS 2001 formula (Nelson et al. 2002) from 2 m temperature and 10 m wind speed. Snow load is SWE × 5.2 lb/ft² per inch of water, which assumes a flat surface.
+Wind chill uses the NWS 2001 formula (Nelson et al. 2002) with 10 m wind speed. The reports say it uses 2 m air temperature, but the hourly `WCT.nc` files were actually computed from **skin temperature** (SKT; found 9 Oct 2026, see quirk 7 and [AZCOT_DATA_ISSUES.md](../AZCOT_DATA_ISSUES.md), issue 10). Snow load is SWE × 5.2 lb/ft² per inch of water, which assumes a flat surface.
 
 ## 2. What each metric actually means (verified)
 
@@ -63,6 +63,7 @@ Each definition below was checked by recomputing it from the 720 raw hourly file
 4. **`consecutive_T` mixes how often and how long.** Because years without a qualifying run count as 0, the metric falls when spells are rare, not just when they are short. Its map therefore looks much like the frequency map. It can't tell you how long a spell lasts *given that one occurs*. Spells are also cut off at midnight UTC, so multi-day cold snaps aren't captured.
 5. **Naming and orientation traps.** `daily_SD_stats` stores snow depth in a variable misnamed `averageSL`. The raw hourly files in `disk1/data` store latitude *descending* (90 → 60), the reverse of the Metrics files. Always select by coordinate, never by array index.
 6. **Hourly climatology files** (`*.91-20clim.nc` in `disk1/data`) exist only for 2T, SKT, STL1, SD, 10U, 10V, and var29. There are none for WCT, SWE, or SL, so for wind chill and snow load the Metrics *are* the climatology.
+7. **Wind chill is from skin temperature** (added 9 Oct 2026). The NWS formula applied to hourly SKT and wind in mph reproduces `WCT.nc` exactly at every cell (40 of 40 random hours tested). With 2 m air temperature it does not. Over land on Jan 15, the skin-temperature wind chill is 3.5 °F colder on average, and it puts 10.1% of hours at or below −65 °F against 5.3% from air temperature. Every wind chill number in this EDA inherits that.
 
 ![Masks used](figures/masks.png)
 

@@ -1,0 +1,75 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_frostbite_hour_counts_monthly",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_frostbite_hour_counts_monthly.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*, 0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "OGC/0/Index1D?axis-label=\"month\"@OGC/0/Index1D?axis-label=\"bin\"@EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT frostbite-time histograms (monthly)",
+            "Summary": "Hours per frostbite-time bin, by month, 1991-2020 Oct-Mar (Feb 29 excluded). Sum over time for the whole season. Time to frostbite of exposed, dry cheek skin from ERA5 hourly 2 m air temperature and 10 m wind speed with TR-26-5 Eq. 5 (Nelson et al. 2002), as published (wind in mph x 8/5). Danger levels follow TR-26-5 Table 4: red FT <= 5 min, amber ('increased', orange in the report) 5 < FT <= 45, green ('slight') 45 < FT <= 120. Eq. 5 does not reproduce every value of TR-26-5 Table 5 (see preprocess/README.md).",
+            "Units": "{\"frostbite_hour_counts\": \"1\"}",
+            "Encoding": "{\"month\": {\"1\": \"jan\", \"2\": \"feb\", \"3\": \"mar\", \"10\": \"oct\", \"11\": \"nov\", \"12\": \"dec\"}, \"bin\": \"bin upper edge u in minutes: the bin holds hours with previous edge < FT <= u (the first bin starts at 0). 9999 = FT over 120 min; 99999 = no frostbite (air at or above 23.36 degF) (min)\"}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "frostbite_hour_counts",
+              "identifier": "frostbite_hour_counts"
+            }
+          ],
+          "axes": {
+            "month": {
+              "min": "${netcdf:variable:month:min}",
+              "max": "${netcdf:variable:month:max}",
+              "directPositions": "${netcdf:variable:month}",
+              "irregular": true,
+              "gridOrder": 0
+            },
+            "bin": {
+              "min": "${netcdf:variable:bin:min}",
+              "max": "${netcdf:variable:bin:max}",
+              "directPositions": "${netcdf:variable:bin}",
+              "irregular": true,
+              "gridOrder": 1
+            },
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 2
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

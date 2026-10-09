@@ -1,0 +1,61 @@
+{
+  "config": {
+    "service_url": "https://localhost/rasdaman/ows",
+    "tmp_directory": "/tmp/",
+    "blocking": true,
+    "mock": false,
+    "automated": true,
+    "track_files": false
+  },
+  "input": {
+    "coverage_id": "azcot_surface_type",
+    "paths": [
+      "/opt/rasdaman-storage/coverage_data/azcot/azcot_surface_type.nc"
+    ]
+  },
+  "recipe": {
+    "name": "general_coverage",
+    "options": {
+      "wms_import": true,
+      "import_order": "ascending",
+      "tiling": "ALIGNED [0:*, 0:*] tile size 4194304",
+      "coverage": {
+        "crs": "EPSG/0/4326",
+        "metadata": {
+          "type": "xml",
+          "global": {
+            "Title": "AZCOT surface type (ocean / land / glacier / perennial snow)",
+            "Summary": "0 ocean: not land in ERA5-Land (snow depth NaN in disk1/Metrics/daily_SD_stats) and no ERA5 snow in any hour. 1 land: ERA5-Land land or ERA5 snow in some hour, seasonal snow; snow load valid. 2 glacier: snow water equivalent held at the ERA5 glacier constant of 10 m (= 2047.24 lbf ft-2) in every hour of the season; ERA5/ERA5-Land assign 10 m w.e. to grid boxes with >50% ice cover (Munoz-Sabater et al. 2021, ESSD 13:4349, section 2.1). 3 perennial_snow: land below the glacier cap whose snow pack never melts out (see preprocess/README.md). Snow-load variables are NaN wherever surface_type != 1; symbolize classes 2-3 from this flag. Cell counts: {'ocean': 106769, 'land': 53233, 'glacier': 10042, 'perennial_snow': 4196}.",
+            "Units": "{\"surface_type\": \"\"}",
+            "Encoding": "{\"surface_type\": {\"0\": \"ocean\", \"1\": \"land\", \"2\": \"glacier\", \"3\": \"perennial_snow\"}}",
+            "Source": "AZCOT curated coverages (SNAP, UAF), preprocess/ in the AZCOT repo; ERA5 1991-2020 Oct-Mar, Feb 29 excluded"
+          }
+        },
+        "slicer": {
+          "type": "netcdf",
+          "pixelIsPoint": true,
+          "bands": [
+            {
+              "name": "surface_type",
+              "identifier": "surface_type"
+            }
+          ],
+          "axes": {
+            "lat": {
+              "min": "${netcdf:variable:lat:min}",
+              "max": "${netcdf:variable:lat:max}",
+              "resolution": "${netcdf:variable:lat:resolution}",
+              "gridOrder": 0
+            },
+            "lon": {
+              "min": "${netcdf:variable:lon:min}",
+              "max": "${netcdf:variable:lon:max}",
+              "resolution": "${netcdf:variable:lon:resolution}",
+              "gridOrder": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

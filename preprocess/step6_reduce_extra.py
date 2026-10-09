@@ -6,8 +6,9 @@ One task per (variable, month). For every day in the month (Feb 29 excluded) it 
 and, for the whole month:
     intermediate/histograms/{var}_{mon}.nc                   counts of hourly values in unit bins
     intermediate/freeze_thaw/t2_{mon}.nc                     (t2 only) freeze-thaw days per year
-Units are converted at the source: 2T K -> degF; WS10 m/s -> knots (the raw "*_knots.nc" files are really m/s);
-SD m -> inches. SD stays on its native ERA5-Land 0.1-degree grid (NaN over water).
+Units are converted at the source: 2T K -> degF; SD m -> inches. WS10 is already in knots (the raw "*_knots.nc"
+files hold hypot(10U, 10V) x 1.943844 exactly; checked against the 10U/10V GRIBs, see step 8).
+SD stays on its native ERA5-Land 0.1-degree grid (NaN over water).
 
 Histogram bins are labelled by their upper edge u and hold hours with u-1 < x <= u, so for an integer threshold T
 the count of hours with x <= T is the sum of bins u <= T. The lowest and highest bins collect everything beyond.
@@ -31,7 +32,7 @@ SPEC = {
     "t2": {"raw": "2T", "var": "2T_GDS0_SFC", "units": "degF", "bins": (-120, 80),
            "convert": lambda k: (k - 273.15) * 9.0 / 5.0 + 32.0, "grid": "era5"},
     "wspd": {"raw": "WS10_knots", "var": "WS10", "units": "knots", "bins": (0, 120),
-             "convert": lambda ms: ms * 1.943844, "grid": "era5"},
+             "convert": lambda kn: kn, "grid": "era5"},  # raw WS10 is knots already
     "sd": {"raw": "SD", "var": "sde", "units": "inches", "bins": (0, 120),
            "convert": lambda m: np.maximum(m, 0.0) * 39.3701, "grid": "era5land"},
 }

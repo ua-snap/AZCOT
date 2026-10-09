@@ -26,12 +26,14 @@ LOCATIONS = [
     ("Eureka, NU", 79.99, -85.93), ("Pituffik, GL", 76.53, -68.70), ("Tromsø, NO", 69.65, 18.96),
     ("Norilsk, RU", 69.35, 88.20), ("Oymyakon, RU", 63.46, 142.79),
 ]
-# Frostbite danger levels (TR-26-5 Tables 4-5), approximated from wind chill; see plots.md.
+# Frostbite danger levels (TR-26-5 Tables 4-5). Exact: from the azcot_frostbite_* coverages (TR-26-5 Eq. 5 applied to
+# hourly air temperature and wind, preprocess step 9). The earlier wind-chill approximation (FB_CUTS) is kept only for
+# the comparison figure fb_exact_vs_wct.
 FB_CUTS = {"green": (0, -20), "amber": (-20, -60), "red": (-60, None)}  # (upper, lower) WCT bounds in degF; hours with
 # lower < WCT <= upper. Each bound must be one of the wct_frequency thresholds (0, -5, ..., -100).
-FB_LABEL = {"green": "Slight danger (green): frostbite < 120 min, −20 < WCT ≤ 0 °F",
-            "amber": "Increased danger (amber; TR-26-5 'orange'): frostbite < 45 min, −60 < WCT ≤ −20 °F",
-            "red": "Great danger (red): frostbite ≤ 5 min, WCT ≤ −60 °F"}
+FB_LABEL = {"green": "Slight danger (green): frostbite in 45–120 min",
+            "amber": "Increased danger (amber; TR-26-5 'orange'): frostbite in 5–45 min",
+            "red": "Great danger (red): frostbite in 5 min or less"}
 PCT_LEVELS = [0, 1, 5, 10, 20, 30, 40, 50, 60, 80, 100]
 
 
@@ -311,7 +313,14 @@ def sl_surface_types_zoom():
 
 
 # ---------------------------------------------------------------- frostbite danger levels
-def fb_shares(ds):
+def fb_shares(res):
+    """Exact shares (% of hours) per danger level from azcot_frostbite_{res}.nc, incl. 'none'."""
+    ds = xr.open_dataset(COV / f"azcot_frostbite_{res}.nc")
+    return {cls: ds[f"frostbite_{cls}_share"] for cls in ("none", "green", "amber", "red")}
+
+
+def fb_shares_wct(ds):
+    """The earlier approximation from wind-chill frequencies (for comparison only)."""
     f = ds.wct_frequency  # % of hours with WCT <= threshold
     out = {}
     for cls, (upper, lower) in FB_CUTS.items():
@@ -323,17 +332,17 @@ def fb_shares(ds):
 
 
 def fb_monthly():
-    shares = fb_shares(open_cov("wct", "stats", "monthly"))
+    shares = fb_shares("monthly")
     for cls in ("green", "amber", "red"):
         six_month_maps(f"fb_{cls}_monthly", shares[cls], f"Frostbite danger: {FB_LABEL[cls].split(':')[0]}",
                        f"Share of hours in this danger level (%), 1991–2020. {FB_LABEL[cls]}",
                        ramp(DANGER[cls], cls), BoundaryNorm(PCT_LEVELS, 256),
-                       note="Approximated from wind chill (TR-26-5 Tables 4–5; see plots.md). "
-                            "Source: azcot_wct_stats_monthly.nc wct_frequency.")
+                       note="TR-26-5 Eq. 5 applied to every hour of air temperature and wind. "
+                            f"Source: azcot_frostbite_monthly.nc, frostbite_{cls}_share.")
 
 
 def fb_seasonal():
-    shares = fb_shares(open_cov("wct", "stats", "seasonal"))
+    shares = fb_shares("seasonal")
     fig = plt.figure(figsize=(14, 5.6))
     axes = []
     for k, cls in enumerate(("green", "amber", "red")):
@@ -344,16 +353,13 @@ def fb_seasonal():
         axes.append(ax)
     fig.suptitle("Frostbite danger levels over the whole cold season: share of hours in each level", fontsize=12,
                  fontweight="bold", x=0.02, ha="left")
-    save(fig, "fb_seasonal_shares", "Green −20 < WCT ≤ 0 °F, amber −60 < WCT ≤ −20 °F, red WCT ≤ −60 °F. "
-                                    "Source: azcot_wct_stats_seasonal.nc.")
+    save(fig, "fb_seasonal_shares", "Time to frostbite from TR-26-5 Eq. 5, every hour: green 45–120 min, amber 5–45 min, "
+                                    "red ≤ 5 min. Source: azcot_frostbite_seasonal.nc.")
 
 
 def fb_dominant():
-    ds = open_cov("wct", "stats", "monthly")
-    s = fb_shares(ds)
-    none = 100 - ds.wct_frequency.sel(wct_threshold=0)
-    parts = [none, s["green"], s["amber"], s["red"]]
-    stack = xr.concat([d.drop_vars("wct_threshold", errors="ignore") for d in parts], dim="cls")
+    s = fb_shares("monthly")
+    stack = xr.concat([s[c] for c in ("none", "green", "amber", "red")], dim="cls")
     dom = stack.argmax("cls").astype(float)
     colors = ["#ecebe7", DANGER["green"], DANGER["amber"], DANGER["red"]]
     fig = plt.figure(figsize=(11, 8.2))
@@ -365,11 +371,35 @@ def fb_dominant():
         ax.set_title(MONTH_NAMES[mon], fontsize=9)
         axes.append(ax)
     class_colorbar(fig, m, axes, "Danger level that covers the most hours in the month",
-                   ["no frostbite danger\n(WCT > 0 °F)", "slight (green)\n< 120 min", "increased (amber)\n< 45 min",
+                   ["no frostbite danger\n(> 120 min)", "slight (green)\n45–120 min", "increased (amber)\n5–45 min",
                     "great (red)\n≤ 5 min"])
     fig.suptitle("Most common frostbite danger level by month", fontsize=12, fontweight="bold", x=0.02, ha="left")
-    save(fig, "fb_dominant_monthly", "Per cell and month: the class with the largest share of hours. Approximated "
-                                     "from wind chill; see plots.md.")
+    save(fig, "fb_dominant_monthly", "Per cell and month: the class with the largest share of hours "
+                                     "(TR-26-5 Eq. 5, hourly). Source: azcot_frostbite_monthly.nc.")
+
+
+def fb_exact_vs_wct():
+    """Red (≤ 5 min) share: exact (Eq. 5 on air temperature + wind) vs the earlier wind-chill approximation."""
+    exact = fb_shares("seasonal")["red"]
+    approx = fb_shares_wct(open_cov("wct", "stats", "seasonal"))["red"].drop_vars("wct_threshold", errors="ignore")
+    diff = exact - approx
+    fig = plt.figure(figsize=(14, 5.6))
+    for k, (data, title, cmap, norm, label) in enumerate([
+            (exact, "Exact: TR-26-5 Eq. 5, hourly air temperature and wind", ramp(DANGER["red"], "red"),
+             BoundaryNorm(PCT_LEVELS, 256), "% of Oct–Mar hours"),
+            (approx, "Earlier approximation: wind chill ≤ −60 °F", ramp(DANGER["red"], "red"),
+             BoundaryNorm(PCT_LEVELS, 256), "% of Oct–Mar hours"),
+            (diff, "Exact minus approximation", plt.get_cmap("RdBu_r"),
+             BoundaryNorm([-40, -20, -10, -5, -1, 1, 5, 10, 20, 40], 256, extend="both"), "percentage points")]):
+        ax = polar_axes(fig, 1, 3, k + 1)
+        m = draw(ax, data, cmap=cmap, norm=norm)
+        ax.set_title(title, fontsize=9)
+        colorbar(fig, m, [ax], label, extend="both" if k == 2 else "neither")
+    fig.suptitle("Great frostbite danger (≤ 5 min): exact classes vs. the wind-chill approximation", fontsize=12,
+                 fontweight="bold", x=0.02, ha="left")
+    save(fig, "fb_exact_vs_wct", "Seasonal share of hours in the red level. The approximation used AZCOT wind chill, "
+                                 "which is computed from skin temperature (AZCOT_DATA_ISSUES.md issue 10); the exact "
+                                 "classes use 2 m air temperature as TR-26-5 Eq. 5 specifies.")
 
 
 # TR-26-5 Table 4, transcribed from the rendered page (values in degF; class colors W none, G, O, R).
@@ -400,11 +430,15 @@ WWWGGGGOOOORRRRRRR"""
 def fb_table4_check():
     wct = np.array([[int(v) for v in r.split()] for r in T4_WCT.splitlines()])
     tab = np.array([["WGOR".index(c) for c in r] for r in T4_CLASS.splitlines()])
-    ours = np.select([wct <= -60, wct <= -20, wct <= 0], [3, 2, 1], 0)
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "preprocess"))
+    from step9_reduce_frostbite import frostbite_minutes
+    t_grid, v_grid = np.meshgrid(np.array(T4_AIR, float), np.array(T4_WIND, float))
+    ft, _ = frostbite_minutes(t_grid, v_grid)
+    ours = np.select([ft <= 5, ft <= 45, ft <= 120], [3, 2, 1], 0)
     cmap = ListedColormap(["#ecebe7", DANGER["green"], DANGER["amber"], DANGER["red"]])
     fig, axes = plt.subplots(1, 2, figsize=(15, 4.6))
     for ax, cls, title in [(axes[0], tab, "TR-26-5 Table 4 as published (colors by frostbite time)"),
-                           (axes[1], ours, "Wind-chill cut-offs used here: 0 / −20 / −60 °F")]:
+                           (axes[1], ours, "TR-26-5 Eq. 5 at the same temperature and wind (used for the maps)")]:
         ax.imshow(cls, cmap=cmap, vmin=-0.5, vmax=3.5, aspect="auto")
         for i in range(wct.shape[0]):
             for j in range(wct.shape[1]):
@@ -420,13 +454,50 @@ def fb_table4_check():
         ax.set_title(title, fontsize=9, loc="left")
     n = int((ours != tab).sum())
     fig.legend(handles=[Patch(color=c, label=l) for c, l in zip(cmap.colors, [
-        "no class", "slight (green) < 120 min", "increased (amber/orange) < 45 min", "great (red) ≤ 5 min"])],
+        "no class", "slight (green) 45–120 min", "increased (amber/orange) 5–45 min", "great (red) ≤ 5 min"])],
         loc="lower center", ncol=4, fontsize=8, bbox_to_anchor=(0.5, 0.0))
-    fig.suptitle(f"Same wind chill, different color: Table 4 vs. wind-chill-only classes ({n} of {wct.size} cells "
-                 "differ, outlined)", fontsize=12, fontweight="bold", x=0.01, ha="left")
+    fig.suptitle(f"TR-26-5 Table 4 colors vs. Eq. 5 frostbite times ({n} of {wct.size} cells differ, outlined)",
+                 fontsize=12, fontweight="bold", x=0.01, ha="left")
     fig.tight_layout(rect=(0, 0.1, 1, 0.95))
     save(fig, "fb_table4_check", "Cell values: wind chill (°F) from TR-26-5 Table 4. Left colors transcribed from the "
-                                 "published table; right colors from the wind-chill cut-offs.")
+                                 "published table; right colors from Eq. 5 (green 45–120 min, amber 5–45, red ≤ 5).")
+
+
+# ---------------------------------------------------------------- snowfall loads (tentage, rigid shelters)
+def snowfall_design():
+    ds = xr.open_dataset(COV / "azcot_snowfall_seasonal.nc")
+    load_levels = [0, 2, 4, 6, 8, 10, 15, 20, 30, 50]
+    year_levels = [0, 1, 3.4, 10, 25, 50, 75, 100]
+    panels = [
+        (ds.sf24_max, "Record 24-hour snowfall load", ORANGE_SEQ, BoundaryNorm(load_levels, 256, extend="max"),
+         "lb/ft² (tentage limit 10)", "max"),
+        (ds.sf24_ge10_years, "Years with a 24-hour load ≥ 10 lb/ft² (tentage)", BLUE_SEQ,
+         BoundaryNorm(year_levels, 256), "% of years", "neither"),
+        (ds.storm_max, "Record storm-total snowfall load", ORANGE_SEQ, BoundaryNorm(load_levels, 256, extend="max"),
+         "lb/ft² (rigid-shelter limit 20)", "max"),
+        (ds.storm_ge20_years, "Years with a storm total ≥ 20 lb/ft² (rigid shelters)", BLUE_SEQ,
+         BoundaryNorm(year_levels, 256), "% of years", "neither"),
+    ]
+    fig = plt.figure(figsize=(8.5, 10.5))
+    for k, (da, title, cmap, norm, label, ext) in enumerate(panels):
+        ax = polar_axes(fig, 2, 2, k + 1)
+        m = draw(ax, da, cmap=cmap, norm=norm)  # no glacier overlay: snowfall over ice is real
+        ax.set_title(title, fontsize=9)
+        colorbar(fig, m, [ax], label, extend=ext)
+    fig.suptitle("Snowfall design loads: where one day's snow,\nor one storm, is enough to load a structure",
+                 fontsize=12, fontweight="bold", x=0.02, ha="left")
+    save(fig, "snowfall_design_loads", "TR-26-5 §1: tentage must carry 10 lb/ft² from a 24-hour snowfall; rigid shelters "
+                                      "20 lb/ft² from one storm, cleared between storms.\nERA5 hourly snowfall, Oct–Mar "
+                                      "1991–2020; storm = wet hours ≥ 0.1 mm w.e. with gaps ≤ 12 h. 3.4% = 1 year in 30.\n"
+                                      "Ice sheets not masked: snowfall there is real. Source: azcot_snowfall_seasonal.nc.")
+
+
+def snowfall_storm_monthly():
+    da = xr.open_dataset(COV / "azcot_snowfall_monthly.nc").storm_ge20_years
+    six_month_maps("snowfall_storm_ge20_monthly", da, "When storms reach the rigid-shelter limit",
+                   "Share of years with at least one storm total ≥ 20 lb/ft² (%), 1991–2020", BLUE_SEQ,
+                   BoundaryNorm([0, 1, 3.4, 10, 25, 50, 75, 100], 256),
+                   note="Storm credited to the month it ends. Source: azcot_snowfall_monthly.nc, storm_ge20_years.")
 
 
 # ---------------------------------------------------------------- tables
@@ -437,7 +508,7 @@ def tables():
     sld, sls = open_cov("sl", "climatology", "daily"), open_cov("sl", "climatology", "seasonal")
     daily = open_cov("wct", "stats", "daily")
     st = cs.surface_type
-    sh = fb_shares(ss)
+    sh = fb_shares("seasonal")
     rows = []
     for name, la, lo in LOCATIONS:
         i, j = land_cell(la, lo, st)
@@ -469,7 +540,8 @@ FIGURES = {
     "q1": q1_wct_monthly_mean, "q2": q2_wct_freq_m40, "q3": q3_wct_freq_m65, "q4": q4_wct_zones,
     "q5": q5_wct_points, "q6": q6_wct_consecutive, "q7": q7_sl_monthly_mean, "q8": q8_sl_design,
     "q9": q9_sl_first, "q10": q10_sl_points, "surface": sl_surface_types, "surface_zoom": sl_surface_types_zoom,
-    "fb_monthly": fb_monthly, "fb_table4": fb_table4_check, "fb_seasonal": fb_seasonal, "fb_dominant": fb_dominant, "tables": tables,
+    "fb_monthly": fb_monthly, "fb_table4": fb_table4_check, "fb_seasonal": fb_seasonal, "fb_dominant": fb_dominant, "fb_exact_vs_wct": fb_exact_vs_wct,
+    "snowfall_design": snowfall_design, "snowfall_storm_monthly": snowfall_storm_monthly, "tables": tables,
 }
 
 if __name__ == "__main__":
