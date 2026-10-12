@@ -1,0 +1,3 @@
+cells,n,beta_lat,beta_elev,beta_logwind,beta_logdist,r2,partial_spearman_dist
+non-glacier land,51567,-0.404,-0.4943,0.2664,0.2736,0.6284,0.427
+"non-glacier land, no perennial snow",48535,-0.3738,-0.576,0.218,0.277,0.58,0.4228
